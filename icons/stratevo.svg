@@ -1,0 +1,13 @@
+<!-- Salve este conteúdo em icons/stratevo-simple.svg -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="64"
+  height="64"
+>
+  <!-- Um gráfico de barras simples representando "inteligência de mercado" -->
+  <rect x="12" y="30" width="8" height="22" fill="#D4AF37" />
+  <rect x="26" y="22" width="8" height="30" fill="#D4AF37" />
+  <rect x="40" y="14" width="8" height="38" fill="#D4AF37" />
+  <rect x="54" y="18" width="8" height="34" fill="#D4AF37" />
+</svg>

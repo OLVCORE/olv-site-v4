@@ -1,0 +1,31 @@
+<!-- Salve este conteúdo em icons/training.svg -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="64"
+  height="64"
+>
+  <!-- Chapéu de formatura -->
+  <polygon
+    points="32,14 6,26 32,38 58,26 32,14"
+    fill="none"
+    stroke="#D4AF37"
+    stroke-width="3"
+  />
+  <!-- Tassel (borla) -->
+  <line
+    x1="32"
+    y1="14"
+    x2="32"
+    y2="46"
+    stroke="#D4AF37"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <circle
+    cx="32"
+    cy="50"
+    r="4"
+    fill="#D4AF37"
+  />
+</svg>

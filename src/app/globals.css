@@ -1,0 +1,6 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importa o CSS completo de temas/variáveis e layout enquanto não é 100% migrado para Tailwind */
+@import "../../css/style.css";

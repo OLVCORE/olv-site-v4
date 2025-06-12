@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Mantido exatamente o <head> original com metas e links, incluindo meta keywords atualizadas -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | OLV Internacional</title>
+  <meta name="description" content="Entre em contato com a OLV Internacional. Nossa equipe de especialistas está pronta para ajudar sua empresa a crescer globalmente com soluções em Supply Chain, Comércio Exterior e Logística Internacional.">
+  <meta name="keywords" content="Consultoria em exportação, Consultoria em importação, Exportação de produtos, Logística internacional, 3PL, 4PL, Como Exportar Legalmente?, Especialistas em Comex, Abra sua Importadora!, Importação Sem Burocracia, Suporte Total no Comex, Comex para Empresas PME, Planeje sua Exportação, Importar com Segurança, Exportação para Iniciantes, Documentação de Comex, Treinamento em Comércio, Desembaraço Aduaneiro Rápido, Planejamento Tributário Comex, Passo a Passo da Exportação, Exportar Alimentos do Brasil, Importar com Redução Fiscal, Consultoria para Radar SISCOMEX, Regularize sua Empresa Comex, Exportar com Baixo Custo, Importação para Revenda, Exportação Café e Soja, Logística 3PL para Exportação, Montamos sua Operação Comex, Suporte do Radar ao Embarque, Exportação Sem Erros, Reduza Custos de Importação, Exportação Legalizada e Fácil, Exportar com Lucro Real, Reduza erros e custos com nossa consultoria completa em importação e exportação, Ajudamos sua empresa a operar legalmente e com mais eficiência no comércio exterior, Suporte completo: Radar, tributos, logística e operação, Fale com nossos especialistas!, Comex sem mistérios, Tenha acompanhamento em todas as etapas da importação">
+  <meta property="og:title" content="Contato | OLV Internacional">
+  <meta property="og:description" content="Entre em contato com a OLV Internacional. Nossa equipe de especialistas está pronta para ajudar sua empresa a crescer globalmente com soluções em Supply Chain, Comércio Exterior e Logística Internacional.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon e Estilos -->
+  <link rel="icon" href="icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Script JS (tema claro/escuro + menu ativo) -->
+  <script defer src="js/script.js"></script>
+  <style>
+    /* =============================================
+       AJUSTES ESPECÍFICOS PARA O FAQ (contato.html)
+       ============================================= */
+
+    /* 1) Aumentar a altura do cabeçalho de cada pergunta: */
+    .faq-question {
+      /* Antes era padding vertical de 1rem; para “esconder” totalmente o texto dentro, deixamos mais alto: */
+      padding: 1.5rem; /* Aumentado de 1rem para 1.5rem (cabeçalho mais alto) */
+      /* Assim, o cabeçalho “empurra” a área de resposta para baixo, mantendo-a invisível */
+    }
+
+    /* 2) Garantir que a resposta fique completamente escondida por padrão: */
+    .faq-answer {
+      display: none;          /* Agora ocultamos por completo (não usar max-height) */
+      overflow: hidden;
+    }
+    /* 3) Quando a pergunta estiver “ativa” (classe .active), exibir o conteúdo: */
+    .faq-item.active .faq-answer {
+      display: block;          /* Ao abrir, exibe a resposta totalmente */
+    }
+
+    /* 4) Estilização da seta de toggle (► e ▼):
+       - ► quando fechado
+       - ▼ quando aberto */
+    .faq-toggle {
+      font-size: 1.25rem;
+      transition: transform 0.2s ease;
+    }
+    /* 5) Ajustar o cursor: */
+    .faq-question {
+      cursor: pointer;
+    }
+
+    /* =============================================
+       AJUSTE PARA “FLOATING BUTTONS” FICAREM ACIMA DO FOOTER
+       ============================================= */
+
+    /* O footer tem z-index: 1700 (no CSS original). Basta garantir que os botões flutuantes fiquem com z-index > 1700. */
+    .floating-buttons {
+      z-index: 2000 !important; 
+      /* Antes não tinha z-index explícito ou era muito baixo, 
+         agora garantimos que fique acima do footer-reveal */
+    }
+  </style>
+</head>
+
+<body class="theme-dark">
+  <!-- ============================================= -->
+  <!--                  SIDEBAR                      -->
+  <!-- ============================================= -->
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a href="stratevo.html" class="sidebar-item" data-tooltip="Inteligência de Mercado e Gestão Estratégica">
+            <img src="icons/stratevo-simple.svg" alt="Ícone STRATEVO" class="sidebar-icon" />
+            <span class="sidebar-text">STRATEVO</span>
+          </a>
+        </li>
+        <li>
+          <a href="exceltta.html" class="sidebar-item" data-tooltip="Simuladores de Processo e Otimização Financeira">
+            <img src="icons/exceltta-simple.svg" alt="Ícone EXCELTTA" class="sidebar-icon" />
+            <span class="sidebar-text">EXCELTTA</span>
+          </a>
+        </li>
+        <li>
+          <a href="connecta.html" class="sidebar-item" data-tooltip="Conexões Seguras com Fornecedores Homologados">
+            <img src="icons/connecta.svg" alt="Ícone OLV CONNECTA" class="sidebar-icon" />
+            <span class="sidebar-text">OLV CONNECTA</span>
+          </a>
+        </li>
+        <li>
+          <a href="veritus.html" class="sidebar-item" data-tooltip="Compliance, Due Diligence e Governança">
+            <img src="icons/veritus.svg" alt="Ícone OLV VERITUS" class="sidebar-icon" />
+            <span class="sidebar-text">OLV VERITUS</span>
+          </a>
+        </li>
+        <li>
+          <a href="finx.html" class="sidebar-item" data-tooltip="Gestão Financeira e Otimização de Fluxo de Caixa">
+            <img src="icons/finx.svg" alt="Ícone OLV FINX" class="sidebar-icon" />
+            <span class="sidebar-text">OLV FINX</span>
+          </a>
+        </li>
+        <li>
+          <a href="academy.html" class="sidebar-item" data-tooltip="Educação Corporativa e Desenvolvimento de Talentos">
+            <img src="icons/academy.svg" alt="Ícone OLV ACADEMY" class="sidebar-icon" />
+            <span class="sidebar-text">OLV ACADEMY</span>
+          </a>
+        </li>
+        <li>
+          <a href="labs.html" class="sidebar-item" data-tooltip="Inovação, Pesquisa e Desenvolvimento com IA">
+            <img src="icons/labs.svg" alt="Ícone OLV LABS" class="sidebar-icon" />
+            <span class="sidebar-text">OLV LABS</span>
+          </a>
+        </li>
+        <li>
+          <a href="ventures.html" class="sidebar-item" data-tooltip="Venture Builder e Aceleração de Startups">
+            <img src="icons/ventures.svg" alt="Ícone OLV VENTURES" class="sidebar-icon" />
+            <span class="sidebar-text">OLV VENTURES</span>
+          </a>
+        </li>
+        <li>
+          <a href="core.html" class="sidebar-item" data-tooltip="Cockpit de Gestão 360° e Business Intelligence">
+            <img src="icons/core.svg" alt="Ícone OLV CORE" class="sidebar-icon" />
+            <span class="sidebar-text">OLV CORE</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ============================================= -->
+  <!--                 HEADER FIXO                   -->
+  <!-- ============================================= -->
+  <header class="header-wrapper">
+    <div class="header-inner">
+      <!-- Logo da OLV (círculo – 100 × 100 px) + slogan -->
+      <div class="header-brand">
+        <a href="index.html" class="header-logo-link" title="OLV Internacional">
+          <div class="header-logo-circle">
+            <img src="images/olv-logo.jpeg" alt="OLV Internacional" class="header-logo-img" />
+          </div>
+        </a>
+        <span class="header-slogan">Integramos Estratégia, Operação e Resultado</span>
+      </div>
+
+      <!-- Menu principal -->
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-item" data-page="index">Home</a>
+        <a href="sobre.html" class="nav-item" data-page="sobre">Sobre</a>
+        <a href="solucoes.html" class="nav-item" data-page="solucoes">Soluções</a>
+        <a href="ecossistema.html" class="nav-item" data-page="ecossistema">Ecossistema</a>
+        <a href="radar360.html" class="nav-item" data-page="radar360">Radar 360</a>
+        <a href="blog.html" class="nav-item" data-page="blog">Blog</a>
+        <a href="contato.html" class="nav-item active" data-page="contato">Contato</a>
+        <a href="politica.html" class="nav-item" data-page="politica">Política</a>
+      </nav>
+
+      <!-- Switch de tema (Dark/Light) -->
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="theme-checkbox">
+          <input type="checkbox" id="theme-checkbox" />
+          <div class="switch-inner">
+            <span class="switch-icon moon-icon">
+              <img src="icons/moon.svg" alt="Lua" />
+            </span>
+            <span class="switch-icon sun-icon">
+              <img src="icons/sun.svg" alt="Sol" />
+            </span>
+          </div>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================= -->
+  <!--                    TICKER                     -->
+  <!-- ============================================= -->
+  <div class="ticker">
+    <div class="ticker-inner" id="ticker-inner">
+      <!-- O conteúdo das manchetes será injetado via JS -->
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!--                 CONTEÚDO PRINCIPAL            -->
+  <!-- ============================================= -->
+  <main class="main-content">
+    <!-- ========== SEÇÃO HERO CONTATO ========== -->
+    <section class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-texto">
+          <h1 class="hero-title">Fale com a OLV Internacional</h1>
+          <p class="hero-description">
+            Nossa equipe de especialistas está pronta para ajudar sua empresa a crescer globalmente. Preencha o formulário abaixo ou utilize um de nossos canais de contato direto.
+          </p>
+        </div>
+        <div class="hero-banner">
+          <!-- Mantemos um banner ilustrativo, sem causar regressão visual -->
+          <img src="images/olv-contact-banner.webp" alt="Entre em Contato – OLV Internacional" class="hero-banner-img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SEÇÃO FORMULÁRIO E INFORMAÇÕES ========== -->
+    <section class="section" id="contato-info">
+      <div class="container">
+        <div class="cards-grid">
+          <!-- ========== FORMULÁRIO DE CONTATO ========== -->
+          <div class="card">
+            <h2 class="card-title">Formulário de Contato</h2>
+            <form id="contactForm" class="contact-form">
+              <div class="card-list">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label for="name">Nome Completo*</label><br />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Seu nome completo"
+                    style="width: 100%; padding: 0.5rem; border-radius: var(--radius); border: 1px solid var(--accent);"
+                  />
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label for="company">Empresa*</label><br />
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    required
+                    placeholder="Nome da sua empresa"
+                    style="width: 100%; padding: 0.5rem; border-radius: var(--radius); border: 1px solid var(--accent);"
+                  />
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label for="email">E-mail Corporativo*</label><br />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="seu.email@empresa.com.br"
+                    style="width: 100%; padding: 0.5rem; border-radius: var(--radius); border: 1px solid var(--accent);"
+                  />
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label for="phone">Telefone/WhatsApp*</label><br />
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    placeholder="(11) 99999-9999"
+                    style="width: 100%; padding: 0.5rem; border-radius: var(--radius); border: 1px solid var(--accent);"
+                  />
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label for="service">Serviço de Interesse*</label><br />
+                  <select
+                    id="service"
+                    name="service"
+                    required
+                    style="width: 100%; padding: 0.5rem; border-radius: var(--radius); border: 1px solid var(--accent);"
+                  >
+                    <option value="" disabled selected>Selecione um serviço</option>
+                    <option value="exportacao">Consultoria em Exportação</option>
+                    <option value="importacao">Consultoria em Importação</option>
+                    <option value="logistica">Logística Internacional</option>
+                    <option value="compliance">Compliance e Governança</option>
+                    <option value="capacitacao">Capacitação e Desenvolvimento</option>
+                    <option value="radar360">Radar 360</option>
+                    <option value="outro">Outro (especifique na mensagem)</option>
+                  </select>
+                </div>
+                <div class="form-group full-width" style="margin-bottom: 1rem;">
+                  <label for="message">Mensagem*</label><br />
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    placeholder="Descreva sua necessidade ou projeto. Quanto mais detalhes, melhor poderemos ajudar."
+                    style="width: 100%; padding: 0.5rem; border-radius: var(--radius); border: 1px solid var(--accent);"
+                  ></textarea>
+                </div>
+                <div class="form-group full-width" style="margin-bottom: 1.5rem;">
+                  <div class="privacy-consent" style="display: flex; align-items: center;">
+                    <input type="checkbox" id="privacy" name="privacy" required style="margin-right: 0.5rem;" />
+                    <label for="privacy">Concordo com a <a href="politica-privacidade.html" style="color: var(--accent);">Política de Privacidade</a> da OLV Internacional.</label>
+                  </div>
+                </div>
+                <button type="submit" class="cta-button">Enviar Mensagem</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- ========== INFORMAÇÕES DE CONTATO ========== -->
+          <div class="card">
+            <h2 class="card-title">Informações de Contato</h2>
+
+            <div class="card-list">
+              <div class="contact-item" style="display: flex; margin-bottom: 1rem;">
+                <div class="contact-icon" style="margin-right: 0.75rem;">
+                  <img src="icons/location.svg" alt="Endereço" style="width: 24px; height: 24px; filter: invert(80%);" />
+                </div>
+                <div class="contact-text">
+                  <h3>Endereço</h3>
+                  <p>Av. Paulista, 1636 – Bela Vista<br />São Paulo – SP, 01310-200<br />Brasil</p>
+                </div>
+              </div>
+
+              <div class="contact-item" style="display: flex; margin-bottom: 1rem;">
+                <div class="contact-icon" style="margin-right: 0.75rem;">
+                  <img src="icons/phone.svg" alt="Telefone" style="width: 24px; height: 24px; filter: invert(80%);" />
+                </div>
+                <div class="contact-text">
+                  <h3>Telefone</h3>
+                  <p>+55 (11) 2675-1446</p>
+                </div>
+              </div>
+
+              <div class="contact-item" style="display: flex; margin-bottom: 1rem;">
+                <div class="contact-icon" style="margin-right: 0.75rem;">
+                  <img src="icons/whatsapp.svg" alt="WhatsApp" style="width: 24px; height: 24px; filter: invert(80%);" />
+                </div>
+                <div class="contact-text">
+                  <h3>WhatsApp</h3>
+                  <p>+55 (11) 2675-1446</p>
+                  <a href="https://wa.me/5511267514469" class="card-link">Iniciar Conversa</a>
+                </div>
+              </div>
+
+              <div class="contact-item" style="display: flex; margin-bottom: 1rem;">
+                <div class="contact-icon" style="margin-right: 0.75rem;">
+                  <img src="icons/email.svg" alt="E-mail" style="width: 24px; height: 24px; filter: invert(80%);" />
+                </div>
+                <div class="contact-text">
+                  <h3>E-mail</h3>
+                  <p>atendimento@olvinternacional.com.br</p>
+                  <a href="mailto:atendimento@olvinternacional.com.br" class="card-link">Enviar E-mail</a>
+                </div>
+              </div>
+
+              <div class="contact-item" style="display: flex; margin-bottom: 1rem;">
+                <div class="contact-icon" style="margin-right: 0.75rem;">
+                  <img src="icons/clock.svg" alt="Horário" style="width: 24px; height: 24px; filter: invert(80%);" />
+                </div>
+                <div class="contact-text">
+                  <h3>Horário de Atendimento</h3>
+                  <p>Segunda a Sexta: 8h às 18h<br />Sábado: 9h às 13h</p>
+                </div>
+              </div>
+
+              <div class="social-contact" style="margin-top: 1.5rem;">
+                <h3>Redes Sociais</h3>
+                <div class="social-links" style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                  <a href="https://instagram.com/olvinternacional" title="Instagram OLV Internacional">
+                    <img src="icons/instagram.svg" alt="Instagram" style="width: 28px; height: 28px; filter: invert(80%);" />
+                  </a>
+                  <a href="https://linkedin.com/in/olvinternacional" title="LinkedIn OLV Internacional">
+                    <img src="icons/linkedin.svg" alt="LinkedIn" style="width: 28px; height: 28px; filter: invert(80%);" />
+                  </a>
+                  <a href="https://facebook.com/olvinternacional" title="Facebook OLV Internacional">
+                    <img src="icons/facebook.svg" alt="Facebook" style="width: 28px; height: 28px; filter: invert(80%);" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SEÇÃO MAPA ========== -->
+    <section class="section" id="mapa">
+      <div class="container">
+        <h2>Nossa Localização</h2>
+        <div class="map-container" style="margin-top: 1rem;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.3463556435716!2d-46.65739548502406!3d-23.55868478468642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c7f481fd9f%3A0x9982bfde4df54830!2sAv.%20Paulista%2C%201636%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-200!5e0!3m2!1spt-BR!2sbr!4v1653508361012!5m2!1spt-BR!2sbr"
+            width="100%" height="450" style="border:0; border-radius: var(--radius);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SEÇÃO FAQ ========== -->
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>Perguntas Frequentes</h2>
+        <div class="faq-container" style="margin-top: 1rem;">
+          <!-- Cada bloco faq-item NÃO TEM “max-height” hard-coded no CSS, 
+               agora usamos display:none/block via .active para esconder/mostrar. -->
+
+          <div class="faq-item" style="border: 1px solid var(--accent); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden;">
+            <div class="faq-question">
+              <h3>Como funciona o processo de consultoria da OLV Internacional?</h3>
+              <span class="faq-toggle">►</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Nosso processo de consultoria segue 5 etapas: 1) Diagnóstico inicial e entendimento das necessidades; 
+                2) Proposta personalizada com escopo, prazos e investimento; 
+                3) Planejamento detalhado das ações; 
+                4) Implementação com acompanhamento contínuo; 
+                5) Avaliação de resultados e ajustes. 
+                Todo o processo é conduzido por especialistas com mais de 35 anos de experiência em comércio exterior.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--accent); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden;">
+            <div class="faq-question">
+              <h3>Quanto tempo leva para implementar um projeto de exportação ou importação?</h3>
+              <span class="faq-toggle">►</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                O tempo de implementação varia conforme a complexidade do projeto, o nível de maturidade da empresa e os mercados envolvidos. 
+                Projetos de exportação para iniciantes geralmente levam de 3 a 6 meses para implementação completa, 
+                enquanto projetos de importação podem levar de 2 a 4 meses. 
+                Durante a fase de diagnóstico, estabelecemos um cronograma detalhado e realista para seu caso específico.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--accent); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden;">
+            <div class="faq-question">
+              <h3>A OLV Internacional atende empresas de todos os portes e setores?</h3>
+              <span class="faq-toggle">►</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Sim, atendemos desde microempresas até grandes corporações, com soluções personalizadas para cada porte e necessidade. 
+                Nossa especialidade está em pequenas e médias empresas que buscam iniciar ou expandir suas operações internacionais. 
+                Atendemos diversos setores, incluindo indústria, agronegócio, tecnologia, serviços, varejo e e-commerce.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--accent); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden;">
+            <div class="faq-question">
+              <h3>O que é o Radar 360 e como ele pode ajudar minha empresa?</h3>
+              <span class="faq-toggle">►</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                O Radar 360 é nossa plataforma de inteligência de mercado e gestão de operações internacionais. 
+                Ele oferece cotações em tempo real, simuladores de custos, alertas regulatórios, análises de mercado e ferramentas de gestão. 
+                Com o Radar 360, sua empresa tem acesso a informações estratégicas para tomar decisões mais assertivas, reduzir custos e identificar oportunidades no mercado global.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--accent); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden;">
+            <div class="faq-question">
+              <h3>Como a OLV Internacional se diferencia de outras consultorias?</h3>
+              <span class="faq-toggle">►</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Nossos diferenciais incluem: 
+                1) Experiência de mais de 35 anos em comércio exterior; 
+                2) Abordagem integrada que conecta estratégia, operação e resultado; 
+                3) Ecossistema completo de soluções através das plataformas OLV; 
+                4) Metodologia própria baseada em resultados mensuráveis; 
+                5) Equipe multidisciplinar com especialistas em diferentes áreas e mercados; 
+                6) Tecnologia e inteligência de dados através do Radar 360.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SEÇÃO CTA FINAL ========== -->
+    <section class="section cta-section">
+      <div class="container">
+        <h2>Pronto para Transformar seu Negócio Internacional?</h2>
+        <p>Entre em contato conosco hoje mesmo e descubra como podemos ajudar sua empresa a alcançar novos patamares no comércio exterior.</p>
+        <div style="margin-top: 1rem;">
+          <a href="https://wa.me/5511267514469" class="cta-button">Falar pelo WhatsApp</a>
+          <a href="radar360.html" class="cta-button" style="background-color: var(--bg-secondary); color: var(--accent); border: 1px solid var(--accent);">Conheça o Radar 360</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================= -->
+  <!--                    FOOTER                     -->
+  <!-- ============================================= -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>
+        &copy; 2025 OLV INTERNACIONAL | CNPJ 67.867.580/0001-90 | Desenvolvido com excelência pelo Ecossistema OLV CORE
+      </p>
+      <div class="social-icons">
+        <a href="https://instagram.com/olvinternacional" title="Instagram OLV Internacional" target="_blank">
+          <img src="icons/instagram.svg" alt="Instagram" />
+        </a>
+        <a href="https://linkedin.com/in/olvinternacional" title="LinkedIn OLV Internacional" target="_blank">
+          <img src="icons/linkedin.svg" alt="LinkedIn" />
+        </a>
+        <a href="https://facebook.com/olvinternacional" title="Facebook OLV Internacional" target="_blank">
+          <img src="icons/facebook.svg" alt="Facebook" />
+        </a>
+        <a href="mailto:atendimento@olvinternacional.com.br" title="Enviar E-mail para OLV Internacional">
+          <img src="icons/email.svg" alt="E-mail" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================= -->
+  <!--               BOTÕES FLUTUANTES               -->
+  <!-- ============================================= -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/5511267514469" class="whatsapp-button" title="Fale conosco pelo WhatsApp" target="_blank">
+      <img src="icons/whatsapp.svg" alt="WhatsApp" /> WhatsApp
+    </a>
+    <a href="contato.html" class="specialist-button" title="Fale com um Especialista OLV">
+      <img src="icons/email.svg" alt="E-mail" /> Fale com um Especialista
+    </a>
+  </div>
+
+  <!-- ============================================= -->
+  <!--             SCRIPT FAQ E FOOTER REVEAL        -->
+  <!-- ============================================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // ====== 1) SCRIPT PARA TOGGLE DO FAQ (“►” / “▼”) ======
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const toggle   = item.querySelector('.faq-toggle');
+        const answer   = item.querySelector('.faq-answer');
+
+        // Inicializa como fechado (seta “►”)
+        item.classList.remove('active');
+        toggle.textContent = '►';
+
+        question.addEventListener('click', function() {
+          const isActive = item.classList.contains('active');
+
+          // Fecha todos os outros, se houver
+          faqItems.forEach(other => {
+            if (other !== item && other.classList.contains('active')) {
+              other.classList.remove('active');
+              other.querySelector('.faq-toggle').textContent = '►';
+            }
+          });
+
+          if (!isActive) {
+            // Abrir este
+            item.classList.add('active');
+            toggle.textContent = '▼';
+            // A resposta fica visível por causa do CSS (.faq-item.active .faq-answer { display: block; })
+          } else {
+            // Fechar este
+            item.classList.remove('active');
+            toggle.textContent = '►';
+            // A resposta volta a display: none
+          }
+        });
+      });
+
+      // ====== 2) VALIDAÇÃO E ENVIO DO FORMULÁRIO ======
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Aqui, integrar a lógica real de envio (AJAX, backend, etc.)
+          alert('Mensagem enviada com sucesso! Em breve, um de nossos especialistas entrará em contato.');
+          contactForm.reset();
+        });
+      }
+
+      // ====== 3) FOOTER REVEAL ======
+      const footer = document.querySelector('footer');
+      function checkFooterReveal() {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const pageHeight     = document.documentElement.scrollHeight;
+        if (scrollPosition >= pageHeight - 2) {
+          footer.classList.add('reveal');
+        } else {
+          footer.classList.remove('reveal');
+        }
+      }
+      window.addEventListener('scroll', checkFooterReveal);
+      checkFooterReveal();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!-- Salve este conteúdo em icons/compliance.svg -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="64"
+  height="64"
+>
+  <!-- Escudo estilizado -->
+  <path
+    d="M32 4c-8 0-14 4-14 4v14c0 8 6 16 14 20 8-4 14-12 14-20V8s-6-4-14-4z"
+    fill="none"
+    stroke="#D4AF37"
+    stroke-width="3"
+  />
+  <!-- Checkmark dentro do escudo -->
+  <polyline
+    points="22,30 30,38 42,26"
+    fill="none"
+    stroke="#D4AF37"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

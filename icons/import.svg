@@ -1,0 +1,25 @@
+<!-- Salve este conteúdo em icons/import.svg -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="64"
+  height="64"
+>
+  <!-- Um contorno de caixa -->
+  <rect
+    x="8"
+    y="20"
+    width="48"
+    height="32"
+    rx="4"
+    ry="4"
+    fill="none"
+    stroke="#D4AF37"
+    stroke-width="3"
+  />
+  <!-- Seta apontando para dentro (import) -->
+  <polygon
+    points="32,52 32,28 24,36"
+    fill="#D4AF37"
+  />
+</svg>

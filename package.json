@@ -1,0 +1,35 @@
+{
+  "name": "olv-site-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3999",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "framer-motion": "^12.16.0",
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.17.57",
+    "@types/react": "18.3.23",
+    "@types/react-dom": "^18.0.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.0.4",
+    "husky": "^9.0.5",
+    "postcss": "^8.4.24",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.3.2",
+    "typescript": "5.8.3"
+  }
+}

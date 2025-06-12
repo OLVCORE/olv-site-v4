@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos</title>
+  <meta name="description" content="Descrição de Termos" />
+  <meta name="keywords" content="Termos, OLV, Plataforma" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="theme-dark">
+  <aside class="sidebar">
+    <ul class="sidebar-list">
+      <li class="sidebar-item" data-tooltip="STRATEVO">
+        <svg class="sidebar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+      </li>
+      <li class="sidebar-item" data-tooltip="EXCELTTA">
+        <svg class="sidebar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none"/><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 14h-4v-4h4v4zm0-6h-4V6h4v4zM10 18H6v-4h4v4zm0-6H6V6h4v6z"/></svg>
+      </li>
+      <li class="sidebar-item" data-tooltip="OLV CONNECTA">
+        <svg class="sidebar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-5h2v5h-2zm0-7v-2h2v2h-2z"/></svg>
+      </li>
+      <li class="sidebar-item" data-tooltip="OLV ENGAGE">
+        <svg class="sidebar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l4 8H8l4-8zm0 20l-4-8h8l-4 8zm0-10l4 8H8l4-8z"/></svg>
+      </li>
+    </ul>
+  </aside>
+  <header class="header-wrapper">
+    <a href="index.html" class="logo-link"><img src="images/olv-logo.jpeg" alt="OLV Internacional" class="logo-img"/></a>
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-item">Home</a>
+      <a href="sobre.html" class="nav-item">Sobre</a>
+      <a href="solucoes.html" class="nav-item">Soluções</a>
+      <a href="ecossistema.html" class="nav-item">Ecossistema</a>
+      <a href="radar360.html" class="nav-item">Radar 360</a>
+      <a href="blog.html" class="nav-item">Blog</a>
+      <a href="contato.html" class="nav-item">Contato</a>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </header>
+  <main class="main-content">
+    <div class="container">
+      <section class="hero">
+        <div class="hero-text">
+          <h1 class="hero-title">Termos</h1>
+          <p class="hero-description">Conteúdo de Termos.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 OLV Internacional. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <div class="floating-buttons">
+    <a href="#" class="whatsapp-button"><img src="icons/whatsapp.svg" alt="WhatsApp"/>WhatsApp</a>
+    <a href="#" class="specialist-button">Fale com Especialista</a>
+  </div>
+  <script>
+    function toggleTheme() { document.body.classList.toggle("theme-dark"); document.body.classList.toggle("theme-light"); }
+    window.addEventListener("DOMContentLoaded", ()=>{ document.body.classList.add("theme-dark"); });
+  </script>
+</body>
+</html>
