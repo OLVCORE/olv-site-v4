@@ -1872,8 +1872,8 @@ body.theme-dark .sidebar-item.active .sidebar-icon {
   padding: 8px 14px;
   border-radius: var(--radius);
   border: 2px solid var(--accent);
-  white-space: nowrap; /* força única linha */
-  max-width: 12rem; /* ~3 cm */
+  white-space: normal; /* permite quebrar se necessário */
+  max-width: 20rem;   /* limite razoável (~3-4 cm) */
   overflow: hidden;
   text-overflow: ellipsis;
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
@@ -1885,4 +1885,25 @@ body.theme-dark .sidebar-item.active .sidebar-icon {
   0%   { box-shadow: 0 0 6px rgba(212, 175, 55, 0.2); }
   50%  { box-shadow: 0 0 14px rgba(212, 175, 55, 0.8); }
   100% { box-shadow: 0 0 6px rgba(212, 175, 55, 0.2); }
+}
+
+/* =============================
+   HOTFIX 2025-06-12 – Sidebar & Header (mobile) + Tooltip
+   ============================= */
+@media (max-width: 768px) {
+  /* Evita lista textual duplicada sob o cabeçalho */
+  .nav-menu {
+    display: none !important;
+  }
+  .nav-menu.show {
+    display: flex !important;
+  }
+
+  /* Header sobe para o topo quando o sidebar usa apenas a barra de ícones */
+  .header-wrapper {
+    top: 0 !important;
+  }
+  .main-content {
+    margin-top: 80px !important; /* altura do header */
+  }
 }
