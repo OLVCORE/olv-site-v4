@@ -1907,3 +1907,18 @@ body.theme-dark .sidebar-item.active .sidebar-icon {
     margin-top: 80px !important; /* altura do header */
   }
 }
+
+/* Ajuste: garante nomes completos na sidebar */
+.sidebar-text {
+  white-space: nowrap;
+}
+
+/* Correção do header/ticker mobile: volta offset original */
+@media (max-width: 768px) {
+  .header-wrapper {
+    top: var(--sidebar-mobile-height) !important;
+  }
+  .main-content {
+    margin-top: calc(var(--sidebar-mobile-height) + 80px) !important;
+  }
+}
