@@ -84,10 +84,21 @@ body {
   --shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Desktop Overrides */
+/* ==== Desktop refinements 2025-06-12 ==== */
 @media (min-width: 769px) {
-  :root {
-    --height-header: 120px;
+  .sidebar {
+    top: calc(var(--height-header) + 45px); /* header 120 + ticker 45 */
+  }
+  /* oculta texto duplicado */
+  .sidebar-text,
+  .sidebar-header-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-content {
+    margin-top: 45px !important; /* remove espaço excessivo */
   }
 }
 
@@ -1872,8 +1883,8 @@ body.theme-dark .sidebar-item.active .sidebar-icon {
   padding: 8px 14px;
   border-radius: var(--radius);
   border: 2px solid var(--accent);
-  white-space: normal; /* permite quebrar se necessário */
-  max-width: 20rem;   /* limite razoável (~3-4 cm) */
+  white-space: nowrap;
+  max-width: none;
   overflow: hidden;
   text-overflow: ellipsis;
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
