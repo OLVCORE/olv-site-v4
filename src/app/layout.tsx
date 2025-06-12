@@ -26,6 +26,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="stylesheet" href="/css/style.css" />
 
         {/* Metadados adicionais para otimização de intenção do usuário */}
         <meta name="google-site-verification" content="verificação-do-site" />
