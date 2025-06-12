@@ -1850,15 +1850,15 @@ body.theme-light .moon-icon {
 
 /* Mantém tamanho, mas troca cor dos ícones para o dourado padrão no tema dark */
 body.theme-dark .sidebar-icon {
-  /* converte SVG monocromático para dourado */
-  filter: brightness(0) saturate(100%) invert(71%) sepia(50%) saturate(623%) hue-rotate(1deg) brightness(102%) contrast(97%);
+  /* ícone azul royal */
+  filter: brightness(0) saturate(100%) invert(30%) sepia(78%) saturate(2015%) hue-rotate(189deg) brightness(98%) contrast(104%);
   transition: filter 0.2s ease;
 }
 
 /* Em hover ou item ativo destacamos ainda mais */
 body.theme-dark .sidebar-item:hover .sidebar-icon,
 body.theme-dark .sidebar-item.active .sidebar-icon {
-  filter: brightness(0) saturate(100%) invert(84%) sepia(17%) saturate(1229%) hue-rotate(2deg) brightness(105%) contrast(97%);
+  filter: brightness(0) saturate(100%) invert(36%) sepia(94%) saturate(2483%) hue-rotate(191deg) brightness(105%) contrast(105%);
 }
 
 /* Tooltip externo (div.sidebar-tooltip gerado no React) */
