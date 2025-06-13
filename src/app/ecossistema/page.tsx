@@ -205,7 +205,7 @@ export default function EcossistemaPage() {
               </p>
               <Link 
                 href="/contato" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg inline-block transition-colors"
+                className="btn btn-primary font-bold py-3 px-6"
               >
                 Conecte-se Conosco
               </Link>
@@ -331,7 +331,7 @@ export default function EcossistemaPage() {
                     <div className="flex justify-end">
                       <Link
                         href={plataforma.link}
-                        className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-colors"
+                        className="btn btn-primary py-2 px-4"
                       >
                         Saiba Mais
                       </Link>
@@ -467,13 +467,13 @@ export default function EcossistemaPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link 
                 href="/contato" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg inline-block transition-colors"
+                className="btn btn-primary font-bold py-3 px-6"
               >
                 Fale com um Especialista
               </Link>
               <Link 
                 href="#plataformas-detalhes" 
-                className="bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-3 px-6 rounded-lg inline-block transition-colors border border-blue-600 dark:border-blue-400"
+                className="btn btn-primary py-2 px-4"
               >
                 Conheça Nossas Plataformas
               </Link>

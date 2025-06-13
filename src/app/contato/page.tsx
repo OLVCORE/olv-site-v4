@@ -143,7 +143,7 @@ export default function ContatoPage() {
 
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+                    className="w-full px-6 py-3 btn btn-primary font-medium"
                   >
                     Enviar Mensagem
                   </button>
@@ -218,7 +218,7 @@ export default function ContatoPage() {
                 </div>
               </div>
 
-              <div className="bg-blue-600 text-white rounded-lg shadow-lg p-6">
+              <div className="bg-primary text-on-primary rounded-lg shadow-lg p-6">
                 <h3 className="text-xl font-bold mb-4">Precisa de atendimento urgente?</h3>
                 <p className="mb-6">
                   Nossa equipe pode entrar em contato com você imediatamente para resolver seu problema.

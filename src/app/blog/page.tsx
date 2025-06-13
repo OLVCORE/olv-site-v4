@@ -173,7 +173,7 @@ export default function BlogPage() {
                     <button className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-700 dark:text-gray-300">
                       Anterior
                     </button>
-                    <button className="px-3 py-1 bg-blue-600 text-white rounded-md">1</button>
+                    <button className="px-3 py-1 btn btn-primary">1</button>
                     <button className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-700 dark:text-gray-300">2</button>
                     <button className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-700 dark:text-gray-300">3</button>
                     <button className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-700 dark:text-gray-300">
@@ -238,7 +238,7 @@ export default function BlogPage() {
               </div>
               
               {/* Newsletter */}
-              <div className="bg-blue-600 p-6 rounded-lg shadow-md text-white">
+              <div className="bg-primary text-on-primary p-6 rounded-lg shadow-md">
                 <h3 className="text-lg font-bold mb-2">
                   Inscreva-se na nossa Newsletter
                 </h3>
@@ -253,7 +253,7 @@ export default function BlogPage() {
                   />
                   <button 
                     type="submit"
-                    className="w-full px-4 py-2 bg-white text-blue-600 font-bold rounded hover:bg-blue-50 transition-colors"
+                    className="btn btn-primary font-bold py-3 px-6"
                   >
                     Inscrever-se
                   </button>
@@ -275,7 +275,7 @@ export default function BlogPage() {
               </p>
               <Link 
                 href="/contato" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg inline-block transition-colors"
+                className="btn btn-primary font-bold py-3 px-6"
               >
                 Solicitar Consultoria de Conteúdo
               </Link>
