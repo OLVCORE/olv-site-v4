@@ -30,4 +30,12 @@
     --color-surface: #f8fafc;
     --color-on-surface: #1f2937;
   }
+}
+
+/* ---------- Utility classes ---------- */
+.btn {
+  @apply inline-flex items-center justify-center font-medium rounded-md transition-colors;
+}
+.btn-primary {
+  @apply btn bg-primary text-on-primary hover:bg-primary/90;
 } 

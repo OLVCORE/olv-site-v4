@@ -61,7 +61,7 @@ const CookieConsent: React.FC = () => {
           </button>
           <button
             onClick={acceptCookies}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors text-sm"
+            className="btn btn-primary px-4 py-2 text-sm"
           >
             Aceitar Cookies
           </button>
