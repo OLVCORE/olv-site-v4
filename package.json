@@ -12,7 +12,8 @@
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prebuild": "node scripts/generateSearchIndex.js"
   },
   "dependencies": {
     "framer-motion": "^12.16.0",
@@ -46,6 +47,7 @@
     "storybook": "^9.0.9",
     "tailwindcss": "^3.3.2",
     "typescript": "5.8.3",
-    "vitest": "^3.2.3"
+    "vitest": "^3.2.3",
+    "fast-glob": "^3.3.1"
   }
 }
