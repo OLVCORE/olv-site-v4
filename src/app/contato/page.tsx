@@ -185,9 +185,9 @@ export default function ContatoPage() {
                       Endereço
                     </h4>
                     <p className="text-gray-700 dark:text-gray-300">
-                      Rua Vergueiro, 2087, Conjunto 101<br />
-                      Vila Mariana, São Paulo - SP<br />
-                      CEP: 04101-000
+                      Av. Paulista, 1471, Conjunto 1010<br />
+                      Bela Vista, São Paulo - SP<br />
+                      CEP: 01311-927
                     </p>
                   </div>
 
@@ -225,7 +225,7 @@ export default function ContatoPage() {
                 </p>
                 <a 
                   href="tel:+551126751446"
-                  className="flex items-center justify-center gap-2 w-full px-4 py-3 btn btn-primary text-on-primary bg-primary hover:opacity-90"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-3 btn btn-primary font-bold"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path fillRule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
@@ -247,7 +247,7 @@ export default function ContatoPage() {
               <div className="relative w-full h-80 bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-500">
                   {/* Aqui seria carregado um mapa usando Google Maps ou outra API */}
-                  <p className="text-center">Mapa será carregado aqui<br />Rua Vergueiro, 2087, Conjunto 101<br />Vila Mariana, São Paulo - SP</p>
+                  <p className="text-center">Mapa será carregado aqui<br />Av. Paulista, 1471, Conjunto 1010<br />Bela Vista, São Paulo - SP</p>
                 </div>
               </div>
             </div>
