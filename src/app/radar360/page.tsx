@@ -27,7 +27,7 @@ export default function Radar360Page() {
               </p>
               <Link 
                 href="/contato" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg inline-block transition-colors"
+                className="btn btn-primary font-bold py-3 px-6"
               >
                 Fale com um Especialista
               </Link>
@@ -85,14 +85,14 @@ export default function Radar360Page() {
                 <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
                   <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador de Custos de Importação</h3>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">Calcule impostos, fretes e taxas para sua operação de importação.</p>
-                  <button className="bg-blue-600 text-white text-sm py-2 px-3 rounded hover:bg-blue-700 transition-colors">
+                  <button className="btn btn-primary text-sm py-2 px-3">
                     Abrir Simulador
                   </button>
                 </div>
                 <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
                   <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Calculadora de Fretes Internacionais</h3>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">Estime custos de frete aéreo, marítimo e rodoviário.</p>
-                  <button className="bg-blue-600 text-white text-sm py-2 px-3 rounded hover:bg-blue-700 transition-colors">
+                  <button className="btn btn-primary text-sm py-2 px-3">
                     Abrir Calculadora
                   </button>
                 </div>
@@ -111,7 +111,7 @@ export default function Radar360Page() {
                 <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
                   <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador Tributário Comex</h3>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">Entenda a carga tributária para seus produtos na importação e exportação.</p>
-                  <button className="bg-blue-600 text-white text-sm py-2 px-3 rounded hover:bg-blue-700 transition-colors">
+                  <button className="btn btn-primary text-sm py-2 px-3">
                     Abrir Simulador
                   </button>
                 </div>
@@ -260,7 +260,7 @@ export default function Radar360Page() {
               </p>
               <Link 
                 href="/contato" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg inline-block transition-colors"
+                className="btn btn-primary font-bold py-3 px-6"
               >
                 Fale com um Especialista
               </Link>
