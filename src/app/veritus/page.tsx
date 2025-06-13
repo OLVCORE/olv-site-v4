@@ -18,7 +18,7 @@ export default function VeritusPage() {
       platformColor="#0a2463"
     >
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900">Sobre a VERITUS</h2>
+        <h2 className="text-2xl font-bold mb-4 text-accent">Sobre a VERITUS</h2>
         <p className="mb-4">
           A VERITUS é a plataforma jurídica e de compliance da OLV Internacional, especializada em fornecer soluções legais para empresas que operam no complexo cenário do comércio internacional.
         </p>
@@ -27,25 +27,25 @@ export default function VeritusPage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Consultoria Jurídica Especializada</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Consultoria Jurídica Especializada</h3>
             <p>Orientação legal para todas as etapas do comércio internacional, desde contratos até resolução de disputas.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Gestão de Compliance</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Gestão de Compliance</h3>
             <p>Implementação de programas de conformidade adaptados às exigências de múltiplas jurisdições.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Due Diligence Internacional</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Due Diligence Internacional</h3>
             <p>Avaliação rigorosa de parceiros, fornecedores e clientes para minimizar riscos em operações globais.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Serviços VERITUS</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Serviços VERITUS</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Consultoria Jurídica Internacional</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Consultoria Jurídica Internacional</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Elaboração e revisão de contratos internacionais</li>
               <li>Assessoria em negociações globais</li>
@@ -54,7 +54,7 @@ export default function VeritusPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Programas de Compliance</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Programas de Compliance</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Desenvolvimento de políticas de conformidade</li>
               <li>Implementação de sistemas de monitoramento</li>
@@ -63,7 +63,7 @@ export default function VeritusPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Due Diligence</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Due Diligence</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Verificação de antecedentes de parceiros internacionais</li>
               <li>Análise de riscos em novos mercados</li>
@@ -72,7 +72,7 @@ export default function VeritusPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Gestão de Riscos Legais</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Gestão de Riscos Legais</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Identificação de vulnerabilidades regulatórias</li>
               <li>Planos de mitigação de riscos</li>
@@ -84,37 +84,37 @@ export default function VeritusPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Benefícios VERITUS</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Benefícios VERITUS</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Segurança Jurídica</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Segurança Jurídica</h3>
             <p>Minimização de riscos legais em operações internacionais através de orientação especializada.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Prevenção de Penalidades</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Prevenção de Penalidades</h3>
             <p>Redução do risco de multas e sanções por não conformidade com regulamentações internacionais.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Proteção Reputacional</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Proteção Reputacional</h3>
             <p>Salvaguarda da imagem da empresa através de práticas comerciais éticas e conformes.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Eficiência Operacional</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Eficiência Operacional</h3>
             <p>Otimização de processos legais para reduzir atrasos e custos em operações internacionais.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Vantagem Competitiva</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Vantagem Competitiva</h3>
             <p>Diferenciação no mercado através de altos padrões de compliance e governança.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Adaptabilidade Regulatória</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Adaptabilidade Regulatória</h3>
             <p>Rápida adaptação a mudanças regulatórias em diferentes jurisdições.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Depoimentos</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Depoimentos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
             <p className="italic mb-4">"A VERITUS transformou nossa abordagem de compliance internacional. Implementamos um programa robusto que não só nos protege legalmente, mas também transmite confiança aos nossos parceiros globais."</p>
@@ -130,7 +130,7 @@ export default function VeritusPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">FAQ - Perguntas Frequentes</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">FAQ - Perguntas Frequentes</h2>
         <div className="space-y-4">
           <div className="border border-gray-200 rounded-lg">
             <div className="p-4 bg-gray-50 font-semibold">
@@ -169,7 +169,7 @@ export default function VeritusPage() {
 
       <section>
         <div className="bg-blue-50 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4 text-blue-900">Pronto para fortalecer a segurança jurídica da sua empresa?</h2>
+          <h2 className="text-2xl font-bold mb-4 text-accent">Pronto para fortalecer a segurança jurídica da sua empresa?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como a VERITUS pode ajudar sua empresa a operar com segurança no cenário internacional.</p>
           <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6">
             Fale com um Especialista
