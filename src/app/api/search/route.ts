@@ -4,7 +4,7 @@ import Fuse from 'fuse.js';
 import index from '../../../../public/search-index.json';
 
 const fuse = new Fuse(index as any[], {
-  keys: ['title', 'category', 'slug', 'excerpt'],
+  keys: ['title', 'category', 'searchText'],
   threshold: 0.3,
 });
 

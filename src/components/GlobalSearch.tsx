@@ -17,13 +17,13 @@ export default function GlobalSearch() {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      if (data) setActive((prev) => Math.min(prev + 1, data.length - 1));
+      if (data?.results) setActive((prev) => Math.min(prev + 1, data.results.length - 1));
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      if (data) setActive((prev) => Math.max(prev - 1, 0));
+      if (data?.results) setActive((prev) => Math.max(prev - 1, 0));
     } else if (e.key === 'Enter') {
-      if (data && data[active]) {
-        router.push(data[active].slug);
+      if (data?.results && data.results[active]) {
+        router.push(data.results[active].slug);
         setQuery('');
       } else if (query.trim().length > 0) {
         router.push(`/search?q=${encodeURIComponent(query.trim())}`);
@@ -43,9 +43,9 @@ export default function GlobalSearch() {
         onKeyDown={handleKeyDown}
         className="px-3 py-2 rounded bg-surface-light text-on-surface outline-none"
       />
-      {data?.length > 0 && (
+      {data?.results?.length > 0 && (
         <ul className="absolute z-50 mt-2 w-full bg-surface rounded shadow-lg max-h-64 overflow-auto">
-          {data.map((item: any, idx: number) => {
+          {data.results.map((item: any, idx: number) => {
             const regex = new RegExp(`(${query})`, 'gi');
             const highlight = (text: string) => text.split(regex).map((part, i) => (
               regex.test(part) ? <mark key={i} className="bg-accent-light text-accent font-bold">{part}</mark> : part
