@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import GlobalSearch from '../../GlobalSearch';
 
 interface HeaderProps {
   theme: 'light' | 'dark';
@@ -43,16 +44,21 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
           </div>
 
           {/* Menu Principal - Visible only on desktop */}
-          <nav className="nav-menu desktop-only">
-            <Link href="/" className={`nav-item ${isActive('/') ? 'active' : ''}`} data-page="home">Home</Link>
-            <Link href="/sobre" className={`nav-item ${isActive('/sobre') ? 'active' : ''}`} data-page="sobre">Sobre</Link>
-            <Link href="/solucoes" className={`nav-item ${isActive('/solucoes') ? 'active' : ''}`} data-page="solucoes">Soluções</Link>
-            <Link href="/ecossistema" className={`nav-item ${isActive('/ecossistema') ? 'active' : ''}`} data-page="ecossistema">Ecossistema</Link>
-            <Link href="/radar360" className={`nav-item ${isActive('/radar360') ? 'active' : ''}`} data-page="radar360">Radar 360</Link>
-            <Link href="/blog" className={`nav-item ${isActive('/blog') ? 'active' : ''}`} data-page="blog">Blog</Link>
-            <Link href="/sitemap" className={`nav-item ${isActive('/sitemap') ? 'active' : ''}`} data-page="sitemap">Mapa do Site</Link>
-            <Link href="/contato" className={`nav-item ${isActive('/contato') ? 'active' : ''}`} data-page="contato">Contato</Link>
-          </nav>
+          <div className="flex items-center gap-6">
+            {/* Buscar */}
+            <GlobalSearch />
+
+            <nav className="nav-menu desktop-only">
+              <Link href="/" className={`nav-item ${isActive('/') ? 'active' : ''}`} data-page="home">Home</Link>
+              <Link href="/sobre" className={`nav-item ${isActive('/sobre') ? 'active' : ''}`} data-page="sobre">Sobre</Link>
+              <Link href="/solucoes" className={`nav-item ${isActive('/solucoes') ? 'active' : ''}`} data-page="solucoes">Soluções</Link>
+              <Link href="/ecossistema" className={`nav-item ${isActive('/ecossistema') ? 'active' : ''}`} data-page="ecossistema">Ecossistema</Link>
+              <Link href="/radar360" className={`nav-item ${isActive('/radar360') ? 'active' : ''}`} data-page="radar360">Radar 360</Link>
+              <Link href="/blog" className={`nav-item ${isActive('/blog') ? 'active' : ''}`} data-page="blog">Blog</Link>
+              <Link href="/sitemap" className={`nav-item ${isActive('/sitemap') ? 'active' : ''}`} data-page="sitemap">Mapa do Site</Link>
+              <Link href="/contato" className={`nav-item ${isActive('/contato') ? 'active' : ''}`} data-page="contato">Contato</Link>
+            </nav>
+          </div>
 
           {/* Switch de Tema */}
           <div className="theme-switch-wrapper">

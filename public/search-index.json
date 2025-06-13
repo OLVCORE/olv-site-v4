@@ -1,0 +1,15 @@
+[
+  {"title":"Home","slug":"/","category":"Institucional"},
+  {"title":"Sobre Nós","slug":"/sobre","category":"Institucional"},
+  {"title":"Contato","slug":"/contato","category":"Institucional"},
+  {"title":"Blog","slug":"/blog","category":"Institucional"},
+  {"title":"STRATEVO","slug":"/stratevo","category":"Plataformas"},
+  {"title":"EXCELTTA","slug":"/exceltta","category":"Plataformas"},
+  {"title":"CONNECTA","slug":"/connecta","category":"Plataformas"},
+  {"title":"ENGAGE","slug":"/engage","category":"Plataformas"},
+  {"title":"FINX","slug":"/finx","category":"Plataformas"},
+  {"title":"LABS","slug":"/labs","category":"Plataformas"},
+  {"title":"VENTURES","slug":"/ventures","category":"Plataformas"},
+  {"title":"VERITUS","slug":"/veritus","category":"Plataformas"},
+  {"title":"ACADEMY","slug":"/academy","category":"Plataformas"}
+] 
