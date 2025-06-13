@@ -7,27 +7,41 @@ const CookieConsent: React.FC = () => {
   const [showConsent, setShowConsent] = useState(false);
 
   useEffect(() => {
-    // Verificar se o usuário já aceitou os cookies
-    const cookieConsent = localStorage.getItem('cookie-consent');
-    if (!cookieConsent) {
+    // Verifica se o usuário já definiu preferência.
+    try {
+      const cookieConsent = localStorage.getItem('cookie-consent');
+      if (!cookieConsent) {
+        setShowConsent(true);
+      }
+    } catch {
+      // Navegador em modo privado (iOS Safari) pode bloquear localStorage.
+      // Exibe banner porque ainda não sabemos a preferência.
       setShowConsent(true);
     }
   }, []);
 
   const acceptCookies = () => {
-    localStorage.setItem('cookie-consent', 'accepted');
+    try {
+      localStorage.setItem('cookie-consent', 'accepted');
+    } catch {
+      /* ignore */
+    }
     setShowConsent(false);
   };
 
   const declineCookies = () => {
-    localStorage.setItem('cookie-consent', 'declined');
+    try {
+      localStorage.setItem('cookie-consent', 'declined');
+    } catch {
+      /* ignore */
+    }
     setShowConsent(false);
   };
 
   if (!showConsent) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 shadow-lg z-50 border-t-2 border-blue-500">
+    <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 shadow-lg z-[2200] border-t-2 border-blue-500">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
         <div className="mb-4 md:mb-0 md:mr-4 text-sm">
           <p>
