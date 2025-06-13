@@ -1,3 +1,4 @@
+// @ts-nocheck – Vercel build doesn't require type-checking this test config
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
