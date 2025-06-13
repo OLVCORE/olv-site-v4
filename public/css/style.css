@@ -169,10 +169,10 @@ img {
 ===========================================*/
 .sidebar {
   position: fixed;
-  top: 0;
+  top: var(--height-header);
   left: 0;
   width: var(--sidebar-collapsed-width);
-  height: 100vh;
+  height: calc(100vh - var(--height-header));
   background-color: var(--bg-sidebar);
   box-shadow: var(--shadow-dark);
   display: flex;
