@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { Suspense } from 'react';
 // @ts-ignore - swr types not installed
 import useSWR from 'swr';
 import Link from 'next/link';
@@ -7,7 +7,9 @@ import { useSearchParams } from 'next/navigation';
 
 const fetcher = (url: string) => fetch(url).then(r => r.json());
 
-export default function SearchPage() {
+export const dynamic = 'force-dynamic';
+
+function Results() {
   const searchParams = useSearchParams();
   const q = searchParams.get('q') || '';
   const { data } = useSWR(q ? `/api/search?q=${encodeURIComponent(q)}` : null, fetcher);
@@ -32,5 +34,13 @@ export default function SearchPage() {
         </>
       )}
     </main>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<p className="p-8">Carregando...</p>}>
+      <Results />
+    </Suspense>
   );
 } 
