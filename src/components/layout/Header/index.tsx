@@ -50,8 +50,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             <Link href="/ecossistema" className={`nav-item ${isActive('/ecossistema') ? 'active' : ''}`} data-page="ecossistema">Ecossistema</Link>
             <Link href="/radar360" className={`nav-item ${isActive('/radar360') ? 'active' : ''}`} data-page="radar360">Radar 360</Link>
             <Link href="/blog" className={`nav-item ${isActive('/blog') ? 'active' : ''}`} data-page="blog">Blog</Link>
+            <Link href="/sitemap" className={`nav-item ${isActive('/sitemap') ? 'active' : ''}`} data-page="sitemap">Mapa do Site</Link>
             <Link href="/contato" className={`nav-item ${isActive('/contato') ? 'active' : ''}`} data-page="contato">Contato</Link>
-            <Link href="/politica" className={`nav-item ${isActive('/politica') ? 'active' : ''}`} data-page="politica">Política</Link>
           </nav>
 
           {/* Switch de Tema */}
@@ -89,4 +89,4 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   );
 };
 
-export default Header; 
+export default Header;
