@@ -46,6 +46,7 @@
     "fast-glob": "^3.3.1",
     "gray-matter": "^4.0.3",
     "husky": "^9.0.5",
+    "jscodeshift": "^17.3.0",
     "playwright": "^1.53.0",
     "postcss": "^8.4.24",
     "prettier": "^3.2.5",

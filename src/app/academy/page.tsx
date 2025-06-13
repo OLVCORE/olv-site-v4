@@ -1,6 +1,7 @@
 import React from 'react';
 import PlatformLayout from '../../components/platforms/PlatformLayout';
 import Link from 'next/link';
+import Icon from '../../components/icons/Icon';
 
 export const metadata = {
   title: 'ACADEMY - OLV Internacional | Capacitação em Comércio Internacional',
@@ -27,21 +28,21 @@ export default function AcademyPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/academy.svg" alt="Education Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/academy.svg" alt="Education Icon" className="mr-2" />
               <h3 className="text-xl">Formação Especializada</h3>
             </div>
             <p>Programas de capacitação focados nas competências essenciais para operações de comércio exterior.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/training.svg" alt="Learning Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/training.svg" alt="Learning Icon" className="mr-2" />
               <h3 className="text-xl">Aprendizagem Prática</h3>
             </div>
             <p>Metodologia que combina conhecimentos teóricos com aplicação prática em casos reais de negócios internacionais.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/chart.svg" alt="Development Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/chart.svg" alt="Development Icon" className="mr-2" />
               <h3 className="text-xl">Desenvolvimento Contínuo</h3>
             </div>
             <p>Acompanhamento e suporte permanente para a evolução constante das competências globais da sua equipe.</p>
@@ -54,7 +55,7 @@ export default function AcademyPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/qualification.svg" alt="Executive Education Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/qualification.svg" alt="Executive Education Icon" className="mr-2" />
               <h3 className="text-xl">Formação Executiva</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -66,7 +67,7 @@ export default function AcademyPage() {
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/tools.svg" alt="Technical Training Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/tools.svg" alt="Technical Training Icon" className="mr-2" />
               <h3 className="text-xl">Treinamentos Técnicos</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -78,7 +79,7 @@ export default function AcademyPage() {
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/collaboration.svg" alt="Skills Development Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/collaboration.svg" alt="Skills Development Icon" className="mr-2" />
               <h3 className="text-xl">Desenvolvimento de Competências</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -90,7 +91,7 @@ export default function AcademyPage() {
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/specialist.svg" alt="Custom Programs Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/specialist.svg" alt="Custom Programs Icon" className="mr-2" />
               <h3 className="text-xl">Programas Customizados</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -108,42 +109,42 @@ export default function AcademyPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/specialist.svg" alt="Expertise Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/specialist.svg" alt="Expertise Icon" className="mr-2" />
               <h3 className="text-lg">Expertise Prática</h3>
             </div>
             <p>Aprendizado com especialistas que atuam diariamente no mercado internacional, combinando teoria e aplicação real.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/check.svg" alt="Methodology Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/check.svg" alt="Methodology Icon" className="mr-2" />
               <h3 className="text-lg">Metodologia Eficaz</h3>
             </div>
             <p>Abordagem de aprendizado que promove resultados imediatos e aplicáveis às operações de comércio exterior da sua empresa.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/newspaper.svg" alt="Content Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/newspaper.svg" alt="Content Icon" className="mr-2" />
               <h3 className="text-lg">Conteúdo Atualizado</h3>
             </div>
             <p>Programas constantemente atualizados com as últimas tendências, regulamentações e melhores práticas do comércio internacional.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/connecta.svg" alt="Networking Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/connecta.svg" alt="Networking Icon" className="mr-2" />
               <h3 className="text-lg">Networking Qualificado</h3>
             </div>
             <p>Oportunidades de conexão com outros profissionais e empresas que atuam no comércio internacional.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/compliance.svg" alt="Certification Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/compliance.svg" alt="Certification Icon" className="mr-2" />
               <h3 className="text-lg">Certificações Reconhecidas</h3>
             </div>
             <p>Certificados valorizados pelo mercado que comprovam a qualificação dos profissionais em comércio exterior.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/chat.svg" alt="Support Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/chat.svg" alt="Support Icon" className="mr-2" />
               <h3 className="text-lg">Suporte Contínuo</h3>
             </div>
             <p>Acesso a materiais, recursos e consultoria para aplicação dos conhecimentos adquiridos.</p>
@@ -172,7 +173,7 @@ export default function AcademyPage() {
         <div className="space-y-4">
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <img src="/icons/faq.svg" alt="FAQ Icon" className="w-5 h-5 mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
               Quais são os diferenciais dos programas da ACADEMY em relação a outros cursos de comércio exterior?
             </div>
             <div className="p-4">
@@ -181,7 +182,7 @@ export default function AcademyPage() {
           </div>
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <img src="/icons/faq.svg" alt="FAQ Icon" className="w-5 h-5 mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
               Como a ACADEMY pode ajudar minha empresa a desenvolver competências para expansão internacional?
             </div>
             <div className="p-4">
@@ -190,7 +191,7 @@ export default function AcademyPage() {
           </div>
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <img src="/icons/faq.svg" alt="FAQ Icon" className="w-5 h-5 mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
               Quais modalidades de treinamento são oferecidas pela ACADEMY?
             </div>
             <div className="p-4">
@@ -199,7 +200,7 @@ export default function AcademyPage() {
           </div>
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <img src="/icons/faq.svg" alt="FAQ Icon" className="w-5 h-5 mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
               Como mensurar o retorno sobre investimento dos programas de capacitação da ACADEMY?
             </div>
             <div className="p-4">
@@ -214,7 +215,7 @@ export default function AcademyPage() {
           <h2 className="text-2xl font-bold mb-4 text-accent">Pronto para desenvolver competências globais na sua equipe?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como a ACADEMY pode potencializar o sucesso da sua empresa no comércio internacional.</p>
           <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6 flex items-center justify-center">
-            <img src="/icons/specialist.svg" alt="Specialist Icon" className="w-5 h-5 mr-2" />
+            <Icon src="/icons/specialist.svg" alt="Specialist Icon" size="sm" className="mr-2" />
             Fale com um Especialista
           </Link>
         </div>
