@@ -18,10 +18,12 @@ files.forEach((file) => {
   let slug = file.replace(APP_DIR, '').replace(/\\page.tsx$/, '');
   slug = slug === '/page.tsx' ? '/' : slug;
   slug = slug.replace(/\\index$/, '/').replace(/\\/g, '/');
+  // category (first segment of slug)
+  const categoryMatch = slug.split('/').filter(Boolean)[0] || 'home';
   // simple excerpt -> first heading or paragraph
-  const hMatch = content.match(/<h[23][^>]*>([^<]{10,120})/);
+  const hMatch = content.match(/<h[23][^>]*>([^<]{10,160})/);
   const excerpt = hMatch ? hMatch[1].replace(/\{[^}]+}/g, '').trim() : '';
-  entries.push({ title, slug, excerpt });
+  entries.push({ title, slug, category: categoryMatch, excerpt });
 });
 
 fs.writeFileSync(OUT_PATH, JSON.stringify(entries, null, 2));

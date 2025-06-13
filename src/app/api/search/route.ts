@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
+// @ts-ignore - no types for fuse.js commonjs import
 import Fuse from 'fuse.js';
 import index from '../../../../public/search-index.json';
 
 const fuse = new Fuse(index as any[], {
-  keys: ['title', 'category', 'slug'],
+  keys: ['title', 'category', 'slug', 'excerpt'],
   threshold: 0.3,
 });
 
