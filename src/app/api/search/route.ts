@@ -12,6 +12,13 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const q = searchParams.get('q') || '';
   if (!q) return NextResponse.json([]);
-  const results = fuse.search(q).slice(0, 10).map(r => r.item);
-  return NextResponse.json(results);
+
+  const limit = parseInt(searchParams.get('limit') || '20', 10);
+  const offset = parseInt(searchParams.get('offset') || '0', 10);
+
+  const all = fuse.search(q).map(r => r.item);
+  const paginated = all.slice(offset, offset + limit);
+  const hasMore = offset + limit < all.length;
+
+  return NextResponse.json({ results: paginated, hasMore });
 } 

@@ -1,7 +1,7 @@
 'use client';
 import React, { Suspense } from 'react';
 // @ts-ignore - swr types not installed
-import useSWR from 'swr';
+import useSWRInfinite from 'swr/infinite';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
@@ -12,7 +12,19 @@ export const dynamic = 'force-dynamic';
 function Results() {
   const searchParams = useSearchParams();
   const q = searchParams.get('q') || '';
-  const { data } = useSWR(q ? `/api/search?q=${encodeURIComponent(q)}` : null, fetcher);
+  const PAGE_SIZE = 20;
+
+  const getKey = (pageIndex: number, previousPageData: any) => {
+    if (!q) return null; // no query
+    if (previousPageData && !previousPageData.hasMore) return null; // reached end
+    const offset = pageIndex * PAGE_SIZE;
+    return `/api/search?q=${encodeURIComponent(q)}&limit=${PAGE_SIZE}&offset=${offset}`;
+  };
+
+  const { data, setSize, isLoading } = useSWRInfinite(getKey, (url: string) => fetch(url).then(r => r.json()));
+
+  const results = data ? data.flatMap((p: any) => p.results) : [];
+  const hasMore = data ? data[data.length - 1]?.hasMore : false;
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -20,9 +32,9 @@ function Results() {
       {q === '' && <p>Digite um termo na busca.</p>}
       {q && (
         <>
-          {data?.length === 0 && <p>Nenhum resultado encontrado.</p>}
+          {results.length === 0 && !isLoading && <p>Nenhum resultado encontrado.</p>}
           <ul className="space-y-4">
-            {data?.map((item: any) => (
+            {results.map((item: any) => (
               <li key={item.slug} className="border-b pb-4">
                 <Link href={item.slug} className="text-accent hover:underline font-semibold">
                   {item.title}
@@ -31,6 +43,11 @@ function Results() {
               </li>
             ))}
           </ul>
+          {hasMore && (
+            <button onClick={() => setSize(s => s + 1)} className="mt-6 btn btn-primary">
+              {isLoading ? 'Carregando...' : 'Carregar mais'}
+            </button>
+          )}
         </>
       )}
     </main>
