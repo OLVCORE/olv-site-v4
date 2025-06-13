@@ -12,11 +12,23 @@ export default function GlobalSearch() {
   const { data } = useSWR(query.length > 1 ? `/api/search?q=${encodeURIComponent(query)}` : null, fetcher);
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
+  const [active, setActive] = useState(0);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && query.trim().length > 0) {
-      router.push(`/search?q=${encodeURIComponent(query.trim())}`);
-      setQuery('');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (data) setActive((prev) => Math.min(prev + 1, data.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (data) setActive((prev) => Math.max(prev - 1, 0));
+    } else if (e.key === 'Enter') {
+      if (data && data[active]) {
+        router.push(data[active].slug);
+        setQuery('');
+      } else if (query.trim().length > 0) {
+        router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+        setQuery('');
+      }
     }
   };
 
@@ -33,19 +45,25 @@ export default function GlobalSearch() {
       />
       {data?.length > 0 && (
         <ul className="absolute z-50 mt-2 w-full bg-surface rounded shadow-lg max-h-64 overflow-auto">
-          {data.map((item: any) => (
-            <li key={item.slug}>
-              <Link href={item.slug} onClick={() => setQuery('')} className="block px-3 py-2 hover:bg-surface-light">
-                <div>
-                  <span className="font-semibold text-accent mr-2">{item.category}</span>
-                  {item.title}
-                </div>
-                {item.excerpt && (
-                  <p className="text-sm text-on-surface/70 truncate">{item.excerpt}</p>
-                )}
-              </Link>
-            </li>
-          ))}
+          {data.map((item: any, idx: number) => {
+            const regex = new RegExp(`(${query})`, 'gi');
+            const highlight = (text: string) => text.split(regex).map((part, i) => (
+              regex.test(part) ? <mark key={i} className="bg-accent-light text-accent font-bold">{part}</mark> : part
+            ));
+            return (
+              <li key={item.slug} className={idx === active ? 'bg-surface-light' : ''}>
+                <Link href={item.slug} onClick={() => setQuery('')} className="block px-3 py-2 hover:bg-surface-light">
+                  <div>
+                    <span className="font-semibold text-accent mr-2">{item.category}</span>
+                    {highlight(item.title)}
+                  </div>
+                  {item.excerpt && (
+                    <p className="text-sm text-on-surface/70 truncate">{highlight(item.excerpt)}</p>
+                  )}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>
