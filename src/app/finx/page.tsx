@@ -18,7 +18,7 @@ export default function FinxPage() {
       platformColor="#0a2463"
     >
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900">Sobre a FINX</h2>
+        <h2 className="text-2xl font-bold mb-4 text-accent">Sobre a FINX</h2>
         <p className="mb-4">
           A FINX é a plataforma financeira da OLV Internacional dedicada a oferecer soluções financeiras especializadas para empresas que operam no comércio internacional.
         </p>
@@ -27,25 +27,25 @@ export default function FinxPage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Soluções de Financiamento</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Soluções de Financiamento</h3>
             <p>Estratégias e instrumentos de financiamento otimizados para operações de importação e exportação.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Gestão de Risco Cambial</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Gestão de Risco Cambial</h3>
             <p>Proteção contra volatilidade cambial através de instrumentos de hedge e estratégias personalizadas.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Consultoria Financeira</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Consultoria Financeira</h3>
             <p>Orientação especializada para otimizar fluxos financeiros e maximizar resultados em operações globais.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Serviços FINX</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Serviços FINX</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Financiamento de Comércio Exterior</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Financiamento de Comércio Exterior</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>ACC/ACE - Adiantamento de Contrato de Câmbio/Exportação</li>
               <li>FINIMP - Financiamento à Importação</li>
@@ -54,7 +54,7 @@ export default function FinxPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Gestão de Riscos Financeiros</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Gestão de Riscos Financeiros</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Operações de hedge cambial</li>
               <li>Estratégias de proteção contra volatilidade</li>
@@ -63,7 +63,7 @@ export default function FinxPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Soluções de Pagamento Internacional</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Soluções de Pagamento Internacional</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Otimização de operações de câmbio</li>
               <li>Gestão de contas internacionais</li>
@@ -72,7 +72,7 @@ export default function FinxPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Consultoria Financeira Internacional</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Consultoria Financeira Internacional</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Estruturação de operações financeiras internacionais</li>
               <li>Análise de viabilidade financeira para expansão global</li>
@@ -84,37 +84,37 @@ export default function FinxPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Benefícios FINX</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Benefícios FINX</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Redução de Custos Financeiros</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Redução de Custos Financeiros</h3>
             <p>Acesso às melhores linhas de financiamento e taxas do mercado, reduzindo o custo de capital para operações internacionais.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Proteção contra Volatilidade</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Proteção contra Volatilidade</h3>
             <p>Estratégias eficientes de hedge que minimizam impactos de flutuações cambiais nos resultados da empresa.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Aumento de Competitividade</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Aumento de Competitividade</h3>
             <p>Estruturas financeiras que permitem oferecer melhores condições comerciais a clientes e fornecedores internacionais.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Otimização de Fluxo de Caixa</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Otimização de Fluxo de Caixa</h3>
             <p>Melhoria da gestão do capital de giro em operações internacionais, reduzindo ciclos financeiros.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Expansão Internacional Facilitada</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Expansão Internacional Facilitada</h3>
             <p>Suporte financeiro para viabilizar a entrada e crescimento em novos mercados com estruturas otimizadas.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Segurança em Transações</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Segurança em Transações</h3>
             <p>Utilização de instrumentos financeiros que garantem segurança e reduzem riscos em transações internacionais.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Depoimentos</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Depoimentos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
             <p className="italic mb-4">"A estratégia de hedge cambial desenvolvida pela FINX nos protegeu da volatilidade extrema que enfrentamos nos últimos meses, economizando milhões em potenciais perdas. A expertise deles em comércio exterior faz toda a diferença."</p>
@@ -130,7 +130,7 @@ export default function FinxPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">FAQ - Perguntas Frequentes</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">FAQ - Perguntas Frequentes</h2>
         <div className="space-y-4">
           <div className="border border-gray-200 rounded-lg">
             <div className="p-4 bg-gray-50 font-semibold">
@@ -169,7 +169,7 @@ export default function FinxPage() {
 
       <section>
         <div className="bg-blue-50 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4 text-blue-900">Pronto para otimizar as finanças internacionais da sua empresa?</h2>
+          <h2 className="text-2xl font-bold mb-4 text-accent">Pronto para otimizar as finanças internacionais da sua empresa?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como a FINX pode ajudar sua empresa a maximizar resultados financeiros em operações globais.</p>
           <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6">
             Fale com um Especialista
