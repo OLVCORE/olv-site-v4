@@ -171,7 +171,7 @@ export default function FinxPage() {
         <div className="bg-blue-50 rounded-lg p-8 text-center">
           <h2 className="text-2xl font-bold mb-4 text-blue-900">Pronto para otimizar as finanças internacionais da sua empresa?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como a FINX pode ajudar sua empresa a maximizar resultados financeiros em operações globais.</p>
-          <Link href="/contato" className="inline-block bg-blue-800 text-white py-3 px-6 rounded-md font-semibold hover:bg-blue-900 transition duration-300">
+          <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6">
             Fale com um Especialista
           </Link>
         </div>

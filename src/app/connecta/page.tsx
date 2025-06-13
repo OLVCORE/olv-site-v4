@@ -171,7 +171,7 @@ export default function ConnectaPage() {
         <div className="bg-blue-50 rounded-lg p-8 text-center">
           <h2 className="text-2xl font-bold mb-4 text-blue-900">Pronto para expandir seu network global?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como a CONNECTA pode ajudar sua empresa a encontrar os parceiros ideais para crescer internacionalmente.</p>
-          <Link href="/contato" className="inline-block bg-blue-800 text-white py-3 px-6 rounded-md font-semibold hover:bg-blue-900 transition duration-300">
+          <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6">
             Fale com um Especialista
           </Link>
         </div>

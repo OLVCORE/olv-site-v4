@@ -214,7 +214,7 @@ export default function ExcelttaPage() {
         <div className="bg-blue-50 rounded-lg p-8 text-center">
           <h2 className="text-2xl font-bold mb-4 text-blue-900">Pronto para transformar seus processos?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como a EXCELTTA pode ajudar sua empresa a alcançar excelência operacional no comércio internacional.</p>
-          <Link href="/contato" className="inline-block bg-blue-800 text-white py-3 px-6 rounded-md font-semibold hover:bg-blue-900 transition duration-300 flex items-center justify-center">
+          <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6 flex items-center justify-center">
             <img src="/icons/specialist.svg" alt="Specialist Icon" className="w-5 h-5 mr-2" />
             Fale com um Especialista
           </Link>

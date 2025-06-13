@@ -197,7 +197,7 @@ export default function VenturesPage() {
         <div className="bg-blue-50 rounded-lg p-8 text-center">
           <h2 className="text-2xl font-bold mb-4 text-blue-900">Pronto para impulsionar seu negócio internacional?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como a VENTURES pode ajudar sua empresa a crescer globalmente com capital estratégico e apoio especializado.</p>
-          <Link href="/contato" className="inline-block bg-blue-800 text-white py-3 px-6 rounded-md font-semibold hover:bg-blue-900 transition duration-300">
+          <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6">
             Fale com um Especialista
           </Link>
         </div>
