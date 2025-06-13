@@ -6,7 +6,7 @@
      nas páginas principais (index, ecossistema, etc.).
    - NOVA CLASSE: .ecossistema-cards-grid (para o grid de plataformas).
    - TODO o CSS de cards-notícias (blog) foi "movido" para #blog-cards .cards-grid.
-   - Alterações marcadas com /* === AQUI FOI ALTERADO === */
+   - Alterações marcadas com === AQUI FOI ALTERADO ===
    ======================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
