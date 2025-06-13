@@ -198,7 +198,7 @@ export default function EcossistemaPage() {
           <div className="container">
             <div className="bg-gray-800 dark:bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-2xl md:text-3xl font-bold text-white mb-4">
-                <span className="text-blue-400">🌐</span> Ecossistema OLV Corp: Transformação para PMEs
+                <span className="text-accent">🌐</span> Ecossistema OLV Corp: Transformação para PMEs
               </h2>
               <p className="text-lg text-gray-300 mb-6">
                 Conheça nosso ecossistema integrado de plataformas tecnológicas e soluções estratégicas. Uma arquitetura robusta e interconectada projetada para transformar pequenas e médias empresas em organizações de alto desempenho no mercado global.
@@ -225,19 +225,19 @@ export default function EcossistemaPage() {
               </p>
               <ul className="space-y-2 ml-6 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Cada plataforma do ecossistema foi desenvolvida para atender uma necessidade específica dos negócios, mas funciona de forma integrada com as demais.</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Nossas plataformas proporcionam <strong>acesso a dados, tecnologia, mercados globais, governança e crescimento sustentável</strong> sem a necessidade de grandes investimentos em infraestrutura interna.</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Ao invés de contratar pessoas, você contrata resultados. Ao invés de montar estrutura, você acessa inteligência, experiência e rede estratégica.</span>
@@ -301,14 +301,14 @@ export default function EcossistemaPage() {
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{plataforma.nome}</h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
-                      <strong className="text-blue-600 dark:text-blue-400">💡 O que é:</strong> {plataforma.descricao}
+                      <strong className="text-accent">💡 O que é:</strong> {plataforma.descricao}
                     </p>
                     
                     <h4 className="font-bold text-gray-800 dark:text-white mb-2">🔥 Benefícios:</h4>
                     <ul className="mb-4 space-y-1 text-gray-700 dark:text-gray-300">
                       {plataforma.beneficios.map((beneficio, i) => (
                         <li key={i} className="flex items-start">
-                          <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           <span>{beneficio}</span>
@@ -320,7 +320,7 @@ export default function EcossistemaPage() {
                     <ul className="mb-6 space-y-1 text-gray-700 dark:text-gray-300">
                       {plataforma.integracoes.map((integracao, i) => (
                         <li key={i} className="flex items-start">
-                          <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           <span>{integracao}</span>
@@ -352,19 +352,19 @@ export default function EcossistemaPage() {
               </h2>
               <ul className="space-y-2 ml-6 mb-6 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span><strong>Transforma empresas sem gestão em empresas de alta performance.</strong></span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Oferece <strong>tecnologia de ponta, inteligência aplicada, governança e segurança.</strong></span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Abre as portas para que qualquer PME opere <strong>como uma multinacional.</strong></span>
@@ -374,34 +374,34 @@ export default function EcossistemaPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 dark:text-gray-300">
                 <ul className="space-y-2">
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">📊</span>
+                    <span className="text-accent mr-2">📊</span>
                     <span>Gestão baseada em dados.</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">⚖️</span>
+                    <span className="text-accent mr-2">⚖️</span>
                     <span>Compliance e due diligence.</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">💰</span>
+                    <span className="text-accent mr-2">💰</span>
                     <span>Planejamento financeiro profissional.</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">🌐</span>
+                    <span className="text-accent mr-2">🌐</span>
                     <span>Acesso global a fornecedores, clientes e mercados.</span>
                   </li>
                 </ul>
                 
                 <ul className="space-y-2">
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">🚀</span>
+                    <span className="text-accent mr-2">🚀</span>
                     <span>Desenvolvimento tecnológico e inovação aplicada.</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">🏛️</span>
+                    <span className="text-accent mr-2">🏛️</span>
                     <span>Participação em licitações e expansão do mercado.</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">👥</span>
+                    <span className="text-accent mr-2">👥</span>
                     <span>Formação executiva contínua e desenvolvimento de cultura empresarial.</span>
                   </li>
                 </ul>
@@ -419,23 +419,23 @@ export default function EcossistemaPage() {
               </h2>
               <ul className="space-y-2 ml-6 text-gray-700 dark:text-gray-300">
                 <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">🔗</span>
+                  <span className="text-accent mr-2">🔗</span>
                   <strong>Tudo está conectado.</strong>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">🧠</span>
+                  <span className="text-accent mr-2">🧠</span>
                   <strong>Inteligência aplicada em todos os níveis.</strong>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">💡</span>
+                  <span className="text-accent mr-2">💡</span>
                   <strong>Entrega gestão, não só software.</strong>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">🚀</span>
+                  <span className="text-accent mr-2">🚀</span>
                   <strong>Não vende ferramentas. Entrega transformação.</strong>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">📈</span>
+                  <span className="text-accent mr-2">📈</span>
                   <strong>É o braço direito do empresário moderno.</strong>
                 </li>
               </ul>

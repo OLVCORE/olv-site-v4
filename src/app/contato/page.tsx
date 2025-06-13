@@ -137,7 +137,7 @@ export default function ContatoPage() {
                       />
                     </div>
                     <label htmlFor="termos" className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-                      Concordo com os <Link href="/politica" className="text-blue-600 dark:text-blue-400 hover:underline">termos de privacidade</Link> e com o recebimento de comunicações.
+                      Concordo com os <Link href="/politica" className="text-accent hover:underline">termos de privacidade</Link> e com o recebimento de comunicações.
                     </label>
                   </div>
 

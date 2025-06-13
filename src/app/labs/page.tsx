@@ -18,7 +18,7 @@ export default function LabsPage() {
       platformColor="#0a2463"
     >
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900">Sobre o LABS</h2>
+        <h2 className="text-2xl font-bold mb-4 text-accent">Sobre o LABS</h2>
         <p className="mb-4">
           O LABS é o centro de inovação da OLV Internacional, dedicado a pesquisar, desenvolver e implementar tecnologias emergentes que transformam as operações de comércio exterior.
         </p>
@@ -27,25 +27,25 @@ export default function LabsPage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Pesquisa Aplicada</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Pesquisa Aplicada</h3>
             <p>Investigação contínua de tecnologias emergentes com potencial para revolucionar o comércio internacional.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Desenvolvimento de Soluções</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Desenvolvimento de Soluções</h3>
             <p>Criação de protótipos e produtos inovadores que resolvem desafios específicos do comércio exterior.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Implementação Estratégica</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Implementação Estratégica</h3>
             <p>Integração eficiente de novas tecnologias aos processos existentes para maximizar resultados.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Áreas de Inovação LABS</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Áreas de Inovação LABS</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Blockchain e Contratos Inteligentes</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Blockchain e Contratos Inteligentes</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Rastreabilidade e transparência em cadeias de suprimentos globais</li>
               <li>Contratos inteligentes para automatização de acordos comerciais</li>
@@ -54,7 +54,7 @@ export default function LabsPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Inteligência Artificial e Machine Learning</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Inteligência Artificial e Machine Learning</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Análise preditiva para otimização logística internacional</li>
               <li>Sistemas inteligentes de classificação fiscal e compliance</li>
@@ -63,7 +63,7 @@ export default function LabsPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">IoT e Sistemas Conectados</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">IoT e Sistemas Conectados</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Monitoramento em tempo real de cargas internacionais</li>
               <li>Sensores para controle de qualidade em trânsito global</li>
@@ -72,7 +72,7 @@ export default function LabsPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Transformação Digital do Comércio Exterior</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Transformação Digital do Comércio Exterior</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Plataformas integradas para gestão de operações internacionais</li>
               <li>Digitalização completa de processos aduaneiros e documentais</li>
@@ -84,45 +84,45 @@ export default function LabsPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Benefícios LABS</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Benefícios LABS</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Vantagem Competitiva</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Vantagem Competitiva</h3>
             <p>Acesso antecipado a tecnologias emergentes que transformam operações internacionais antes dos concorrentes.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Eficiência Operacional</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Eficiência Operacional</h3>
             <p>Redução significativa de custos e tempo em processos de comércio exterior através de soluções inovadoras.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Mitigação de Riscos</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Mitigação de Riscos</h3>
             <p>Tecnologias avançadas que minimizam erros, fraudes e vulnerabilidades em operações internacionais.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Novas Oportunidades</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Novas Oportunidades</h3>
             <p>Identificação e exploração de modelos de negócios inovadores no contexto do comércio global.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Sustentabilidade</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Sustentabilidade</h3>
             <p>Soluções tecnológicas que promovem práticas sustentáveis em cadeias de suprimentos globais.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Colaboração Global</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Colaboração Global</h3>
             <p>Acesso a um ecossistema de parceiros internacionais para desenvolvimento conjunto de soluções.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Projetos Inovadores</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Projetos Inovadores</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">TradeChain</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">TradeChain</h3>
             <p className="mb-4">Plataforma baseada em blockchain que oferece rastreabilidade completa e verificação de autenticidade para produtos em toda a cadeia logística internacional. Reduz fraudes em documentação, aumenta a confiança entre parceiros comerciais e simplifica auditorias de compliance.</p>
             <p className="italic text-gray-600">Status: Piloto em operação com exportadores de produtos de alto valor agregado</p>
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">AI Customs Navigator</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">AI Customs Navigator</h3>
             <p className="mb-4">Sistema de inteligência artificial que utiliza machine learning para otimizar a classificação fiscal de mercadorias, prever requisitos regulatórios e identificar oportunidades de economia em tributos. Reduz erros em classificação e acelera processos de despacho aduaneiro.</p>
             <p className="italic text-gray-600">Status: Em fase de implementação com empresas importadoras</p>
           </div>
@@ -130,7 +130,7 @@ export default function LabsPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Depoimentos</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Depoimentos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
             <p className="italic mb-4">"A plataforma de blockchain desenvolvida pelo LABS reduziu nosso tempo de liberação aduaneira em 60% e praticamente eliminou as inconsistências documentais. A visibilidade que temos agora de toda a cadeia é um diferencial competitivo significativo."</p>
@@ -146,7 +146,7 @@ export default function LabsPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">FAQ - Perguntas Frequentes</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">FAQ - Perguntas Frequentes</h2>
         <div className="space-y-4">
           <div className="border border-gray-200 rounded-lg">
             <div className="p-4 bg-gray-50 font-semibold">
@@ -185,7 +185,7 @@ export default function LabsPage() {
 
       <section>
         <div className="bg-blue-50 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4 text-blue-900">Pronto para transformar suas operações internacionais com tecnologias inovadoras?</h2>
+          <h2 className="text-2xl font-bold mb-4 text-accent">Pronto para transformar suas operações internacionais com tecnologias inovadoras?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como o LABS pode ajudar sua empresa a implementar soluções tecnológicas de ponta para o comércio internacional.</p>
           <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6">
             Fale com um Especialista

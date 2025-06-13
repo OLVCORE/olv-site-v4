@@ -143,7 +143,7 @@ export default function BlogPage() {
                             </span>
                           </div>
                           <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                            <Link href={`/blog/${post.slug}`} className="hover:text-blue-600 dark:hover:text-blue-400">
+                            <Link href={`/blog/${post.slug}`} className="hover:text-accent">
                               {post.title}
                             </Link>
                           </h3>
@@ -156,7 +156,7 @@ export default function BlogPage() {
                             </span>
                             <Link 
                               href={`/blog/${post.slug}`}
-                              className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                              className="text-accent font-medium hover:underline"
                             >
                               Ler mais →
                             </Link>
@@ -196,7 +196,7 @@ export default function BlogPage() {
                     <li key={index}>
                       <Link 
                         href={`/blog/categoria/${category.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="flex items-center justify-between text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                        className="flex items-center justify-between text-gray-700 dark:text-gray-300 hover:text-accent"
                       >
                         <span>{category}</span>
                         <span className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-0.5 rounded-full">
@@ -223,7 +223,7 @@ export default function BlogPage() {
                         <h4 className="text-sm font-medium text-gray-900 dark:text-white">
                           <Link 
                             href={`/blog/${post.slug}`}
-                            className="hover:text-blue-600 dark:hover:text-blue-400"
+                            className="hover:text-accent"
                           >
                             {post.title}
                           </Link>
