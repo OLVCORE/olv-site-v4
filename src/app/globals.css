@@ -16,6 +16,8 @@
   --color-background: #0d1117;     /* fundo principal */
   --color-surface: #11161e;        /* cards / containers */
   --color-on-surface: #d1d5db;     /* texto padrão */
+  --color-surface-light: #1a1f29; /* para cards escuros */
+  --color-accent-light: #c4a96b;  /* dourado suave no dark */
 }
 
 @media (prefers-color-scheme: light) {
@@ -29,6 +31,8 @@
     --color-background: #ffffff;
     --color-surface: #f8fafc;
     --color-on-surface: #1f2937;
+    --color-surface-light: #f1f5f9;
+    --color-accent-light: #f9eecd;
   }
 }
 

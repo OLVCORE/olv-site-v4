@@ -92,7 +92,7 @@ export default function BlogPage() {
           <div className="container">
             <div className="bg-gray-800 dark:bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-2xl md:text-3xl font-bold text-white mb-4">
-                <span className="text-blue-400">📚</span> Blog OLV Internacional
+                <span className="text-accent">📚</span> Blog OLV Internacional
               </h2>
               <p className="text-lg text-gray-300 mb-6">
                 Conteúdo especializado sobre comércio exterior, operações internacionais, estratégia e soluções para PMEs no mercado global.
@@ -135,7 +135,7 @@ export default function BlogPage() {
                         </div>
                         <div className="p-6 md:w-2/3">
                           <div className="flex flex-wrap gap-2 mb-3">
-                            <span className="text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2.5 py-0.5 rounded">
+                            <span className="text-xs font-medium bg-accent-light text-accent px-2.5 py-0.5 rounded">
                               {post.category}
                             </span>
                             <span className="text-xs text-gray-500 dark:text-gray-400">
@@ -143,7 +143,7 @@ export default function BlogPage() {
                             </span>
                           </div>
                           <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                            <Link href={`/blog/${post.slug}`} className="hover:text-accent">
+                            <Link href={`/blog/${post.slug}`} className="hover:text-accent dark:hover:text-accent">
                               {post.title}
                             </Link>
                           </h3>
@@ -242,7 +242,7 @@ export default function BlogPage() {
                 <h3 className="text-lg font-bold mb-2">
                   Inscreva-se na nossa Newsletter
                 </h3>
-                <p className="mb-4 text-blue-100">
+                <p className="mb-4 text-on-primary/80">
                   Receba conteúdo exclusivo sobre comércio exterior e negócios internacionais.
                 </p>
                 <form className="space-y-3">
@@ -253,7 +253,7 @@ export default function BlogPage() {
                   />
                   <button 
                     type="submit"
-                    className="btn btn-primary font-bold py-3 px-6"
+                    className="w-full px-4 py-2 btn btn-primary font-bold"
                   >
                     Inscrever-se
                   </button>

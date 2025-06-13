@@ -42,6 +42,8 @@ const config: Config = {
         background: "var(--color-background)",
         surface: "var(--color-surface)",
         "on-surface": "var(--color-on-surface)",
+        "surface-light": "var(--color-surface-light)",
+        "accent-light": "var(--color-accent-light)",
       },
       animation: {
         ticker: "ticker 30s linear infinite",
