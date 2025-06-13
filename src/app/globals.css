@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
+
+/* --------------------------------------------------
+   Design Tokens – V2 (system colours)
+   -------------------------------------------------- */
+
+:root {
+  /* DARK THEME (default) */
+  --color-primary: #0a58ca;        /* botões / links de ação */
+  --color-on-primary: #ffffff;
+
+  --color-accent: #e0c178;         /* detalhes dourados */
+
+  --color-background: #0d1117;     /* fundo principal */
+  --color-surface: #11161e;        /* cards / containers */
+  --color-on-surface: #d1d5db;     /* texto padrão */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* LIGHT THEME */
+    --color-primary: #0a58ca;
+    --color-on-primary: #ffffff;
+
+    --color-accent: #c79a30;
+
+    --color-background: #ffffff;
+    --color-surface: #f8fafc;
+    --color-on-surface: #1f2937;
+  }
+} 

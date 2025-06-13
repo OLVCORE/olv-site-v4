@@ -35,6 +35,13 @@ const config: Config = {
           secondary: "var(--bg-light-secondary)",
           tertiary: "var(--bg-light-tertiary)",
         },
+        /* Design tokens v2 (mapped a partir de CSS vars) */
+        primary: "var(--color-primary)",
+        "on-primary": "var(--color-on-primary)",
+        accent: "var(--color-accent)",
+        background: "var(--color-background)",
+        surface: "var(--color-surface)",
+        "on-surface": "var(--color-on-surface)",
       },
       animation: {
         ticker: "ticker 30s linear infinite",
