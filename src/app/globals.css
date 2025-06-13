@@ -37,5 +37,5 @@
   @apply inline-flex items-center justify-center font-medium rounded-md transition-colors;
 }
 .btn-primary {
-  @apply btn bg-primary text-on-primary hover:bg-primary/90;
+  @apply btn bg-primary text-on-primary hover:opacity-90;
 } 
