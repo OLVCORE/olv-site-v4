@@ -8,8 +8,43 @@ const inter = Inter({ subsets: ["latin"] });
 const keywordsList = "Consultoria em exportação, Consultoria em importação, Exportação de produtos, Logística internacional, 3PL, 4PL, Como Exportar Legalmente?, Especialistas em Comex, Abra sua Importadora!, Importação Sem Burocracia, Suporte Total no Comex, Comex para Empresas PME, Planeje sua Exportação, Importar com Segurança, Exportação para Iniciantes, Documentação de Comex, Treinamento em Comércio, Desembaraço Aduaneiro Rápido, Planejamento Tributário Comex, Passo a Passo da Exportação, Exportar Alimentos do Brasil, Importar com Redução Fiscal, Consultoria para Radar SISCOMEX, Regularize sua Empresa Comex, Exportar com Baixo Custo, Importação para Revenda, Exportação Café e Soja, Logística 3PL para Exportação, Montamos sua Operação Comex, Suporte do Radar ao Embarque, Exportação Sem Erros, Reduza Custos de Importação, Exportação Legalizada e Fácil, Exportar com Lucro Real, Reduza erros e custos com nossa consultoria completa em importação e exportação, Ajudamos sua empresa a operar legalmente e com mais eficiência no comércio exterior, Suporte completo: Radar, tributos, logística e operação, Fale com nossos especialistas!, Comex sem mistérios, Tenha acompanhamento em todas as etapas da importação";
 
 export const metadata = {
-  title: "OLV Internacional - Consultoria em Comércio Exterior",
-  description: "Especialistas em comércio exterior, importação, exportação e logística internacional. Soluções completas e personalizadas para PMEs que buscam expandir seus negócios globalmente com segurança e eficiência.",
+  metadataBase: new URL('https://www.olv-internacional.com'),
+  title: {
+    default: 'OLV Internacional – Integramos Estratégia, Operação e Resultado',
+    template: '%s | OLV Internacional'
+  },
+  description: 'Consultoria premium em Supply Chain, Comércio Exterior, Logística Internacional e Desenvolvimento de Negócios. Integramos estratégia, operação e resultados para empresas que desejam expandir globalmente.',
+  openGraph: {
+    title: 'OLV Internacional – Integramos Estratégia, Operação e Resultado',
+    description: 'Consultoria premium em Supply Chain, Comércio Exterior, Logística Internacional e Desenvolvimento de Negócios.',
+    url: 'https://www.olv-internacional.com',
+    siteName: 'OLV Internacional',
+    locale: 'pt_BR',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.olv-internacional.com/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'OLV Internacional'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'OLV Internacional',
+    description: 'Consultoria premium em Supply Chain, Comércio Exterior, Logística Internacional e Desenvolvimento de Negócios.',
+    images: ['https://www.olv-internacional.com/og-image.jpg']
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large'
+    }
+  },
   keywords: keywordsList
 };
 
@@ -38,7 +73,7 @@ export default function RootLayout({
         <meta name="geo.placename" content="São Paulo" />
 
         {/* Open Graph para compartilhamento em redes sociais */}
-        <meta property="og:title" content={metadata.title} />
+        <meta property="og:title" content={metadata.title.default} />
         <meta property="og:description" content={metadata.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://olvinternacional.com.br" />
@@ -47,7 +82,7 @@ export default function RootLayout({
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={metadata.title} />
+        <meta name="twitter:title" content={metadata.title.default} />
         <meta name="twitter:description" content={metadata.description} />
         <meta name="twitter:image" content="https://olvinternacional.com.br/images/olv-logo.jpeg" />
 

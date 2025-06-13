@@ -86,14 +86,7 @@ body {
 
 /* ==== Desktop refinements 2025-06-12 ==== */
 @media (min-width: 769px) {
-  .sidebar {
-    top: calc(var(--height-header) + 45px); /* header 120 + ticker 45 */
-  }
-  /* oculta texto duplicado */
-  .sidebar-text,
-  .sidebar-header-mobile {
-    display: none !important;
-  }
+  /* altura fixada diretamente no header-wrapper */
 }
 
 @media (min-width: 1024px) {
@@ -320,8 +313,8 @@ body.theme-light .sidebar-icon {
 }
 
 .header-logo-circle {
-  width: 100px;
-  height: 100px;
+  width: 80px !important;
+  height: 80px !important;
   border-radius: 50%;
   border: 1px solid var(--accent);
   overflow: hidden;
@@ -405,7 +398,7 @@ body.theme-light .sidebar-icon {
    ------------------------------------------------------------------------ */
 .ticker {
   position: fixed;
-  top: var(--height-header);      /* exatamente abaixo do header (120px) */
+  top: var(--height-header) !important;
   left: var(--sidebar-collapsed-width);
   right: 0;
   height: 45px;                    /* altura do ticker */
@@ -857,6 +850,8 @@ body.theme-light .menu-toggle img {
   margin-top: calc(var(--height-header) + 45px);
   background-color: var(--bg);
   transition: margin-left 0.3s ease;
+  padding-top: 24px !important;
+  padding-bottom: calc(var(--footer-height, 220px) + 80px) !important;
 }
 
 .sidebar:hover ~ .main-content {
@@ -1127,27 +1122,24 @@ body.theme-light .moon-icon {
 /*===========================================
   FOOTER – implementação de "footer reveal"
 ===========================================*/
-.footer {
+.footer-reveal {
   background-color: var(--bg-secondary);
-  /* === AQUI FOI ALTERADO === 
-     Reduzimos o padding vertical para que o footer tenha, no máximo, 
-     altura suficiente para caber ícones e texto (aprox. 2cm) */
   padding: 0.5rem 0;
   text-align: center;
   border-top: 1px solid var(--accent);
-  position: fixed;           /* rodapé fixo */
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  transform: translateY(100%); /* oculto por padrão (abaixo da tela) */
-  transition: transform 0.3s ease;
-  /* === AQUI FOI ALTERADO === 
-     Ajustamos z-index para que o footer fique abaixo dos floating-buttons (2100) */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   z-index: 1900;
 }
 
-.footer.reveal {
-  transform: translateY(0);  /* revela o rodapé ao chegar ao final da página */
+.footer-reveal.reveal {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .footer-container {
@@ -1695,6 +1687,11 @@ body.theme-light .moon-icon {
     border-color: var(--accent) !important;
   }
 
+  .nav-item.active {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.4);
+  }
+
   /* Ajustes de conteúdo */
   .main-content {
     margin-left: 0 !important;
@@ -1898,38 +1895,182 @@ body.theme-dark .sidebar-item.active .sidebar-icon {
   100% { box-shadow: 0 0 6px rgba(212, 175, 55, 0.2); }
 }
 
-/* =============================
-   HOTFIX 2025-06-12 – Sidebar & Header (mobile) + Tooltip
-   ============================= */
-@media (max-width: 768px) {
-  /* Evita lista textual duplicada sob o cabeçalho */
-  .nav-menu {
+/* === Ajuste Sidebar visibilidade texto (reversão) + espaçamento hero === */
+@media (min-width: 769px) {
+  /* Sidebar collapsed: texto escondido; exibe ao hover do painel */
+  .sidebar-text {
+    opacity: 0 !important;
+    color: #ffffff !important;
+  }
+  .sidebar:hover .sidebar-text {
+    opacity: 1 !important;
+  }
+  /* Hover/ativo → letras douradas */
+  .sidebar-item:hover .sidebar-text,
+  .sidebar-item.active .sidebar-text {
+    color: var(--accent) !important;
+  }
+
+  /* Espaço de 12px entre ticker e conteúdo principal */
+  .main-content {
+    padding-top: 12px !important;
+  }
+}
+
+/* =============================================================
+   HOTFIX 2025-06-14 – Desktop header/spacing final ajuste (clean)
+   ============================================================= */
+@media (min-width: 769px) {
+  /* Header with vertical breathing room (12px top & bottom) */
+  .header-wrapper {
+    height: 104px !important;
+  }
+
+  /* Ticker starts immediately after header */
+  .ticker {
+    top: 104px !important;
+  }
+
+  /* Sidebar begins after header + ticker */
+  .sidebar {
+    top: calc(104px + 45px) !important;
+  }
+
+  /* Hide mobile-only toggles on desktop */
+  .mobile-sidebar-toggle,
+  .quick-links-toggle,
+  .quick-links-panel,
+  .quick-links-overlay {
     display: none !important;
   }
-  .nav-menu.show {
-    display: flex !important;
-  }
 
-  /* Header sobe para o topo quando o sidebar usa apenas a barra de ícones */
-  .header-wrapper {
-    top: 0 !important;
-  }
-  .main-content {
-    margin-top: 80px !important; /* altura do header */
+  /* Elegant hover on sidebar items (text/icone only) */
+  .sidebar-item:hover {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: #ffffff !important;
   }
 }
 
-/* Ajuste: garante nomes completos na sidebar */
-.sidebar-text {
-  white-space: nowrap;
+/* =============================================================
+   HOTFIX 2025-06-15 – Final refinements (sidebar hidden text, hero spacing, factor humano)
+   ============================================================= */
+@media (min-width: 769px) {
+  /* Reafirma texto do sidebar oculto até hover */
+  .sidebar-text {
+    display: inline !important;
+    opacity: 0 !important;
+    color: #ffffff !important;
+    transition: opacity 0.2s ease;
+  }
+  .sidebar:hover .sidebar-text {
+    opacity: 1 !important;
+  }
+
+  /* Hero section: 12px gap abaixo do ticker */
+  .section.hero {
+    margin-top: 12px !important;
+  }
+
+  /* Fator Humano – separação do bloco anterior */
+  .section-humano {
+    margin-top: 24px !important;
+  }
+
+  /* Uniformiza heading das seções */
+  .section-heading h2,
+  h2.section-title {
+    font-family: inherit;
+    font-weight: 700;
+  }
+
+  /* Desloca logo + slogan e aumenta ligeiramente o logo */
+  .header-brand {
+    transform: translateX(-30px) !important;
+  }
+
+  .header-logo-circle {
+    width: 88px !important;
+    height: 88px !important;
+  }
 }
 
-/* Correção do header/ticker mobile: volta offset original */
-@media (max-width: 768px) {
-  .header-wrapper {
-    top: var(--sidebar-mobile-height) !important;
-  }
+/* =============================================================
+   HOTFIX 2025-06-16 – Substitui padding-top para evitar colar hero ao ticker
+   ============================================================= */
+@media (min-width: 769px) {
+  /* Substitui padding-top para evitar colar hero ao ticker */
   .main-content {
-    margin-top: calc(var(--sidebar-mobile-height) + 80px) !important;
+    padding-top: 24px !important;
+  }
+
+  /* Oculta texto "Plataformas" no botão mobile quando em desktop */
+  .mobile-sidebar-toggle span {
+    display: none !important;
+  }
+}
+
+/* =============================================================
+   HOTFIX 2025-06-17 – Garante visual do tooltip do sidebar acima de todos
+   ============================================================= */
+@media (min-width: 769px) {
+  /* Garante visual do tooltip do sidebar acima de todos */
+  .sidebar-tooltip {
+    z-index: 3000 !important;
+    pointer-events: none;
+  }
+}
+
+/* Discreto para palavra Plataformas (botão mobile) */
+.mobile-sidebar-toggle span {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* =============================================================
+   HOTFIX 2025-06-18 – Micro-ajustes finais
+   ============================================================= */
+@media (min-width: 769px) {
+  /* Logo deslocado 30px */
+  .header-inner {
+    padding-left: 30px !important;
+  }
+
+  /* Esconde cabeçalho mobile "Plataformas" no desktop */
+  .sidebar-header-mobile {
+    display: none !important;
+  }
+}
+
+/* Menu hover estados visíveis em ambos os temas */
+.nav-menu .nav-item:hover {
+  color: #e9eef5 !important; /* azul-claro em dark */
+}
+body.theme-light .nav-menu .nav-item {
+  color: #1a1a1a; /* texto escuro no tema claro */
+}
+body.theme-light .nav-menu .nav-item:hover {
+  color: #0a58ca !important; /* azul visível em light */
+}
+
+/* Paleta discreta para palavra Plataformas no toggle */
+.mobile-sidebar-toggle span {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* Section heading alinhamento à esquerda quando wrapper possui .justify-start */
+.section-heading.justify-start {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+@media (min-width: 769px) {
+  .mobile-sidebar-toggle span {
+    display: none !important;
+  }
+
+  .header-brand {
+    margin-left: -30px !important;
   }
 }

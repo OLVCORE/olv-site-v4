@@ -64,6 +64,19 @@ const MainLayout: React.FC<MainLayoutProps> = ({
     };
   }, []);
 
+  useEffect(() => {
+    const updateFooterHeight = () => {
+      const footerEl = document.querySelector<HTMLElement>('footer.footer-reveal');
+      if (footerEl) {
+        document.documentElement.style.setProperty('--footer-height', `${footerEl.offsetHeight}px`);
+      }
+    };
+
+    updateFooterHeight();
+    window.addEventListener('resize', updateFooterHeight);
+    return () => window.removeEventListener('resize', updateFooterHeight);
+  }, [showFooter]);
+
   // Toggle theme function
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -104,7 +117,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         {showFooter && <Footer />}
         
         {/* Fixed buttons */}
-        <WhatsAppButton phoneNumber="5511999999999" message="Olá! Vim do site da OLV Internacional e gostaria de saber mais sobre os serviços." />
+        <WhatsAppButton phoneNumber="551126751446" message="Olá! Vim do site da OLV Internacional e gostaria de saber mais sobre os serviços." />
       </div>
     </div>
   );

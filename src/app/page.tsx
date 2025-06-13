@@ -34,11 +34,10 @@ export default function HomePage() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <section className="section hero pt-0 pb-0 mb-0">
+      <section className="section hero pt-0 pb-0 mb-0 mt-12">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center gap-4 mb-2 bg-[#141c2f] p-5 rounded-lg border border-[#2a3448] shadow-lg">
             <div className="flex-1">
-              <h2 className="text-3xl font-bold mb-2 text-white">Integramos Estratégia, Operação e Resultado</h2>
               <p className="mb-2 text-gray-300">
                 <span className="text-[#d4af37] font-semibold">35 anos</span> integrando estratégia, operações e resultados. Somos especialistas em Supply Chain, Comércio Exterior, Logística Internacional e Desenvolvimento de Negócios.
               </p>
@@ -60,8 +59,8 @@ export default function HomePage() {
                 <Image 
                   src="/images/olv-internacional-banner.webp" 
                   alt="OLV Internacional – Banner Hero" 
-                  width={400} 
-                  height={400} 
+                  width={460} 
+                  height={460} 
                   className="rounded-lg" 
                   priority
                 />
@@ -93,11 +92,11 @@ export default function HomePage() {
       {/* Nossas Soluções Estratégicas */}
       <section className="section py-0 mb-0" id="servicos">
         <div className="container">
-          <div className="section-heading mb-2">
-            <div className="w-14 h-14 mx-auto mb-1 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
+          <div className="section-heading mb-2 flex items-center gap-3">
+            <div className="w-14 h-14 mb-1 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
               <Image src="/icons/solutions-icon.svg" alt="Ícone de Soluções" width={28} height={28} className="text-[#d4af37]" />
             </div>
-            <h2 className="text-2xl font-bold text-center mb-2">Nossas Soluções Estratégicas</h2>
+            <h2 className="text-2xl font-bold mb-2">Nossas Soluções Estratégicas</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {/* Card 1 - Consultoria Estratégica em Comex */}
@@ -254,20 +253,20 @@ export default function HomePage() {
       </section>
 
       {/* O Fator Humano na Nossa Atuação */}
-      <section className="section py-0 mb-0">
+      <section id="fator-humano" className="section section-humano pt-6 pb-0 mb-0">
         <div className="container">
           <div className="bg-[#141c2f] rounded-lg border border-[#2a3448] overflow-hidden shadow-xl">
             <div className="p-6">
-              <div className="section-heading mb-3">
-                <h2 className="text-2xl font-bold text-white text-center mb-2">O Fator Humano</h2>
-                <p className="text-gray-300 text-center max-w-3xl mx-auto">
+              <div className="text-center mb-6">
+                <h2 className="text-3xl font-extrabold text-white mb-2">O Fator Humano</h2>
+                <p className="text-gray-300 text-base text-center max-w-3xl mx-auto">
                   Nossa abordagem é fundamentada na combinação de expertise técnica com inteligência emocional. 
                   Acreditamos que por trás de cada operação há pessoas, e compreender suas necessidades 
                   é essencial para entregar resultados excepcionais.
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 <div className="bg-[#0a0f1d] p-4 rounded-lg border border-[#2a3448] hover:border-[#d4af37] transition-colors duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-10 h-10 rounded-full bg-[#141c2f] border border-[#d4af37] flex items-center justify-center mr-3">

@@ -16,10 +16,10 @@ const Footer: React.FC = () => {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       
-      // Show footer when near the end of the page (300px from bottom)
       if (position + windowHeight > documentHeight - 300) {
         setShowFooter(true);
-      } else {
+      }
+      else {
         setShowFooter(false);
       }
     };
@@ -281,9 +281,6 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-700 pt-6 mt-4">
           <div className="flex flex-col space-y-2">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-xs text-gray-400 text-center md:text-left">
-                <span className="text-white font-semibold">OLV INTERNACIONAL</span> - <span className="text-white font-semibold">OLV CORE DIGITAL</span>
-              </p>
               <div className="flex gap-4">
                 <Link href="/politica" className="text-xs text-gray-400 hover:text-white transition-colors">
                   Política de Privacidade
