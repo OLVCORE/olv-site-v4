@@ -17,7 +17,7 @@ export default function Radar360Page() {
           <div className="container">
             <div className="bg-gray-800 dark:bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-2xl md:text-3xl font-bold text-white mb-4">
-                <span className="text-blue-400">🚀</span> OLV Radar 360 – Central de Inteligência & Dados
+                <span className="text-accent">🚀</span> OLV Radar 360 – Central de Inteligência & Dados
               </h2>
               <p className="text-lg text-gray-300 mb-6">
                 Bem-vindo ao Radar 360, nossa central de inteligência e dados para negócios internacionais. 
@@ -41,7 +41,7 @@ export default function Radar360Page() {
           <section className="section" id="cotacoes">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                <span className="text-blue-600 dark:text-blue-400">💱</span> Cotações em Tempo Real
+                <span className="text-accent">💱</span> Cotações em Tempo Real
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
@@ -66,7 +66,7 @@ export default function Radar360Page() {
                     href="https://www.xe.com/currencyconverter/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                    className="text-accent hover:underline"
                   >
                     Acessar Conversor
                   </a>
@@ -79,7 +79,7 @@ export default function Radar360Page() {
           <section className="section" id="simuladores">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                <span className="text-blue-600 dark:text-blue-400">🧮</span> Simuladores e Calculadoras
+                <span className="text-accent">🧮</span> Simuladores e Calculadoras
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
@@ -103,7 +103,7 @@ export default function Radar360Page() {
                     href="https://www.oanda.com/currency/converter/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                    className="text-accent hover:underline"
                   >
                     Acessar Simulador
                   </a>
@@ -123,7 +123,7 @@ export default function Radar360Page() {
           <section className="section" id="monitoramento">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                <span className="text-blue-600 dark:text-blue-400">🚚</span> Monitoramento Logístico & Freight Rates (Em breve)
+                <span className="text-accent">🚚</span> Monitoramento Logístico & Freight Rates (Em breve)
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
@@ -144,7 +144,7 @@ export default function Radar360Page() {
           <section className="section" id="dashboard">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                <span className="text-blue-600 dark:text-blue-400">📊</span> Dashboard Econômico & Logístico (Fase 2)
+                <span className="text-accent">📊</span> Dashboard Econômico & Logístico (Fase 2)
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
@@ -165,7 +165,7 @@ export default function Radar360Page() {
           <section className="section" id="compliance">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                <span className="text-blue-600 dark:text-blue-400">📋</span> Legislação, Compliance & Recursos Oficiais
+                <span className="text-accent">📋</span> Legislação, Compliance & Recursos Oficiais
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <a 
@@ -239,7 +239,7 @@ export default function Radar360Page() {
           <section className="section" id="noticias">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                <span className="text-blue-600 dark:text-blue-400">📰</span> Notícias & Insights
+                <span className="text-accent">📰</span> Notícias & Insights
               </h2>
               <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
                 <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Feed de Notícias do Mercado Global</h3>
