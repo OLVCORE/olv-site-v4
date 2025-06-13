@@ -43,22 +43,22 @@ const Footer: React.FC = () => {
               Há mais de 35 anos integrando estratégia, operação e resultado para empresas que querem operar globalmente com segurança e alta performance.
             </p>
             <div className="social-icons flex gap-4 mt-4">
-              <a href="https://www.instagram.com/olvinternacional/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="https://www.instagram.com/olvinternacional/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/instagram-original.svg" alt="Instagram" width={20} height={20} />
               </a>
-              <a href="https://www.linkedin.com/company/26251289/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="https://www.linkedin.com/company/26251289/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/linkedin-original.svg" alt="LinkedIn" width={20} height={20} />
               </a>
-              <a href="https://www.facebook.com/olvinternacional/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="https://www.facebook.com/olvinternacional/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/facebook-original.svg" alt="Facebook" width={20} height={20} />
               </a>
-              <a href="https://twitter.com/olvinternacional" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="https://twitter.com/olvinternacional" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/twitter-original.svg" alt="X" width={20} height={20} />
               </a>
-              <a href="https://www.youtube.com/@olvinternacional" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="https://www.youtube.com/@olvinternacional" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/youtube-original.svg" alt="YouTube" width={20} height={20} />
               </a>
-              <a href="mailto:atendimento@olvinternacional.com.br" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="mailto:atendimento@olvinternacional.com.br" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/email-original.svg" alt="E-mail" width={20} height={20} />
               </a>
             </div>
