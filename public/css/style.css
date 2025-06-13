@@ -9,6 +9,8 @@
    - Alterações marcadas com /* === AQUI FOI ALTERADO === */
    ======================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
 /*--------------------------------------------------------------------------- 
   RESET & TIPOGRAFIA (sem alterações nos tamanhos de fonte) 
 ---------------------------------------------------------------------------*/
@@ -2073,4 +2075,15 @@ body.theme-light .nav-menu .nav-item:hover {
   .header-brand {
     margin-left: -30px !important;
   }
+}
+
+/* ---------- Ajuste de logo para telas pequenas ---------- */
+.header-logo-circle {
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.header-logo-img {
+  object-fit: contain;
+  transform: none;
 }
