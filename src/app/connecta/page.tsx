@@ -18,7 +18,7 @@ export default function ConnectaPage() {
       platformColor="#0a2463"
     >
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900">Sobre a CONNECTA</h2>
+        <h2 className="text-2xl font-bold mb-4 text-accent">Sobre a CONNECTA</h2>
         <p className="mb-4">
           A CONNECTA é a plataforma de networking da OLV Internacional, criada para conectar empresas brasileiras a parceiros estratégicos globais e abrir portas para novas oportunidades de negócios internacionais.
         </p>
@@ -27,25 +27,25 @@ export default function ConnectaPage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Networking Estratégico</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Networking Estratégico</h3>
             <p>Conexões qualificadas com potenciais parceiros, distribuidores e clientes em mercados-alvo.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Matchmaking Empresarial</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Matchmaking Empresarial</h3>
             <p>Identificação e conexão com parceiros que compartilham objetivos e complementam seu modelo de negócio.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Oportunidades Globais</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Oportunidades Globais</h3>
             <p>Acesso a oportunidades de negócios internacionais exclusivas em nossa rede de parceiros.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Serviços CONNECTA</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Serviços CONNECTA</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Identificação de Parceiros</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Identificação de Parceiros</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Mapeamento de potenciais parceiros em mercados-alvo</li>
               <li>Verificação de credibilidade e compatibilidade</li>
@@ -54,7 +54,7 @@ export default function ConnectaPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Eventos de Networking</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Eventos de Networking</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Rodadas de negócios internacionais</li>
               <li>Encontros virtuais com potenciais parceiros</li>
@@ -63,7 +63,7 @@ export default function ConnectaPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Desenvolvimento de Parcerias</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Desenvolvimento de Parcerias</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Facilitação de negociações iniciais</li>
               <li>Suporte na elaboração de acordos</li>
@@ -72,7 +72,7 @@ export default function ConnectaPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Plataforma Digital</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Plataforma Digital</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Perfil empresarial internacional</li>
               <li>Sistema de matchmaking automatizado</li>
@@ -84,37 +84,37 @@ export default function ConnectaPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Benefícios CONNECTA</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Benefícios CONNECTA</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Acesso a Novos Mercados</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Acesso a Novos Mercados</h3>
             <p>Entrada facilitada em mercados internacionais através de parceiros locais já estabelecidos.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Redução de Riscos</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Redução de Riscos</h3>
             <p>Parceiros pré-qualificados e verificados para minimizar riscos em operações internacionais.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Aceleração do Crescimento</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Aceleração do Crescimento</h3>
             <p>Desenvolvimento de negócios mais rápido através de parceiros estratégicos com recursos complementares.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Economia de Recursos</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Economia de Recursos</h3>
             <p>Menor investimento em prospecção internacional e pesquisa de parceiros potenciais.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Suporte Especializado</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Suporte Especializado</h3>
             <p>Acompanhamento por especialistas em negócios internacionais durante todo o processo de parceria.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Oportunidades Exclusivas</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Oportunidades Exclusivas</h3>
             <p>Acesso a oportunidades de negócios não disponíveis publicamente em nosso network global.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Depoimentos</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Depoimentos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
             <p className="italic mb-4">"A CONNECTA nos ajudou a encontrar o distribuidor perfeito para nossos produtos na Europa. Em apenas três meses, já estávamos exportando regularmente para cinco países que antes pareciam inacessíveis."</p>
@@ -130,7 +130,7 @@ export default function ConnectaPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">FAQ - Perguntas Frequentes</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">FAQ - Perguntas Frequentes</h2>
         <div className="space-y-4">
           <div className="border border-gray-200 rounded-lg">
             <div className="p-4 bg-gray-50 font-semibold">
@@ -169,7 +169,7 @@ export default function ConnectaPage() {
 
       <section>
         <div className="bg-blue-50 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4 text-blue-900">Pronto para expandir seu network global?</h2>
+          <h2 className="text-2xl font-bold mb-4 text-accent">Pronto para expandir seu network global?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como a CONNECTA pode ajudar sua empresa a encontrar os parceiros ideais para crescer internacionalmente.</p>
           <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6">
             Fale com um Especialista

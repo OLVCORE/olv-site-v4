@@ -212,8 +212,8 @@ export default function StratevoPage() {
 
       <section>
         <div className="bg-blue-50 rounded-lg p-8 text-center dark:bg-blue-900 dark:bg-opacity-20">
-          <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-blue-100">Pronto para tomar decisões estratégicas baseadas em dados?</h2>
-          <p className="mb-6 max-w-3xl mx-auto dark:text-blue-200">Entre em contato com nossos especialistas e descubra como a STRATEVO pode ajudar sua empresa a conquistar novos mercados com mais segurança e eficiência.</p>
+          <h2 className="text-2xl font-bold mb-4 text-accent">Pronto para tomar decisões estratégicas baseadas em dados?</h2>
+          <p className="mb-6 max-w-3xl mx-auto dark:text-accent">Entre em contato com nossos especialistas e descubra como a STRATEVO pode ajudar sua empresa a conquistar novos mercados com mais segurança e eficiência.</p>
           <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6 flex items-center justify-center">
             <img src="/icons/specialist.svg" alt="Specialist Icon" className="w-5 h-5 mr-2" />
             Fale com um Especialista

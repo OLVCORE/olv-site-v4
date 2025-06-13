@@ -18,7 +18,7 @@ export default function VenturesPage() {
       platformColor="#0a2463"
     >
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900">Sobre a VENTURES</h2>
+        <h2 className="text-2xl font-bold mb-4 text-accent">Sobre a VENTURES</h2>
         <p className="mb-4">
           A VENTURES é a plataforma de investimentos da OLV Internacional, dedicada a conectar empresas inovadoras do ecossistema de comércio exterior com capital estratégico para acelerar seu crescimento e expansão global.
         </p>
@@ -27,25 +27,25 @@ export default function VenturesPage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Capital Estratégico</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Capital Estratégico</h3>
             <p>Investimentos direcionados em empresas com potencial de transformar o comércio internacional.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Aceleração de Negócios</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Aceleração de Negócios</h3>
             <p>Programa intensivo de desenvolvimento para potencializar empresas com soluções inovadoras para o mercado global.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Conexões Globais</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Conexões Globais</h3>
             <p>Acesso a uma rede internacional de parceiros, clientes e investidores para impulsionar a expansão.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Áreas de Investimento VENTURES</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Áreas de Investimento VENTURES</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Tecnologia para Comércio Internacional</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Tecnologia para Comércio Internacional</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Plataformas de comércio digital B2B</li>
               <li>Soluções de automação para processos de exportação e importação</li>
@@ -54,7 +54,7 @@ export default function VenturesPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Logística e Supply Chain</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Logística e Supply Chain</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Soluções inovadoras para logística internacional</li>
               <li>Plataformas de gestão de cadeias de suprimentos globais</li>
@@ -63,7 +63,7 @@ export default function VenturesPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Fintech Internacional</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Fintech Internacional</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Plataformas de pagamentos cross-border</li>
               <li>Soluções de financiamento para comércio exterior</li>
@@ -72,7 +72,7 @@ export default function VenturesPage() {
             </ul>
           </div>
           <div className="border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Negócios Sustentáveis Globais</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Negócios Sustentáveis Globais</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Empresas com produtos e serviços de impacto positivo</li>
               <li>Soluções para cadeias de suprimentos sustentáveis</li>
@@ -84,40 +84,40 @@ export default function VenturesPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Programas VENTURES</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Programas VENTURES</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Seed Capital</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Seed Capital</h3>
             <p>Investimentos iniciais entre R$ 500 mil e R$ 2 milhões para startups com soluções inovadoras e potencial de escala global.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Growth Capital</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Growth Capital</h3>
             <p>Investimentos de R$ 2 a 10 milhões para empresas em fase de expansão internacional, com modelo de negócio validado.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Global Expansion Fund</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Global Expansion Fund</h3>
             <p>Fundo dedicado a empresas brasileiras com produtos e serviços comprovados que buscam capital para internacionalização.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">VENTURES Accelerator</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">VENTURES Accelerator</h3>
             <p>Programa de aceleração de 6 meses para startups em estágio inicial, com mentoria, conexões internacionais e capital semente.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Corporate Ventures</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Corporate Ventures</h3>
             <p>Parcerias com corporações para investimentos estratégicos em inovações que complementam suas operações globais.</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3 text-blue-800">Impact Investment</h3>
+            <h3 className="text-lg font-semibold mb-3 text-accent">Impact Investment</h3>
             <p>Linha de investimento para negócios que combinam retorno financeiro com impacto positivo mensurável em mercados globais.</p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Benefícios VENTURES</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Benefícios VENTURES</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Para Empresas</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Para Empresas</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li><span className="font-semibold">Capital Estratégico:</span> Acesso a investimentos alinhados com as necessidades específicas do seu negócio global.</li>
               <li><span className="font-semibold">Expertise Especializada:</span> Mentoria de especialistas com experiência profunda em comércio internacional.</li>
@@ -127,7 +127,7 @@ export default function VenturesPage() {
             </ul>
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">Para Investidores</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">Para Investidores</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li><span className="font-semibold">Deal Flow Qualificado:</span> Acesso a oportunidades de investimento cuidadosamente selecionadas no setor de comércio internacional.</li>
               <li><span className="font-semibold">Due Diligence Especializada:</span> Análises aprofundadas por especialistas que entendem as nuances dos negócios globais.</li>
@@ -140,15 +140,15 @@ export default function VenturesPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">Casos de Sucesso</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Casos de Sucesso</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">LogTech Brasil</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">LogTech Brasil</h3>
             <p className="mb-4">Plataforma de otimização logística para exportadores que recebeu investimento seed de R$ 1,5 milhão da VENTURES. Em 18 meses, expandiu para 5 países da América Latina, aumentou seu faturamento em 8x e levantou uma rodada Series A de R$ 15 milhões com investidores internacionais.</p>
             <p className="italic text-gray-600">"O diferencial do investimento da VENTURES foi o conhecimento profundo do mercado internacional e as conexões que nos abriram portas impossíveis de acessar de outra forma." - Maria Santos, CEO</p>
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3 text-blue-800">TradeFinance AI</h3>
+            <h3 className="text-xl font-semibold mb-3 text-accent">TradeFinance AI</h3>
             <p className="mb-4">Fintech especializada em financiamento para comércio exterior utilizando inteligência artificial para análise de risco. Após participar do programa de aceleração e receber investimento de R$ 3 milhões, processou mais de R$ 200 milhões em operações de financiamento em seu primeiro ano completo de operação.</p>
             <p className="italic text-gray-600">"A mentoria intensiva durante o programa de aceleração nos ajudou a refinar nosso modelo de negócios e a estratégia de entrada em mercados globais, acelerando nosso crescimento." - Ricardo Oliveira, Fundador</p>
           </div>
@@ -156,7 +156,7 @@ export default function VenturesPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-blue-900">FAQ - Perguntas Frequentes</h2>
+        <h2 className="text-2xl font-bold mb-6 text-accent">FAQ - Perguntas Frequentes</h2>
         <div className="space-y-4">
           <div className="border border-gray-200 rounded-lg">
             <div className="p-4 bg-gray-50 font-semibold">
@@ -195,7 +195,7 @@ export default function VenturesPage() {
 
       <section>
         <div className="bg-blue-50 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4 text-blue-900">Pronto para impulsionar seu negócio internacional?</h2>
+          <h2 className="text-2xl font-bold mb-4 text-accent">Pronto para impulsionar seu negócio internacional?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como a VENTURES pode ajudar sua empresa a crescer globalmente com capital estratégico e apoio especializado.</p>
           <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6">
             Fale com um Especialista
