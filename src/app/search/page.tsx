@@ -1,11 +1,8 @@
 'use client';
 import React, { Suspense } from 'react';
-// @ts-ignore - swr types not installed
-import useSWRInfinite from 'swr/infinite';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-
-const fetcher = (url: string) => fetch(url).then(r => r.json());
+import useSWRInfinite from 'swr/infinite';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,14 +11,14 @@ function Results() {
   const q = searchParams.get('q') || '';
   const PAGE_SIZE = 20;
 
-  const getKey = (pageIndex: number, previousPageData: any) => {
+  const getKey = (pageIndex: number, previousPageData: { hasMore: boolean } | null) => {
     if (!q) return null; // no query
     if (previousPageData && !previousPageData.hasMore) return null; // reached end
     const offset = pageIndex * PAGE_SIZE;
     return `/api/search?q=${encodeURIComponent(q)}&limit=${PAGE_SIZE}&offset=${offset}`;
   };
 
-  const { data, setSize, isLoading } = useSWRInfinite(getKey, (url: string) => fetch(url).then(r => r.json()));
+  const { data, setSize, isLoading } = useSWRInfinite(getKey, (url: string) => fetch(url).then((r) => r.json() as Promise<{results: any[]; hasMore: boolean}>));
 
   const results = data ? data.flatMap((p: any) => p.results) : [];
   const hasMore = data ? data[data.length - 1]?.hasMore : false;

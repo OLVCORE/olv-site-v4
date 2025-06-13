@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-// @ts-ignore - no types for fuse.js commonjs import
 import Fuse from 'fuse.js';
 import { remove as removeDiacritics } from 'diacritics';
 import index from '../../../../public/search-index.json';

@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaEnvelope } from 'react-icons/fa';
 
 interface ContactCardProps {
   position?: 'bottom-left' | 'bottom-right';

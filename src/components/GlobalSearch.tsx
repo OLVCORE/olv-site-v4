@@ -1,11 +1,10 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-// @ts-ignore - swr types not installed
+import React, { useState, useRef } from 'react';
 import useSWR from 'swr';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-const fetcher = (url: string) => fetch(url).then(r => r.json());
+const fetcher = (url: string) => fetch(url).then((r) => r.json() as Promise<{results: any[]}>);
 
 export default function GlobalSearch() {
   const [query, setQuery] = useState('');
@@ -45,7 +44,7 @@ export default function GlobalSearch() {
       />
       {data?.results?.length > 0 && (
         <ul className="absolute z-50 mt-2 w-full bg-surface rounded shadow-lg max-h-64 overflow-auto">
-          {data.results.map((item: any, idx: number) => {
+          {data.results.map((item, idx) => {
             const regex = new RegExp(`(${query})`, 'gi');
             const highlight = (text: string) => text.split(regex).map((part, i) => (
               regex.test(part) ? <mark key={i} className="bg-accent-light text-accent font-bold">{part}</mark> : part

@@ -1,4 +1,4 @@
-// @ts-nocheck – Vercel build doesn't require type-checking this test config
+// @ts-nocheck - Vitest config uses CommonJS plugins without types
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 

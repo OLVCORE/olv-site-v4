@@ -6,7 +6,6 @@ import Footer from './Footer/index';
 import Sidebar from './Sidebar/index';
 import WhatsAppButton from '../layout/WhatsAppButton';
 import Ticker from './Ticker';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeSwitch from './ThemeSwitch';
 import BetaVersion from './BetaVersion';

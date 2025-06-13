@@ -41,6 +41,7 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0",
     "eslint-plugin-storybook": "^9.0.9",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "fast-glob": "^3.3.1",
     "gray-matter": "^4.0.3",
     "husky": "^9.0.5",
