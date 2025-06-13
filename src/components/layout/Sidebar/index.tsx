@@ -113,7 +113,7 @@ const Sidebar: React.FC = () => {
       </button>
 
       <aside 
-        className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''} lg:fixed lg:top-[var(--height-header)] lg:left-0 lg:h-[calc(100vh-var(--height-header))] lg:overflow-y-auto lg:z-[2000]`}
+        className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''} lg:fixed lg:top-[var(--height-header)] lg:left-0 lg:h-[calc(100vh-var(--height-header))] lg:overflow-y-auto lg:overflow-x-visible lg:z-[2000]`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
