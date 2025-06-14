@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Sidebar from '../layout/Sidebar';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
@@ -87,16 +86,16 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         {/* Ticker */}
         <Ticker />
 
-        {/* Hero card */}
-        <PlatformHero
-          platformName={platformName}
-          platformLogo={platformLogo}
-          platformDescription={platformDescription}
-          platformColor={platformColor}
-        />
-        
         {/* Main Content with Platform Styling */}
         <main className="container mx-auto py-8 px-4">
+          {/* Hero card */}
+          <PlatformHero
+            platformName={platformName}
+            platformLogo={platformLogo}
+            platformDescription={platformDescription}
+            platformColor={platformColor}
+          />
+          
           {/* Apply global platform styling */}
           <style jsx global>{`
             /* Card styling with platform-specific colors */
