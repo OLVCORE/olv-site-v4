@@ -16,10 +16,15 @@ const PlatformHero: React.FC<PlatformHeroProps> = ({
 }) => {
   return (
     <section
-      className="platform-hero w-full mt-10 mb-10 px-4 py-6 sm:px-8 md:px-10
+      className="platform-hero w-full mb-10 px-4 py-6 sm:px-8 md:px-10
                  flex flex-col md:flex-row items-center gap-6
                  rounded-lg border shadow-lg"
-      style={{ backgroundColor: '#141c2f', borderColor: '#2a3448' }}
+      style={{
+        backgroundColor: '#141c2f',
+        borderColor: '#2a3448',
+        marginTop: 'calc(var(--height-header) + 50px)', // header + ticker
+        paddingTop: 'env(safe-area-inset-top)' // notch safety on iOS
+      }}
     >
       {/* Text Block */}
       <div className="flex-1 order-2 md:order-1 text-center md:text-left">
