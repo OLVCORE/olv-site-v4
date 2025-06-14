@@ -91,7 +91,14 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         <BetaBanner platform={platformName} />
         
         {/* Platform Header - Centralizado */}
-        <header className="platform-header" style={{ backgroundColor: platformColor }}>
+        <header
+          className="platform-header"
+          style={{
+            backgroundColor: platformColor,
+            marginTop: 'calc(var(--height-header) + 45px)',
+            scrollMarginTop: 'calc(var(--height-header) + 45px)',
+          }}
+        >
           <div className="container mx-auto py-8 px-4 flex flex-col items-center text-center">
             <div className="mb-4">
               {/* Logo em círculo com hover effect - reduced size */}
