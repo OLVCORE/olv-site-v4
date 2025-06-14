@@ -122,6 +122,7 @@ const Sidebar: React.FC = () => {
                   <Link 
                     href={platform.href} 
                     className={`sidebar-item ${isActive ? 'active' : ''}`}
+                    data-tooltip={platform.tooltip}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <Image 
@@ -133,7 +134,7 @@ const Sidebar: React.FC = () => {
                     />
                     <span className="sidebar-text">{platform.name}</span>
                   </Link>
-                  <span className="li-tooltip absolute left-full ml-2 top-1/2 -translate-y-1/2 hidden lg:block px-3 py-2 bg-[var(--bg-secondary)] text-[var(--txt)] whitespace-normal rounded border border-[var(--accent)] shadow-md pointer-events-none opacity-0 group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
+                  <span className="li-tooltip absolute left-full ml-2 top-1/2 -translate-y-1/2 hidden lg:inline-block px-3 py-2 bg-[var(--bg-secondary)] text-[var(--txt)] whitespace-normal rounded border border-[var(--accent)] shadow-md pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                     {platform.tooltip}
                   </span>
                 </li>
