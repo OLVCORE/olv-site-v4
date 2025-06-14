@@ -116,12 +116,12 @@ export default function ConnectaPage() {
         <h2 className="text-2xl font-bold mb-6 text-accent">Depoimentos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <p className="italic mb-4">"A CONNECTA nos ajudou a encontrar o distribuidor perfeito para nossos produtos na Europa. Em apenas três meses, já estávamos exportando regularmente para cinco países que antes pareciam inacessíveis."</p>
+            <p className="italic mb-4">&ldquo;A CONNECTA nos ajudou a encontrar o distribuidor perfeito para nossos produtos na Europa. Em apenas três meses, já estávamos exportando regularmente para cinco países que antes pareciam inacessíveis.&rdquo;</p>
             <p className="font-semibold">Roberto Fernandes</p>
             <p className="text-sm text-gray-600">Diretor Comercial, Indústria Brasileira de Cosméticos</p>
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <p className="italic mb-4">"As rodadas de negócios organizadas pela CONNECTA nos proporcionaram contatos valiosos no mercado asiático. A qualidade das empresas participantes e o suporte durante as negociações foram fundamentais para fecharmos acordos."</p>
+            <p className="italic mb-4">&ldquo;As rodadas de negócios organizadas pela CONNECTA nos proporcionaram contatos valiosos no mercado asiático. A qualidade das empresas participantes e o suporte durante as negociações foram fundamentais para fecharmos acordos.&rdquo;</p>
             <p className="font-semibold">Carolina Lima</p>
             <p className="text-sm text-gray-600">CEO, Exportadora de Alimentos Orgânicos</p>
           </div>
