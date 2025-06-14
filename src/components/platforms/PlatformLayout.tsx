@@ -87,10 +87,8 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         {/* Ticker */}
         <Ticker />
 
-        {/* Beta Banner */}
-        <div className="container mx-auto px-4 mt-2 flex justify-end">
-          <BetaBanner platform={platformName} />
-        </div>
+        {/* Beta Banner (fixed pill) */}
+        <BetaBanner platform={platformName} />
         
         {/* Platform Header - Centralizado */}
         <header className="platform-header" style={{ backgroundColor: platformColor }}>
