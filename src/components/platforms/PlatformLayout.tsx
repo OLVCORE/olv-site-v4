@@ -95,7 +95,6 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
           className="platform-header"
           style={{
             backgroundColor: platformColor,
-            height: '95px',
             position: 'sticky',
             top: 'calc(var(--height-header) + 46px)',
             zIndex: 1600,

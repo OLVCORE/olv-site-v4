@@ -84,6 +84,8 @@ body {
   /* Sombras */
   --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+  --platform-header-height: 95px;
 }
 
 /* ==== Desktop refinements 2025-06-12 ==== */
@@ -2123,5 +2125,26 @@ body.theme-light .nav-menu .nav-item:hover {
   .logo-olv-padrao {
     width: 50px;
     height: 50px;
+  }
+}
+
+/* ========================================== */
+/*  PLATAFORM HEADER                         */
+/* ========================================== */
+.platform-header {
+  height: var(--platform-header-height);
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --platform-header-height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --platform-header-height: 55px;
   }
 }
