@@ -24,9 +24,9 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       <header className="header-wrapper">
         <div className="header-inner">
           {/* Logo + Slogan */}
-          <div className="header-brand" style={{ gap: '0.75rem' }}>
+          <div className="header-brand" style={{ gap: '80px' }}>
             <Link href="/" className="header-logo-link" title="OLV Internacional">
-              <div className="header-logo-circle" style={{ width: '92px', height: '92px' }}>
+              <div className="logo-olv-padrao">
                 <Image 
                   src="/images/olv-logo.jpeg" 
                   alt="OLV Internacional" 

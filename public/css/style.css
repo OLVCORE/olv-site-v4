@@ -2101,3 +2101,37 @@ body.theme-light .nav-menu .nav-item:hover {
   object-fit: contain;
   transform: none;
 }
+
+/* ========================================== */
+/*  LOGO PADRÃO OLV / PLATAFORMAS            */
+/* ========================================== */
+.logo-olv-padrao {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  border: 1.5px solid #cccccc;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.logo-olv-padrao:hover {
+  border-color: #FFD700;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  .logo-olv-padrao {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-olv-padrao {
+    width: 120px;
+    height: 120px;
+  }
+}
