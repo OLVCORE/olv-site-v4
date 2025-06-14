@@ -31,7 +31,7 @@ const BetaBanner: React.FC<BetaBannerProps> = ({
       className={clsx(
         'fixed right-4 md:right-8',
         'top-[135px] md:top-[135px]', // header + ticker + gap
-        'inline-flex items-center gap-3 px-4 py-2 rounded-full shadow-lg',
+        'inline-flex items-center gap-4 px-5 py-3 rounded-lg shadow-md max-w-sm w-fit',
         'bg-[#d4af37] text-[#0a0f1d] dark:bg-[#d4af37] dark:text-[#0a0f1d]',
         'animate-pulse-soft z-[3000]'
       )}
@@ -42,7 +42,7 @@ const BetaBanner: React.FC<BetaBannerProps> = ({
       </div>
       <button
         onClick={handleClick}
-        className="ml-4 text-xs font-semibold bg-[#0a0f1d] text-[#d4af37] px-3 py-1 rounded hover:opacity-90 whitespace-nowrap"
+        className="ml-2 text-xs font-semibold bg-white text-[#0a0f1d] px-4 py-2 rounded-md shadow hover:bg-gray-100 hover:shadow-lg transition-colors whitespace-nowrap"
       >
         Enviar feedback
       </button>
