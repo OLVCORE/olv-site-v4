@@ -24,20 +24,20 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       <header className="header-wrapper">
         <div className="header-inner">
           {/* Logo + Slogan */}
-          <div className="header-brand">
+          <div className="header-brand" style={{ gap: '0.75rem' }}>
             <Link href="/" className="header-logo-link" title="OLV Internacional">
-              <div className="header-logo-circle">
+              <div className="header-logo-circle" style={{ width: '92px', height: '92px' }}>
                 <Image 
                   src="/images/olv-logo.jpeg" 
                   alt="OLV Internacional" 
-                  width={115} 
-                  height={115} 
+                  width={92} 
+                  height={92} 
                   className="header-logo-img"
                   priority
                 />
               </div>
             </Link>
-            <div className="header-slogan">
+            <div className="header-slogan" style={{ marginLeft: '0.5rem' }}>
               Integramos Estratégia,<br />
               Operação e Resultado
             </div>

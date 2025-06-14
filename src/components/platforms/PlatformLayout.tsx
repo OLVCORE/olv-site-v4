@@ -99,9 +99,9 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
             scrollMarginTop: 'calc(var(--height-header) + 85px)',
           }}
         >
-          <div className="container mx-auto px-4 py-2 flex items-center justify-between gap-6">
+          <div className="container mx-auto px-8 py-2 flex items-center justify-between gap-4" style={{ transform: 'translateX(-30px)' }}>
             {/* Logo círculo */}
-            <div className="relative rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0 transition-transform duration-300 hover:scale-105 hover:shadow-xl" style={{width:'115px',height:'115px'}}>
+            <div className="relative rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0 transition-transform duration-300 hover:scale-105 hover:shadow-xl" style={{width:'92px',height:'92px'}}>
               <Image
                 src={platformLogo}
                 alt={`${platformName} Logo`}
