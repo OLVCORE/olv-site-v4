@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import PlatformLayout from '../../components/platforms/PlatformLayout';
+import SolutionFlow from '../../components/SolutionFlow';
 
 export const metadata = {
   title: 'CONNECTA - OLV Internacional | Conectando Negócios Globais',
@@ -113,19 +114,32 @@ export default function ConnectaPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-accent">Depoimentos</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <p className="italic mb-4">&ldquo;A CONNECTA nos ajudou a encontrar o distribuidor perfeito para nossos produtos na Europa. Em apenas três meses, já estávamos exportando regularmente para cinco países que antes pareciam inacessíveis.&rdquo;</p>
-            <p className="font-semibold">Roberto Fernandes</p>
-            <p className="text-sm text-gray-600">Diretor Comercial, Indústria Brasileira de Cosméticos</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <p className="italic mb-4">&ldquo;As rodadas de negócios organizadas pela CONNECTA nos proporcionaram contatos valiosos no mercado asiático. A qualidade das empresas participantes e o suporte durante as negociações foram fundamentais para fecharmos acordos.&rdquo;</p>
-            <p className="font-semibold">Carolina Lima</p>
-            <p className="text-sm text-gray-600">CEO, Exportadora de Alimentos Orgânicos</p>
-          </div>
-        </div>
+        <h2 className="text-2xl font-bold mb-6 text-accent">Como a CONNECTA impulsiona seus resultados</h2>
+        {/* Jornada de valor */}
+        <SolutionFlow
+          steps={[
+            {
+              icon: '/icons/diagnostic.svg',
+              title: 'Diagnóstico',
+              description: 'Mapeamos necessidades e perfil da sua empresa.',
+            },
+            {
+              icon: '/icons/match.svg',
+              title: 'Matchmaking',
+              description: 'Algoritmo e curadoria conectam parceiros ideais.',
+            },
+            {
+              icon: '/icons/deal.svg',
+              title: 'Negociação',
+              description: 'Facilitamos acordos e mitigamos riscos.',
+            },
+            {
+              icon: '/icons/scale.svg',
+              title: 'Escala & Suporte',
+              description: 'Acompanhamento contínuo para gerar valor.',
+            },
+          ]}
+        />
       </section>
 
       <section className="mb-12">
