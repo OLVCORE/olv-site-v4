@@ -8,6 +8,7 @@ import Footer from '../layout/Footer';
 import Ticker from '../layout/Ticker';
 import WhatsAppButton from '../layout/WhatsAppButton';
 import SpecialistButton from '../layout/SpecialistButton';
+import BetaBanner from '../BetaBanner';
 import { usePathname } from 'next/navigation';
 
 interface PlatformLayoutProps {
@@ -85,6 +86,9 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         
         {/* Ticker */}
         <Ticker />
+
+        {/* Beta Banner */}
+        <BetaBanner platform={platformName} />
         
         {/* Platform Header - Centralizado */}
         <header className="platform-header" style={{ backgroundColor: platformColor }}>
