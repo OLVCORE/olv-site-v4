@@ -119,14 +119,17 @@ const Sidebar: React.FC = () => {
             {platforms.map((platform) => {
               const isActive = pathname === platform.href;
               return (
-                <li key={platform.name} className="relative group">
+                <li 
+                  key={platform.name} 
+                  className="relative group"
+                  onMouseEnter={() => setActiveTooltip(platform.name)}
+                  onMouseLeave={() => setActiveTooltip(null)}
+                >
                   <Link 
                     href={platform.href} 
                     className={`sidebar-item ${isActive ? 'active' : ''}`}
                     data-tooltip={platform.tooltip}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    onMouseEnter={() => setActiveTooltip(platform.name)}
-                    onMouseLeave={() => setActiveTooltip(null)}
                   >
                     <Image 
                       src={platform.icon} 
@@ -138,7 +141,7 @@ const Sidebar: React.FC = () => {
                     <span className="sidebar-text">{platform.name}</span>
                   </Link>
                   {activeTooltip === platform.name && (
-                    <div className="li-tooltip absolute left-full ml-2 top-1/2 -translate-y-1/2 hidden lg:block px-3 py-2 bg-[var(--bg-secondary)] text-[var(--txt)] whitespace-normal rounded border border-[var(--accent)] shadow-md z-[2500] w-max max-w-[250px]" style={{boxShadow:'0 0 15px rgba(212,175,55,0.7)', borderWidth: '2px', borderColor:'#d4af37', animation:'tooltipGlow 2s infinite'}}>
+                    <div className="li-tooltip absolute left-full ml-2 top-1/2 -translate-y-1/2 px-3 py-2 bg-[var(--bg-secondary)] text-[var(--txt)] whitespace-normal rounded border border-[var(--accent)] shadow-md z-[2500] w-max max-w-[250px]" style={{boxShadow:'0 0 15px rgba(212,175,55,0.7)', borderWidth: '2px', borderColor:'#d4af37', animation:'tooltipGlow 2s infinite'}}>
                       {platform.tooltip}
                     </div>
                   )}
