@@ -95,11 +95,12 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
           className="platform-header"
           style={{
             backgroundColor: platformColor,
-            marginTop: 'calc(var(--height-header) + 85px)',
-            scrollMarginTop: 'calc(var(--height-header) + 85px)',
+            height: '95px',
+            marginTop: 'calc(var(--height-header) + 45px)',
+            scrollMarginTop: 'calc(var(--height-header) + 45px)',
           }}
         >
-          <div className="container mx-auto px-8 py-2 flex items-center justify-between gap-[30px]" style={{ transform: 'translateX(-30px)' }}>
+          <div className="container mx-auto px-8 h-full flex items-center gap-[30px]" style={{ transform: 'translateX(-30px)' }}>
             {/* Logo círculo */}
             <div className="logo-olv-padrao flex-shrink-0 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
               <Image
