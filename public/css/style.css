@@ -2146,3 +2146,11 @@ body.theme-light .nav-menu .nav-item:hover {
     --platform-header-height: 55px;
   }
 }
+
+/* ========================================== */
+/*  PLATFORM HERO CARD                       */
+/* ========================================== */
+.platform-hero {
+  background-color: #0a0f1d;
+  border: 1px solid var(--accent);
+}

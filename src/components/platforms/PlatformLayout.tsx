@@ -8,7 +8,7 @@ import Footer from '../layout/Footer';
 import Ticker from '../layout/Ticker';
 import WhatsAppButton from '../layout/WhatsAppButton';
 import SpecialistButton from '../layout/SpecialistButton';
-import BetaBanner from '../BetaBanner';
+import PlatformHero from './PlatformHero';
 import { usePathname } from 'next/navigation';
 
 interface PlatformLayoutProps {
@@ -87,35 +87,14 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         {/* Ticker */}
         <Ticker />
 
-        {/* Beta Banner (fixed pill) */}
-        <BetaBanner platform={platformName} />
+        {/* Hero card */}
+        <PlatformHero
+          platformName={platformName}
+          platformLogo={platformLogo}
+          platformDescription={platformDescription}
+          platformColor={platformColor}
+        />
         
-        {/* Platform Header */}
-        <header
-          className="platform-header rounded-b-md shadow-lg"
-          style={{
-            backgroundColor: platformColor,
-            marginLeft: 'var(--sidebar-collapsed-width)',
-          }}
-        >
-          <div className="container mx-auto px-8 h-full flex items-center gap-[30px]">
-            {/* Logo círculo */}
-            <div className="logo-olv-padrao flex-shrink-0 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-              <Image
-                src={platformLogo}
-                alt={`${platformName} Logo`}
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
-
-            {/* Nome + slogan */}
-            <div className="flex-1">
-              <p className="text-lg text-white opacity-90 leading-snug font-semibold">{platformDescription}</p>
-            </div>
-          </div>
-        </header>
-
         {/* Main Content with Platform Styling */}
         <main className="container mx-auto py-8 px-4">
           {/* Apply global platform styling */}
