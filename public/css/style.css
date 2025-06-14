@@ -2091,23 +2091,12 @@ body.theme-light .nav-menu .nav-item:hover {
   }
 }
 
-/* ---------- Ajuste de logo para telas pequenas ---------- */
-.header-logo-circle {
-  width: 70px !important;
-  height: 70px !important;
-}
-
-.header-logo-img {
-  object-fit: contain;
-  transform: none;
-}
-
 /* ========================================== */
 /*  LOGO PADRÃO OLV / PLATAFORMAS            */
 /* ========================================== */
 .logo-olv-padrao {
-  width: 230px;
-  height: 230px;
+  width: 84px; /* 2.2 cm @96dpi */
+  height: 84px;
   border-radius: 50%;
   border: 1.5px solid #cccccc;
   overflow: hidden;
@@ -2124,14 +2113,14 @@ body.theme-light .nav-menu .nav-item:hover {
 
 @media (max-width: 768px) {
   .logo-olv-padrao {
-    width: 180px;
-    height: 180px;
+    width: 66px; /* escala proporcional */
+    height: 66px;
   }
 }
 
 @media (max-width: 480px) {
   .logo-olv-padrao {
-    width: 120px;
-    height: 120px;
+    width: 50px;
+    height: 50px;
   }
 }

@@ -99,7 +99,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
             scrollMarginTop: 'calc(var(--height-header) + 85px)',
           }}
         >
-          <div className="container mx-auto px-8 py-2 flex items-center justify-between gap-[80px]" style={{ transform: 'translateX(-30px)' }}>
+          <div className="container mx-auto px-8 py-2 flex items-center justify-between gap-[30px]" style={{ transform: 'translateX(-30px)' }}>
             {/* Logo círculo */}
             <div className="logo-olv-padrao flex-shrink-0 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
               <Image
