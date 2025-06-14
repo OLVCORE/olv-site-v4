@@ -91,6 +91,11 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         <BetaBanner platform={platformName} />
         
         {/* Platform Header */}
+        <style jsx global>{`
+          .platform-header {
+            margin-top: calc(var(--height-header) + 46px) !important;
+          }
+        `}</style>
         <header
           className="platform-header"
           style={{
