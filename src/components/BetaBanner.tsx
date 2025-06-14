@@ -30,18 +30,19 @@ const BetaBanner: React.FC<BetaBannerProps> = ({
     <div
       className={clsx(
         'fixed right-4 md:right-8',
-        'top-[125px] md:top-[125px]', // header (80) + ticker (45)
+        'top-[135px] md:top-[135px]', // header + ticker + gap
         'inline-flex items-center gap-3 px-4 py-2 rounded-full shadow-lg',
         'bg-[#d4af37] text-[#0a0f1d] dark:bg-[#d4af37] dark:text-[#0a0f1d]',
         'animate-pulse-soft z-[3000]'
       )}
     >
-      <span className="text-sm font-semibold whitespace-nowrap">
-        🚧 {platform} em BETA — Ajude a moldar esta plataforma!
-      </span>
+      <div className="flex flex-col text-left max-w-xs">
+        <p className="text-sm font-bold leading-snug">🚧 {platform} em BETA</p>
+        <p className="text-xs leading-snug">Ajude-nos a priorizar funcionalidades — compartilhe suas ideias</p>
+      </div>
       <button
         onClick={handleClick}
-        className="text-xs font-medium underline underline-offset-2 hover:opacity-80"
+        className="ml-4 text-xs font-semibold bg-[#0a0f1d] text-[#d4af37] px-3 py-1 rounded hover:opacity-90 whitespace-nowrap"
       >
         Enviar feedback
       </button>
