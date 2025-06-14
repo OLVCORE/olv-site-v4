@@ -16,33 +16,35 @@ const PlatformHero: React.FC<PlatformHeroProps> = ({
 }) => {
   return (
     <section
-      className="platform-hero w-full mt-6 mb-10 rounded-lg border border-accent shadow-lg overflow-hidden
-        px-4 py-6 sm:px-6 md:px-10
-        flex flex-col md:grid md:grid-cols-2 gap-6 items-center"
-      style={{ backgroundColor: platformColor }}
+      className="platform-hero w-full mt-6 mb-10 px-4 py-6 sm:px-8 md:px-10
+                 flex flex-col md:flex-row items-center gap-6
+                 rounded-lg border shadow-lg"
+      style={{ backgroundColor: '#141c2f', borderColor: '#2a3448' }}
     >
-      {/* Logo (shown on top in mobile, right on desktop) */}
-      <div className="flex justify-center md:justify-end order-first md:order-last">
-        <div className="logo-olv-padrao w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 transition-transform duration-300 hover:scale-105">
-          <Image
-            src={platformLogo}
-            alt={`${platformName} Logo`}
-            fill
-            style={{ objectFit: 'cover' }}
-          />
-        </div>
-      </div>
-
       {/* Text Block */}
-      <div className="text-center md:text-left">
-        <h1 className="text-2xl sm:text-3xl font-bold mb-3 text-accent-dark">
+      <div className="flex-1 order-2 md:order-1 text-center md:text-left">
+        <h1 className="text-3xl font-semibold mb-3 text-accent-dark">
           {platformName}
         </h1>
         {platformDescription && (
-          <p className="text-base sm:text-lg leading-relaxed opacity-90">
+          <p className="text-gray-300 leading-relaxed">
             {platformDescription}
           </p>
         )}
+      </div>
+
+      {/* Banner / Logo */}
+      <div className="flex-shrink-0 order-1 md:order-2 w-full md:w-1/3">
+        <div className="bg-[#0a0f1d] p-4 rounded-lg border border-[#2a3448] shadow-md">
+          <Image
+            src={platformLogo}
+            alt={`${platformName} Logo`}
+            width={460}
+            height={460}
+            className="rounded-lg w-full h-auto"
+            priority
+          />
+        </div>
       </div>
     </section>
   );
