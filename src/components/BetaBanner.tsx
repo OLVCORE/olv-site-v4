@@ -29,19 +29,17 @@ const BetaBanner: React.FC<BetaBannerProps> = ({
   return (
     <div
       className={clsx(
-        'relative w-full z-30 overflow-hidden',
-        'bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600'
+        'relative w-full z-40',
+        'bg-[#d4af37] text-[#0a0f1d] dark:bg-[#d4af37] dark:text-[#0a0f1d]'
       )}
     >
-      {/* Animated pulse overlay */}
-      <div className="absolute inset-0 animate-pulse opacity-20 bg-white mix-blend-overlay"></div>
-      <div className="relative container mx-auto px-4 py-3 flex flex-col sm:flex-row items-center sm:justify-between text-sm sm:text-base font-medium text-white gap-3">
-        <span>
-          {platform} está em <span className="font-bold">BETA</span> — Lançamento oficial em breve. Queremos muito ouvir a sua opinião!
+      <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center sm:justify-between text-sm sm:text-base font-medium gap-3">
+        <span className="text-center sm:text-left">
+          {platform} está em <span className="font-bold">BETA</span> — lançamento oficial em breve. Conte-nos o que achou!
         </span>
         <button
           onClick={handleClick}
-          className="inline-flex items-center justify-center px-4 py-2 bg-white/90 text-indigo-700 rounded-full shadow hover:bg-white transition-colors"
+          className="inline-flex items-center justify-center px-4 py-2 bg-[#0a0f1d] text-[#d4af37] rounded-full shadow hover:bg-[#151b2d] transition-colors"
         >
           Enviar feedback
         </button>
