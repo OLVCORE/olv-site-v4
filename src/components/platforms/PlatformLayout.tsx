@@ -95,14 +95,14 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
           className="platform-header"
           style={{
             backgroundColor: platformColor,
-            marginTop: 'calc(var(--height-header) + 45px)',
-            scrollMarginTop: 'calc(var(--height-header) + 45px)',
+            marginTop: 'calc(var(--height-header) + 75px)',
+            scrollMarginTop: 'calc(var(--height-header) + 75px)',
           }}
         >
           <div className="container mx-auto py-8 px-4 flex flex-col items-center text-center">
             <div className="mb-4">
               {/* Logo em círculo com hover effect - reduced size */}
-              <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+              <div className="relative w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                 <Image
                   src={platformLogo}
                   alt={`${platformName} Logo`}

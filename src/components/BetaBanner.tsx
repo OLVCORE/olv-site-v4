@@ -37,13 +37,13 @@ const BetaBanner: React.FC<BetaBannerProps> = ({
       )}
     >
       <span className="text-sm font-semibold whitespace-nowrap">
-        {platform} em BETA
+        🚧 {platform} em BETA — Ajude a moldar esta plataforma!
       </span>
       <button
         onClick={handleClick}
         className="text-xs font-medium underline underline-offset-2 hover:opacity-80"
       >
-        feedback
+        Enviar feedback
       </button>
     </div>
   );

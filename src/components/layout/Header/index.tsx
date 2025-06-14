@@ -30,8 +30,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                 <Image 
                   src="/images/olv-logo.jpeg" 
                   alt="OLV Internacional" 
-                  width={90} 
-                  height={90} 
+                  width={100} 
+                  height={100} 
                   className="header-logo-img"
                   priority
                 />
