@@ -84,8 +84,6 @@ body {
   /* Sombras */
   --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.5);
-
-  --platform-header-height: 95px;
 }
 
 /* ==== Desktop refinements 2025-06-12 ==== */
@@ -2132,9 +2130,9 @@ body.theme-light .nav-menu .nav-item:hover {
 /*  PLATAFORM HEADER                         */
 /* ========================================== */
 .platform-header {
-  height: var(--platform-header-height);
   display: flex;
   align-items: center;
+  padding: 1rem 0; /* breathing room */
 }
 
 @media (max-width: 768px) {
