@@ -88,7 +88,9 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         <Ticker />
 
         {/* Beta Banner */}
-        <BetaBanner platform={platformName} />
+        <div className="container mx-auto px-4 mt-2 flex justify-end">
+          <BetaBanner platform={platformName} />
+        </div>
         
         {/* Platform Header - Centralizado */}
         <header className="platform-header" style={{ backgroundColor: platformColor }}>
@@ -118,12 +120,13 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
               background-color: var(--card-bg);
               border-radius: 0.75rem;
               padding: 1.75rem;
-              transition: all 0.3s ease;
+              transition: box-shadow 0.3s ease, transform 0.3s ease;
               box-shadow: var(--card-shadow);
               margin-bottom: 1.5rem;
-              border-left: 3px solid var(--${platformKey}-color, var(--accent));
+              border: 1px solid var(--card-border);
               position: relative;
               overflow: hidden;
+              color: var(--color-on-surface);
             }
             
             .platform-card::before {
@@ -140,7 +143,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
             }
             
             .platform-card:hover {
-              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+              box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
               transform: translateY(-3px);
             }
             

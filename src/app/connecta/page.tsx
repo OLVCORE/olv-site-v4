@@ -119,22 +119,22 @@ export default function ConnectaPage() {
         <SolutionFlow
           steps={[
             {
-              icon: '/icons/diagnostic.svg',
+              icon: '/icons/analytics.svg',
               title: 'Diagnóstico',
               description: 'Mapeamos necessidades e perfil da sua empresa.',
             },
             {
-              icon: '/icons/match.svg',
+              icon: '/icons/handshake.svg',
               title: 'Matchmaking',
               description: 'Algoritmo e curadoria conectam parceiros ideais.',
             },
             {
-              icon: '/icons/deal.svg',
+              icon: '/icons/chart-bar.svg',
               title: 'Negociação',
               description: 'Facilitamos acordos e mitigamos riscos.',
             },
             {
-              icon: '/icons/scale.svg',
+              icon: '/icons/rocket.svg',
               title: 'Escala & Suporte',
               description: 'Acompanhamento contínuo para gerar valor.',
             },

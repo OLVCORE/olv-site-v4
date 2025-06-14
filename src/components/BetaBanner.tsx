@@ -29,21 +29,20 @@ const BetaBanner: React.FC<BetaBannerProps> = ({
   return (
     <div
       className={clsx(
-        'relative w-full z-40',
-        'bg-[#d4af37] text-[#0a0f1d] dark:bg-[#d4af37] dark:text-[#0a0f1d]'
+        'inline-flex items-center gap-3 px-4 py-2 rounded-full shadow-lg',
+        'bg-[#d4af37] text-[#0a0f1d] dark:bg-[#d4af37] dark:text-[#0a0f1d]',
+        'animate-pulse-soft'
       )}
     >
-      <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center sm:justify-between text-sm sm:text-base font-medium gap-3">
-        <span className="text-center sm:text-left">
-          {platform} está em <span className="font-bold">BETA</span> — lançamento oficial em breve. Conte-nos o que achou!
-        </span>
-        <button
-          onClick={handleClick}
-          className="inline-flex items-center justify-center px-4 py-2 bg-[#0a0f1d] text-[#d4af37] rounded-full shadow hover:bg-[#151b2d] transition-colors"
-        >
-          Enviar feedback
-        </button>
-      </div>
+      <span className="text-sm font-semibold whitespace-nowrap">
+        {platform} em BETA
+      </span>
+      <button
+        onClick={handleClick}
+        className="text-xs font-medium underline underline-offset-2 hover:opacity-80"
+      >
+        feedback
+      </button>
     </div>
   );
 };
