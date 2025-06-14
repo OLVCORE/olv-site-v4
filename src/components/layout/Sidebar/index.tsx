@@ -69,27 +69,12 @@ const platforms = [
 ];
 
 const Sidebar: React.FC = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  const handleMouseEnter = () => {
-    setIsExpanded(true);
-  };
+  const handleMouseEnter = () => {};
 
-  const handleMouseLeave = () => {
-    setIsExpanded(false);
-    setActiveTooltip(null);
-  };
-  
-  const handleItemMouseEnter = (platformName: string) => {
-    setActiveTooltip(platformName);
-  };
-  
-  const handleItemMouseLeave = () => {
-    setActiveTooltip(null);
-  };
+  const handleMouseLeave = () => {};
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -133,11 +118,12 @@ const Sidebar: React.FC = () => {
             {platforms.map((platform) => {
               const isActive = pathname === platform.href;
               return (
-                <li key={platform.name} className="relative" onMouseEnter={() => handleItemMouseEnter(platform.name)} onMouseLeave={handleItemMouseLeave}>
+                <li key={platform.name} className="relative">
                   <Link 
                     href={platform.href} 
                     className={`sidebar-item ${isActive ? 'active' : ''}`}
                     onClick={() => setIsMobileMenuOpen(false)}
+                    data-tooltip={platform.tooltip}
                   >
                     <Image 
                       src={platform.icon} 
@@ -148,17 +134,6 @@ const Sidebar: React.FC = () => {
                     />
                     <span className="sidebar-text">{platform.name}</span>
                   </Link>
-                  {activeTooltip === platform.name && (
-                    <div className="sidebar-tooltip" style={{
-                      opacity: 1,
-                      visibility: 'visible',
-                      boxShadow: '0 0 15px rgba(212, 175, 55, 0.7)',
-                      border: '2px solid #d4af37',
-                      animation: 'tooltipGlow 2s infinite'
-                    }}>
-                      {platform.tooltip}
-                    </div>
-                  )}
                 </li>
               );
             })}
