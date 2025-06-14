@@ -97,8 +97,9 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
             backgroundColor: platformColor,
             height: '95px',
             position: 'sticky',
-            top: 'calc(var(--height-header) + 45px)',
-            borderTop: '1px solid var(--accent)',
+            top: 'calc(var(--height-header) + 46px)',
+            zIndex: 1600,
+            marginLeft: 'var(--sidebar-collapsed-width)',
           }}
         >
           <div className="container mx-auto px-8 h-full flex items-center gap-[30px]">
