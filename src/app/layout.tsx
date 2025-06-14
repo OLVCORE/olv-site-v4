@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
+import 'tippy.js/dist/tippy.css';
 
 const inter = Inter({ subsets: ["latin"] });
 

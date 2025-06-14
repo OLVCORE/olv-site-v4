@@ -89,6 +89,18 @@ body {
 /* ==== Desktop refinements 2025-06-12 ==== */
 @media (min-width: 769px) {
   /* altura fixada diretamente no header-wrapper */
+  .tippy-box[data-theme~='olv'] {
+    background-color: var(--bg-secondary);
+    color: var(--txt);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+    font-size: 0.9rem;
+    white-space: normal;
+  }
+
+  .tippy-box[data-theme~='olv'][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: var(--bg-secondary);
+  }
 }
 
 @media (min-width: 1024px) {
