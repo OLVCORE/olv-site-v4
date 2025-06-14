@@ -92,12 +92,9 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         
         {/* Platform Header */}
         <header
-          className="platform-header"
+          className="platform-header rounded-b-md shadow-lg"
           style={{
             backgroundColor: platformColor,
-            position: 'sticky',
-            top: 'calc(var(--height-header) + 46px)',
-            zIndex: 1600,
             marginLeft: 'var(--sidebar-collapsed-width)',
           }}
         >
