@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function BetaFeedbackPage() {
+function FeedbackForm() {
   const searchParams = useSearchParams();
   const platform = searchParams.get('platform') || 'Plataforma';
 
@@ -18,7 +18,7 @@ export default function BetaFeedbackPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -53,7 +53,10 @@ export default function BetaFeedbackPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0e1425] text-[#e6f2ff] p-4">
-      <form onSubmit={handleSubmit} className="bg-[#0a0f1d] border border-[#1e293b] rounded-lg p-8 w-full max-w-lg shadow-2xl space-y-4">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-[#0a0f1d] border border-[#1e293b] rounded-lg p-8 w-full max-w-lg shadow-2xl space-y-4"
+      >
         <h1 className="text-2xl font-bold text-[#d4af37] mb-2">Beta Feedback – {platform}</h1>
         <p className="text-sm text-[#e6f2ff]/70 mb-4">Conte-nos como podemos tornar esta plataforma ainda melhor.</p>
 
@@ -113,5 +116,13 @@ export default function BetaFeedbackPage() {
         </button>
       </form>
     </div>
+  );
+}
+
+export default function BetaFeedbackPage() {
+  return (
+    <Suspense fallback={null}>
+      <FeedbackForm />
+    </Suspense>
   );
 } 
