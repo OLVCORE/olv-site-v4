@@ -30,7 +30,7 @@ const BetaBanner: React.FC<BetaBannerProps> = ({
     <div
       className={clsx(
         'fixed right-4 md:right-8',
-        'top-[135px] md:top-[135px]', // header + ticker + gap
+        'top-[175px] md:top-[175px]',
         'inline-flex items-center gap-4 px-5 py-3 rounded-lg shadow-md max-w-sm w-fit',
         'bg-[#d4af37] text-[#0a0f1d] dark:bg-[#d4af37] dark:text-[#0a0f1d]',
         'animate-pulse-soft z-[3000]'

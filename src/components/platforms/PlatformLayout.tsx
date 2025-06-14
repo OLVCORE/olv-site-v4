@@ -90,29 +90,30 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         {/* Beta Banner (fixed pill) */}
         <BetaBanner platform={platformName} />
         
-        {/* Platform Header - Centralizado */}
+        {/* Platform Header */}
         <header
           className="platform-header"
           style={{
             backgroundColor: platformColor,
-            marginTop: 'calc(var(--height-header) + 75px)',
-            scrollMarginTop: 'calc(var(--height-header) + 75px)',
+            marginTop: 'calc(var(--height-header) + 85px)',
+            scrollMarginTop: 'calc(var(--height-header) + 85px)',
           }}
         >
-          <div className="container mx-auto py-8 px-4 flex flex-col items-center text-center">
-            <div className="mb-4">
-              {/* Logo em círculo com hover effect - reduced size */}
-              <div className="relative w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                <Image
-                  src={platformLogo}
-                  alt={`${platformName} Logo`}
-                  fill
-                  style={{objectFit: 'cover'}}
-                />
-              </div>
-              <h1 className="text-3xl font-bold text-white">{platformName}</h1>
+          <div className="container mx-auto px-4 py-2 flex items-center justify-between gap-6">
+            {/* Logo círculo */}
+            <div className="relative rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0 transition-transform duration-300 hover:scale-105 hover:shadow-xl" style={{width:'115px',height:'115px'}}>
+              <Image
+                src={platformLogo}
+                alt={`${platformName} Logo`}
+                fill
+                style={{ objectFit: 'cover' }}
+              />
             </div>
-            <p className="text-lg text-white max-w-3xl">{platformDescription}</p>
+
+            {/* Nome + slogan */}
+            <div className="flex-1 text-right">
+              <p className="text-lg text-white opacity-90 leading-snug font-semibold">{platformDescription}</p>
+            </div>
           </div>
         </header>
 
