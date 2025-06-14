@@ -96,8 +96,8 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
           style={{
             backgroundColor: platformColor,
             height: '95px',
-            marginTop: 'calc(var(--height-header) + 49px)',
-            scrollMarginTop: 'calc(var(--height-header) + 49px)',
+            position: 'sticky',
+            top: 'calc(var(--height-header) + 45px)',
             borderTop: '1px solid var(--accent)',
           }}
         >
