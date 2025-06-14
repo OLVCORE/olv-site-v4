@@ -156,12 +156,12 @@ export default function AcademyPage() {
         <h2 className="section-title">Depoimentos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="platform-card">
-            <p className="italic mb-4">"O programa de capacitação da ACADEMY transformou nossa equipe de comércio exterior. O conhecimento prático e as ferramentas fornecidas nos permitiram expandir nossas operações para novos mercados com muito mais segurança e eficiência."</p>
+            <p className="italic mb-4">&ldquo;O programa de capacitação da ACADEMY transformou nossa equipe de comércio exterior. O conhecimento prático e as ferramentas fornecidas nos permitiram expandir nossas operações para novos mercados com muito mais segurança e eficiência.&rdquo;</p>
             <p className="font-semibold">Roberto Almeida</p>
             <p className="text-sm text-gray-600">Diretor de Operações Internacionais, Indústria de Alimentos</p>
           </div>
           <div className="platform-card">
-            <p className="italic mb-4">"A especialização em negociação internacional da ACADEMY foi fundamental para melhorar nossos resultados em contratos globais. A metodologia focada em casos práticos fez toda a diferença para aplicação imediata dos conhecimentos."</p>
+            <p className="italic mb-4">&ldquo;A especialização em negociação internacional da ACADEMY foi fundamental para melhorar nossos resultados em contratos globais. A metodologia focada em casos práticos fez toda a diferença para aplicação imediata dos conhecimentos.&rdquo;</p>
             <p className="font-semibold">Carolina Santos</p>
             <p className="text-sm text-gray-600">Gerente de Exportação, Empresa de Manufatura</p>
           </div>
