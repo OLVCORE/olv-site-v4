@@ -11,10 +11,11 @@ import PlatformHero from './PlatformHero';
 import { usePathname } from 'next/navigation';
 
 interface PlatformLayoutProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   platformName: string;
   platformLogo: string;
   platformDescription: string;
+  platformIntro?: string;
   platformColor?: string;
 }
 
@@ -23,6 +24,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
   platformName,
   platformLogo,
   platformDescription,
+  platformIntro,
   platformColor = '#0a2463', // Default color - dark blue
 }) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -73,11 +75,6 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
     }
   };
 
-  // Separate first child as intro section (if any)
-  const childArray = React.Children.toArray(children);
-  const introContent = childArray[0];
-  const restChildren = childArray.slice(1);
-
   return (
     <div className="site-wrapper">
       {/* Sidebar */}
@@ -98,8 +95,8 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
             platformName={platformName}
             platformLogo={platformLogo}
             platformDescription={platformDescription}
+            platformIntro={platformIntro}
             platformColor={platformColor}
-            introContent={introContent}
           />
           
           {/* Apply global platform styling */}
@@ -199,7 +196,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
               box-shadow: var(--shadow-md);
             }
           `}</style>
-          {restChildren}
+          {children}
         </main>
         
         {/* Footer */}
