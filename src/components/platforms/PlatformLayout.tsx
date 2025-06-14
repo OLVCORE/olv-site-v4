@@ -73,6 +73,11 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
     }
   };
 
+  // Separate first child as intro section (if any)
+  const childArray = React.Children.toArray(children);
+  const introContent = childArray[0];
+  const restChildren = childArray.slice(1);
+
   return (
     <div className="site-wrapper">
       {/* Sidebar */}
@@ -94,6 +99,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
             platformLogo={platformLogo}
             platformDescription={platformDescription}
             platformColor={platformColor}
+            introContent={introContent}
           />
           
           {/* Apply global platform styling */}
@@ -193,7 +199,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
               box-shadow: var(--shadow-md);
             }
           `}</style>
-          {children}
+          {restChildren}
         </main>
         
         {/* Footer */}

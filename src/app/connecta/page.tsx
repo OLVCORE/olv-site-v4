@@ -15,13 +15,11 @@ export default function ConnectaPage() {
       platformName="CONNECTA"
       platformLogo="/images/connecta-logo.jpeg"
       platformDescription="Conectando Negócios Globalmente"
+      platformIntro="A CONNECTA é a plataforma de networking da OLV Internacional, criada para conectar empresas brasileiras a parceiros estratégicos globais e abrir portas para novas oportunidades de negócios internacionais."
       platformColor="#0a2463"
     >
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4 text-accent">Sobre a CONNECTA</h2>
-        <p className="mb-4">
-          A CONNECTA é a plataforma de networking da OLV Internacional, criada para conectar empresas brasileiras a parceiros estratégicos globais e abrir portas para novas oportunidades de negócios internacionais.
-        </p>
         <p className="mb-4">
           Nossa ampla rede de contatos e metodologia proprietária de matchmaking permite que sua empresa encontre os parceiros ideais para expandir sua presença internacional de forma segura e eficiente.
         </p>
