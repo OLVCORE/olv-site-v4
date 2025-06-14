@@ -89,10 +89,6 @@ body {
 /* ==== Desktop refinements 2025-06-12 ==== */
 @media (min-width: 769px) {
   /* altura fixada diretamente no header-wrapper */
-  .sidebar-item:hover .sidebar-tooltip {
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -244,8 +240,7 @@ body.theme-light .sidebar-icon {
 .sidebar-text {
   font-size: 1rem;
   white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  /* stays visible only on hover via ::after rule */
 }
 
 .sidebar:hover .sidebar-text {

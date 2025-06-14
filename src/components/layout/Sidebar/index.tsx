@@ -121,8 +121,9 @@ const Sidebar: React.FC = () => {
                 <li key={platform.name} className="relative">
                   <Link 
                     href={platform.href} 
-                    className={`sidebar-item group ${isActive ? 'active' : ''}`}
+                    className={`sidebar-item ${isActive ? 'active' : ''}`}
                     onClick={() => setIsMobileMenuOpen(false)}
+                    data-tooltip={platform.tooltip}
                   >
                     <Image 
                       src={platform.icon} 
@@ -132,9 +133,6 @@ const Sidebar: React.FC = () => {
                       className="sidebar-icon" 
                     />
                     <span className="sidebar-text">{platform.name}</span>
-                    <span className="sidebar-tooltip pointer-events-none group-hover:opacity-100 group-hover:visible">
-                      {platform.tooltip}
-                    </span>
                   </Link>
                 </li>
               );
