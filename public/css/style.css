@@ -89,6 +89,10 @@ body {
 /* ==== Desktop refinements 2025-06-12 ==== */
 @media (min-width: 769px) {
   /* altura fixada diretamente no header-wrapper */
+  .sidebar-item:hover .sidebar-tooltip {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1889,6 +1893,9 @@ body.theme-dark .sidebar-item.active .sidebar-icon {
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
   animation: tooltipGlow 2s ease-in-out infinite;
   z-index: 2500;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 @keyframes tooltipGlow {
