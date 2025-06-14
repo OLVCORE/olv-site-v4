@@ -96,8 +96,8 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
           style={{
             backgroundColor: platformColor,
             height: '95px',
-            marginTop: 'calc(var(--height-header) + 45px)',
-            scrollMarginTop: 'calc(var(--height-header) + 45px)',
+            marginTop: 'calc(var(--height-header) + 47px)',
+            scrollMarginTop: 'calc(var(--height-header) + 47px)',
           }}
         >
           <div className="container mx-auto px-8 h-full flex items-center gap-[30px]" style={{ transform: 'translateX(-30px)' }}>
