@@ -2098,17 +2098,18 @@ body.theme-light .nav-menu .nav-item:hover {
   width: 84px; /* 2.2 cm @96dpi */
   height: 84px;
   border-radius: 50%;
-  border: 1.5px solid #cccccc;
+  border: 1.5px solid #ffffff;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.9);
 }
 
 .logo-olv-padrao:hover {
   border-color: #FFD700;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.9);
 }
 
 @media (max-width: 768px) {
