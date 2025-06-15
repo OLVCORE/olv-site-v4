@@ -23,8 +23,11 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   useEffect(() => {
     if (navOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('nav-open');
+      document.body.classList.remove('sidebar-open');
     } else {
       document.body.style.overflow = '';
+      document.body.classList.remove('nav-open');
     }
   }, [navOpen]);
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -80,6 +80,15 @@ const Sidebar: React.FC = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add('sidebar-open');
+      document.body.classList.remove('nav-open');
+    } else {
+      document.body.classList.remove('sidebar-open');
+    }
+  }, [isMobileMenuOpen]);
 
   return (
     <>

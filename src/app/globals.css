@@ -443,4 +443,31 @@
   bottom: 88px;
   right: 1rem;
   left: auto;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.ticker-inner {
+  white-space: nowrap;
+}
+.ticker-inner p {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker-scroll 20s linear infinite;
+  margin: 0;
+}
+.ticker-inner p:hover {
+  animation-play-state: paused;
+}
+
+/* Sincroniza overlay/nav e sidebar */
+body.nav-open .sidebar {
+  display: none !important;
+}
+body.sidebar-open .nav-menu-mobile {
+  display: none !important;
+  pointer-events: none !important;
 } 
