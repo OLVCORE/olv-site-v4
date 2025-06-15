@@ -8,15 +8,14 @@ function FeedbackForm() {
   const platform = searchParams.get('platform') || 'Plataforma';
 
   const [formData, setFormData] = useState({
-    name: '',
+    desafio: '',
+    funcionalidade: '',
     email: '',
-    company: '',
-    feedback: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -31,7 +30,7 @@ function FeedbackForm() {
         body: JSON.stringify({ ...formData, platform }),
       });
       setSubmitted(true);
-      setFormData({ name: '', email: '', company: '', feedback: '' });
+      setFormData({ desafio: '', funcionalidade: '', email: '' });
     } catch (err) {
       console.error(err);
       alert('Ocorreu um erro ao enviar. Tente novamente mais tarde.');
@@ -57,23 +56,41 @@ function FeedbackForm() {
         onSubmit={handleSubmit}
         className="bg-[#0a0f1d] border border-[#1e293b] rounded-lg p-8 w-full max-w-lg shadow-2xl space-y-4"
       >
-        <h1 className="text-2xl font-bold text-[#d4af37] mb-2">Beta Feedback – {platform}</h1>
-        <p className="text-sm text-[#e6f2ff]/70 mb-4">Conte-nos como podemos tornar esta plataforma ainda melhor.</p>
+        <h1 className="text-2xl font-bold text-[#d4af37] mb-2">{platform} em BETA</h1>
+        <p className="text-sm text-[#e6f2ff]/70 mb-4">Conte o que facilitaria sua gestão de processos. Leva menos de 1 minuto! 🙌</p>
 
         <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-1">Nome</label>
+          <label htmlFor="desafio" className="block text-sm font-medium mb-1">Maior desafio hoje</label>
+          <select
+            id="desafio"
+            name="desafio"
+            required
+            value={formData.desafio}
+            onChange={handleChange}
+            className="w-full px-4 py-2 rounded-md bg-[#0e1425] border border-[#1e293b] focus:border-[#d4af37] focus:outline-none focus:ring-1 focus:ring-[#d4af37]"
+          >
+            <option value="">Selecione...</option>
+            <option value="Visibilidade dos processos">Visibilidade dos processos</option>
+            <option value="Redução de custos">Redução de custos</option>
+            <option value="Automatização">Automatização</option>
+            <option value="Integração de dados">Integração de dados</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="funcionalidade" className="block text-sm font-medium mb-1">Funcionalidade nº 1 que gostaria de ver</label>
           <input
             type="text"
-            id="name"
-            name="name"
+            id="funcionalidade"
+            name="funcionalidade"
             required
-            value={formData.name}
+            value={formData.funcionalidade}
             onChange={handleChange}
             className="w-full px-4 py-2 rounded-md bg-[#0e1425] border border-[#1e293b] focus:border-[#d4af37] focus:outline-none focus:ring-1 focus:ring-[#d4af37]"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
+          <label htmlFor="email" className="block text-sm font-medium mb-1">E-mail para ser avisado no lançamento</label>
           <input
             type="email"
             id="email"
@@ -83,29 +100,6 @@ function FeedbackForm() {
             onChange={handleChange}
             className="w-full px-4 py-2 rounded-md bg-[#0e1425] border border-[#1e293b] focus:border-[#d4af37] focus:outline-none focus:ring-1 focus:ring-[#d4af37]"
           />
-        </div>
-        <div>
-          <label htmlFor="company" className="block text-sm font-medium mb-1">Empresa (opcional)</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-md bg-[#0e1425] border border-[#1e293b] focus:border-[#d4af37] focus:outline-none focus:ring-1 focus:ring-[#d4af37]"
-          />
-        </div>
-        <div>
-          <label htmlFor="feedback" className="block text-sm font-medium mb-1">Feedback</label>
-          <textarea
-            id="feedback"
-            name="feedback"
-            required
-            rows={4}
-            value={formData.feedback}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-md bg-[#0e1425] border border-[#1e293b] focus:border-[#d4af37] focus:outline-none focus:ring-1 focus:ring-[#d4af37] resize-none"
-          ></textarea>
         </div>
         <button
           type="submit"

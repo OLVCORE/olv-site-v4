@@ -15,7 +15,7 @@ export default function VeritusPage() {
       platformLogo="/images/veritus-logo.jpeg"
       platformDescription="Soluções Jurídicas e Compliance para Comércio Internacional"
       platformIntro="A VERITUS é a plataforma jurídica e de compliance da OLV Internacional, garantindo conformidade regulatória e segurança em operações de comércio exterior."
-      platformColor="#0a2463"
+      platformColor="#5A2C45"
     >
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4 text-accent">Sobre a VERITUS</h2>

@@ -15,7 +15,7 @@ export default function EngagePage() {
       platformLogo="/images/engage-logo.jpeg"
       platformDescription="Marketing e Comunicação para Mercados Globais"
       platformIntro="A ENGAGE é a plataforma de marketing e comunicação da OLV Internacional, que conecta marcas brasileiras a audiências globais por meio de estratégias interculturais e campanhas digitais de alto impacto."
-      platformColor="#4b2e83"
+      platformColor="#6A3C63"
     >
       <section className="mb-12">
         <h2 className="section-title">Sobre a ENGAGE</h2>

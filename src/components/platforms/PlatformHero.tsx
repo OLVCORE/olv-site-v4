@@ -14,7 +14,7 @@ const PlatformHero: React.FC<PlatformHeroProps> = ({
   platformLogo,
   platformDescription,
   platformIntro,
-  platformColor = '#0a0f1d',
+  platformColor = '#141c2f', // default dark tone if none provided
 }) => {
   return (
     <section
@@ -22,7 +22,7 @@ const PlatformHero: React.FC<PlatformHeroProps> = ({
                  flex flex-col md:flex-row items-center gap-6
                  rounded-lg border shadow-lg"
       style={{
-        backgroundColor: '#141c2f',
+        backgroundColor: platformColor,
         borderColor: '#2a3448',
         marginTop: 'calc(var(--height-header) + 50px)', // header + ticker
         paddingTop: 'env(safe-area-inset-top)' // notch safety on iOS
@@ -40,7 +40,7 @@ const PlatformHero: React.FC<PlatformHeroProps> = ({
         )}
 
         {platformIntro && (
-          <div className="bg-[#1a2338] border border-[#2a3448] p-4 rounded-lg mt-4 text-gray-300 text-sm">
+          <div className="bg-[#1a2338] border border-[#2a3448] p-4 rounded-lg mt-4 text-gray-300 text-base md:text-lg leading-relaxed">
             {platformIntro}
           </div>
         )}

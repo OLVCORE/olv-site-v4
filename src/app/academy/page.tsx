@@ -16,7 +16,7 @@ export default function AcademyPage() {
       platformLogo="/images/academy.jpeg"
       platformDescription="Capacitação e Desenvolvimento em Comércio Internacional"
       platformIntro="A ACADEMY é a plataforma educacional da OLV Internacional, direcionada ao desenvolvimento de competências e à capacitação de profissionais para o sucesso no comércio internacional."
-      platformColor="#0a2463"
+      platformColor="#2C3C8B"
     >
       <section className="mb-12">
         <h2 className="section-title">Sobre a ACADEMY</h2>
