@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -12,11 +12,21 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
+  const [navOpen, setNavOpen] = useState(false);
   const pathname = usePathname();
   
   const isActive = (path: string) => {
     return pathname === path || (pathname?.startsWith(path) && path !== '/');
   };
+
+  // Lock scroll when menu aberto mobile
+  useEffect(() => {
+    if (navOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [navOpen]);
 
   return (
     <>
@@ -91,8 +101,35 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               </div>
             </label>
           </div>
+
+          {/* Botão MENU Principal – mobile */}
+          <button
+            className="mobile-nav-toggle md:hidden"
+            aria-label="Abrir menu principal"
+            onClick={() => setNavOpen(!navOpen)}
+          >
+            <span className="sr-only">Menu</span>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
         </div>
       </header>
+
+      {/* Overlay nav mobile */}
+      { /* usa portal root para overlay se quiser, mas simples div */ }
+      <nav className={`nav-menu-mobile md:hidden ${navOpen ? 'show' : ''}`}>
+        <Link href="/" className={`nav-item ${isActive('/') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Home</Link>
+        <Link href="/sobre" className={`nav-item ${isActive('/sobre') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Sobre</Link>
+        <Link href="/solucoes" className={`nav-item ${isActive('/solucoes') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Soluções</Link>
+        <Link href="/ecossistema" className={`nav-item ${isActive('/ecossistema') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Ecossistema</Link>
+        <Link href="/radar360" className={`nav-item ${isActive('/radar360') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Radar 360</Link>
+        <Link href="/blog" className={`nav-item ${isActive('/blog') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Blog</Link>
+        <Link href="/sitemap" className={`nav-item ${isActive('/sitemap') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Mapa do Site</Link>
+        <Link href="/contato" className={`nav-item ${isActive('/contato') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Contato</Link>
+      </nav>
     </>
   );
 };
