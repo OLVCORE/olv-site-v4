@@ -4,7 +4,8 @@ import Image from 'next/image';
 interface PlatformHeroProps {
   platformName: string;
   platformLogo: string;
-  platformDescription?: string;
+  platformDescription?: string; // slogan curto
+  platformIntro?: string; // parágrafo resumo
   platformColor?: string; // background tint if needed
 }
 
@@ -12,6 +13,7 @@ const PlatformHero: React.FC<PlatformHeroProps> = ({
   platformName,
   platformLogo,
   platformDescription,
+  platformIntro,
   platformColor = '#0a0f1d',
 }) => {
   return (
@@ -35,6 +37,12 @@ const PlatformHero: React.FC<PlatformHeroProps> = ({
           <p className="text-gray-300 leading-relaxed">
             {platformDescription}
           </p>
+        )}
+
+        {platformIntro && (
+          <div className="bg-[#1a2338] border border-[#2a3448] p-4 rounded-lg mt-4 text-gray-300 text-sm">
+            {platformIntro}
+          </div>
         )}
       </div>
 
