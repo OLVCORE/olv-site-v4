@@ -775,4 +775,13 @@ body.theme-light .ticker-inner a {
 
 .main-content {
   padding-bottom: calc(var(--footer-height, 100px) + 1rem);
+}
+
+/* Mobile footer scroll if taller than viewport */
+@media (max-width: 768px) {
+  .footer-reveal {
+    max-height: 70vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 } 
