@@ -327,7 +327,20 @@
     right: auto !important;
     color: var(--color-accent) !important;
   }
-  .mobile-nav-toggle .toggle-label,
+  /* NAV label above icon */
+  .mobile-nav-toggle .toggle-label {
+    position: absolute !important;
+    top: -130% !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    color: var(--color-accent) !important;
+    font-size: 0.55rem !important;
+    font-weight: 500;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* APPs label below icon */
   .mobile-sidebar-toggle .toggle-label {
     position: absolute !important;
     top: 110% !important;
@@ -720,4 +733,13 @@ body.theme-light .header-wrapper {
 body.theme-light .ticker-inner p,
 body.theme-light .ticker-inner a {
   color: var(--color-primary) !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-nav-toggle .toggle-label {
+    top: -130% !important; /* label above icon to avoid overlap */
+  }
+  .mobile-sidebar-toggle .toggle-label {
+    top: 110% !important; /* keep below */
+  }
 } 
