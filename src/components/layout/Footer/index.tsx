@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       
-      if (position + windowHeight >= documentHeight - 5) {
+      if (position + windowHeight >= documentHeight - windowHeight * 0.5) {
         setShowFooter(true);
       }
       else {
