@@ -33,6 +33,16 @@
   --card-bg: var(--color-surface);
   --card-border: #1e293b;
   --card-shadow: 0 1px 2px rgba(0,0,0,.1);
+
+  /* Spacing scale – 4-pt system */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -238,6 +248,24 @@
     height: 100% !important;
     padding: 0 1rem !important;
     position: relative !important;
+  }
+}
+
+@layer base {
+  /* Mobile-first typography (applied up to md breakpoint) */
+  @media (max-width: 768px) {
+    h1 {
+      @apply text-[28px] leading-tight font-semibold text-on-surface;
+    }
+    h2 {
+      @apply text-[22px] leading-snug font-semibold text-on-surface;
+    }
+    h3 {
+      @apply text-[19px] leading-snug font-semibold text-on-surface;
+    }
+    p, li, span, a {
+      @apply text-[15px] leading-relaxed;
+    }
   }
 }
 
