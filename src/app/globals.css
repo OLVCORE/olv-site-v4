@@ -593,4 +593,61 @@ body {
   .ticker-inner a {
     color: var(--color-accent);
   }
+}
+
+/* ================== THEME MODES via body class ================== */
+body.theme-light {
+  --color-primary: #0a58ca;
+  --color-on-primary: #ffffff;
+  --color-accent: #c79a30;
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-on-surface: #1f2937;
+  --color-surface-light: #f1f5f9;
+  --color-accent-light: #f9eecd;
+  /* Platform brand colours */
+  --stratevo-color: #2e59a8;
+  --exceltta-color: #127e85;
+  --connecta-color: #123b9c;
+  --veritus-color: #7a4765;
+  --finx-color: #278a73;
+  --academy-color: #3c52b3;
+  --labs-color: #674f9f;
+  --core-color: #3f4d61;
+  --engage-color: #8a547e;
+  --card-bg: var(--color-surface);
+  --card-border: #e2e8f0;
+  --card-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+body.theme-dark {
+  /* Duplicate defaults to guarantee override after light */
+  --color-primary: #0a58ca;
+  --color-on-primary: #ffffff;
+  --color-accent: #e0c178;
+  --color-background: #0d1117;
+  --color-surface: #11161e;
+  --color-on-surface: #d1d5db;
+  --color-surface-light: #1a1f29;
+  --color-accent-light: #c4a96b;
+  /* brand colours already default */
+}
+
+/* ================== MOBILE HEADER REFINEMENTS ================== */
+@media (max-width: 768px) {
+  /* Respeita área segura de notch / status bar */
+  .header-wrapper {
+    padding-top: env(safe-area-inset-top);
+  }
+  /* Distanciamento switch → lupa */
+  .theme-switch-wrapper {
+    margin-right: 0.75rem !important; /* 12px */
+  }
+}
+
+/* ================== CONTAINER PADDING MOBILE ================== */
+@media (max-width: 768px) {
+  .container, .prose, .content-wrapper > .main-content {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
 } 
