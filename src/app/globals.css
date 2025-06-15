@@ -111,4 +111,32 @@
   .nav-menu {
     display: none !important;
   }
+
+  /* Sidebar slides in */
+  .sidebar {
+    position: fixed;
+    top: var(--height-header);
+    left: 0;
+    height: calc(100vh - var(--height-header));
+    width: 280px;
+    background: var(--color-surface);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 2400;
+    overflow-y: auto;
+  }
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  /* Hide sidebar header (desktop) duplicate */
+  .sidebar-header-mobile {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    font-weight: 600;
+  }
+  .sidebar-nav ul {
+    padding: 1rem;
+  }
 } 
