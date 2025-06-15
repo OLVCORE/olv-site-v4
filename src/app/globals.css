@@ -288,6 +288,53 @@
   .ticker-inner p {
     font-size: 0.75rem !important; /* 12px */
   }
+
+  /* Header inner padding */
+  .header-inner {
+    padding-left: var(--space-4) !important; /* 16px */
+    padding-right: calc(var(--space-8) + 24px) !important; /* espaço p/ switch */
+  }
+
+  /* Logo alinhado sem colar na borda */
+  .header-logo-link {
+    padding-right: var(--space-4);
+  }
+
+  /* Força linha dourada full-width */
+  .header-wrapper {
+    border-bottom: 2px solid var(--color-accent) !important;
+  }
+
+  /* Ticker garantia de visibilidade */
+  .ticker {
+    display: flex !important;
+    align-items: center;
+    overflow: hidden;
+  }
+  .ticker-inner {
+    display: flex !important;
+  }
+
+  /* Botões flutuantes reposicionados no canto direito */
+  .mobile-nav-toggle {
+    bottom: 148px;
+    right: 1rem;
+    left: auto;
+  }
+  .mobile-sidebar-toggle {
+    bottom: 88px;
+    right: 1rem;
+    left: auto;
+  }
+  .mobile-nav-toggle .toggle-label,
+  .mobile-sidebar-toggle .toggle-label {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.55rem;
+    white-space: nowrap;
+  }
 }
 
 @layer base {
