@@ -14,6 +14,7 @@ export default function FinxPage() {
       platformName="FINX"
       platformLogo="/images/finx-logo.jpeg"
       platformDescription="Soluções Financeiras para Comércio Internacional"
+      platformIntro="A FINX é a plataforma financeira da OLV Internacional, dedicada a estruturar soluções de câmbio, pagamentos internacionais e financiamento que potencializam resultados globais."
       platformColor="#0a2463"
     >
       <section className="mb-12">

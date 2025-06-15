@@ -14,6 +14,7 @@ export default function StratevoPage() {
       platformName="STRATEVO"
       platformLogo="/images/stratevo-logo.jpeg"
       platformDescription="Inteligência para Decidir. Estratégia para Crescer."
+      platformIntro="A STRATEVO é a plataforma de inteligência de mercado da OLV Internacional, fornecendo análises aprofundadas e insights estratégicos para apoiar decisões no comércio global."
       platformColor="#0a2463"
     >
       <section className="mb-12">

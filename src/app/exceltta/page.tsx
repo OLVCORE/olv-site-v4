@@ -14,6 +14,7 @@ export default function ExcelttaPage() {
       platformName="EXCELTTA"
       platformLogo="/images/exceltta-logo.jpeg"
       platformDescription="Excelência na Gestão de Processos"
+      platformIntro="A EXCELTTA é a plataforma de gestão de processos da OLV Internacional, projetada para otimizar fluxos de trabalho e elevar a produtividade em operações internacionais."
       platformColor="#0a2463"
     >
       <section className="mb-12">

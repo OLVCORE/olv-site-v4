@@ -14,6 +14,7 @@ export default function LabsPage() {
       platformName="LABS"
       platformLogo="/images/labs-logo.jpeg"
       platformDescription="Centro de Inovação em Comércio Internacional"
+      platformIntro="O LABS é o centro de inovação da OLV Internacional, dedicado a pesquisar e aplicar tecnologias emergentes que transformam operações de comércio exterior."
       platformColor="#0a2463"
     >
       <section className="mb-12">
