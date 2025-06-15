@@ -1,7 +1,9 @@
 import React from 'react';
-import PlatformLayout from '../../components/platforms/PlatformLayout';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Icon from '../../components/icons/Icon';
+
+const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));
 
 export const metadata = {
   title: 'ACADEMY - OLV Internacional | Capacitação em Comércio Internacional',

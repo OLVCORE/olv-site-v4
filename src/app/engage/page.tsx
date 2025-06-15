@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import PlatformLayout from '../../components/platforms/PlatformLayout';
+import dynamic from 'next/dynamic';
+const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));
 
 export const metadata = {
   title: 'ENGAGE - OLV Internacional | Engajamento e Relacionamento com Clientes',

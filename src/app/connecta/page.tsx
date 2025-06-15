@@ -1,7 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import PlatformLayout from '../../components/platforms/PlatformLayout';
+import dynamic from 'next/dynamic';
 import SolutionFlow from '../../components/SolutionFlow';
+
+const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));
 
 export const metadata = {
   title: 'CONNECTA - OLV Internacional | Conectando Negócios Globais',
