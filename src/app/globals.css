@@ -230,4 +230,44 @@
   .main-content {
     margin-top: calc(var(--height-header) + 45px) !important;
   }
+}
+
+/* === OLV MOBILE OVERRIDES – FINAL WINS ALL (duplicated here to guarantee last-in bundle) === */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none !important;
+    transform: translateX(-100%) !important;
+  }
+  .sidebar.mobile-open {
+    display: block !important;
+    transform: translateX(0) !important;
+  }
+
+  .nav-menu-mobile {
+    display: none !important;
+    pointer-events: none !important;
+  }
+  .nav-menu-mobile.show {
+    display: flex !important;
+    pointer-events: auto !important;
+  }
+
+  .header-wrapper {
+    top: 0 !important;
+    left: 0 !important;
+  }
+  .ticker {
+    top: var(--height-header) !important;
+    left: 0 !important;
+  }
+  .main-content {
+    margin-left: 0 !important;
+    margin-top: calc(var(--height-header) + 45px) !important;
+  }
+
+  .mobile-nav-toggle,
+  .mobile-sidebar-toggle,
+  .whatsapp-button {
+    z-index: 2600 !important;
+  }
 } 
