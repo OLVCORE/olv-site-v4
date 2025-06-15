@@ -85,17 +85,17 @@ const Sidebar: React.FC = () => {
     <>
       {/* Mobile Toggle Button - Only visible on mobile */}
       <button 
-        className="mobile-sidebar-toggle"
+        className="mobile-sidebar-toggle flex flex-col items-center justify-center gap-0.5"
         onClick={toggleMobileMenu}
         aria-label="Toggle Platforms Menu"
       >
         <Image 
           src="/icons/platforms.svg" 
-          alt="Platforms" 
-          width={24} 
-          height={24}
+          alt="Plataformas" 
+          width={28} 
+          height={28}
         />
-        <span>Plataformas</span>
+        <span className="toggle-label">Plataformas</span>
       </button>
 
       <aside 

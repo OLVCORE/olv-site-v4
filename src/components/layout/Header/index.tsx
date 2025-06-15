@@ -104,7 +104,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
           {/* Botão MENU Principal – mobile */}
           <button
-            className="mobile-nav-toggle md:hidden"
+            className="mobile-nav-toggle md:hidden flex items-center justify-center"
             aria-label="Abrir menu principal"
             onClick={() => setNavOpen(!navOpen)}
           >
