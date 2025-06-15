@@ -45,8 +45,10 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
           {/* Menu Principal - Visible only on desktop */}
           <div className="flex items-center gap-6">
-            {/* Buscar */}
-            <GlobalSearch />
+            {/* Buscar (desktop only) */}
+            <div className="desktop-only">
+              <GlobalSearch />
+            </div>
 
             <nav className="nav-menu desktop-only">
               <Link href="/" className={`nav-item ${isActive('/') ? 'active' : ''}`} data-page="home">Home</Link>

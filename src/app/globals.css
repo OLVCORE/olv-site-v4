@@ -82,4 +82,33 @@
 
 .animate-pulse-soft {
   animation: pulseSoft 2s infinite ease-in-out;
+}
+
+/* ---------- Mobile Overrides ---------- */
+@media (max-width: 768px) {
+  /* Esconde elementos marcados para desktop */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Exibe toggle de plataformas */
+  .mobile-sidebar-toggle {
+    display: flex !important;
+    align-items: center;
+    gap: 0.375rem; /* 6px */
+    position: fixed;
+    top: calc(var(--height-header) + 8px);
+    left: 1rem;
+    z-index: 2500;
+    background: transparent;
+    color: var(--color-on-surface);
+  }
+  .mobile-sidebar-toggle img {
+    filter: invert(80%);
+  }
+
+  /* Oculta nav-menu padrão para evitar empilhamento */
+  .nav-menu {
+    display: none !important;
+  }
 } 
