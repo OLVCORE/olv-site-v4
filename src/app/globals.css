@@ -327,16 +327,14 @@
     right: auto !important;
     color: var(--color-accent) !important;
   }
-  /* NAV label slightly closer */
+  /* NAV label above icon outside circle */
   .mobile-nav-toggle .toggle-label {
-    top: -115% !important;
-    z-index: 2610 !important;
+    top: calc(-100% - 6px) !important; /* full button height + gap */
   }
 
-  /* APPS label ensure visibility below */
+  /* APPS label below icon outside circle */
   .mobile-sidebar-toggle .toggle-label {
-    top: 120% !important;
-    z-index: 2610 !important;
+    top: calc(100% + 6px) !important; /* button height + gap */
   }
 
   /* Reposiciona lupa para não sobrepor o switch */
