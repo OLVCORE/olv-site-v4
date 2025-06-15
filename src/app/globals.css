@@ -572,4 +572,25 @@ body {
   input:checked + .switch-inner::before {
     transform: translateX(24px);
   }
+
+  /* Switch icon positions */
+  .switch-inner .moon-icon {
+    @apply absolute left-1 top-1 w-4 h-4 flex items-center justify-center;
+  }
+  .switch-inner .sun-icon {
+    @apply absolute right-1 top-1 w-4 h-4 flex items-center justify-center;
+  }
+
+  /* Space between theme switch and search */
+  .mobile-search-toggle {
+    margin-left: 0.75rem !important; /* 12px */
+  }
+
+  /* Ticker text colour harmonised */
+  .ticker-inner p {
+    color: var(--color-on-surface);
+  }
+  .ticker-inner a {
+    color: var(--color-accent);
+  }
 } 
