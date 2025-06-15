@@ -327,14 +327,25 @@
     right: auto !important;
     color: var(--color-accent) !important;
   }
-  /* NAV label above icon outside circle */
-  .mobile-nav-toggle .toggle-label {
-    top: calc(-100% - 6px) !important; /* full button height + gap */
+  /* Ensure labels visible & positioned outside */
+  .mobile-nav-toggle .toggle-label,
+  .mobile-sidebar-toggle .toggle-label {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    color: var(--color-accent) !important;
+    font-size: 0.6rem !important;
+    font-weight: 500;
+    white-space: nowrap;
+    pointer-events: none;
+    display: block !important; /* override earlier hidden rule */
   }
 
-  /* APPS label below icon outside circle */
+  .mobile-nav-toggle .toggle-label {
+    top: calc(-100% - 6px) !important; /* above button */
+  }
   .mobile-sidebar-toggle .toggle-label {
-    top: calc(100% + 6px) !important; /* button height + gap */
+    top: calc(100% + 6px) !important;  /* below button */
   }
 
   /* Reposiciona lupa para não sobrepor o switch */
@@ -725,5 +736,39 @@ body.theme-light .ticker-inner a {
   }
   .mobile-sidebar-toggle .toggle-label {
     top: 110% !important; /* keep below */
+  }
+}
+
+/* ===== Footer Reveal Animation (mobile & desktop) ===== */
+.footer-reveal {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-accent);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  z-index: 1900;
+}
+.footer-reveal.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= LABEL OFFSET FINAL OVERRIDE ================= */
+@media (max-width: 768px) {
+  /* Allow labels to overflow */
+  .mobile-nav-toggle,
+  .mobile-sidebar-toggle {
+    overflow: visible !important;
+  }
+
+  .mobile-nav-toggle .toggle-label {
+    top: calc(-100% - 4px) !important; /* 4px gap above */
+  }
+  .mobile-sidebar-toggle .toggle-label {
+    top: calc(100% + 4px) !important; /* 4px gap below */
   }
 } 
