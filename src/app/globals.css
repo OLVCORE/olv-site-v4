@@ -317,14 +317,15 @@
 
   /* Botões flutuantes reposicionados no canto direito */
   .mobile-nav-toggle {
-    bottom: 148px;
-    right: 1rem;
-    left: auto;
+    bottom: 148px !important;
+    left: 1rem !important;
+    right: auto !important;
   }
   .mobile-sidebar-toggle {
-    bottom: 88px;
-    right: 1rem;
-    left: auto;
+    bottom: 88px !important;
+    left: 1rem !important;
+    right: auto !important;
+    color: var(--color-accent) !important;
   }
   .mobile-nav-toggle .toggle-label,
   .mobile-sidebar-toggle .toggle-label {
@@ -336,12 +337,18 @@
     white-space: nowrap;
   }
 
-  /* Distanciamento switch → lupa */
-  .theme-switch-wrapper {
-    margin-right: 1rem !important; /* 16px */
-  }
+  /* Reposiciona lupa para não sobrepor o switch */
   .mobile-search-toggle {
-    margin-left: 1rem !important; /* 16px */
+    position: absolute !important;
+    top: 50% !important;
+    right: 4.5rem !important; /* 72px: 16px padding + 48px switch + 8px gap */
+    transform: translateY(-50%);
+    z-index: 2350;
+  }
+
+  /* Remove margens anteriores (caso sobreponham) */
+  .theme-switch-wrapper {
+    margin-right: 0 !important;
   }
 
   /* Header greater top padding to avoid notch crop */
@@ -674,4 +681,9 @@ body.theme-dark {
 /* Ticker colour in light theme for contrast */
 body.theme-light .ticker-inner p {
   color: var(--color-primary);
+}
+
+/* Header visual fix for light theme – mantém fundo escuro */
+body.theme-light .header-wrapper {
+  background: #11161e !important;
 } 
