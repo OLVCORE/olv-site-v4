@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import Icon from '../../components/icons/Icon';
 const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));
 
 export const metadata = {
@@ -32,21 +33,21 @@ export default function EngagePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/strategy.svg" alt="Strategy Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/strategy.svg" alt="Strategy Icon" size="sm" className="mr-2" />
               <h3 className="text-xl">Estratégia Internacional</h3>
             </div>
             <p>Planejamento de marketing adaptado para diferentes mercados e culturas, com foco em resultados mensuráveis.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/globe.svg" alt="Communication Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/globe.svg" alt="Communication Icon" size="sm" className="mr-2" />
               <h3 className="text-xl">Comunicação Multicultural</h3>
             </div>
             <p>Mensagens que respeitam especificidades culturais enquanto transmitem de forma efetiva os valores da sua marca.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/digital.svg" alt="Digital Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/digital.svg" alt="Digital Icon" size="sm" className="mr-2" />
               <h3 className="text-xl">Presença Digital Global</h3>
             </div>
             <p>Desenvolvimento de ecossistemas digitais otimizados para diferentes mercados e comportamentos de consumo.</p>
@@ -59,7 +60,7 @@ export default function EngagePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/marketing.svg" alt="Marketing Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/marketing.svg" alt="Marketing Icon" size="sm" className="mr-2" />
               <h3 className="text-xl">Estratégia de Marketing Internacional</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -71,7 +72,7 @@ export default function EngagePage() {
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/digital-marketing.svg" alt="Digital Marketing Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/digital-marketing.svg" alt="Digital Marketing Icon" size="sm" className="mr-2" />
               <h3 className="text-xl">Marketing Digital Global</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -83,7 +84,7 @@ export default function EngagePage() {
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/communication.svg" alt="Communication Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/communication.svg" alt="Communication Icon" size="sm" className="mr-2" />
               <h3 className="text-xl">Comunicação Internacional</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -95,7 +96,7 @@ export default function EngagePage() {
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/branding.svg" alt="Branding Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/branding.svg" alt="Branding Icon" size="sm" className="mr-2" />
               <h3 className="text-xl">Branding Internacional</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -113,42 +114,42 @@ export default function EngagePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/connection.svg" alt="Connection Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/connection.svg" alt="Connection Icon" size="sm" className="mr-2" />
               <h3 className="text-lg">Conexão Cultural Autêntica</h3>
             </div>
             <p>Comunicação que ressoa com diferentes culturas, evitando erros de tradução ou inadequações culturais.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/optimization.svg" alt="Optimization Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/optimization.svg" alt="Optimization Icon" size="sm" className="mr-2" />
               <h3 className="text-lg">Otimização de Investimentos</h3>
             </div>
             <p>Estratégias focadas nos canais e abordagens mais efetivos para cada mercado internacional.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/consistency.svg" alt="Consistency Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/consistency.svg" alt="Consistency Icon" size="sm" className="mr-2" />
               <h3 className="text-lg">Consistência Global</h3>
             </div>
             <p>Mensagens coerentes em todos os mercados, preservando a essência da marca enquanto adapta aspectos culturais.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/growth.svg" alt="Growth Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/growth.svg" alt="Growth Icon" size="sm" className="mr-2" />
               <h3 className="text-lg">Expansão Acelerada</h3>
             </div>
             <p>Entrada mais rápida e eficiente em novos mercados com estratégias de comunicação já adaptadas.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/risk.svg" alt="Risk Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/risk.svg" alt="Risk Icon" size="sm" className="mr-2" />
               <h3 className="text-lg">Prevenção de Riscos</h3>
             </div>
             <p>Identificação antecipada de potenciais problemas de comunicação ou percepção em diferentes culturas.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <img src="/icons/insights.svg" alt="Insights Icon" className="w-6 h-6 mr-2" />
+              <Icon src="/icons/insights.svg" alt="Insights Icon" size="sm" className="mr-2" />
               <h3 className="text-lg">Insights Multiculturais</h3>
             </div>
             <p>Aprendizados valiosos sobre diferentes mercados que podem informar estratégias de produto e negócios.</p>
@@ -177,7 +178,7 @@ export default function EngagePage() {
         <div className="space-y-4">
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <img src="/icons/faq.svg" alt="FAQ Icon" className="w-5 h-5 mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
               Por que preciso adaptar minha estratégia de marketing para mercados internacionais?
             </div>
             <div className="p-4">
@@ -186,7 +187,7 @@ export default function EngagePage() {
           </div>
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <img src="/icons/faq.svg" alt="FAQ Icon" className="w-5 h-5 mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
               Como a ENGAGE lida com as diferenças linguísticas e culturais em campanhas globais?
             </div>
             <div className="p-4">
@@ -195,7 +196,7 @@ export default function EngagePage() {
           </div>
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <img src="/icons/faq.svg" alt="FAQ Icon" className="w-5 h-5 mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
               Quais mercados internacionais a ENGAGE tem experiência em atender?
             </div>
             <div className="p-4">
@@ -204,7 +205,7 @@ export default function EngagePage() {
           </div>
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <img src="/icons/faq.svg" alt="FAQ Icon" className="w-5 h-5 mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
               Como a ENGAGE mede o sucesso das estratégias de marketing internacional?
             </div>
             <div className="p-4">
