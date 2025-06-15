@@ -686,4 +686,35 @@ body.theme-light .ticker-inner p {
 /* Header visual fix for light theme – mantém fundo escuro */
 body.theme-light .header-wrapper {
   background: #11161e !important;
+}
+
+/* ===== Updated Mobile Floating Buttons Position ===== */
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    bottom: 96px !important; /* 6rem */
+  }
+  .mobile-sidebar-toggle {
+    bottom: 40px !important; /* 2.5rem */
+  }
+
+  /* Shift search icon further left */
+  .mobile-search-toggle {
+    right: 5.75rem !important; /* 92px */
+  }
+
+  /* Ensure search icon visible on light theme */
+  .mobile-search-toggle svg {
+    color: var(--color-accent) !important;
+  }
+
+  /* Extra padding for logo clearance */
+  .header-wrapper {
+    padding-top: calc(env(safe-area-inset-top) + 8px);
+  }
+}
+
+/* Ticker text colour override for light theme (ensure visibility) */
+body.theme-light .ticker-inner p,
+body.theme-light .ticker-inner a {
+  color: var(--color-primary) !important;
 } 
