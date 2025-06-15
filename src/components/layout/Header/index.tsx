@@ -26,11 +26,25 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       document.body.style.overflow = 'hidden';
       document.body.classList.add('nav-open');
       document.body.classList.remove('sidebar-open');
+      document.body.classList.remove('search-open');
     } else {
       document.body.style.overflow = '';
       document.body.classList.remove('nav-open');
     }
   }, [navOpen]);
+
+  // Lock scroll when search overlay aberto
+  useEffect(() => {
+    if (searchOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('search-open');
+      // Fecha nav se estava aberto
+      setNavOpen(false);
+    } else {
+      document.body.style.overflow = '';
+      document.body.classList.remove('search-open');
+    }
+  }, [searchOpen]);
 
   return (
     <>
@@ -147,6 +161,13 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
         <Link href="/sitemap" className={`nav-item ${isActive('/sitemap') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Mapa do Site</Link>
         <Link href="/contato" className={`nav-item ${isActive('/contato') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Contato</Link>
       </nav>
+
+      {/* Overlay Search Mobile */}
+      {searchOpen && (
+        <div className="search-overlay-mobile md:hidden">
+          <GlobalSearch />
+        </div>
+      )}
     </>
   );
 };

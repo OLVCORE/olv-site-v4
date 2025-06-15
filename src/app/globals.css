@@ -543,4 +543,33 @@ body {
   .shadow-md {
     box-shadow: var(--card-shadow);
   }
+
+  /* Mobile search overlay */
+  .search-overlay-mobile {
+    position: fixed;
+    top: var(--height-header);
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    padding: var(--space-6) var(--space-4);
+    z-index: 2400;
+  }
+
+  /* Theme switch modern look */
+  .theme-switch {
+    @apply relative inline-block w-12 h-6 align-middle select-none;
+  }
+  .theme-switch input {
+    @apply hidden;
+  }
+  .switch-inner {
+    @apply absolute top-0 left-0 w-full h-full bg-[color:var(--color-background)] border border-[color:var(--color-accent)] rounded-full transition-all;
+  }
+  .switch-inner::before {
+    content: "";
+    @apply absolute w-5 h-5 bg-[color:var(--color-accent)] rounded-full top-0.5 left-0.5 transition-transform;
+  }
+  input:checked + .switch-inner::before {
+    transform: translateX(24px);
+  }
 } 
