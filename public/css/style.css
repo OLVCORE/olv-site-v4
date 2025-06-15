@@ -2154,3 +2154,30 @@ body.theme-light .nav-menu .nav-item:hover {
   background-color: #0a0f1d;
   border: 1px solid var(--accent);
 }
+
+/* === PATCH OLV 2024-06-15 – correção navegação mobile === */
+@media (max-width: 768px) {
+  /* Esconde barra lateral fixa; será mostrada apenas com .mobile-open */
+  .sidebar {
+    display: none !important;
+    transform: translateX(-100%) !important;
+  }
+  .sidebar.mobile-open {
+    display: block !important;
+    transform: translateX(0) !important;
+  }
+
+  /* Header sempre no topo */
+  .header-wrapper {
+    top: 0 !important;
+  }
+  /* Ticker imediatamente abaixo do header */
+  .ticker {
+    top: var(--height-header) !important;
+  }
+  /* Conteúdo começa após ticker */
+  .main-content {
+    margin-left: 0 !important;
+    margin-top: calc(var(--height-header) + 45px) !important;
+  }
+}
