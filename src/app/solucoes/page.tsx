@@ -4,8 +4,12 @@ import Image from 'next/image';
 import MainLayout from '../../components/layout/MainLayout';
 
 export const metadata = {
-  title: 'Soluções | OLV Internacional',
-  description: 'Conheça as soluções de consultoria em comércio exterior e gestão empresarial da OLV Internacional.'
+  title: 'Soluções em Comércio Exterior e Logística Internacional | OLV Internacional',
+  description: 'Consultoria integrada em exportação, importação, logística 3PL/4PL, compliance e tecnologia para PMEs. Reduza custos e riscos com especialistas em Comex.',
+  keywords: 'consultoria em exportação, consultoria em importação, logística internacional, 3PL, 4PL, planejamento tributário comex, redução de custos de importação, gestão de supply chain integrado, compliance em comércio exterior, tecnologia aplicada ao comex',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/solucoes'
+  }
 };
 
 export default function SolucoesPage() {

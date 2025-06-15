@@ -5,7 +5,11 @@ import MainLayout from '../../components/layout/MainLayout';
 
 export const metadata = {
   title: 'Ecossistema | OLV Internacional',
-  description: 'O Ecossistema OLV Corp integra estratégia, operação e resultado, capacitando PMEs com acesso global.'
+  description: 'O Ecossistema OLV Corp integra estratégia, operação e resultado, capacitando PMEs com acesso global.',
+  keywords: 'ecossistema de comércio exterior, plataformas de comex integradas, soluções globais, transformação digital',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/ecossistema'
+  },
 };
 
 export default function EcossistemaPage() {

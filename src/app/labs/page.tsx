@@ -6,6 +6,9 @@ export const metadata = {
   title: 'LABS - OLV Internacional | Centro de Inovação em Comércio Internacional',
   description: 'LABS é o centro de inovação da OLV Internacional dedicado a pesquisar, desenvolver e implementar tecnologias emergentes que transformam as operações de comércio exterior.',
   keywords: 'inovação comércio exterior, tecnologias emergentes, blockchain exportação, inteligência artificial comex, transformação digital internacional',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/labs'
+  },
 };
 
 export default function LabsPage() {

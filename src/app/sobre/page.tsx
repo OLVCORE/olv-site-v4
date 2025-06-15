@@ -5,7 +5,11 @@ import MainLayout from '../../components/layout/MainLayout';
 
 export const metadata = {
   title: 'Sobre | OLV Internacional',
-  description: 'Conheça a história, missão, visão e valores da OLV Internacional.'
+  description: 'Conheça a história, missão, visão e valores da OLV Internacional.',
+  keywords: 'sobre olv internacional, consultoria supply chain, história da empresa, missão visão valores',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/sobre'
+  },
 };
 
 export default function Sobre() {

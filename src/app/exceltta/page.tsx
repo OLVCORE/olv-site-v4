@@ -5,7 +5,10 @@ import PlatformLayout from '../../components/platforms/PlatformLayout';
 export const metadata = {
   title: 'EXCELTTA - OLV Internacional | Excelência na Gestão de Processos',
   description: 'EXCELTTA é a plataforma de gestão de processos da OLV Internacional que otimiza fluxos de trabalho, reduz ineficiências e aumenta a produtividade em operações internacionais.',
-  keywords: 'gestão de processos, fluxos de trabalho, otimização de processos, automação, produtividade, comércio internacional, BPM',
+  keywords: 'gestão de processos, fluxos de trabalho, otimização de processos, automação, produtividade, comércio internacional, BPM, excelência operacional, treinamento em exportação, capacitação comex, consultoria educacional',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/exceltta'
+  },
 };
 
 export default function ExcelttaPage() {

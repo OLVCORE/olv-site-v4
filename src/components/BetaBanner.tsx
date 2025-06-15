@@ -38,11 +38,11 @@ const BetaBanner: React.FC<BetaBannerProps> = ({
     >
       <div className="flex flex-col text-left max-w-xs">
         <p className="text-sm font-bold leading-snug">🚧 {platform} em BETA</p>
-        <p className="text-xs leading-snug">Ajude-nos a priorizar funcionalidades — compartilhe suas ideias</p>
+        <p className="text-xs leading-snug">Conte o que facilitaria sua gestão de processos</p>
       </div>
       <button
         onClick={handleClick}
-        className="ml-2 text-xs font-semibold bg-white text-[#0a0f1d] px-4 py-2 rounded-md shadow hover:bg-gray-100 hover:shadow-lg transition-colors whitespace-nowrap"
+        className="ml-2 text-xs font-semibold bg-[#0a0f1d] text-white px-4 py-2 rounded-md shadow hover:bg-[#162047] hover:shadow-lg transition-colors whitespace-nowrap"
       >
         Enviar feedback
       </button>

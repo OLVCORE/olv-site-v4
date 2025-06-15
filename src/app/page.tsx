@@ -2,6 +2,15 @@ import MainLayout from '../components/layout/MainLayout';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'OLV Internacional – Consultoria em Comércio Exterior, Logística Internacional e Supply Chain',
+  description: 'Integramos estratégia, operação e resultado para PMEs que desejam importar, exportar ou expandir globalmente. Reduza custos, riscos e burocracia com especialistas em Comex.',
+  keywords: 'consultoria em exportação, consultoria em importação, logística internacional, especialistas em comex, reduzir custos de importação, planejamento de exportação, radar siscomex, supply chain global',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/'
+  }
+};
+
 export default function HomePage() {
   // Os pilares de atuação da OLV Internacional
   const keyPoints = [

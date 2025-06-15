@@ -6,6 +6,9 @@ export const metadata = {
   title: 'STRATEVO - OLV Internacional | Inteligência para Decidir. Estratégia para Crescer.',
   description: 'STRATEVO é a plataforma de inteligência de mercado que fornece análises aprofundadas para tomada de decisão estratégica no comércio internacional.',
   keywords: 'inteligência de mercado, análise estratégica, comércio internacional, dados de mercado, insights de negócios, estratégia empresarial',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/stratevo'
+  },
 };
 
 export default function StratevoPage() {

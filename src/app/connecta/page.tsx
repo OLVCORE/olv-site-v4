@@ -6,7 +6,10 @@ import SolutionFlow from '../../components/SolutionFlow';
 export const metadata = {
   title: 'CONNECTA - OLV Internacional | Conectando Negócios Globais',
   description: 'A plataforma CONNECTA da OLV Internacional facilita conexões com fornecedores, parceiros estratégicos e soluções para comércio internacional e logística global.',
-  keywords: 'rede fornecedores internacionais, parceiros comércio exterior, supply chain global, sourcing internacional, conexão mercado global',
+  keywords: 'rede fornecedores internacionais, parceiros comércio exterior, supply chain global, sourcing internacional, conexão mercado global, plataforma de networking internacional, matchmaking B2B, conexão de fornecedores e compradores, parcerias globais',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/connecta'
+  },
 };
 
 export default function ConnectaPage() {

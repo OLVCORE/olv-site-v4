@@ -7,6 +7,9 @@ export const metadata = {
   title: 'ACADEMY - OLV Internacional | Capacitação em Comércio Internacional',
   description: 'ACADEMY é a plataforma educacional da OLV Internacional, oferecendo treinamentos e capacitação em comércio exterior, operações internacionais e desenvolvimento de competências globais.',
   keywords: 'treinamento comércio exterior, capacitação internacional, cursos exportação, educação executiva global, desenvolvimento competências internacionais',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/academy'
+  },
 };
 
 export default function AcademyPage() {

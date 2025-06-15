@@ -6,6 +6,9 @@ export const metadata = {
   title: 'FINX - OLV Internacional | Soluções Financeiras para Comércio Internacional',
   description: 'FINX é a plataforma financeira da OLV Internacional que oferece soluções para câmbio, pagamentos internacionais, financiamento e gestão de risco em operações de comércio exterior.',
   keywords: 'finanças internacionais, câmbio, pagamentos internacionais, financiamento comércio exterior, hedging, gestão financeira global',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/finx'
+  },
 };
 
 export default function FinxPage() {

@@ -4,7 +4,11 @@ import MainLayout from '../../components/layout/MainLayout';
 
 export const metadata = {
   title: 'Blog | OLV Internacional',
-  description: 'Conteúdo especializado sobre comércio exterior, estratégia, operações internacionais e soluções para PMEs.'
+  description: 'Conteúdo especializado sobre comércio exterior, estratégia, operações internacionais e soluções para PMEs.',
+  keywords: 'blog de comércio exterior, notícias de importação e exportação, dicas de logística internacional, análises de mercado global',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/blog'
+  },
 };
 
 export default function BlogPage() {

@@ -4,7 +4,11 @@ import MainLayout from '../../components/layout/MainLayout';
 
 export const metadata = {
   title: 'Radar 360 | OLV Internacional - Dados, Inteligência e Simuladores',
-  description: 'Acesse o Radar 360 da OLV Internacional: dados em tempo real, inteligência de mercado e simuladores para otimizar suas operações de Supply Chain, Comércio Exterior e Logística Internacional.'
+  description: 'Acesse o Radar 360 da OLV Internacional: dados em tempo real, inteligência de mercado e simuladores para otimizar suas operações de Supply Chain, Comércio Exterior e Logística Internacional.',
+  keywords: 'rastreabilidade aduaneira, monitoramento em tempo real comex, dashboard radar siscomex, inteligência operacional',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/radar360'
+  },
 };
 
 export default function Radar360Page() {

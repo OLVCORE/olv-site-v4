@@ -4,7 +4,11 @@ import MainLayout from '../../components/layout/MainLayout';
 
 export const metadata = {
   title: 'Contato | OLV Internacional',
-  description: 'Entre em contato com a OLV Internacional. Nossa equipe está pronta para oferecer soluções personalizadas para sua empresa.'
+  description: 'Entre em contato com a OLV Internacional. Nossa equipe está pronta para oferecer soluções personalizadas para sua empresa.',
+  keywords: 'contato olv internacional, consultoria comércio exterior, fale com especialista comex',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/contato'
+  },
 };
 
 export default function ContatoPage() {

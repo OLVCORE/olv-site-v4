@@ -5,7 +5,10 @@ import PlatformLayout from '../../components/platforms/PlatformLayout';
 export const metadata = {
   title: 'VERITUS - OLV Internacional | Compliance e Conformidade Internacional',
   description: 'VERITUS é a plataforma de compliance da OLV Internacional, garantindo que operações de comércio exterior sigam regulamentações e normas internacionais de forma segura e eficiente.',
-  keywords: 'compliance internacional, conformidade aduaneira, regulamentação comércio exterior, due diligence, gestão de riscos, auditoria internacional',
+  keywords: 'consultoria jurídica internacional, compliance comércio exterior, due diligence internacional, gestão de riscos legais',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/veritus'
+  },
 };
 
 export default function VeritusPage() {

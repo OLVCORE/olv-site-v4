@@ -6,6 +6,9 @@ export const metadata = {
   title: 'ENGAGE - OLV Internacional | Engajamento e Relacionamento com Clientes',
   description: 'ENGAGE é a plataforma de relacionamento da OLV Internacional que automatiza e aprimora a jornada do cliente, convertendo leads em negócios através de automação e inteligência de dados.',
   keywords: 'CRM internacional, engajamento clientes, automação marketing, jornada cliente, leads comércio exterior, relacionamento comercial',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/engage'
+  },
 };
 
 export default function EngagePage() {

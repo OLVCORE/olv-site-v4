@@ -6,6 +6,9 @@ export const metadata = {
   title: 'VENTURES - OLV Internacional | Investimentos Estratégicos em Comércio Internacional',
   description: 'VENTURES é a plataforma de investimentos da OLV Internacional, conectando empresas inovadoras do comércio exterior com capital estratégico para acelerar seu crescimento global.',
   keywords: 'investimento comércio exterior, venture capital internacional, financiamento expansão global, capital para exportação, aceleração negócios internacionais',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/ventures'
+  },
 };
 
 export default function VenturesPage() {

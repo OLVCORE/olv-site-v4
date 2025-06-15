@@ -3,6 +3,10 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Mapa do Site | OLV Internacional',
   description: 'Navegue facilmente por todas as páginas do site OLV Internacional.',
+  keywords: 'mapa do site, navegação, sitemap olv internacional',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/sitemap'
+  },
 };
 
 export default function SitemapPage() {
