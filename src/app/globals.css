@@ -525,4 +525,22 @@ body {
     background: var(--color-background);
     color: var(--color-on-surface);
   }
+}
+
+@layer components {
+  .card {
+    @apply bg-[color:var(--card-bg)] border border-[color:var(--card-border)] rounded-xl shadow-md p-[var(--space-6)] md:p-[var(--space-7)] flex flex-col gap-4;
+  }
+  .card-title {
+    @apply text-xl font-semibold text-on-surface;
+  }
+  .card-list {
+    @apply list-none flex flex-col gap-3;
+  }
+  .card-list-icon {
+    @apply inline-block mr-2 text-accent;
+  }
+  .shadow-md {
+    box-shadow: var(--card-shadow);
+  }
 } 
