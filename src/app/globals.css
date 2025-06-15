@@ -335,6 +335,25 @@
     font-size: 0.55rem;
     white-space: nowrap;
   }
+
+  /* Distanciamento switch → lupa */
+  .theme-switch-wrapper {
+    margin-right: 1rem !important; /* 16px */
+  }
+  .mobile-search-toggle {
+    margin-left: 1rem !important; /* 16px */
+  }
+
+  /* Header greater top padding to avoid notch crop */
+  .header-wrapper {
+    padding-top: calc(env(safe-area-inset-top) + 4px);
+  }
+
+  /* Limit sidebar height */
+  .sidebar.mobile-open {
+    height: auto !important;
+    max-height: 85vh !important;
+  }
 }
 
 @layer base {
@@ -650,4 +669,9 @@ body.theme-dark {
     padding-left: var(--space-4);
     padding-right: var(--space-4);
   }
+}
+
+/* Ticker colour in light theme for contrast */
+body.theme-light .ticker-inner p {
+  color: var(--color-primary);
 } 

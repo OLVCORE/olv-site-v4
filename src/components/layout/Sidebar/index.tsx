@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Tippy from '@tippyjs/react';
+import { FaLayerGroup } from 'react-icons/fa';
 
 const platforms = [
   { 
@@ -96,14 +97,9 @@ const Sidebar: React.FC = () => {
       <button 
         className="mobile-sidebar-toggle flex flex-col items-center justify-center gap-0.5"
         onClick={toggleMobileMenu}
-        aria-label="Toggle Platforms Menu"
+        aria-label="Plataformas"
       >
-        <Image 
-          src="/icons/platforms.svg" 
-          alt="Plataformas" 
-          width={28} 
-          height={28}
-        />
+        <FaLayerGroup size={24} />
         <span className="toggle-label">Plataformas</span>
       </button>
 
