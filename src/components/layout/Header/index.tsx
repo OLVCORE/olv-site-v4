@@ -4,12 +4,14 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import GlobalSearch from '../../GlobalSearch';
+import dynamic from 'next/dynamic';
 
 interface HeaderProps {
   theme: 'light' | 'dark';
   toggleTheme: () => void;
 }
+
+const GlobalSearch = dynamic(() => import('../../GlobalSearch'), { ssr: false });
 
 const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   const [navOpen, setNavOpen] = useState(false);
