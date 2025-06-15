@@ -97,10 +97,10 @@ const Sidebar: React.FC = () => {
       <button 
         className="mobile-sidebar-toggle flex flex-col items-center justify-center gap-0.5"
         onClick={toggleMobileMenu}
-        aria-label="Plataformas"
+        aria-label="Apps"
       >
         <FaLayerGroup size={24} />
-        <span className="toggle-label">Plataformas</span>
+        <span className="toggle-label">Apps</span>
       </button>
 
       <aside 
