@@ -43,6 +43,9 @@
   --space-6: 24px;
   --space-7: 28px;
   --space-8: 32px;
+
+  /* Header height */
+  --height-header: 64px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -248,6 +251,42 @@
     height: 100% !important;
     padding: 0 1rem !important;
     position: relative !important;
+  }
+
+  /* Ajusta altura padrão do cabeçalho */
+  :root {
+    --height-header: 64px;
+  }
+
+  /* Logo menor e remove slogan */
+  .header-logo-circle {
+    width: 56px !important;
+    height: 56px !important;
+  }
+  .header-logo-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .header-slogan {
+    display: none !important;
+  }
+
+  /* Reexibe switch de tema como ícone compacto */
+  .theme-switch-wrapper {
+    display: flex !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: 1rem !important;
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  /* Ticker compacto */
+  .ticker {
+    height: 32px !important;
+  }
+  .ticker-inner p {
+    font-size: 0.75rem !important; /* 12px */
   }
 }
 
