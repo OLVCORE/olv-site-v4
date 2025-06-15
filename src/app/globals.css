@@ -200,6 +200,21 @@
   .nav-menu-mobile .nav-item.active {
     color: var(--color-accent);
   }
+
+  /* Overlay nav */
+  .nav-menu-mobile {
+    display: none !important;
+    pointer-events: none;
+  }
+  .nav-menu-mobile.show {
+    display: flex !important;
+    pointer-events: auto;
+  }
+  /* Ensure nav and platform buttons both visible */
+  .mobile-nav-toggle,
+  .mobile-sidebar-toggle {
+    z-index: 2600;
+  }
 }
 
 /* Ensure header is at top on mobile */
