@@ -342,7 +342,7 @@
   }
 
   .mobile-nav-toggle .toggle-label {
-    top: calc(-100% - 1px) !important; /* tighter gap above */
+    top: calc(-100% + 6px) !important; /* bring label 6px closer */
   }
   .mobile-sidebar-toggle .toggle-label {
     top: calc(100% + 6px) !important;  /* below button */
@@ -766,7 +766,7 @@ body.theme-light .ticker-inner a {
   }
 
   .mobile-nav-toggle .toggle-label {
-    top: calc(-100% - 1px) !important; /* tighter gap above */
+    top: calc(-100% + 6px) !important; /* bring label 6px closer */
   }
   .mobile-sidebar-toggle .toggle-label {
     top: calc(100% + 4px) !important; /* 4px gap below */
