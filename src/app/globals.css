@@ -327,30 +327,16 @@
     right: auto !important;
     color: var(--color-accent) !important;
   }
-  /* NAV label above icon */
+  /* NAV label slightly closer */
   .mobile-nav-toggle .toggle-label {
-    position: absolute !important;
-    top: -130% !important;
-    left: 50% !important;
-    transform: translateX(-50%);
-    color: var(--color-accent) !important;
-    font-size: 0.55rem !important;
-    font-weight: 500;
-    white-space: nowrap;
-    pointer-events: none;
+    top: -115% !important;
+    z-index: 2610 !important;
   }
 
-  /* APPs label below icon */
+  /* APPS label ensure visibility below */
   .mobile-sidebar-toggle .toggle-label {
-    position: absolute !important;
-    top: 110% !important;
-    left: 50% !important;
-    transform: translateX(-50%);
-    color: var(--color-accent) !important;
-    font-size: 0.55rem !important;
-    font-weight: 500;
-    white-space: nowrap;
-    pointer-events: none;
+    top: 120% !important;
+    z-index: 2610 !important;
   }
 
   /* Reposiciona lupa para não sobrepor o switch */
