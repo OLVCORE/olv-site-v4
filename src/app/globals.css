@@ -342,7 +342,7 @@
   }
 
   .mobile-nav-toggle .toggle-label {
-    top: calc(-100% - 6px) !important; /* above button */
+    top: calc(-100% - 1px) !important; /* tighter gap above */
   }
   .mobile-sidebar-toggle .toggle-label {
     top: calc(100% + 6px) !important;  /* below button */
@@ -766,9 +766,13 @@ body.theme-light .ticker-inner a {
   }
 
   .mobile-nav-toggle .toggle-label {
-    top: calc(-100% - 4px) !important; /* 4px gap above */
+    top: calc(-100% - 1px) !important; /* tighter gap above */
   }
   .mobile-sidebar-toggle .toggle-label {
     top: calc(100% + 4px) !important; /* 4px gap below */
   }
+}
+
+.main-content {
+  padding-bottom: calc(var(--footer-height, 100px) + 1rem);
 } 
