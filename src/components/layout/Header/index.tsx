@@ -13,6 +13,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   const [navOpen, setNavOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
   
   const isActive = (path: string) => {
@@ -104,6 +105,18 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               </div>
             </label>
           </div>
+
+          {/* Botão BUSCAR – apenas mobile (ação futura) */}
+          <button
+            className="mobile-search-toggle md:hidden flex items-center justify-center ml-2"
+            aria-label="Abrir busca"
+            onClick={() => setSearchOpen(!searchOpen)}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
 
           {/* Botão MENU Principal – mobile */}
           <button
