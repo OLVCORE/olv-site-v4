@@ -30,10 +30,10 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
               className="w-full p-4 flex justify-between items-center font-semibold focus:outline-none"
             >
               <span className="flex items-center text-left">
-                <Icon src="/icons/faq.svg" alt="FAQ Icon" size="md" className="mr-2 w-6 h-6" />
+                <Icon src="/icons/faq.svg" alt="FAQ Icon" size="md" className="mr-2 w-6 h-6 text-accent" />
                 {item.question}
               </span>
-              <span className="ml-4 text-xl select-none">
+              <span className="ml-4 text-xl select-none text-accent">
                 {isOpen ? '−' : '+'}
               </span>
             </button>

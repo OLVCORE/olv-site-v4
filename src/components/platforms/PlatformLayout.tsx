@@ -89,7 +89,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         <Ticker />
 
         {/* Main Content with Platform Styling */}
-        <main className="container mx-auto py-8 px-4">
+        <main className="container mx-auto py-8 px-4 pb-24 lg:pb-12">
           {/* Hero card */}
           <PlatformHero
             platformName={platformName}
