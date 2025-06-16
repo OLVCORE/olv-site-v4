@@ -8,10 +8,10 @@ export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 const sizeMap: Record<IconSize, number> = {
   xs: 12, // w-3
-  sm: 16, // w-4
-  md: 24, // w-6
-  lg: 32, // w-8
-  xl: 48, // w-12
+  sm: 24, // w-6 (default visual size)
+  md: 32, // w-8
+  lg: 48, // w-12
+  xl: 64, // w-16
 };
 
 interface IconProps {
