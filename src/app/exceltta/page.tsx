@@ -22,12 +22,12 @@ export default function ExcelttaPage() {
       platformColor="#0F5F66"
     >
       <section className="mb-12">
-        <h2 className="section-title">Sobre a EXCELTTA</h2>
+        <h2 className="section-title">Como a EXCELTTA ajuda sua empresa</h2>
         <p className="mb-4">
-          A EXCELTTA é a plataforma de gestão de processos da OLV Internacional, projetada para otimizar fluxos de trabalho, reduzir ineficiências e aumentar a produtividade em operações internacionais.
+          Se você é uma PME que lida com planilhas infinitas, retrabalho e atrasos por falta de padronização, a EXCELTTA foi criada exatamente para esse cenário. Nossa metodologia proprietária de mapeamento de processos identifica gargalos e automatiza etapas repetitivas, liberando seu time para atividades de maior valor.
         </p>
         <p className="mb-4">
-          Nossa plataforma integra metodologias comprovadas de BPM (Business Process Management) com tecnologias avançadas para simplificar operações complexas e garantir consistência nos resultados.
+          Integramos BPM, automação low-code e métricas em tempo real. O resultado? Redução de custos operacionais, tomada de decisão baseada em dados e escalabilidade sem aumentar headcount. Tudo isso em um painel simples, sem jargões técnicos.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="platform-card">
@@ -157,17 +157,21 @@ export default function ExcelttaPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="section-title">Depoimentos</h2>
+        <h2 className="section-title">Cenários de Uso</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="platform-card">
-            <p className="italic mb-4">"A implementação da metodologia EXCELTTA transformou nossa operação logística internacional. Reduzimos o tempo de processamento de pedidos em 40% e praticamente eliminamos erros documentais."</p>
-            <p className="font-semibold">Pedro Almeida</p>
-            <p className="text-sm text-gray-600">Diretor de Operações, LogisBrasil</p>
+            <div className="flex items-center mb-3">
+              <Icon src="/icons/chart.svg" alt="Lead Time Icon" size="md" className="mr-2 w-6 h-6" />
+              <h3 className="text-xl">Redução de Lead Time</h3>
+            </div>
+            <p>Empresas que dependem de múltiplas aprovações internas passam a executar o mesmo fluxo 35 % mais rápido após a automação de tarefas e alertas inteligentes.</p>
           </div>
           <div className="platform-card">
-            <p className="italic mb-4">"A automação de processos desenvolvida pela equipe EXCELTTA nos permitiu escalar nossas operações sem precisar aumentar proporcionalmente nossa equipe. Resultado: crescimento de 60% em receita com apenas 15% de aumento em custos operacionais."</p>
-            <p className="font-semibold">Luciana Campos</p>
-            <p className="text-sm text-gray-600">COO, TradeTech Solutions</p>
+            <div className="flex items-center mb-3">
+              <Icon src="/icons/automation.svg" alt="Erro Icon" size="md" className="mr-2 w-6 h-6" />
+              <h3 className="text-xl">Queda na Taxa de Erros</h3>
+            </div>
+            <p>Processos padronizados com checklists inteligentes reduzem em até 50 % a ocorrência de falhas humanas em documentos críticos.</p>
           </div>
         </div>
       </section>
