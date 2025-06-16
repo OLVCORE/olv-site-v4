@@ -784,4 +784,16 @@ body.theme-light .ticker-inner a {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
+}
+
+/* ===== Footer colour harmonisation ===== */
+.footer-reveal {
+  color: var(--color-on-surface);
+  background: var(--color-surface);
+}
+.footer-reveal a {
+  color: var(--color-on-surface);
+}
+.footer-reveal h3 {
+  color: var(--color-accent);
 } 
