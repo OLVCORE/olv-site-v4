@@ -796,4 +796,25 @@ body.theme-light .ticker-inner a {
 }
 .footer-reveal h3 {
   color: var(--color-accent);
+}
+
+/* ---------- FINAL Light theme polish ---------- */
+body.theme-light .header-slogan {
+  color: var(--color-accent) !important;
+}
+
+body.theme-light .footer-reveal,
+body.theme-light .footer-reveal p,
+body.theme-light .footer-reveal li,
+body.theme-light .footer-reveal a,
+body.theme-light .footer-reveal span {
+  color: var(--core-color) !important;
+}
+
+body.theme-light .ticker-inner p,
+body.theme-light .ticker-inner a {
+  color: var(--core-color) !important;
+}
+body.theme-light .ticker-inner a:hover {
+  color: var(--color-accent) !important;
 } 
