@@ -32,21 +32,21 @@ export default function ExcelttaPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/exceltta-simple.svg" alt="Process Mapping Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/exceltta-simple.svg" alt="Process Mapping Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-xl">Mapeamento de Processos</h3>
             </div>
             <p>Identificação e documentação de fluxos de trabalho para visualizar oportunidades de melhoria.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/automation.svg" alt="Automation Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/automation.svg" alt="Automation Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-xl">Automação Inteligente</h3>
             </div>
             <p>Implementação de soluções tecnológicas para automatizar tarefas repetitivas e reduzir erros humanos.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/chart.svg" alt="Monitoring Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/chart.svg" alt="Monitoring Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-xl">Monitoramento Contínuo</h3>
             </div>
             <p>Acompanhamento em tempo real de KPIs para identificar gargalos e oportunidades de melhoria.</p>
@@ -59,7 +59,7 @@ export default function ExcelttaPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/qualification.svg" alt="Consulting Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/qualification.svg" alt="Consulting Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-xl">Consultoria em Processos</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -71,7 +71,7 @@ export default function ExcelttaPage() {
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/tech-value.svg" alt="Document Management Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/tech-value.svg" alt="Document Management Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-xl">Gestão Documental</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -83,7 +83,7 @@ export default function ExcelttaPage() {
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/automation.svg" alt="Process Automation Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/automation.svg" alt="Process Automation Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-xl">Automação de Processos</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -95,7 +95,7 @@ export default function ExcelttaPage() {
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/analytics.svg" alt="Performance Analysis Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/analytics.svg" alt="Performance Analysis Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-xl">Análise de Performance</h3>
             </div>
             <ul className="list-disc pl-5 space-y-2">
@@ -113,42 +113,42 @@ export default function ExcelttaPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/rocket.svg" alt="Efficiency Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/rocket.svg" alt="Efficiency Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-lg">Maior Eficiência Operacional</h3>
             </div>
             <p>Redução de tempo e recursos necessários para executar processos críticos do negócio.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/check.svg" alt="Error Reduction Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/check.svg" alt="Error Reduction Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-lg">Menor Taxa de Erros</h3>
             </div>
             <p>Padronização e automação que minimizam falhas humanas e garantem consistência nas operações.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/chart.svg" alt="Data Decision Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/chart.svg" alt="Data Decision Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-lg">Tomada de Decisão Baseada em Dados</h3>
             </div>
             <p>Visibilidade completa do desempenho dos processos para decisões mais assertivas.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/chart-bar.svg" alt="Scalability Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/chart-bar.svg" alt="Scalability Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-lg">Escalabilidade</h3>
             </div>
             <p>Processos otimizados que permitem crescimento sem aumento proporcional de custos operacionais.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/compliance.svg" alt="Compliance Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/compliance.svg" alt="Compliance Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-lg">Conformidade Regulatória</h3>
             </div>
             <p>Garantia de que todos os processos estão alinhados com requisitos legais e regulatórios internacionais.</p>
           </div>
           <div className="platform-card">
             <div className="flex items-center mb-3">
-              <Icon src="/icons/integration.svg" alt="Agility Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/integration.svg" alt="Agility Icon" size="md" className="mr-2 w-6 h-6" />
               <h3 className="text-lg">Agilidade para Mudanças</h3>
             </div>
             <p>Flexibilidade para adaptar processos rapidamente em resposta a mudanças no mercado ou regulamentações.</p>
@@ -177,7 +177,7 @@ export default function ExcelttaPage() {
         <div className="space-y-4">
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="md" className="mr-2 w-6 h-6" />
               Como a EXCELTTA pode identificar ineficiências nos processos da minha empresa?
             </div>
             <div className="p-4">
@@ -186,7 +186,7 @@ export default function ExcelttaPage() {
           </div>
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="md" className="mr-2 w-6 h-6" />
               Quais tipos de processos podem ser otimizados com a EXCELTTA?
             </div>
             <div className="p-4">
@@ -195,7 +195,7 @@ export default function ExcelttaPage() {
           </div>
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="md" className="mr-2 w-6 h-6" />
               Quanto tempo leva para implementar as soluções EXCELTTA?
             </div>
             <div className="p-4">
@@ -204,7 +204,7 @@ export default function ExcelttaPage() {
           </div>
           <div className="platform-card">
             <div className="p-4 font-semibold flex items-center">
-              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="sm" className="mr-2" />
+              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="md" className="mr-2 w-6 h-6" />
               As soluções EXCELTTA se integram com sistemas existentes?
             </div>
             <div className="p-4">
@@ -219,7 +219,7 @@ export default function ExcelttaPage() {
           <h2 className="text-2xl font-bold mb-4 text-accent">Pronto para transformar seus processos?</h2>
           <p className="mb-6 max-w-3xl mx-auto">Entre em contato com nossos especialistas e descubra como a EXCELTTA pode ajudar sua empresa a alcançar excelência operacional no comércio internacional.</p>
           <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6 flex items-center justify-center">
-            <Icon src="/icons/specialist.svg" alt="Specialist Icon" size="sm" className="mr-2" />
+            <Icon src="/icons/specialist.svg" alt="Specialist Icon" size="md" className="mr-2 w-6 h-6" />
             Fale com um Especialista
           </Link>
         </div>

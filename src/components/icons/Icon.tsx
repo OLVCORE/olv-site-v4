@@ -42,7 +42,7 @@ const Icon: React.FC<IconProps> = ({
       alt={alt}
       width={dimension}
       height={dimension}
-      className={clsx(className)}
+      className={clsx('inline-block', className)}
       unoptimized={unoptimized}
       priority={false}
     />
