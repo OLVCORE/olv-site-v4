@@ -103,7 +103,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
           <style jsx global>{`
             /* Card styling with platform-specific colors */
             .platform-card {
-              background-color: var(--card-bg);
+              background-color: var(--color-surface-light);
               border-radius: 0.75rem;
               padding: 1.75rem;
               transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -113,6 +113,10 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
               position: relative;
               overflow: hidden;
               color: var(--color-on-surface);
+            }
+            
+            body.theme-light .platform-card {
+              background-color: var(--color-surface);
             }
             
             .platform-card::before {
