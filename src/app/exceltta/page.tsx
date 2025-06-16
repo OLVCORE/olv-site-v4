@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import PlatformLayout from '../../components/platforms/PlatformLayout';
 import Icon from '../../components/icons/Icon';
+import Accordion from '../../components/ui/Accordion';
 
 export const metadata = {
   title: 'EXCELTTA - OLV Internacional | Excelência na Gestão de Processos',
@@ -178,44 +179,30 @@ export default function ExcelttaPage() {
 
       <section className="mb-12">
         <h2 className="section-title">FAQ - Perguntas Frequentes</h2>
-        <div className="space-y-4">
-          <div className="platform-card">
-            <div className="p-4 font-semibold flex items-center">
-              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="md" className="mr-2 w-6 h-6" />
-              Como a EXCELTTA pode identificar ineficiências nos processos da minha empresa?
-            </div>
-            <div className="p-4">
-              A EXCELTTA utiliza uma metodologia proprietária de diagnóstico que combina mapeamento detalhado de processos, análise de dados operacionais e benchmarking com melhores práticas do setor. Nossos especialistas realizam entrevistas com stakeholders, observam operações e analisam documentação existente para identificar gargalos, redundâncias e oportunidades de melhoria nos fluxos de trabalho.
-            </div>
-          </div>
-          <div className="platform-card">
-            <div className="p-4 font-semibold flex items-center">
-              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="md" className="mr-2 w-6 h-6" />
-              Quais tipos de processos podem ser otimizados com a EXCELTTA?
-            </div>
-            <div className="p-4">
-              A EXCELTTA é versátil e pode otimizar diversos tipos de processos, incluindo operações logísticas internacionais, gestão de documentação aduaneira, processos de compliance, fluxos de aprovação, controle de qualidade, gestão de fornecedores, processos financeiros relacionados ao comércio exterior, e muito mais. Nossa plataforma é adaptável a qualquer processo estruturado que possua etapas bem definidas.
-            </div>
-          </div>
-          <div className="platform-card">
-            <div className="p-4 font-semibold flex items-center">
-              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="md" className="mr-2 w-6 h-6" />
-              Quanto tempo leva para implementar as soluções EXCELTTA?
-            </div>
-            <div className="p-4">
-              O tempo de implementação varia de acordo com a complexidade dos processos e o escopo do projeto. Projetos menores focados em um único processo podem ser implementados em 4-6 semanas, enquanto transformações mais amplas podem levar de 3 a 6 meses. Trabalhamos com uma abordagem ágil, entregando resultados incrementais para que sua empresa comece a colher benefícios mais rapidamente.
-            </div>
-          </div>
-          <div className="platform-card">
-            <div className="p-4 font-semibold flex items-center">
-              <Icon src="/icons/faq.svg" alt="FAQ Icon" size="md" className="mr-2 w-6 h-6" />
-              As soluções EXCELTTA se integram com sistemas existentes?
-            </div>
-            <div className="p-4">
-              Sim, desenvolvemos nossas soluções com foco na integração. A EXCELTTA pode se conectar com ERPs, CRMs, sistemas de gestão de documentos, plataformas de comércio exterior e praticamente qualquer sistema que possua APIs ou outras interfaces de integração. Isso permite que os dados fluam sem retrabalho e que os processos sejam verdadeiramente end-to-end, eliminando ilhas de automação.
-            </div>
-          </div>
-        </div>
+        <Accordion
+          items={[
+            {
+              question: 'Como a EXCELTTA pode identificar ineficiências nos processos da minha empresa?',
+              answer:
+                'A EXCELTTA utiliza uma metodologia proprietária de diagnóstico que combina mapeamento detalhado de processos, análise de dados operacionais e benchmarking com melhores práticas do setor. Nossos especialistas realizam entrevistas com stakeholders, observam operações e analisam documentação existente para identificar gargalos, redundâncias e oportunidades de melhoria nos fluxos de trabalho.',
+            },
+            {
+              question: 'Quais tipos de processos podem ser otimizados com a EXCELTTA?',
+              answer:
+                'A EXCELTTA é versátil e pode otimizar diversos tipos de processos, incluindo operações logísticas internacionais, gestão de documentação aduaneira, processos de compliance, fluxos de aprovação, controle de qualidade, gestão de fornecedores, processos financeiros relacionados ao comércio exterior, e muito mais. Nossa plataforma é adaptável a qualquer processo estruturado que possua etapas bem definidas.',
+            },
+            {
+              question: 'Quanto tempo leva para implementar as soluções EXCELTTA?',
+              answer:
+                'O tempo de implementação varia de acordo com a complexidade dos processos e o escopo do projeto. Projetos menores focados em um único processo podem ser implementados em 4-6 semanas, enquanto transformações mais amplas podem levar de 3 a 6 meses. Trabalhamos com uma abordagem ágil, entregando resultados incrementais para que sua empresa comece a colher benefícios mais rapidamente.',
+            },
+            {
+              question: 'As soluções EXCELTTA se integram com sistemas existentes?',
+              answer:
+                'Sim, desenvolvemos nossas soluções com foco na integração. A EXCELTTA pode se conectar com ERPs, CRMs, sistemas de gestão de documentos, plataformas de comércio exterior e praticamente qualquer sistema que possua APIs ou outras interfaces de integração. Isso permite que os dados fluam sem retrabalho e que os processos sejam verdadeiramente end-to-end, eliminando ilhas de automação.',
+            },
+          ]}
+        />
       </section>
 
       <section>
