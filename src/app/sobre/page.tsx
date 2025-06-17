@@ -27,8 +27,8 @@ export default function Sobre() {
               </p>
               {/* CTA imediato para reforçar conversão */}
               <div className="flex justify-center mt-6">
-                <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6 flex items-center gap-2">
-                  <Icon src="/icons/chat.svg" alt="Ícone de Contato" size="sm" className="w-5 h-5" />
+                <Link href="/contato" className="btn btn-primary text-sm font-semibold py-2 px-5 flex items-center gap-2">
+                  <Icon src="/icons/chat.svg" alt="Ícone de Contato" size="sm" className="w-4 h-4" />
                   Fale com um Especialista
                 </Link>
               </div>
@@ -178,7 +178,7 @@ export default function Sobre() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="card">
                 <div className="flex items-center mb-3">
-                  <Icon src="/icons/supplychain.svg" alt="Ícone Experiência" size="sm" className="mr-2 w-6 h-6" />
+                  <Icon src="/icons/supplychain.svg" alt="Ícone Experiência" size="sm" className="mr-2 w-6 h-6 text-accent" />
                   <h3 className="text-xl font-semibold">Experiência Prática</h3>
                 </div>
                 <p>
@@ -187,7 +187,7 @@ export default function Sobre() {
               </div>
               <div className="card">
                 <div className="flex items-center mb-3">
-                  <Icon src="/icons/link.svg" alt="Ícone Rede" size="sm" className="mr-2 w-6 h-6" />
+                  <Icon src="/icons/link.svg" alt="Ícone Rede" size="sm" className="mr-2 w-6 h-6 text-accent" />
                   <h3 className="text-xl font-semibold">Rede Estratégica</h3>
                 </div>
                 <p>
@@ -196,7 +196,7 @@ export default function Sobre() {
               </div>
               <div className="card">
                 <div className="flex items-center mb-3">
-                  <Icon src="/icons/tools.svg" alt="Ícone Modelo Flexível" size="sm" className="mr-2 w-6 h-6" />
+                  <Icon src="/icons/tools.svg" alt="Ícone Modelo Flexível" size="sm" className="mr-2 w-6 h-6 text-accent" />
                   <h3 className="text-xl font-semibold">Modelo Flexível</h3>
                 </div>
                 <p>
