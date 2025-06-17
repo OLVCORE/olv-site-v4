@@ -10,8 +10,8 @@
     "title": "ACADEMY - OLV Internacional | Capacitação em Comércio Internacional",
     "slug": "C:/Projects/olv-site-v4/src/app/academy/page.tsx",
     "category": "C:",
-    "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
-    "searchText": "import react from 'react';\nimport platformlayout from '../../components/platforms/platformlayout';\nimport link from 'next/link';\nimport icon from '../../components/icons/icon';\n\nexport const metadata =  ,\n};\n\nexport default function academypage()  \n       \n     \n  );\n} "
+    "excerpt": "import Icon from '../../components/icons/Icon';",
+    "searchText": "import react from 'react';\nimport dynamic from 'next/dynamic';\nimport link from 'next/link';\nimport icon from '../../components/icons/icon';\n\nconst platformlayout = dynamic(() => import('../../components/platforms/platformlayout'));\n\nexport const metadata =  ,\n};\n\nexport default function academypage()  \n       \n     \n  );\n} "
   },
   {
     "title": "beta-feedback",
@@ -31,8 +31,8 @@
     "title": "CONNECTA - OLV Internacional | Conectando Negócios Globais",
     "slug": "C:/Projects/olv-site-v4/src/app/connecta/page.tsx",
     "category": "C:",
-    "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
-    "searchText": "import react from 'react';\nimport link from 'next/link';\nimport platformlayout from '../../components/platforms/platformlayout';\nimport solutionflow from '../../components/solutionflow';\n\nexport const metadata =  ,\n};\n\nexport default function connectapage()  \n         \n       \n\n       \n         faq - perguntas frequentes \n         \n           \n             \n              como a connecta seleciona potenciais parceiros para minha empresa?\n             \n             \n              utilizamos uma metodologia proprietaria de matchmaking que considera diversos fatores como complementaridade de negocios, objetivos estrategicos, cultura empresarial, capacidade financeira e operacional, experiencia no setor e reputacao no mercado. apos uma analise inicial do seu perfil e necessidades, realizamos uma busca em nossa ampla rede de contatos e bases de dados, aplicando filtros rigorosos para identificar apenas parceiros com alta probabilidade de ajuste estrategico.\n             \n           \n           \n             \n              quanto tempo leva para encontrar um parceiro internacional adequado?\n             \n             \n              o tempo medio para identificacao e qualificacao inicial de potenciais parceiros e de 4 a 8 semanas, dependendo do setor, complexidade do negocio e regiao geografica alvo. o processo completo ate o estabelecimento formal de uma parceria geralmente leva de 3 a 6 meses, incluindo as fases de apresentacao, negociacao inicial, due diligence e formalizacao do acordo. trabalhamos com cronogramas personalizados para cada cliente, priorizando a qualidade das conexoes em vez da quantidade.\n             \n           \n           \n             \n              a connecta atende empresas de todos os portes e setores?\n             \n             \n              sim, trabalhamos com empresas de diferentes portes - desde startups ate grandes corporacoes - e diversos setores da economia. nossa metodologia e adaptada as necessidades especificas de cada cliente, independentemente do tamanho ou segmento. para empresas menores, focamos em estrategias de entrada que minimizem riscos e investimentos iniciais, enquanto para corporacoes maiores, desenvolvemos abordagens mais complexas de alianca estrategica e expansao internacional.\n             \n           \n           \n             \n              como a connecta da suporte apos a identificacao de um potencial parceiro?\n             \n             \n              nosso apoio vai muito alem da simples apresentacao. oferecemos suporte completo em todas as etapas do desenvolvimento da parceria, incluindo preparacao para reunioes iniciais, facilitacao de comunicacao (inclusive com traducao quando necessario), orientacao cultural para negociacoes, assessoria na estruturacao de acordos, suporte juridico atraves de parceiros especializados, e acompanhamento periodico apos o estabelecimento da parceria para garantir o sucesso da relacao comercial a longo prazo.\n             \n           \n         \n       \n\n       \n         \n           pronto para expandir seu network global? \n           entre em contato com nossos especialistas e descubra como a connecta pode ajudar sua empresa a encontrar os parceiros ideais para crescer internacionalmente. \n           \n            fale com um especialista\n           \n         \n       \n\n       \n       \n     \n  );\n} "
+    "excerpt": "import SolutionFlow from '../../components/SolutionFlow';",
+    "searchText": "import react from 'react';\nimport link from 'next/link';\nimport dynamic from 'next/dynamic';\nimport solutionflow from '../../components/solutionflow';\n\nconst platformlayout = dynamic(() => import('../../components/platforms/platformlayout'));\n\nexport const metadata =  ,\n};\n\nexport default function connectapage()  \n         \n       \n\n       \n         faq - perguntas frequentes \n         \n           \n             \n              como a connecta seleciona potenciais parceiros para minha empresa?\n             \n             \n              utilizamos uma metodologia proprietaria de matchmaking que considera diversos fatores como complementaridade de negocios, objetivos estrategicos, cultura empresarial, capacidade financeira e operacional, experiencia no setor e reputacao no mercado. apos uma analise inicial do seu perfil e necessidades, realizamos uma busca em nossa ampla rede de contatos e bases de dados, aplicando filtros rigorosos para identificar apenas parceiros com alta probabilidade de ajuste estrategico.\n             \n           \n           \n             \n              quanto tempo leva para encontrar um parceiro internacional adequado?\n             \n             \n              o tempo medio para identificacao e qualificacao inicial de potenciais parceiros e de 4 a 8 semanas, dependendo do setor, complexidade do negocio e regiao geografica alvo. o processo completo ate o estabelecimento formal de uma parceria geralmente leva de 3 a 6 meses, incluindo as fases de apresentacao, negociacao inicial, due diligence e formalizacao do acordo. trabalhamos com cronogramas personalizados para cada cliente, priorizando a qualidade das conexoes em vez da quantidade.\n             \n           \n           \n             \n              a connecta atende empresas de todos os portes e setores?\n             \n             \n              sim, trabalhamos com empresas de diferentes portes - desde startups ate grandes corporacoes - e diversos setores da economia. nossa metodologia e adaptada as necessidades especificas de cada cliente, independentemente do tamanho ou segmento. para empresas menores, focamos em estrategias de entrada que minimizem riscos e investimentos iniciais, enquanto para corporacoes maiores, desenvolvemos abordagens mais complexas de alianca estrategica e expansao internacional.\n             \n           \n           \n             \n              como a connecta da suporte apos a identificacao de um potencial parceiro?\n             \n             \n              nosso apoio vai muito alem da simples apresentacao. oferecemos suporte completo em todas as etapas do desenvolvimento da parceria, incluindo preparacao para reunioes iniciais, facilitacao de comunicacao (inclusive com traducao quando necessario), orientacao cultural para negociacoes, assessoria na estruturacao de acordos, suporte juridico atraves de parceiros especializados, e acompanhamento periodico apos o estabelecimento da parceria para garantir o sucesso da relacao comercial a longo prazo.\n             \n           \n         \n       \n\n       \n         \n           pronto para expandir seu network global? \n           entre em contato com nossos especialistas e descubra como a connecta pode ajudar sua empresa a encontrar os parceiros ideais para crescer internacionalmente. \n           \n            fale com um especialista\n           \n         \n       \n\n       \n       \n     \n  );\n} "
   },
   {
     "title": "Contato | OLV Internacional",
@@ -52,29 +52,29 @@
     "title": "ENGAGE - OLV Internacional | Engajamento e Relacionamento com Clientes",
     "slug": "C:/Projects/olv-site-v4/src/app/engage/page.tsx",
     "category": "C:",
-    "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
-    "searchText": "import react from 'react';\nimport link from 'next/link';\nimport platformlayout from '../../components/platforms/platformlayout';\n\nexport const metadata =  ,\n};\n\nexport default function engagepage()  \n       \n     \n  );\n} "
+    "excerpt": "import Icon from '../../components/icons/Icon';",
+    "searchText": "import react from 'react';\nimport link from 'next/link';\nimport dynamic from 'next/dynamic';\nimport icon from '../../components/icons/icon';\nconst platformlayout = dynamic(() => import('../../components/platforms/platformlayout'));\n\nexport const metadata =  ,\n};\n\nexport default function engagepage()  \n       \n     \n  );\n} "
   },
   {
     "title": "EXCELTTA - OLV Internacional | Excelência na Gestão de Processos",
     "slug": "C:/Projects/olv-site-v4/src/app/exceltta/page.tsx",
     "category": "C:",
-    "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
-    "searchText": "import react from 'react';\r\nimport link from 'next/link';\r\nimport platformlayout from '../../components/platforms/platformlayout';\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function excelttapage()  \r\n       \r\n     \r\n  );\r\n} "
+    "excerpt": "const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));",
+    "searchText": "import react from 'react';\r\nimport link from 'next/link';\r\nimport dynamic from 'next/dynamic';\r\nconst platformlayout = dynamic(() => import('../../components/platforms/platformlayout'));\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function excelttapage()  \r\n       \r\n     \r\n  );\r\n} "
   },
   {
     "title": "FINX - OLV Internacional | Soluções Financeiras para Comércio Internacional",
     "slug": "C:/Projects/olv-site-v4/src/app/finx/page.tsx",
     "category": "C:",
-    "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
-    "searchText": "import react from 'react';\r\nimport link from 'next/link';\r\nimport platformlayout from '../../components/platforms/platformlayout';\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function finxpage()  \r\n       \r\n     \r\n  );\r\n} "
+    "excerpt": "const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));",
+    "searchText": "import react from 'react';\r\nimport link from 'next/link';\r\nimport dynamic from 'next/dynamic';\r\nconst platformlayout = dynamic(() => import('../../components/platforms/platformlayout'));\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function finxpage()  \r\n       \r\n     \r\n  );\r\n} "
   },
   {
     "title": "LABS - OLV Internacional | Centro de Inovação em Comércio Internacional",
     "slug": "C:/Projects/olv-site-v4/src/app/labs/page.tsx",
     "category": "C:",
-    "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
-    "searchText": "import react from 'react';\nimport link from 'next/link';\nimport platformlayout from '../../components/platforms/platformlayout';\n\nexport const metadata =  ,\n};\n\nexport default function labspage()  \n       \n     \n  );\n} "
+    "excerpt": "const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));",
+    "searchText": "import react from 'react';\nimport link from 'next/link';\nimport dynamic from 'next/dynamic';\nconst platformlayout = dynamic(() => import('../../components/platforms/platformlayout'));\n\nexport const metadata =  ,\n};\n\nexport default function labspage()  \n       \n     \n  );\n} "
   },
   {
     "title": "Política | OLV Internacional",
@@ -122,8 +122,8 @@
     "title": "STRATEVO - OLV Internacional | Inteligência para Decidir. Estratégia para Crescer.",
     "slug": "C:/Projects/olv-site-v4/src/app/stratevo/page.tsx",
     "category": "C:",
-    "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
-    "searchText": "import react from 'react';\r\nimport link from 'next/link';\r\nimport platformlayout from '../../components/platforms/platformlayout';\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function stratevopage()  \r\n       \r\n     \r\n  );\r\n} "
+    "excerpt": "const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));",
+    "searchText": "import react from 'react';\r\nimport link from 'next/link';\r\nimport dynamic from 'next/dynamic';\r\nconst platformlayout = dynamic(() => import('../../components/platforms/platformlayout'));\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function stratevopage()  \r\n       \r\n     \r\n  );\r\n} "
   },
   {
     "title": "Termos de Uso | OLV Internacional",
@@ -143,14 +143,14 @@
     "title": "VENTURES - OLV Internacional | Investimentos Estratégicos em Comércio Internacional",
     "slug": "C:/Projects/olv-site-v4/src/app/ventures/page.tsx",
     "category": "C:",
-    "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
-    "searchText": "import react from 'react';\r\nimport link from 'next/link';\r\nimport platformlayout from '../../components/platforms/platformlayout';\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function venturespage()  \r\n       \r\n     \r\n  );\r\n} "
+    "excerpt": "const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));",
+    "searchText": "import react from 'react';\r\nimport link from 'next/link';\r\nimport dynamic from 'next/dynamic';\r\nconst platformlayout = dynamic(() => import('../../components/platforms/platformlayout'));\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function venturespage()  \r\n       \r\n     \r\n  );\r\n} "
   },
   {
     "title": "VERITUS - OLV Internacional | Compliance e Conformidade Internacional",
     "slug": "C:/Projects/olv-site-v4/src/app/veritus/page.tsx",
     "category": "C:",
-    "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
-    "searchText": "import react from 'react';\r\nimport link from 'next/link';\r\nimport platformlayout from '../../components/platforms/platformlayout';\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function verituspage()  \r\n       \r\n     \r\n  );\r\n} "
+    "excerpt": "const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));",
+    "searchText": "import react from 'react';\r\nimport link from 'next/link';\r\nimport dynamic from 'next/dynamic';\r\nconst platformlayout = dynamic(() => import('../../components/platforms/platformlayout'));\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function verituspage()  \r\n       \r\n     \r\n  );\r\n} "
   }
 ]

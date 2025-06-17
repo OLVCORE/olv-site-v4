@@ -63,6 +63,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        {/* Carregamento não-bloqueante do CSS legado */}
+        <link rel="preload" href="/css/style.css" as="style" />
         <link rel="stylesheet" href="/css/style.css" media="screen and (min-width: 769px)" />
 
         {/* Metadados adicionais para otimização de intenção do usuário */}

@@ -220,7 +220,7 @@ export default function EngagePage() {
           <h2 className="text-2xl font-bold mb-4 text-purple-900 dark:text-purple-100">Pronto para conectar sua marca com audiências globais?</h2>
           <p className="mb-6 max-w-3xl mx-auto dark:text-purple-200">Entre em contato com nossos especialistas e descubra como a ENGAGE pode ajudar sua empresa a desenvolver estratégias de marketing e comunicação eficazes para mercados internacionais.</p>
           <Link href="/contato" className="inline-block bg-purple-800 text-white py-3 px-6 rounded-md font-semibold hover:bg-purple-900 transition duration-300 flex items-center justify-center">
-            <img src="/icons/specialist.svg" alt="Specialist Icon" className="w-5 h-5 mr-2" />
+            <Icon src="/icons/specialist.svg" alt="Specialist Icon" size="sm" className="mr-2" />
             Fale com um Especialista
           </Link>
         </div>
