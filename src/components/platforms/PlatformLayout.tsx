@@ -209,7 +209,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
       
       {/* Floating buttons */}
       <WhatsAppButton position="bottom-right" />
-      <SpecialistButton position="bottom-right" />
+      <SpecialistButton position="bottom-left" />
       
       {/* Beta Version Box */}
       <div className="beta-box">

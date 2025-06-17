@@ -22,16 +22,9 @@ export default function Sobre() {
           <div className="container">
             <div className="section-heading">
               <h1 className="hero-title">Sobre a OLV Internacional</h1>
-              <p className="hero-description text-center max-w-3xl mx-auto">
+              <p className="text-center max-w-3xl mx-auto text-base md:text-lg text-on-surface/90">
                 Integramos Estratégia, Operação e Resultado para empresas que desejam expandir seus negócios globalmente.
               </p>
-              {/* CTA imediato para reforçar conversão */}
-              <div className="flex justify-center mt-6">
-                <Link href="/contato" className="btn btn-primary text-sm font-semibold py-2 px-5 flex items-center gap-2">
-                  <Icon src="/icons/chat.svg" alt="Ícone de Contato" size="sm" className="w-4 h-4" />
-                  Fale com um Especialista
-                </Link>
-              </div>
             </div>
           </div>
         </section>
@@ -40,7 +33,7 @@ export default function Sobre() {
         <section className="section bg-gray-800">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
+              <div className="card">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">Nossa Trajetória</h2>
                 <p className="text-gray-300 mb-4">
                   A OLV Internacional iniciou sua trajetória como uma importadora e exportadora, operando diretamente em projetos estratégicos de comércio exterior. Com o passar dos anos, participou de importantes iniciativas em grandes corporações nacionais e multinacionais, acumulando um repertório prático incomparável em operações logísticas, tributárias e de gestão internacional.
@@ -52,7 +45,7 @@ export default function Sobre() {
                   Foi justamente essa vivência, aliada à maturidade operacional conquistada ao longo de décadas, que levou a OLV Internacional a dar um passo ousado: voltar sua atuação ao fortalecimento das pequenas e médias empresas (PMEs), oferecendo a elas o que até então era acessível apenas a grandes players.
                 </p>
               </div>
-              <div className="flex justify-center">
+              <div className="card p-0 flex justify-center">
                 <div className="relative w-full h-80 rounded-lg overflow-hidden">
                   <Image 
                     src="/images/olv-internacional-banner.webp" 
@@ -118,7 +111,7 @@ export default function Sobre() {
 
         {/* MISSÃO, VISÃO E VALORES */}
         <section className="section bg-gray-800">
-          <div className="container">
+          <div className="container px-4 md:px-6">
             <div className="section-heading">
               <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Missão, Visão e Valores</h2>
             </div>
@@ -170,7 +163,7 @@ export default function Sobre() {
         <section className="section">
           <div className="container">
             <div className="section-heading">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Nosso Diferencial</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-accent">Nosso Diferencial</h2>
               <p className="text-center max-w-3xl mx-auto mb-8">
                 Com nosso portfólio integrado, a OLV Internacional transforma tecnologia em ponte, consultoria em solução e networking em resultado mensurável.
               </p>
@@ -214,7 +207,7 @@ export default function Sobre() {
               <p className="contact-paragraph">
                 Quer saber mais sobre como podemos ajudar sua empresa a expandir globalmente? Entre em contato conosco.
               </p>
-              <Link href="/contato" className="cta-button-alt">Fale Com um Especialista Agora</Link>
+              <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6">Fale Com um Especialista Agora</Link>
             </div>
           </div>
         </section>
