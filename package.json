@@ -14,7 +14,9 @@
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prebuild": "node scripts/generateSearchIndex.js"
+    "prebuild": "node scripts/generateSearchIndex.js",
+    "check:keywords": "node scripts/checkKeywords.js",
+    "postbuild": "npm run check:keywords"
   },
   "dependencies": {
     "@tippyjs/react": "^4.2.6",

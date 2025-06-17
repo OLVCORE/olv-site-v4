@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Icon from '@/components/icons/Icon';
 import MainLayout from '../../components/layout/MainLayout';
 
 export const metadata = {
@@ -24,6 +25,13 @@ export default function Sobre() {
               <p className="hero-description text-center max-w-3xl mx-auto">
                 Integramos Estratégia, Operação e Resultado para empresas que desejam expandir seus negócios globalmente.
               </p>
+              {/* CTA imediato para reforçar conversão */}
+              <div className="flex justify-center mt-6">
+                <Link href="/contato" className="btn btn-primary font-semibold py-3 px-6 flex items-center gap-2">
+                  <Icon src="/icons/chat.svg" alt="Ícone de Contato" size="sm" className="w-5 h-5" />
+                  Fale com um Especialista
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -169,19 +177,28 @@ export default function Sobre() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="card">
-                <h3 className="card-title">Experiência Prática</h3>
+                <div className="flex items-center mb-3">
+                  <Icon src="/icons/supplychain.svg" alt="Ícone Experiência" size="sm" className="mr-2 w-6 h-6" />
+                  <h3 className="text-xl font-semibold">Experiência Prática</h3>
+                </div>
                 <p>
                   Nossa origem sólida como importadora/exportadora garante conhecimento real sobre os desafios e oportunidades do comércio internacional.
                 </p>
               </div>
               <div className="card">
-                <h3 className="card-title">Rede Estratégica</h3>
+                <div className="flex items-center mb-3">
+                  <Icon src="/icons/link.svg" alt="Ícone Rede" size="sm" className="mr-2 w-6 h-6" />
+                  <h3 className="text-xl font-semibold">Rede Estratégica</h3>
+                </div>
                 <p>
                   Um ecossistema de especialistas e parceiros globais como diferencial competitivo para resolver problemas complexos.
                 </p>
               </div>
               <div className="card">
-                <h3 className="card-title">Modelo Flexível</h3>
+                <div className="flex items-center mb-3">
+                  <Icon src="/icons/tools.svg" alt="Ícone Modelo Flexível" size="sm" className="mr-2 w-6 h-6" />
+                  <h3 className="text-xl font-semibold">Modelo Flexível</h3>
+                </div>
                 <p>
                   Atuamos como um braço externo da sua empresa, sem passivos trabalhistas, com estrutura enxuta e impacto elevado.
                 </p>
