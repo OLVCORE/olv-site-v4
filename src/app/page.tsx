@@ -84,7 +84,7 @@ export default function HomePage() {
               {keyPoints.map((point, index) => (
                 <div 
                   key={index}
-                  className="bg-[#141c2f] p-3 rounded-lg border border-[#2a3448] shadow-md hover:border-[#d4af37] hover:shadow-lg transition-all duration-300"
+                  className="bg-[#141c2f] p-3 rounded-lg border border-[#2a3448] shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]"
                 >
                   <div className="flex items-start mb-1">
                     <Image src={point.icon} alt={point.title} width={20} height={20} className="mt-1 mr-2 flex-shrink-0" />
@@ -109,7 +109,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {/* Card 1 - Consultoria Estratégica em Comex */}
-            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]">
               <div className="p-4">
                 <div className="w-14 h-14 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center mb-3">
                   <Image src="/icons/strategy.svg" alt="Ícone de Estratégia" width={28} height={28} />
@@ -139,7 +139,7 @@ export default function HomePage() {
             </div>
 
             {/* Card 2 - Soluções Operacionais para Exportação e Importação */}
-            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]">
               <div className="p-4">
                 <div className="w-14 h-14 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center mb-3">
                   <Image src="/icons/operations.svg" alt="Ícone de Operações" width={28} height={28} />
@@ -169,7 +169,7 @@ export default function HomePage() {
             </div>
 
             {/* Card 3 - Gestão de Supply Chain Integrado */}
-            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]">
               <div className="p-4">
                 <div className="w-14 h-14 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center mb-3">
                   <Image src="/icons/supply-chain.svg" alt="Ícone Supply Chain" width={28} height={28} />
@@ -199,7 +199,7 @@ export default function HomePage() {
             </div>
             
             {/* Card 4 - Tecnologia Aplicada à Competitividade */}
-            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]">
               <div className="p-4">
                 <div className="w-14 h-14 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center mb-3">
                   <Image src="/icons/tech.svg" alt="Ícone de Tecnologia" width={28} height={28} />
@@ -229,7 +229,7 @@ export default function HomePage() {
             </div>
             
             {/* Card 5 - Compliance e Governança */}
-            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]">
               <div className="p-4">
                 <div className="w-14 h-14 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center mb-3">
                   <Image src="/icons/compliance-icon.svg" alt="Ícone de Compliance" width={28} height={28} />
