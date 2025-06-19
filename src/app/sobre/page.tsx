@@ -32,8 +32,8 @@ export default function Sobre() {
         {/* HISTÓRIA DA EMPRESA */}
         <section className="section bg-gray-800">
           <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="card h-80 overflow-y-auto">
+            <div className="grid grid-cols-1 gap-8 lg:flex lg:gap-12 lg:items-stretch">
+              <div className="card h-full lg:flex-1 lg:max-w-[60%]">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">Nossa Trajetória</h2>
                 <p className="text-gray-300 mb-4">
                   A OLV Internacional iniciou sua trajetória como uma importadora e exportadora, operando diretamente em projetos estratégicos de comércio exterior. Com o passar dos anos, participou de importantes iniciativas em grandes corporações nacionais e multinacionais, acumulando um repertório prático incomparável em operações logísticas, tributárias e de gestão internacional.
@@ -45,8 +45,8 @@ export default function Sobre() {
                   Foi justamente essa vivência, aliada à maturidade operacional conquistada ao longo de décadas, que levou a OLV Internacional a dar um passo ousado: voltar sua atuação ao fortalecimento das pequenas e médias empresas (PMEs), oferecendo a elas o que até então era acessível apenas a grandes players.
                 </p>
               </div>
-              <div className="card p-0 flex justify-center">
-                <div className="relative w-full h-80 rounded-lg overflow-hidden">
+              <div className="card p-0 flex items-stretch lg:w-[40%]">
+                <div className="relative w-full h-full rounded-lg overflow-hidden">
                   <Image 
                     src="/images/olv-internacional-banner.webp" 
                     alt="História da OLV Internacional" 
