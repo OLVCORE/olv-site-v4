@@ -997,6 +997,7 @@ body.theme-light .section-icon {
   border-radius: var(--radius);
   box-shadow: var(--shadow-dark);
   padding: 1.5rem;
+  margin-bottom: 1.5rem; /* espaçamento consistente entre cards */
   transition: transform 0.2s ease;
 }
 
