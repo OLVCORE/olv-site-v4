@@ -22,7 +22,7 @@ export default function Sobre() {
           <div className="container">
             <div className="section-heading">
               <h1 className="hero-title">Sobre a OLV Internacional</h1>
-              <p className="text-center max-w-3xl mx-auto text-base md:text-lg text-on-surface/90">
+              <p className="text-center max-w-4xl mx-auto text-base md:text-xl lg:text-2xl font-medium text-on-surface/90">
                 Integramos Estratégia, Operação e Resultado para empresas que desejam expandir seus negócios globalmente.
               </p>
             </div>
@@ -33,7 +33,7 @@ export default function Sobre() {
         <section className="section bg-gray-800">
           <div className="container">
             <div className="grid grid-cols-1 gap-8 lg:flex lg:gap-12 lg:items-stretch">
-              <div className="card h-full lg:flex-1 lg:max-w-[60%]">
+              <div className="card h-full lg:flex-grow lg:basis-2/3">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">Nossa Trajetória</h2>
                 <p className="text-gray-300 mb-4">
                   A OLV Internacional iniciou sua trajetória como uma importadora e exportadora, operando diretamente em projetos estratégicos de comércio exterior. Com o passar dos anos, participou de importantes iniciativas em grandes corporações nacionais e multinacionais, acumulando um repertório prático incomparável em operações logísticas, tributárias e de gestão internacional.
@@ -45,13 +45,13 @@ export default function Sobre() {
                   Foi justamente essa vivência, aliada à maturidade operacional conquistada ao longo de décadas, que levou a OLV Internacional a dar um passo ousado: voltar sua atuação ao fortalecimento das pequenas e médias empresas (PMEs), oferecendo a elas o que até então era acessível apenas a grandes players.
                 </p>
               </div>
-              <div className="card p-0 flex items-stretch lg:w-[40%]">
-                <div className="relative w-full h-full rounded-lg overflow-hidden">
+              <div className="card p-0 flex items-stretch lg:basis-1/3">
+                <div className="relative w-full h-full rounded-lg overflow-hidden bg-black/20">
                   <Image 
                     src="/images/olv-internacional-banner.webp" 
                     alt="História da OLV Internacional" 
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               </div>
@@ -60,7 +60,7 @@ export default function Sobre() {
         </section>
 
         {/* NOVA SEÇÃO: MODELO DE ATUAÇÃO */}
-        <section className="section">
+        <section className="section pt-20">
           <div className="container">
             <div className="section-heading">
               <h2 className="text-2xl md:text-3xl font-bold mb-8">Nosso Modelo de Atuação</h2>
@@ -160,7 +160,7 @@ export default function Sobre() {
         </section>
 
         {/* DIFERENCIAL */}
-        <section className="section">
+        <section className="section pt-20">
           <div className="container">
             <div className="section-heading">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-accent">Nosso Diferencial</h2>
