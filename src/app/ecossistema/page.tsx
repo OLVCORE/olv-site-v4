@@ -199,7 +199,7 @@ export default function EcossistemaPage() {
     <MainLayout>
       <div className="main-content">
         {/* SEÇÃO HERO ECOSSISTEMA */}
-        <section className="section">
+        <section className="section mt-12">
           <div className="container">
             <div className="platform-card">
               <h2 className="flex items-center gap-2 text-2xl md:text-3xl font-bold text-white mb-4">
@@ -211,7 +211,7 @@ export default function EcossistemaPage() {
               </p>
               <Link 
                 href="/contato" 
-                className="btn btn-primary font-bold py-3 px-6"
+                className="btn btn-primary font-bold py-3 px-6 inline-block w-auto"
               >
                 Conecte-se Conosco
               </Link>
@@ -225,7 +225,7 @@ export default function EcossistemaPage() {
             <div className="platform-card">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
                 <Icon src="/icons/ecosystem-icon.svg" alt="Ecossistema" size="sm" className="text-accent" />
-                O Que É o Ecossistema OLV Corp?
+                O Que É o Nosso Ecossistema?
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 O <strong>Ecossistema OLV Corp</strong> é um conjunto completo de plataformas digitais e serviços estratégicos interconectados, criado especificamente para que pequenas e médias empresas possam competir globalmente com a mesma força e inteligência das grandes corporações.
@@ -260,7 +260,7 @@ export default function EcossistemaPage() {
             <div className="platform-card">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
                 <Icon src="/icons/dna.svg" alt="DNA" size="sm" className="text-accent" />
-                O DNA do Ecossistema OLV Corp
+                O DNA do Nosso Ecossistema
               </h2>
 
               <div className="mb-6">
@@ -434,7 +434,7 @@ export default function EcossistemaPage() {
           <div className="container">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-                🤔 Por Que o Ecossistema OLV Corp É Diferente?
+                🤔 Por Que o Nosso Ecossistema É Diferente?
               </h2>
               <ul className="space-y-2 ml-6 text-gray-700 dark:text-gray-300">
                 <li className="flex items-center">
