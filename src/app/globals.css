@@ -702,10 +702,10 @@ body.theme-light .ticker-inner p {
   color: var(--color-primary);
 }
 
-/* Header visual fix for light theme – mantém fundo escuro */
-body.theme-light .header-wrapper {
+/* old dark header override removed; header uses theme token below */
+/* body.theme-light .header-wrapper {
   background: #11161e !important;
-}
+} */
 
 /* ===== Updated Mobile Floating Buttons Position ===== */
 @media (max-width: 768px) {
