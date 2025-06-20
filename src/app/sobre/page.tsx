@@ -31,7 +31,7 @@ export default function Sobre() {
 
         {/* HISTÓRIA DA EMPRESA */}
         <section className="section bg-gray-800">
-          <div className="container">
+          <div className="container py-12">
             <div className="grid grid-cols-1 gap-8 lg:flex lg:gap-12 lg:items-stretch">
               <div className="card h-full lg:flex-grow lg:basis-2/3">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">Nossa Trajetória</h2>
