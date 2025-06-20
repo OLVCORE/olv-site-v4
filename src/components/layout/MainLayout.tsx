@@ -36,13 +36,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   ].includes(pathname);
 
   useEffect(() => {
-    // Set theme from localStorage or default to dark
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.body.classList.add(`theme-${savedTheme}`);
+    // Detect current body class (for SPA navigations) before applying default
+    const bodyHasLight = document.body.classList.contains('theme-light');
+    const bodyHasDark = document.body.classList.contains('theme-dark');
+
+    if (bodyHasLight || bodyHasDark) {
+      setTheme(bodyHasLight ? 'light' : 'dark');
     } else {
-      document.body.classList.add('theme-dark');
+      const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+      const initial = savedTheme ?? 'dark';
+      setTheme(initial);
+      document.body.classList.add(`theme-${initial}`);
     }
 
     // Show footer after 500ms
