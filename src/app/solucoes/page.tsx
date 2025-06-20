@@ -16,7 +16,7 @@ export default function SolucoesPage() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <div className="bg-[#141c2f] text-white py-10">
+      <div className="bg-[#141c2f] text-white pt-5 pb-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-2/3">
@@ -61,7 +61,7 @@ export default function SolucoesPage() {
         </div>
 
         {/* Cards de Soluções */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 mb-12 mt-5">
           {/* Card 1 - Consultoria Estratégica em Comex */}
           <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
             <div className="p-4">
