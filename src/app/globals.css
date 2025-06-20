@@ -635,6 +635,11 @@ body {
   .platform-card {
     @apply bg-[color:var(--card-bg)] border border-[color:var(--card-border)] text-[color:var(--color-on-surface)] rounded-xl shadow-md p-[var(--space-6)] md:p-[var(--space-7)] flex flex-col gap-4 transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_0_0_2px_var(--color-accent)] mb-6 md:mb-8;
   }
+
+  /* Platform card heading color for light theme */
+  body.theme-light .platform-card h3 {
+    color: var(--color-on-surface);
+  }
 }
 
 /* ================== THEME MODES via body class ================== */

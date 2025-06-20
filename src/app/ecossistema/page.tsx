@@ -66,7 +66,7 @@ export default function EcossistemaPage() {
     {
       nome: 'OLV CONNECTA',
       descricao: 'Plataforma de Conexão com Fornecedores, Fabricantes e Soluções Globais',
-      imagem: '/icons/connecta-logo.svg',
+      imagem: '/images/connecta-logo.jpeg',
       link: '/connecta',
       beneficios: [
         'Busca de fornecedores nacionais e internacionais.',
@@ -83,7 +83,7 @@ export default function EcossistemaPage() {
     {
       nome: 'OLV ENGAGE',
       descricao: 'Plataforma de relacionamento e qualificação de leads que automatiza todo o funil de vendas para PMEs. Utiliza IA e STRATEVO para classificar oportunidades.',
-      imagem: '/icons/engage-logo.svg',
+      imagem: '/images/engage-logo.jpeg',
       link: '/engage',
       beneficios: [
         'Funis ativo e passivo com monitoramento visual de cada etapa.',
@@ -133,7 +133,7 @@ export default function EcossistemaPage() {
     {
       nome: 'OLV VECTOR',
       descricao: 'Plataforma de Educação, Treinamento e Capacitação Empresarial',
-      imagem: '/icons/academy-logo.svg',
+      imagem: '/images/vector-logo.jpeg',
       link: '/academy',
       beneficios: [
         'Cursos online e presenciais.',
