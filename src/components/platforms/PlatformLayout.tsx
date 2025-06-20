@@ -6,7 +6,6 @@ import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import Ticker from '../layout/Ticker';
 import WhatsAppButton from '../layout/WhatsAppButton';
-import SpecialistButton from '../layout/SpecialistButton';
 import PlatformHero from './PlatformHero';
 import { usePathname } from 'next/navigation';
 
@@ -209,7 +208,6 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
       
       {/* Floating buttons */}
       <WhatsAppButton position="bottom-right" />
-      <SpecialistButton position="bottom-left" />
       
       {/* Beta Version Box */}
       <div className="beta-box">
