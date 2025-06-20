@@ -630,6 +630,11 @@ body {
   .ticker-inner a {
     color: var(--color-accent);
   }
+
+  /* Alias para cartões de plataformas, mantendo mesmo visual */
+  .platform-card {
+    @apply bg-[color:var(--card-bg)] border border-[color:var(--card-border)] text-[color:var(--color-on-surface)] rounded-xl shadow-md p-[var(--space-6)] md:p-[var(--space-7)] flex flex-col gap-4 transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_0_0_2px_var(--color-accent)] mb-6 md:mb-8;
+  }
 }
 
 /* ================== THEME MODES via body class ================== */
@@ -866,6 +871,19 @@ body.theme-dark .card-list-icon {
   body.theme-light .bg-gray-800,
   body.theme-light .bg-gray-700 {
     background: var(--color-surface) !important;
+  }
+
+  /* === Override legacy dark backgrounds used in original content when on light theme === */
+  body.theme-light .bg-\\[\\#141c2f\\],
+  body.theme-light .bg-\\[\\#0a0f1d\\],
+  body.theme-light .bg-\\[\\#1a2338\\] {
+    background: var(--color-surface) !important;
+    color: var(--color-on-surface) !important;
+  }
+
+  /* Borders for those legacy cards */
+  body.theme-light .border-\\[\\#2a3448\\] {
+    border-color: var(--card-border) !important;
   }
 }
 
