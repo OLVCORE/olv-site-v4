@@ -841,4 +841,25 @@ body.theme-dark .card-list-icon {
   .theme-light .text-white {
     color: var(--color-on-surface) !important;
   }
+
+  /* Cabeçalho em fundo claro e links visíveis */
+  body.theme-light .header-wrapper {
+    background: var(--color-surface) !important;
+  }
+  body.theme-light .nav-menu a,
+  body.theme-light .nav-menu-mobile .nav-item {
+    color: var(--color-on-surface) !important;
+  }
+
+  /* Sidebar (desktop e mobile) em fundo claro */
+  body.theme-light .sidebar {
+    background: var(--color-surface) !important;
+  }
+
+  /* Ícones dentro da sidebar e botões flutuantes */
+  body.theme-light .sidebar-nav svg,
+  body.theme-light .mobile-nav-toggle svg,
+  body.theme-light .mobile-sidebar-toggle svg {
+    color: var(--color-on-surface) !important;
+  }
 } 
