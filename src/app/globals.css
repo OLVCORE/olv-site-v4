@@ -862,4 +862,10 @@ body.theme-dark .card-list-icon {
   body.theme-light .mobile-sidebar-toggle svg {
     color: var(--color-on-surface) !important;
   }
+
+  /* Converte seções bg-gray-800 / 700 para superfícies claras */
+  body.theme-light .bg-gray-800,
+  body.theme-light .bg-gray-700 {
+    background: var(--color-surface) !important;
+  }
 } 
