@@ -32,8 +32,8 @@ export default function Sobre() {
         {/* HISTÓRIA DA EMPRESA */}
         <section className="section bg-gray-800">
           <div className="container pt-20 pb-12">
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-              <div className="card flex-1 lg:max-w-[65%]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch max-w-6xl mx-auto">
+              <div className="card flex flex-col justify-center">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">Nossa Trajetória</h2>
                 <p className="text-white mb-4">
                   A OLV Internacional iniciou sua trajetória como uma importadora e exportadora, operando diretamente em projetos estratégicos de comércio exterior. Com o passar dos anos, participou de importantes iniciativas em grandes corporações nacionais e multinacionais, acumulando um repertório prático incomparável em operações logísticas, tributárias e de gestão internacional.
@@ -45,13 +45,12 @@ export default function Sobre() {
                   Foi justamente essa vivência, aliada à maturidade operacional conquistada ao longo de décadas, que levou a OLV Internacional a dar um passo ousado: voltar sua atuação ao fortalecimento das pequenas e médias empresas (PMEs), oferecendo a elas o que até então era acessível apenas a grandes players.
                 </p>
               </div>
-              <div className="flex items-center justify-center lg:w-[35%]">
+              <div className="relative rounded-lg overflow-hidden">
                 <Image 
                   src="/images/olv-internacional-banner.webp" 
                   alt="História da OLV Internacional" 
-                  width={700}
-                  height={380}
-                  className="object-contain w-full h-auto rounded-lg"
+                  fill
+                  className="object-cover w-full h-full"
                 />
               </div>
             </div>
