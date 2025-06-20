@@ -45,7 +45,7 @@ export default function SolucoesPage() {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         {/* Introdução */}
-        <div className="bg-[#141c2f] rounded-lg p-6 mb-8 shadow-md border border-[#2a3448]">
+        <div className="bg-[#141c2f] rounded-lg p-6 mb-8 mt-6 shadow-md border border-[#2a3448]">
           <h2 className="text-2xl font-bold text-white mb-4">Nossa Expertise</h2>
           <p className="text-gray-300 mb-3">
             Bem-vindo ao portfólio de Soluções da OLV Internacional. Aqui você encontrará nossos serviços 
