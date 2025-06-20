@@ -16,7 +16,7 @@ export default function SolucoesPage() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <div className="bg-[#141c2f] text-white pt-8 pb-8 mt-6 mb-8">
+      <div className="bg-[#141c2f] text-white pt-8 pb-8 mt-10 md:mt-14 mb-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-2/3">
