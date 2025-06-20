@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MainLayout from '../../components/layout/MainLayout';
+import Icon from '../../components/icons/Icon';
 
 export const metadata = {
   title: 'Ecossistema | OLV Internacional',
@@ -202,7 +203,8 @@ export default function EcossistemaPage() {
           <div className="container">
             <div className="bg-gray-800 dark:bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-2xl md:text-3xl font-bold text-white mb-4">
-                <span className="text-accent">🌐</span> Ecossistema OLV Corp: Transformação para PMEs
+                <Icon src="/icons/ecosystem-icon.svg" alt="Ecossistema" size="sm" className="text-accent" />
+                Ecossistema OLV Corp: Transformação para PMEs
               </h2>
               <p className="text-lg text-gray-300 mb-6">
                 Conheça nosso ecossistema integrado de plataformas tecnológicas e soluções estratégicas. Uma arquitetura robusta e interconectada projetada para transformar pequenas e médias empresas em organizações de alto desempenho no mercado global.
@@ -221,8 +223,9 @@ export default function EcossistemaPage() {
         <section className="section" id="o-que-e-ecossistema">
           <div className="container">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-                🌐⚙️📊🚀 O Que É o Ecossistema OLV Corp?
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
+                <Icon src="/icons/ecosystem-icon.svg" alt="Ecossistema" size="sm" className="text-accent" />
+                O Que É o Ecossistema OLV Corp?
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 O <strong>Ecossistema OLV Corp</strong> é um conjunto completo de plataformas digitais e serviços estratégicos interconectados, criado especificamente para que pequenas e médias empresas possam competir globalmente com a mesma força e inteligência das grandes corporações.
@@ -255,8 +258,9 @@ export default function EcossistemaPage() {
         <section className="section" id="dna-ecossistema">
           <div className="container">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-                🌍 O DNA do Ecossistema OLV Corp
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+                <Icon src="/icons/dna.svg" alt="DNA" size="sm" className="text-accent" />
+                O DNA do Ecossistema OLV Corp
               </h2>
 
               <div className="mb-6">
@@ -286,8 +290,9 @@ export default function EcossistemaPage() {
         {/* PLATAFORMAS DO ECOSSISTEMA */}
         <section className="section" id="plataformas-detalhes">
           <div className="container">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900 dark:text-white">
-              🔗 As Plataformas do Ecossistema e Como se Interligam
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900 dark:text-white flex items-center gap-2">
+              <Icon src="/icons/link.svg" alt="Interligação" size="sm" className="text-accent" />
+              As Plataformas do Ecossistema e Como se Interligam
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {plataformas.map((plataforma, index) => (
@@ -305,10 +310,16 @@ export default function EcossistemaPage() {
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{plataforma.nome}</h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
-                      <strong className="text-accent">💡 O que é:</strong> {plataforma.descricao}
+                      <span className="text-accent inline-flex items-center gap-1">
+                        <Icon src="/icons/analytics.svg" alt="O que é" size="xs" />
+                        O que é:
+                      </span>{' '}{plataforma.descricao}
                     </p>
                     
-                    <h4 className="font-bold text-gray-800 dark:text-white mb-2">🔥 Benefícios:</h4>
+                    <h4 className="font-bold text-gray-800 dark:text-white mb-2 inline-flex items-center gap-1">
+                      <Icon src="/icons/rocket.svg" alt="Benefícios" size="xs" className="text-accent" />
+                      Benefícios:
+                    </h4>
                     <ul className="mb-4 space-y-1 text-gray-700 dark:text-gray-300">
                       {plataforma.beneficios.map((beneficio, i) => (
                         <li key={i} className="flex items-start">
@@ -320,7 +331,10 @@ export default function EcossistemaPage() {
                       ))}
                     </ul>
                     
-                    <h4 className="font-bold text-gray-800 dark:text-white mb-2">🔗 Como se interliga:</h4>
+                    <h4 className="font-bold text-gray-800 dark:text-white mb-2 inline-flex items-center gap-1">
+                      <Icon src="/icons/link.svg" alt="Integração" size="xs" className="text-accent" />
+                      Como se interliga:
+                    </h4>
                     <ul className="mb-6 space-y-1 text-gray-700 dark:text-gray-300">
                       {plataforma.integracoes.map((integracao, i) => (
                         <li key={i} className="flex items-start">
@@ -351,8 +365,9 @@ export default function EcossistemaPage() {
         <section className="section" id="o-que-entrega">
           <div className="container">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-                💎 O Que o Ecossistema Entrega para Sua Empresa?
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
+                <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="sm" className="text-accent" />
+                O Que o Ecossistema Entrega para Sua Empresa?
               </h2>
               <ul className="space-y-2 ml-6 mb-6 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start">
@@ -378,34 +393,34 @@ export default function EcossistemaPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 dark:text-gray-300">
                 <ul className="space-y-2">
                   <li className="flex items-center">
-                    <span className="text-accent mr-2">📊</span>
+                    <Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="mr-2 text-accent" />
                     <span>Gestão baseada em dados.</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-accent mr-2">⚖️</span>
+                    <Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="mr-2 text-accent" />
                     <span>Compliance e due diligence.</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-accent mr-2">💰</span>
+                    <Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="mr-2 text-accent" />
                     <span>Planejamento financeiro profissional.</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-accent mr-2">🌐</span>
+                    <Icon src="/icons/ecosystem-icon.svg" alt="Global" size="xs" className="mr-2 text-accent" />
                     <span>Acesso global a fornecedores, clientes e mercados.</span>
                   </li>
                 </ul>
                 
                 <ul className="space-y-2">
                   <li className="flex items-center">
-                    <span className="text-accent mr-2">🚀</span>
+                    <Icon src="/icons/rocket.svg" alt="Rocket" size="xs" className="mr-2 text-accent" />
                     <span>Desenvolvimento tecnológico e inovação aplicada.</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-accent mr-2">🏛️</span>
+                    <Icon src="/icons/compliance-icon.svg" alt="Governança" size="xs" className="mr-2 text-accent" />
                     <span>Participação em licitações e expansão do mercado.</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-accent mr-2">👥</span>
+                    <Icon src="/icons/team.svg" alt="Team" size="xs" className="mr-2 text-accent" />
                     <span>Formação executiva contínua e desenvolvimento de cultura empresarial.</span>
                   </li>
                 </ul>
