@@ -466,9 +466,9 @@ export default function EcossistemaPage() {
         <section className="section" id="frase-impacto">
           <div className="container">
             <div className="bg-blue-700 dark:bg-blue-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl font-bold mb-4 text-white">Acredite!</h2>
-              <blockquote className="text-xl italic font-medium text-white">
-                "O Ecossistema OLV Corp não é um software. É a transformação que sua empresa precisa para sair do caos e entrar no mundo da gestão, da escala e da prosperidade."
+              <h2 className="text-2xl font-bold mb-4" style={{ color: '#FFFFFF' }}>Acredite!</h2>
+              <blockquote className="text-xl italic font-medium" style={{ color: '#FFFFFF' }}>
+                "Nosso sistema não é apenas um software. É a transformação que sua empresa precisa para sair do caos e entrar no mundo da gestão, da escala e da prosperidade."
               </blockquote>
             </div>
           </div>
