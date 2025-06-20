@@ -846,9 +846,8 @@ body.theme-dark .card-list-icon {
   body.theme-light .header-wrapper {
     background: var(--color-surface) !important;
   }
-  body.theme-light .nav-menu a,
-  body.theme-light .nav-menu-mobile .nav-item {
-    color: var(--color-on-surface) !important;
+  body.theme-light .nav-menu a {
+    color: var(--color-accent) !important;
   }
 
   /* Sidebar (desktop e mobile) em fundo claro */
@@ -868,4 +867,14 @@ body.theme-dark .card-list-icon {
   body.theme-light .bg-gray-700 {
     background: var(--color-surface) !important;
   }
+}
+
+/* Nav menu links use accent colour in light mode for brand consistency */
+body.theme-light .nav-menu a {
+  color: var(--color-accent) !important;
+}
+
+/* Maintain readable colour for mobile overlay list items */
+body.theme-light .nav-menu-mobile .nav-item {
+  color: var(--color-on-surface) !important;
 } 
