@@ -468,7 +468,7 @@ export default function EcossistemaPage() {
             <div className="bg-blue-700 dark:bg-blue-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="text-2xl font-bold mb-4" style={{ color: '#FFFFFF' }}>Acredite!</h2>
               <blockquote className="text-xl italic font-medium" style={{ color: '#FFFFFF' }}>
-                "Nosso sistema não é apenas um software. É a transformação que sua empresa precisa para sair do caos e entrar no mundo da gestão, da escala e da prosperidade."
+                "Nosso ecossistema vai muito além de softwares inteligentes integrados: é a força por trás da transformação que impulsiona sua empresa rumo à gestão, escala e prosperidade, combinando experiência acumulada e o fator humano."
               </blockquote>
             </div>
           </div>
