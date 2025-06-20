@@ -21,49 +21,49 @@ const platforms = [
     tooltip: 'Análise de Visão para Tomada de Decisão'
   },
   { 
-    name: 'OLV CONNECTA', 
+    name: 'CONNECTA', 
     icon: '/icons/connecta.svg', 
     href: '/connecta',
     tooltip: 'Conexões Seguras com Fornecedores Homologados'
   },
   { 
-    name: 'OLV ENGAGE', 
+    name: 'ENGAGE', 
     icon: '/icons/engage.svg', 
     href: '/engage',
     tooltip: 'CRM e qualificação de leads inteligente'
   },
   { 
-    name: 'OLV VERITUS', 
+    name: 'VERITUS', 
     icon: '/icons/veritus.svg', 
     href: '/veritus',
     tooltip: 'Compliance, Due Diligence e Governança'
   },
   { 
-    name: 'OLV FINX', 
+    name: 'FINX', 
     icon: '/icons/finx.svg', 
     href: '/finx',
     tooltip: 'Gestão Financeira e Otimização de Fluxo de Caixa'
   },
   { 
-    name: 'OLV ACADEMY', 
+    name: 'VECTOR', 
     icon: '/icons/academy.svg', 
     href: '/academy',
     tooltip: 'Educação Corporativa e Desenvolvimento de Talentos'
   },
   { 
-    name: 'OLV LABS', 
+    name: 'LABS', 
     icon: '/icons/labs.svg', 
     href: '/labs',
     tooltip: 'Inovação, Pesquisa e Desenvolvimento com IA'
   },
   { 
-    name: 'OLV VENTURES', 
+    name: 'VENTURES', 
     icon: '/icons/ventures.svg', 
     href: '/ventures',
     tooltip: 'Venture Builder e Aceleração de Startups'
   },
   { 
-    name: 'OLV CORE', 
+    name: 'CORE PANNEL', 
     icon: '/icons/core.svg', 
     href: '/core',
     tooltip: 'Cockpit de Gestão 360° e Business Intelligence'

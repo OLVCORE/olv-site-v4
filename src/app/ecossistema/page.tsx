@@ -98,7 +98,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV CORE',
+      nome: 'CORE PANNEL',
       descricao: 'Centro de Controle Operacional e Estratégico do Ecossistema',
       imagem: '/images/core-logo.jpeg',
       link: '/core',
@@ -114,7 +114,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV FINX',
+      nome: 'FINX',
       descricao: 'Plataforma de Gestão Financeira, Simuladores e Planejamento Econômico Empresarial',
       imagem: '/images/finx-logo.jpeg',
       link: '/finx',
@@ -147,7 +147,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV VERITUS',
+      nome: 'VERITUS',
       descricao: 'Plataforma de Compliance, Due Diligence, Auditoria e Riscos Empresariais',
       imagem: '/images/veritus-logo.jpeg',
       link: '/veritus',
@@ -163,7 +163,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV LABS',
+      nome: 'LABS',
       descricao: 'Plataforma de Inovação, Tecnologia, IA, Desenvolvimento e Transformação Digital',
       imagem: '/images/labs-logo.jpeg',
       link: '/labs',
@@ -178,7 +178,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV VENTURES',
+      nome: 'VENTURES',
       descricao: 'Plataforma de Aceleração, Investimento e Venture Builder',
       imagem: '/images/ventures-logo.jpeg',
       link: '/ventures',
