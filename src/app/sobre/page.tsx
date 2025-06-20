@@ -31,8 +31,8 @@ export default function Sobre() {
 
         {/* HISTÓRIA DA EMPRESA */}
         <section className="section bg-gray-800">
-          <div className="container pt-20 pb-12">
-            <div className="grid grid-cols-1 gap-8 lg:flex lg:gap-12 lg:items-stretch">
+          <div className="container pt-20 pb-12 flex justify-center">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 lg:items-stretch max-w-6xl w-full">
               <div className="card h-full lg:flex-grow lg:basis-2/3 flex flex-col justify-center min-h-[460px]">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">Nossa Trajetória</h2>
                 <p className="text-white mb-4">
@@ -45,7 +45,7 @@ export default function Sobre() {
                   Foi justamente essa vivência, aliada à maturidade operacional conquistada ao longo de décadas, que levou a OLV Internacional a dar um passo ousado: voltar sua atuação ao fortalecimento das pequenas e médias empresas (PMEs), oferecendo a elas o que até então era acessível apenas a grandes players.
                 </p>
               </div>
-              <div className="card p-0 flex items-stretch lg:basis-1/3 min-h-[460px]">
+              <div className="flex items-stretch lg:basis-1/3 min-h-[460px]">
                 <div className="relative w-full h-full rounded-lg overflow-hidden">
                   <Image 
                     src="/images/olv-internacional-banner.webp" 
