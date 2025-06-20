@@ -45,7 +45,7 @@ export default function Sobre() {
                   Foi justamente essa vivência, aliada à maturidade operacional conquistada ao longo de décadas, que levou a OLV Internacional a dar um passo ousado: voltar sua atuação ao fortalecimento das pequenas e médias empresas (PMEs), oferecendo a elas o que até então era acessível apenas a grandes players.
                 </p>
               </div>
-              <div className="rounded-lg shadow-lg bg-black/25 p-0 lg:col-span-4">
+              <div className="hidden lg:block rounded-lg shadow-lg bg-black/25 p-0 lg:col-span-4">
                 <Image 
                   src="/images/olv-internacional-banner.webp" 
                   alt="História da OLV Internacional" 
