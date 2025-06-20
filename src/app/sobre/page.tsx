@@ -31,17 +31,17 @@ export default function Sobre() {
 
         {/* HISTÓRIA DA EMPRESA */}
         <section className="section bg-gray-800">
-          <div className="container py-12">
+          <div className="container pt-20 pb-12">
             <div className="grid grid-cols-1 gap-8 lg:flex lg:gap-12 lg:items-stretch">
               <div className="card h-full lg:flex-grow lg:basis-2/3">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">Nossa Trajetória</h2>
-                <p className="text-on-surface/90 mb-4">
+                <p className="text-white mb-4">
                   A OLV Internacional iniciou sua trajetória como uma importadora e exportadora, operando diretamente em projetos estratégicos de comércio exterior. Com o passar dos anos, participou de importantes iniciativas em grandes corporações nacionais e multinacionais, acumulando um repertório prático incomparável em operações logísticas, tributárias e de gestão internacional.
                 </p>
-                <p className="text-on-surface/90 mb-4">
+                <p className="text-white mb-4">
                   Ao longo dessa jornada, a OLV consolidou um valioso ecossistema de parceiros especializados — como transportadoras, agentes de carga (freight forwarders), despachantes aduaneiros, consultores independentes e prestadores de serviços de alto nível no setor de supply chain. Essa base de relacionamento, construída com confiança e entregas concretas, deu origem ao que hoje é o núcleo consultivo estratégico da empresa.
                 </p>
-                <p className="text-on-surface/90">
+                <p className="text-white">
                   Foi justamente essa vivência, aliada à maturidade operacional conquistada ao longo de décadas, que levou a OLV Internacional a dar um passo ousado: voltar sua atuação ao fortalecimento das pequenas e médias empresas (PMEs), oferecendo a elas o que até então era acessível apenas a grandes players.
                 </p>
               </div>
@@ -118,21 +118,21 @@ export default function Sobre() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="card bg-gray-700">
                 <h3 className="card-title text-white">Missão</h3>
-                <p className="text-on-surface/90">
+                <p className="text-white">
                   Simplificar operações complexas, acelerar negócios e integrar estratégias com 
                   resultados no comércio exterior e logística internacional, permitindo que PMEs operem com a segurança, a inteligência e a força estratégica que antes só grandes empresas possuíam.
                 </p>
               </div>
               <div className="card bg-gray-700">
                 <h3 className="card-title text-white">Visão</h3>
-                <p className="text-on-surface/90">
+                <p className="text-white">
                   Ser reconhecida como a principal consultoria estratégica em comércio exterior 
                   do Brasil, transformando a maneira como as empresas acessam mercados globais através da integração de tecnologia, conhecimento prático e networking estratégico.
                 </p>
               </div>
               <div className="card bg-gray-700">
                 <h3 className="card-title text-white">Valores</h3>
-                <ul className="card-list text-on-surface/90">
+                <ul className="card-list text-white">
                   <li>
                     <Image src="/icons/check.svg" alt="Checkmark" width={16} height={16} className="card-list-icon" /> 
                     Excelência operacional

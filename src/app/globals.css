@@ -820,4 +820,8 @@ body.theme-light .ticker-inner a {
 }
 body.theme-light .ticker-inner a:hover {
   color: var(--color-accent) !important;
+}
+
+body.theme-dark .card-list-icon {
+  filter: invert(80%);
 } 
