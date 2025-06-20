@@ -566,7 +566,7 @@ body {
 
 @layer components {
   .card {
-    @apply bg-[color:var(--card-bg)] border border-[color:var(--card-border)] rounded-xl shadow-md p-[var(--space-6)] md:p-[var(--space-7)] flex flex-col gap-4 transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_0_0_2px_var(--color-accent)] mb-6 md:mb-8;
+    @apply bg-[color:var(--card-bg)] border border-[color:var(--card-border)] text-[color:var(--color-on-surface)] rounded-xl shadow-md p-[var(--space-6)] md:p-[var(--space-7)] flex flex-col gap-4 transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_0_0_2px_var(--color-accent)] mb-6 md:mb-8;
   }
   .card-title {
     @apply text-xl font-semibold text-on-surface;
@@ -835,5 +835,10 @@ body.theme-dark .card-list-icon {
 @layer utilities {
   .text-on-surface {
     color: var(--color-on-surface);
+  }
+
+  /* garante contraste no tema claro mesmo se algum componente usar text-white */
+  .theme-light .text-white {
+    color: var(--color-on-surface) !important;
   }
 } 
