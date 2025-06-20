@@ -46,14 +46,13 @@ export default function Sobre() {
                 </p>
               </div>
               <div className="flex items-center justify-center lg:basis-1/3 min-h-[460px]">
-                <div className="relative w-full h-full rounded-lg overflow-hidden">
-                  <Image 
-                    src="/images/olv-internacional-banner.webp" 
-                    alt="História da OLV Internacional" 
-                    fill
-                    className="object-contain w-full h-full"
-                  />
-                </div>
+                <Image 
+                  src="/images/olv-internacional-banner.webp" 
+                  alt="História da OLV Internacional" 
+                  width={640}
+                  height={400}
+                  className="object-contain w-full h-auto rounded-lg"
+                />
               </div>
             </div>
           </div>
