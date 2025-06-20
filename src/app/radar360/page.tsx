@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import MainLayout from '../../components/layout/MainLayout';
+import Icon from '../../components/icons/Icon';
 
 export const metadata = {
   title: 'Radar 360 | OLV Internacional - Dados, Inteligência e Simuladores',
@@ -20,12 +21,12 @@ export default function Radar360Page() {
           <div className="container">
             <div className="bg-gray-800 dark:bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="flex items-center gap-2 text-2xl md:text-3xl font-bold text-white mb-4">
-                <span className="text-accent">🚀</span> OLV Radar 360 – Central de Inteligência & Dados
+                <Icon src="/icons/radar-icon.svg" alt="Radar 360" size="sm" className="text-accent" />
+                OLV Radar 360 – Central de Inteligência & Dados
               </h2>
               <p className="text-lg text-gray-300 mb-6">
-                Bem-vindo ao Radar 360, nossa central de inteligência e dados para negócios internacionais. 
-                Aqui você encontra ferramentas essenciais para tomada de decisão: cotações em tempo real, 
-                simuladores de custos, indicadores econômicos e recursos estratégicos para operações globais.
+                Bem-vindo ao <strong>Radar&nbsp;360</strong>, nossa central de inteligência e dados para negócios internacionais. Aqui você encontra ferramentas essenciais para tomada de decisão: cotações em tempo real, simuladores de custos, indicadores econômicos e recursos estratégicos para operações globais.&nbsp;
+                <br className="hidden md:block" />
                 Transforme dados em decisões inteligentes para seu negócio.
               </p>
               <Link 
