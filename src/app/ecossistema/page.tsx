@@ -201,10 +201,10 @@ export default function EcossistemaPage() {
         {/* SEÇÃO HERO ECOSSISTEMA */}
         <section className="section">
           <div className="container">
-            <div className="bg-gray-800 dark:bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div className="platform-card">
               <h2 className="flex items-center gap-2 text-2xl md:text-3xl font-bold text-white mb-4">
                 <Icon src="/icons/ecosystem-icon.svg" alt="Ecossistema" size="sm" className="text-accent" />
-                Ecossistema OLV Corp: Transformação para PMEs
+                Nosso Ecossistema: Transformação para PMEs
               </h2>
               <p className="text-lg text-gray-300 mb-6">
                 Conheça nosso ecossistema integrado de plataformas tecnológicas e soluções estratégicas. Uma arquitetura robusta e interconectada projetada para transformar pequenas e médias empresas em organizações de alto desempenho no mercado global.
@@ -222,7 +222,7 @@ export default function EcossistemaPage() {
         {/* O QUE É O ECOSSISTEMA */}
         <section className="section" id="o-que-e-ecossistema">
           <div className="container">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div className="platform-card">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
                 <Icon src="/icons/ecosystem-icon.svg" alt="Ecossistema" size="sm" className="text-accent" />
                 O Que É o Ecossistema OLV Corp?
@@ -257,7 +257,7 @@ export default function EcossistemaPage() {
         {/* DNA DO ECOSSISTEMA */}
         <section className="section" id="dna-ecossistema">
           <div className="container">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div className="platform-card">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
                 <Icon src="/icons/dna.svg" alt="DNA" size="sm" className="text-accent" />
                 O DNA do Ecossistema OLV Corp
