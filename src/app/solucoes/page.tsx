@@ -16,7 +16,7 @@ export default function SolucoesPage() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <div className="bg-[#141c2f] text-white pt-6 pb-8 mb-6">
+      <div className="bg-[#141c2f] text-white pt-6 pb-8 mb-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-2/3">
@@ -45,7 +45,7 @@ export default function SolucoesPage() {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         {/* Introdução */}
-        <div className="bg-[#141c2f] rounded-lg p-6 mb-8 mt-6 shadow-md border border-[#2a3448]">
+        <div className="bg-[#141c2f] rounded-lg p-6 mb-8 shadow-md border border-[#2a3448]">
           <h2 className="text-2xl font-bold text-white mb-4">Nossa Expertise</h2>
           <p className="text-gray-300 mb-3">
             Bem-vindo ao portfólio de Soluções da OLV Internacional. Aqui você encontrará nossos serviços 
@@ -88,7 +88,7 @@ export default function SolucoesPage() {
                   <span className="text-xs text-gray-300">Planejamento estratégico internacional</span>
                 </li>
               </ul>
-              <Link href="/solucoes/exportacao" className="inline-block text-[#d4af37] hover:underline text-sm">
+              <Link href="/contato" className="inline-block text-[#d4af37] hover:underline text-sm">
                 Saiba mais →
               </Link>
             </div>
@@ -120,7 +120,7 @@ export default function SolucoesPage() {
                   <span className="text-xs text-gray-300">Gestão documental e análise de parametrização</span>
                 </li>
               </ul>
-              <Link href="/solucoes/importacao" className="inline-block text-[#d4af37] hover:underline text-sm">
+              <Link href="/contato" className="inline-block text-[#d4af37] hover:underline text-sm">
                 Saiba mais →
               </Link>
             </div>
@@ -152,7 +152,7 @@ export default function SolucoesPage() {
                   <span className="text-xs text-gray-300">Controle de inventário e planejamento de demanda</span>
                 </li>
               </ul>
-              <Link href="/solucoes/logistica" className="inline-block text-[#d4af37] hover:underline text-sm">
+              <Link href="/contato" className="inline-block text-[#d4af37] hover:underline text-sm">
                 Saiba mais →
               </Link>
             </div>
@@ -184,7 +184,7 @@ export default function SolucoesPage() {
                   <span className="text-xs text-gray-300">Soluções tecnológicas para rastreabilidade global</span>
                 </li>
               </ul>
-              <Link href="/solucoes/compliance" className="inline-block text-[#d4af37] hover:underline text-sm">
+              <Link href="/contato" className="inline-block text-[#d4af37] hover:underline text-sm">
                 Saiba mais →
               </Link>
             </div>
@@ -216,7 +216,7 @@ export default function SolucoesPage() {
                   <span className="text-xs text-gray-300">Estruturação de controles e processos normativos</span>
                 </li>
               </ul>
-              <Link href="/solucoes/treinamento" className="inline-block text-[#d4af37] hover:underline text-sm">
+              <Link href="/contato" className="inline-block text-[#d4af37] hover:underline text-sm">
                 Saiba mais →
               </Link>
             </div>
