@@ -254,11 +254,11 @@ export default function ImportCostCalculator() {
           </table>
           <p className="text-xs text-yellow-600 dark:text-yellow-400 mt-2">Este simulador oferece uma estimativa simplificada. O resultado é de uso exclusivo e responsabilidade do usuário. Para análise completa, consulte um especialista da OLV Internacional.</p>
           <div className="mt-4 flex gap-4">
-            <select value={fileType} onChange={e=>setFileType(e.target.value as 'pdf'|'xls')} className="border rounded-md bg-gray-100 dark:bg-gray-700 p-2 text-sm">
+            <select value={fileType} onChange={e=>setFileType(e.target.value as 'pdf'|'xls')} className="border border-accent rounded-md bg-gray-100 dark:bg-gray-700 p-2 text-sm text-gray-900 dark:text-white focus:ring-accent focus:border-accent">
               <option value="pdf">PDF</option>
               <option value="xls">XLS</option>
             </select>
-            <button type="button" className="btn btn-secondary" onClick={exportReport}>Baixar</button>
+            <button type="button" className="btn bg-accent text-[#0a0f1d] hover:bg-[#b9952e]" onClick={exportReport}>Baixar</button>
             <a href="/contato" className="btn btn-gold animate-gold-pulse">Falar com Especialista</a>
           </div>
           <Image src="/images/BANNER-HOME.jpeg" alt="Banner OLV" width={1200} height={300} className="mt-8 rounded-lg w-full" priority={false} />
@@ -267,12 +267,12 @@ export default function ImportCostCalculator() {
     </div>
     {showForm && (
       <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-        <form onSubmit={handleFormSubmit} className="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-md space-y-4">
+        <form onSubmit={handleFormSubmit} className="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-md space-y-4 border-2 border-accent">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Preencha para baixar o relatório</h3>
-          <input ref={el=>{contactRefs.current.name=el;}} required placeholder="Nome completo*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none" />
-          <input ref={el=>{contactRefs.current.phone=el;}} required placeholder="Telefone / WhatsApp*" pattern="[0-9\s\-()+]{8,15}" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none" />
-          <input type="email" ref={el=>{contactRefs.current.email=el;}} required placeholder="Melhor e-mail*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none" />
-          <textarea ref={el=>{contactRefs.current.comments=el;}} required rows={3} placeholder="Empresa ou projeto*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none"></textarea>
+          <input ref={el=>{contactRefs.current.name=el;}} required placeholder="Nome completo*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none text-gray-900 dark:text-white" />
+          <input ref={el=>{contactRefs.current.phone=el;}} required placeholder="Telefone / WhatsApp*" pattern="[0-9\s\-()+]{8,15}" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none text-gray-900 dark:text-white" />
+          <input type="email" ref={el=>{contactRefs.current.email=el;}} required placeholder="Melhor e-mail*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none text-gray-900 dark:text-white" />
+          <textarea ref={el=>{contactRefs.current.comments=el;}} required rows={3} placeholder="Empresa ou projeto*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none text-gray-900 dark:text-white"></textarea>
           <label className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
             <input type="checkbox" ref={el=>{contactRefs.current.consent=el;}} required className="mt-1" />
             <span>Autorizo a OLV Internacional a entrar em contato com base nos dados fornecidos, conforme a LGPD.</span>
