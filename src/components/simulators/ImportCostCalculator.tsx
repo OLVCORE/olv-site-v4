@@ -20,7 +20,9 @@ export default function ImportCostCalculator() {
   const [rate, setRate] = useState(5);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
+    // permite vírgula ou ponto como separador decimal
+    const { name, value } = e.target;
+    setInputs({ ...inputs, [name]: value.replace(/,/g, '.') });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -46,50 +48,62 @@ export default function ImportCostCalculator() {
   const brl = (v:number)=> v.toLocaleString('pt-BR', {style:'currency',currency:'BRL'});
   const usd = (v:number)=> v.toLocaleString('en-US',{style:'currency',currency:'USD'});
 
-  const Field = ({ name, label }: { name: string; label: string }) => (
-    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+  interface FieldProps { name: string; label: string; suffix?: string; }
+  const Field = ({ name, label, suffix }: FieldProps) => (
+    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
       {label}
-      <input
-        type="text"
-        name={name}
-        value={(inputs as any)[name]}
-        onChange={handleChange}
-        inputMode="decimal"
-        pattern="[0-9]*[.,]?[0-9]*"
-        className="mt-1 w-full rounded-md bg-gray-100 dark:bg-gray-700 border-none focus:ring-accent p-2 text-sm"
-      />
+      <div className="relative mt-1">
+        <input
+          type="number"
+          step="any"
+          name={name}
+          value={(inputs as any)[name]}
+          onChange={handleChange}
+          className="w-full rounded-md bg-gray-100 dark:bg-gray-700 border-none focus:ring-accent p-2 pr-12 text-sm placeholder-gray-400 dark:placeholder-gray-500"
+          placeholder="0.00"
+        />
+        {suffix && (
+          <span className="absolute inset-y-0 right-3 flex items-center text-xs text-gray-500 pointer-events-none">
+            {suffix}
+          </span>
+        )}
+      </div>
     </label>
   );
 
-  // auto-preencher taxa USD→BRL se não alterada
+  // auto-preencher taxa USD→BRL (sempre na primeira montagem)
   useEffect(() => {
-    if (inputs.exchange !== '5.00') return; // já modificado manualmente
     fetch('/api/radar/quotes')
       .then((r) => r.json())
       .then((j) => {
         const brl = j?.rates?.BRL;
         if (brl && typeof brl === 'number') {
-          const usdBrl = brl; // endpoint já converte para BRL
+          const usdBrl = brl; // endpoint já converte
           setInputs((prev) => ({ ...prev, exchange: usdBrl.toFixed(2) }));
           setRate(usdBrl);
         }
       })
       .catch(() => {});
+
+    // desabilita foco dos links do ticker/header para evitar perda de foco nos inputs
+    document.querySelectorAll('header a, nav a').forEach((el) => {
+      (el as HTMLElement).setAttribute('tabindex', '-1');
+    });
   }, []);
 
   return (
     <div className="grid md:grid-cols-2 gap-8">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <Field name="fob" label="Valor FOB (R$)" />
-        <Field name="freight" label="Frete (R$)" />
-        <Field name="insurance" label="Seguro (R$)" />
-        <Field name="exchange" label="Taxa USD → BRL" />
-        <Field name="ii" label="II (%)" />
-        <Field name="ipi" label="IPI (%)" />
-        <Field name="pis" label="PIS (%)" />
-        <Field name="cofins" label="COFINS (%)" />
-        <Field name="icms" label="ICMS (%)" />
-        <Field name="other" label="Despesas Aduaneiras / Outras (R$)" />
+        <Field name="fob" label="Valor FOB" suffix="USD" />
+        <Field name="freight" label="Frete" suffix="USD" />
+        <Field name="insurance" label="Seguro" suffix="USD" />
+        <Field name="exchange" label="Taxa USD → BRL" suffix="R$" />
+        <Field name="ii" label="II" suffix="%" />
+        <Field name="ipi" label="IPI" suffix="%" />
+        <Field name="pis" label="PIS" suffix="%" />
+        <Field name="cofins" label="COFINS" suffix="%" />
+        <Field name="icms" label="ICMS" suffix="%" />
+        <Field name="other" label="Despesas Aduaneiras / Outras" suffix="USD" />
         <button type="submit" className="btn btn-primary mt-2">Calcular</button>
       </form>
 
