@@ -54,16 +54,14 @@ export default function Radar360Page() {
           </section>
 
           {/* COMMODITIES */}
-          <div className="container">
-            <section className="section">
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  <Icon src="/icons/chart.svg" alt="Commodities" size="sm" className="text-accent" /> Preços de Commodities
-                </h2>
-                <CommoditiesQuotes />
-              </div>
-            </section>
-          </div>
+          <section className="section mt-8">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+              <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                <Icon src="/icons/chart.svg" alt="Commodities" size="sm" className="text-accent" /> Preços de Commodities
+              </h2>
+              <CommoditiesQuotes />
+            </div>
+          </section>
 
           {/* Simuladores e Calculadoras */}
           <section className="section" id="simuladores">
