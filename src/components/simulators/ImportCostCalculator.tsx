@@ -26,7 +26,7 @@ export default function ImportCostCalculator() {
   const [showForm,setShowForm]=useState(false);
   const [submitted,setSubmitted]=useState(false);
 
-  const contactRefs = useRef<{name?:HTMLInputElement|null,phone?:HTMLInputElement|null,email?:HTMLInputElement|null,comments?:HTMLTextAreaElement|null}>({});
+  const contactRefs = useRef<{name?:HTMLInputElement|null,phone?:HTMLInputElement|null,email?:HTMLInputElement|null,comments?:HTMLTextAreaElement|null,consent?:HTMLInputElement|null}>({});
 
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
@@ -175,7 +175,12 @@ export default function ImportCostCalculator() {
     const phone=contactRefs.current.phone?.value.trim()||'';
     const email=contactRefs.current.email?.value.trim()||'';
     const comments=contactRefs.current.comments?.value.trim()||'';
-    if(!name||!phone||!email){ alert('Preencha todos os campos obrigatórios'); return; }
+    const consentChecked = contactRefs.current.consent?.checked;
+    const emailRegex=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/;
+    const phoneRegex=/^[0-9]{8,15}$/;
+    if(!name||!phone||!email||!comments||!consentChecked){ alert('Preencha todos os campos obrigatórios'); return; }
+    if(!emailRegex.test(email)){ alert('E-mail inválido'); return; }
+    if(!phoneRegex.test(phone.replace(/[^0-9]/g,''))){ alert('Telefone inválido'); return; }
     try {
       await fetch('/api/report-download',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone,email,comments,format:fileType})});
     }catch{}
@@ -250,9 +255,13 @@ export default function ImportCostCalculator() {
         <form onSubmit={handleFormSubmit} className="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-md space-y-4">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Preencha para baixar o relatório</h3>
           <input ref={el=>{contactRefs.current.name=el;}} required placeholder="Nome completo*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none" />
-          <input ref={el=>{contactRefs.current.phone=el;}} required placeholder="Telefone / WhatsApp*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none" />
+          <input ref={el=>{contactRefs.current.phone=el;}} required placeholder="Telefone / WhatsApp*" pattern="[0-9\s\-()+]{8,15}" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none" />
           <input type="email" ref={el=>{contactRefs.current.email=el;}} required placeholder="Melhor e-mail*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none" />
-          <textarea ref={el=>{contactRefs.current.comments=el;}} rows={3} placeholder="Empresa ou projeto" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none"></textarea>
+          <textarea ref={el=>{contactRefs.current.comments=el;}} required rows={3} placeholder="Empresa ou projeto*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none"></textarea>
+          <label className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+            <input type="checkbox" ref={el=>{contactRefs.current.consent=el;}} required className="mt-1" />
+            <span>Autorizo a OLV Internacional a entrar em contato com base nos dados fornecidos, conforme a LGPD.</span>
+          </label>
           <div className="flex justify-end gap-3">
             <button type="button" onClick={()=>setShowForm(false)} className="btn">Cancelar</button>
             <button type="submit" className="btn btn-primary">Enviar e Baixar</button>
