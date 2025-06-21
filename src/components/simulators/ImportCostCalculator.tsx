@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { calculateImportCost } from '../../lib/importCost';
 import CurrencyPanel from './CurrencyPanel';
 import Image from 'next/image';
+import InfoTooltip from '../ui/InfoTooltip';
 
 export default function ImportCostCalculator() {
   const defaultInputs = {
@@ -90,10 +91,11 @@ export default function ImportCostCalculator() {
   const brl = (v:number)=> v.toLocaleString('pt-BR', {style:'currency',currency:'BRL'});
   const usd = (v:number)=> v.toLocaleString('en-US',{style:'currency',currency:'USD'});
 
-  interface FieldProps { name: string; label: string; suffix?: string; }
-  const Field = ({ name, label, suffix }: FieldProps) => (
-    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+  interface FieldProps { name: string; label: string; suffix?: string; tooltip?:string; }
+  const Field = ({ name, label, suffix, tooltip }: FieldProps) => (
+    <label className="block text-sm font-medium text-gray-700 dark:text-accent-light">
       {label}
+      {tooltip && <InfoTooltip content={tooltip} />}
       <div className="relative mt-1">
         <input
           type="text"
@@ -211,11 +213,11 @@ export default function ImportCostCalculator() {
         <Field name="freight" label="Frete" suffix="USD" />
         <Field name="insurance" label="Seguro" suffix="USD" />
         <Field name="exchange" label="Taxa USD → BRL" suffix="R$" />
-        <Field name="ii" label="II" suffix="%" />
-        <Field name="ipi" label="IPI" suffix="%" />
-        <Field name="pis" label="PIS" suffix="%" />
-        <Field name="cofins" label="COFINS" suffix="%" />
-        <Field name="icms" label="ICMS" suffix="%" />
+        <Field name="ii" label="II" suffix="%" tooltip="Imposto de Importação – alíquota padrão varia conforme NCM" />
+        <Field name="ipi" label="IPI" suffix="%" tooltip="Imposto sobre Produtos Industrializados – % varia conforme NCM" />
+        <Field name="pis" label="PIS" suffix="%" tooltip="Contribuição para o PIS. Ex.: 2,10" />
+        <Field name="cofins" label="COFINS" suffix="%" tooltip="Contribuição COFINS. Ex.: 9,65" />
+        <Field name="icms" label="ICMS" suffix="%" tooltip="ICMS do estado de destino. Ex.: 18" />
         <Field name="customs" label="Despesas Aduaneiras" suffix="USD" />
         <Field name="misc" label="Outras Despesas" suffix="USD" />
         <button type="submit" className="btn btn-primary mt-2">Calcular</button>
