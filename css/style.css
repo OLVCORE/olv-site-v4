@@ -1886,3 +1886,10 @@ body.theme-dark .sidebar-item.active .sidebar-icon {
   50%  { box-shadow: 0 0 14px rgba(212, 175, 55, 0.8); }
   100% { box-shadow: 0 0 6px rgba(212, 175, 55, 0.2); }
 }
+
+.footer-reveal {
+  pointer-events: none;
+}
+.footer-reveal.reveal {
+  pointer-events: auto;
+}
