@@ -80,7 +80,7 @@ export default function Radar360Page() {
                     <div className="glass p-4 rounded-xl card-hover">
                       <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Conversor Peso ⚖️ Volume</h3>
                       <p className="text-gray-700 dark:text-gray-300 mb-4">Calcule peso cubado e otimização de frete internacional.</p>
-                      <button className="btn btn-primary text-sm py-2 px-3 w-full">Abrir Conversor</button>
+                      <Link href="/simuladores/cubagem" className="btn btn-primary text-sm py-2 px-3 w-full block text-center">Abrir Conversor</Link>
                     </div>
                     {/* Future: Export Cost Simulator */}
                     <div className="glass p-4 rounded-xl card-hover">
