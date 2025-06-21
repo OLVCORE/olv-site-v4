@@ -54,8 +54,7 @@ export default function ImportCostCalculator() {
       {label}
       <div className="relative mt-1">
         <input
-          type="number"
-          step="any"
+          type="text"
           name={name}
           value={(inputs as any)[name]}
           onChange={handleChange}
