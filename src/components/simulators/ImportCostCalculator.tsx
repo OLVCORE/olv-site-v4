@@ -50,7 +50,16 @@ export default function ImportCostCalculator() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const toNumber = (s:string)=> parseFloat(s.replace(/\./g,'').replace(',','.'))||0;
+    const toNumber = (s:string)=>{
+      const clean=s.trim();
+      if(!clean) return 0;
+      // se contém vírgula, tratamos vírgula como separador decimal e ponto como milhar
+      if(clean.includes(',')){
+        return parseFloat(clean.replace(/\./g,'').replace(',','.'))||0;
+      }
+      // senão, ponto é decimal e vírgula (se houver) é milhar
+      return parseFloat(clean.replace(/,/g,''))||0;
+    };
     const getVal=(key:string)=> inputRefs.current[key]?.value||'';
     const parsed = {
       fob: toNumber(getVal('fob')),
