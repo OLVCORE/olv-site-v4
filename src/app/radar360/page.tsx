@@ -86,7 +86,7 @@ export default function Radar360Page() {
                     <div className="glass p-4 rounded-xl card-hover">
                       <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador de Custos de Exportação</h3>
                       <p className="text-gray-700 dark:text-gray-300 mb-4">Estimativa de tributos e incentivos na exportação.</p>
-                      <button className="btn btn-primary text-sm py-2 px-3 w-full">Abrir Simulador</button>
+                      <Link href="/simuladores/exportacao" className="btn btn-primary text-sm py-2 px-3 w-full block text-center">Abrir Simulador</Link>
                     </div>
                   </div>
                 </div>
