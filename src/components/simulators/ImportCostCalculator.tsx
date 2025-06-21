@@ -4,44 +4,44 @@ import React, { useState, useEffect, useRef } from 'react';
 import { calculateImportCost } from '../../lib/importCost';
 
 export default function ImportCostCalculator() {
-  const [inputs, setInputs] = useState({
+  const defaultInputs = {
     fob: '',
     freight: '',
     insurance: '',
-    exchange: '5.00', // USD->BRL
+    exchange: '5.00',
     ii: '12',
     ipi: '0',
     pis: '2.1',
     cofins: '9.65',
     icms: '18',
     other: '0',
-  });
+  } as const;
   const [result, setResult] = useState<null | ReturnType<typeof calculateImportCost>>(null);
   const [rate, setRate] = useState(5);
 
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setInputs((prev) => ({ ...prev, [name]: value.replace(/,/g, '.') }));
+    e.currentTarget.value = e.currentTarget.value.replace(/,/g, '.');
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const toNumber = (s:string)=> parseFloat(s.replace(',','.'))||0;
+    const getVal=(key:string)=> inputRefs.current[key]?.value||'';
     const parsed = {
-      fob: toNumber(inputs.fob),
-      freight: toNumber(inputs.freight),
-      insurance: toNumber(inputs.insurance),
-      ii: parseFloat(inputs.ii) || 0,
-      ipi: parseFloat(inputs.ipi) || 0,
-      pis: parseFloat(inputs.pis) || 0,
-      cofins: parseFloat(inputs.cofins) || 0,
-      icms: parseFloat(inputs.icms) || 0,
-      other: toNumber(inputs.other),
+      fob: toNumber(getVal('fob')),
+      freight: toNumber(getVal('freight')),
+      insurance: toNumber(getVal('insurance')),
+      ii: parseFloat(getVal('ii'))||0,
+      ipi: parseFloat(getVal('ipi'))||0,
+      pis: parseFloat(getVal('pis'))||0,
+      cofins: parseFloat(getVal('cofins'))||0,
+      icms: parseFloat(getVal('icms'))||0,
+      other: toNumber(getVal('other')),
     };
     const usdRes=calculateImportCost(parsed);
-    const r= toNumber(inputs.exchange)||1;
+    const r= toNumber(getVal('exchange'))||1;
     setRate(r);
     setResult(usdRes);
   };
@@ -57,7 +57,7 @@ export default function ImportCostCalculator() {
         <input
           type="text"
           name={name}
-          defaultValue={(inputs as any)[name]}
+          defaultValue={(defaultInputs as any)[name]}
           onChange={handleChange}
           ref={(el) => { inputRefs.current[name] = el; }}
           className="w-full rounded-md bg-gray-100 dark:bg-gray-700 border-none focus:ring-accent p-2 pr-12 text-sm placeholder-gray-400 dark:placeholder-gray-500"
@@ -80,10 +80,9 @@ export default function ImportCostCalculator() {
         const brl = j?.rates?.USD;
         if (brl && typeof brl === 'number') {
           const usdBrl = brl; // endpoint já converte
-          setInputs((prev) => ({ ...prev, exchange: usdBrl.toFixed(2) }));
+          const exch = inputRefs.current['exchange'];
+          if(exch) exch.value = usdBrl.toFixed(2);
           setRate(usdBrl);
-          const el=inputRefs.current['exchange'];
-          if(el) el.value=usdBrl.toFixed(2);
         }
       })
       .catch(() => {});
