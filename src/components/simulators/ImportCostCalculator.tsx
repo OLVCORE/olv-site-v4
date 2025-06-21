@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { calculateImportCost } from '../../lib/importCost';
 import CurrencyPanel from './CurrencyPanel';
+import Image from 'next/image';
 
 export default function ImportCostCalculator() {
   const defaultInputs = {
@@ -242,7 +243,7 @@ export default function ImportCostCalculator() {
             <button type="button" className="btn btn-secondary" onClick={exportReport}>Baixar</button>
             <a href="/contato" className="btn btn-gold animate-gold-pulse">Falar com Especialista</a>
           </div>
-          <img src="/images/BANNER-HOME.jpeg" alt="Banner OLV" className="mt-8 rounded-lg w-full" />
+          <Image src="/images/BANNER-HOME.jpeg" alt="Banner OLV" width={1200} height={300} className="mt-8 rounded-lg w-full" priority={false} />
         </div>
       )}
     </div>
