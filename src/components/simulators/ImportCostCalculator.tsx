@@ -8,6 +8,7 @@ export default function ImportCostCalculator() {
     fob: '',
     freight: '',
     insurance: '',
+    exchange: '5.00', // USD->BRL
     ii: '12',
     ipi: '0',
     pis: '2.1',
@@ -15,6 +16,7 @@ export default function ImportCostCalculator() {
     icms: '18',
   });
   const [result, setResult] = useState<null | ReturnType<typeof calculateImportCost>>(null);
+  const [rate, setRate] = useState(5);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -22,26 +24,31 @@ export default function ImportCostCalculator() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const toNumber = (s:string)=> parseFloat(s.replace(',','.'))||0;
     const parsed = {
-      fob: parseFloat(inputs.fob) || 0,
-      freight: parseFloat(inputs.freight) || 0,
-      insurance: parseFloat(inputs.insurance) || 0,
+      fob: toNumber(inputs.fob),
+      freight: toNumber(inputs.freight),
+      insurance: toNumber(inputs.insurance),
       ii: parseFloat(inputs.ii) || 0,
       ipi: parseFloat(inputs.ipi) || 0,
       pis: parseFloat(inputs.pis) || 0,
       cofins: parseFloat(inputs.cofins) || 0,
       icms: parseFloat(inputs.icms) || 0,
     };
-    setResult(calculateImportCost(parsed));
+    const usdRes=calculateImportCost(parsed);
+    const r= toNumber(inputs.exchange)||1;
+    setRate(r);
+    setResult(usdRes);
   };
 
-  const currency = (v: number) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const brl = (v:number)=> v.toLocaleString('pt-BR', {style:'currency',currency:'BRL'});
+  const usd = (v:number)=> v.toLocaleString('en-US',{style:'currency',currency:'USD'});
 
   const Field = ({ name, label }: { name: string; label: string }) => (
     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
       {label}
       <input
-        type="number"
+        type="text"
         name={name}
         value={(inputs as any)[name]}
         onChange={handleChange}
@@ -57,6 +64,7 @@ export default function ImportCostCalculator() {
         <Field name="fob" label="Valor FOB (R$)" />
         <Field name="freight" label="Frete (R$)" />
         <Field name="insurance" label="Seguro (R$)" />
+        <Field name="exchange" label="Taxa USD → BRL" />
         <Field name="ii" label="II (%)" />
         <Field name="ipi" label="IPI (%)" />
         <Field name="pis" label="PIS (%)" />
@@ -68,16 +76,25 @@ export default function ImportCostCalculator() {
       {result && (
         <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-sm md:text-base">
           <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">Resultado</h3>
-          <ul className="space-y-1 text-gray-700 dark:text-gray-300">
-            <li>CIF: {currency(result.cif)}</li>
-            <li>II: {currency(result.iiValue)}</li>
-            <li>IPI: {currency(result.ipiValue)}</li>
-            <li>PIS: {currency(result.pisValue)}</li>
-            <li>COFINS: {currency(result.cofinsValue)}</li>
-            <li>ICMS: {currency(result.icmsValue)}</li>
-            <li className="font-semibold mt-2">Total Tributos: {currency(result.totalTaxes)}</li>
-            <li className="font-bold">Custo Importação: {currency(result.landedCost)}</li>
-          </ul>
+          <table className="w-full text-left text-gray-700 dark:text-gray-300 text-sm">
+            <thead>
+              <tr><th></th><th>USD</th><th>BRL</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>CIF</td><td>{usd(result.cif)}</td><td>{brl(result.cif*rate)}</td></tr>
+              <tr><td>II</td><td>{usd(result.iiValue)}</td><td>{brl(result.iiValue*rate)}</td></tr>
+              <tr><td>IPI</td><td>{usd(result.ipiValue)}</td><td>{brl(result.ipiValue*rate)}</td></tr>
+              <tr><td>PIS</td><td>{usd(result.pisValue)}</td><td>{brl(result.pisValue*rate)}</td></tr>
+              <tr><td>COFINS</td><td>{usd(result.cofinsValue)}</td><td>{brl(result.cofinsValue*rate)}</td></tr>
+              <tr><td>ICMS</td><td>{usd(result.icmsValue)}</td><td>{brl(result.icmsValue*rate)}</td></tr>
+              <tr className="font-semibold"><td>Total Tributos</td><td>{usd(result.totalTaxes)}</td><td>{brl(result.totalTaxes*rate)}</td></tr>
+              <tr className="font-bold"><td>Custo Importação</td><td>{usd(result.landedCost)}</td><td>{brl(result.landedCost*rate)}</td></tr>
+            </tbody>
+          </table>
+          <div className="mt-4 flex gap-4">
+            <button className="btn btn-secondary" onClick={() => alert('PDF em desenvolvimento')}>Baixar PDF</button>
+            <a href="/contato" className="btn btn-primary">Falar com Especialista</a>
+          </div>
         </div>
       )}
     </div>
