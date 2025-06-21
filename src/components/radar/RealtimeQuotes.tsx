@@ -12,13 +12,29 @@ function formatBRL(value: number | null | undefined) {
 }
 
 export default function RealtimeQuotes() {
-  const symbolList = ['USD','EUR','GBP','JPY','AUD','CAD','CHF','CNY','BTC'];
-  const { data } = useSWR(`/api/radar/quotes?symbols=${symbolList.join(',')}`, fetcher, {
-    refreshInterval: 180_000,
-  });
+  const symbolList = [
+    'USD',
+    'EUR',
+    'GBP',
+    'JPY',
+    'AUD',
+    'CAD',
+    'CHF',
+    'CNY',
+    'BTC'
+  ];
+
+  const { data, isValidating } = useSWR(
+    `/api/radar/quotes?symbols=${symbolList.join(',')}`,
+    fetcher,
+    {
+      refreshInterval: 180_000,
+    }
+  );
 
   const rates = data?.rates ?? {};
-  const labelMap: Record<string,string> = {
+
+  const labelMap: Record<string, string> = {
     USD: 'Dólar (USD)',
     EUR: 'Euro (EUR)',
     GBP: 'Libra Esterlina (GBP)',
@@ -27,26 +43,50 @@ export default function RealtimeQuotes() {
     CAD: 'Dólar Canadense (CAD)',
     CHF: 'Franco Suíço (CHF)',
     CNY: 'Yuan (CNY)',
-    BTC: 'Bitcoin (BTC)'
+    BTC: 'Bitcoin (BTC)',
   };
 
-  const cards = symbolList.map((sym)=>({
-    label: labelMap[sym],
-    value: formatBRL(rates[sym]),
-    icon: '/icons/currency-exchange.svg'
-  }));
-
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {cards.map(({ label, value, icon }) => (
-        <div key={label} className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-          <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white flex items-center gap-1">
-            <Icon src={icon} alt="icon" size="xs" className="text-accent" />
-            {label}
-          </h3>
-          <p className="text-gray-700 dark:text-gray-300">{value}</p>
-        </div>
-      ))}
+    <div className="overflow-x-auto">
+      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-sm md:text-base">
+        <thead className="bg-gray-50 dark:bg-gray-800">
+          <tr>
+            <th
+              scope="col"
+              className="px-4 py-2 text-left font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap"
+            >
+              Moeda
+            </th>
+            <th
+              scope="col"
+              className="px-4 py-2 text-right font-semibold text-gray-700 dark:text-gray-300"
+            >
+              Cotação (BRL)
+            </th>
+          </tr>
+        </thead>
+        <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-100 dark:divide-gray-800">
+          {symbolList.map((sym) => (
+            <tr key={sym} className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td className="px-4 py-2 flex items-center gap-2 text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                <Icon
+                  src="/icons/currency-exchange.svg"
+                  alt="icon"
+                  size="xs"
+                  className="text-accent"
+                />
+                {labelMap[sym]}
+              </td>
+              <td className="px-4 py-2 text-right text-gray-900 dark:text-gray-100 font-medium">
+                {formatBRL(rates[sym])}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {isValidating && (
+        <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Atualizando…</p>
+      )}
     </div>
   );
 } 
