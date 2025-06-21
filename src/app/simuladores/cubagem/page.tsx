@@ -1,6 +1,7 @@
 import React from 'react';
 import MainLayout from '../../../components/layout/MainLayout';
 import WeightVolumeConverter from '../../../components/simulators/WeightVolumeConverter';
+import ImportSimWrapper from '../../../components/simulators/ImportSimWrapper';
 import Icon from '../../../components/icons/Icon';
 
 export const metadata = {
@@ -11,7 +12,7 @@ export const metadata = {
 export default function CubagemSimPage() {
   return (
     <MainLayout>
-      <div className="container pb-12 mx-auto max-w-5xl">
+      <div className="container import-sim-container pb-12 mx-auto max-w-5xl">
         <h1 className="import-sim-heading text-3xl font-bold flex items-center gap-2 mb-6 text-gray-900 dark:text-white">
           <Icon src="/icons/weight.svg" alt="Conversor" size="sm" className="text-accent" />
           Conversor Peso ⚖️ Volume (Cubagem)
@@ -20,7 +21,9 @@ export default function CubagemSimPage() {
           Insira as dimensões da embalagem, peso bruto e quantidade. O conversor calcula automaticamente o peso cubado
           de acordo com o modal selecionado e indica qual peso será tarifado pela companhia.
         </p>
-        <WeightVolumeConverter />
+        <ImportSimWrapper>
+          <WeightVolumeConverter />
+        </ImportSimWrapper>
       </div>
     </MainLayout>
   );
