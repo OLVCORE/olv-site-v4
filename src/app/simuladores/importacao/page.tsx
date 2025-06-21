@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import MainLayout from '../../../components/layout/MainLayout';
 import ImportCostCalculator from '../../../components/simulators/ImportCostCalculator';
+import ImportSimWrapper from '../../../components/simulators/ImportSimWrapper';
 import Icon from '../../../components/icons/Icon';
 
 export const metadata = {
@@ -9,13 +10,6 @@ export const metadata = {
 };
 
 export default function ImportSimPage() {
-  useEffect(() => {
-    document.body.classList.add('import-sim');
-    return () => {
-      document.body.classList.remove('import-sim');
-    };
-  }, []);
-
   return (
     <MainLayout>
       <div className="container import-sim-container pb-12 mx-auto max-w-5xl">
@@ -27,7 +21,9 @@ export default function ImportSimPage() {
           Informe os valores da sua operação em dólar (USD) para obter uma estimativa rápida de impostos e custo total de
           importação em tempo real. Os percentuais de tributos são editáveis para você adequar ao NCM e ao estado de destino.
         </p>
-        <ImportCostCalculator />
+        <ImportSimWrapper>
+          <ImportCostCalculator />
+        </ImportSimWrapper>
       </div>
     </MainLayout>
   );
