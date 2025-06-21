@@ -49,8 +49,8 @@ export default function ImportCostCalculator() {
   const brl = (v:number)=> v.toLocaleString('pt-BR', {style:'currency',currency:'BRL'});
   const usd = (v:number)=> v.toLocaleString('en-US',{style:'currency',currency:'USD'});
 
-  interface FieldProps { name: string; label: string; suffix?: string; autoFocus?: boolean; }
-  const Field = ({ name, label, suffix, autoFocus }: FieldProps) => (
+  interface FieldProps { name: string; label: string; suffix?: string; }
+  const Field = ({ name, label, suffix }: FieldProps) => (
     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
       {label}
       <div className="relative mt-1">
@@ -60,7 +60,6 @@ export default function ImportCostCalculator() {
           defaultValue={(inputs as any)[name]}
           onChange={handleChange}
           ref={(el) => { inputRefs.current[name] = el; }}
-          autoFocus={autoFocus}
           className="w-full rounded-md bg-gray-100 dark:bg-gray-700 border-none focus:ring-accent p-2 pr-12 text-sm placeholder-gray-400 dark:placeholder-gray-500"
           placeholder="0.00"
         />
@@ -93,12 +92,15 @@ export default function ImportCostCalculator() {
     document.querySelectorAll('header a, nav a').forEach((el) => {
       (el as HTMLElement).setAttribute('tabindex', '-1');
     });
+
+    // set initial focus on FOB after DOM ready
+    inputRefs.current['fob']?.focus();
   }, []);
 
   return (
     <div className="grid md:grid-cols-2 gap-8">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <Field name="fob" label="Valor FOB" suffix="USD" autoFocus />
+        <Field name="fob" label="Valor FOB" suffix="USD" />
         <Field name="freight" label="Frete" suffix="USD" />
         <Field name="insurance" label="Seguro" suffix="USD" />
         <Field name="exchange" label="Taxa USD → BRL" suffix="R$" />
