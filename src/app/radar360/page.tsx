@@ -73,9 +73,9 @@ export default function Radar360Page() {
                 <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
                   <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador de Custos de Importação</h3>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">Calcule impostos, fretes e taxas para sua operação de importação.</p>
-                  <button className="btn btn-primary text-sm py-2 px-3">
+                  <Link href="/simuladores/importacao" className="btn btn-primary text-sm py-2 px-3">
                     Abrir Simulador
-                  </button>
+                  </Link>
                 </div>
                 <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
                   <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Calculadora de Fretes Internacionais</h3>
