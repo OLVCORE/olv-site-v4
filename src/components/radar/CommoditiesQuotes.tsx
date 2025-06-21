@@ -13,7 +13,7 @@ export default function CommoditiesQuotes(){
     {label:'Ouro (Oz)',value:prices['GC=F'],icon:'/icons/dna.svg'},
     {label:'Aço Dalian',value:prices['DC=F'],icon:'/icons/tools.svg'},
   ].filter(c=>typeof c.value==='number');
-  const formatUSD=(v:number)=>typeof v==='number'?v.toLocaleString('en-US',{style:'currency',currency:'USD'}):'—';
+  const formatBRL=(v:number)=>typeof v==='number'?v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}):'—';
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
       {cards.map(c=> (
@@ -22,7 +22,7 @@ export default function CommoditiesQuotes(){
             <Icon src={c.icon} alt="icon" size="xs" className="text-accent" />
             {c.label}
           </h3>
-          <p className="text-gray-700 dark:text-gray-300">{formatUSD(c.value)}</p>
+          <p className="text-gray-700 dark:text-gray-300">{formatBRL(c.value as number)}</p>
         </div>
       ))}
     </div>

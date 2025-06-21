@@ -5,14 +5,28 @@ import { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest) {
   try {
-    const symbols = 'BZ=F,GC=F,DC=F'; // Brent Crude, Gold, Steel Rebar (Dalian) if available
-    const res = await fetch(`https://financialmodelingprep.com/api/v3/quote/${symbols}?apikey=demo`);
+    const symbols = 'BZ=F,GC=F,DC=F';
+    const key = process.env.FMP_API_KEY ?? 'demo';
+    const res = await fetch(`https://financialmodelingprep.com/api/v3/quote/${symbols}?apikey=${key}`);
     const json = await res.json(); // array of quotes
-    const prices: Record<string, number> = {};
+    const pricesUSD: Record<string, number> = {};
     json.forEach((q: any) => {
-      prices[q.symbol] = q.price;
+      pricesUSD[q.symbol] = q.price;
     });
-    return Response.json({ prices, base: 'USD', updatedAt: Date.now(), source:'financialmodelingprep.com' });
+
+    // convert to BRL using Open ER API USD rate
+    let usdToBrl = 0;
+    try {
+      const fx = await fetch('https://open.er-api.com/v6/latest/BRL').then(r=>r.json());
+      usdToBrl = fx && fx.result==='success' ? 1/(fx.rates.USD as number):0;
+    }catch{}
+
+    const pricesBRL: Record<string, number> = {};
+    Object.entries(pricesUSD).forEach(([sym,val])=>{
+      pricesBRL[sym]= usdToBrl? (val as number)*usdToBrl : val;
+    });
+
+    return Response.json({ prices: pricesBRL, base: 'BRL', updatedAt: Date.now(), source:'financialmodelingprep.com' });
   } catch (e) {
     return Response.json({ error: 'failed', message: (e as Error).message }, { status: 500 });
   }
