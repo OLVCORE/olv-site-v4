@@ -924,4 +924,7 @@ body.import-sim .import-sim-container {
 }
 body.import-sim .import-sim-heading {
   color: var(--color-on-surface);
+}
+body.import-sim footer {
+  display: none !important;
 } 
