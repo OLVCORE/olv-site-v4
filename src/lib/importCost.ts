@@ -2,12 +2,13 @@ export interface ImportCostInput {
   fob: number; // valor FOB em BRL ou convertido
   freight: number;
   insurance: number;
+  customs: number; // despesas aduaneiras
   ii: number; // em %
   ipi: number; // %
   pis: number; // %
   cofins: number; // %
   icms: number; // %
-  other: number; // despesas aduaneiras/outros não tributados
+  misc: number; // outras despesas
 }
 
 export interface ImportCostOutput {
@@ -36,8 +37,8 @@ export function calculateImportCost(input: ImportCostInput): ImportCostOutput {
   const icmsBase = pisBase + pisValue + cofinsValue;
   const icmsValue = icmsBase * toDecimal(input.icms);
   const totalTaxes = iiValue + ipiValue + pisValue + cofinsValue + icmsValue;
-  const landedCost = cif + totalTaxes;
-  const finalCost = landedCost + input.other;
+  const landedCost = cif + totalTaxes + input.customs;
+  const finalCost = landedCost + input.misc;
   return {
     cif,
     iiValue,
