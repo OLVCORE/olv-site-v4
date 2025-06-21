@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MainLayout from '../../../components/layout/MainLayout';
 import ImportCostCalculator from '../../../components/simulators/ImportCostCalculator';
 import Icon from '../../../components/icons/Icon';
@@ -9,10 +9,17 @@ export const metadata = {
 };
 
 export default function ImportSimPage() {
+  useEffect(() => {
+    document.body.classList.add('import-sim');
+    return () => {
+      document.body.classList.remove('import-sim');
+    };
+  }, []);
+
   return (
     <MainLayout>
-      <div className="container pt-48 pb-12 relative z-50">
-        <h1 className="text-3xl font-bold flex items-center gap-2 mb-6 text-gray-900 dark:text-white">
+      <div className="container import-sim-container pb-12 mx-auto max-w-5xl">
+        <h1 className="import-sim-heading text-3xl font-bold flex items-center gap-2 mb-6 text-gray-900 dark:text-white">
           <Icon src="/icons/calculator.svg" alt="Simulador" size="sm" className="text-accent" />
           Simulador de Custos de Importação
         </h1>

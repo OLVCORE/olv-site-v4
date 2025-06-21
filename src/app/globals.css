@@ -904,4 +904,24 @@ body.theme-light .nav-menu a {
 /* Maintain readable colour for mobile overlay list items */
 body.theme-light .nav-menu-mobile .nav-item {
   color: var(--color-on-surface) !important;
+}
+
+/* Simulator specific overrides */
+body.import-sim .ticker,
+body.import-sim .mobile-sidebar-toggle,
+body.import-sim .mobile-nav-toggle,
+body.import-sim .sidebar,
+body.import-sim button[aria-label="Contato via WhatsApp"] {
+  /* oculta ou desabilita ponteiros para evitar que capturem foco */
+  pointer-events: none !important;
+  opacity: 0.15;
+}
+body.import-sim .import-sim-container {
+  padding-top: calc(var(--height-header) + 60px);
+  z-index: 3000;
+  position: relative;
+  scroll-margin-top: calc(var(--height-header) + 60px);
+}
+body.import-sim .import-sim-heading {
+  color: var(--color-on-surface);
 } 
