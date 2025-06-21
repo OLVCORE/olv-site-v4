@@ -15,10 +15,12 @@ export default function ImportCostCalculator() {
     pis: '2.1',
     cofins: '9.65',
     icms: '18',
-    other: '0',
+    customs: '0',
+    misc: '0',
   } as const;
   const [result, setResult] = useState<null | ReturnType<typeof calculateImportCost>>(null);
   const [rate, setRate] = useState(5);
+  const [extras, setExtras] = useState({customs:0,misc:0});
 
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
@@ -39,11 +41,13 @@ export default function ImportCostCalculator() {
       pis: parseFloat(getVal('pis'))||0,
       cofins: parseFloat(getVal('cofins'))||0,
       icms: parseFloat(getVal('icms'))||0,
-      other: toNumber(getVal('other')),
+      customs: toNumber(getVal('customs')),
+      misc: toNumber(getVal('misc')),
     };
     const usdRes=calculateImportCost(parsed);
     const r= toNumber(getVal('exchange'))||1;
     setRate(r);
+    setExtras({customs:parsed.customs,misc:parsed.misc});
     setResult(usdRes);
   };
 
@@ -111,7 +115,8 @@ export default function ImportCostCalculator() {
         <Field name="pis" label="PIS" suffix="%" />
         <Field name="cofins" label="COFINS" suffix="%" />
         <Field name="icms" label="ICMS" suffix="%" />
-        <Field name="other" label="Despesas Aduaneiras / Outras" suffix="USD" />
+        <Field name="customs" label="Despesas Aduaneiras" suffix="USD" />
+        <Field name="misc" label="Outras Despesas" suffix="USD" />
         <button type="submit" className="btn btn-primary mt-2">Calcular</button>
       </form>
 
@@ -120,22 +125,25 @@ export default function ImportCostCalculator() {
           <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">Resultado</h3>
           <table className="w-full text-left text-gray-700 dark:text-gray-300 text-sm">
             <thead>
-              <tr><th></th><th>USD</th><th>BRL</th><th>%</th></tr>
+              <tr><th></th><th>USD</th><th>BRL</th><th>%</th><th>%</th></tr>
             </thead>
             <tbody>
               {(()=>{
-                const pct=(v:number)=>((v/result.landedCost)*100).toFixed(1)+'%';
+                const pctImport=(v:number)=>((v/result.finalCost)*100).toFixed(1)+'%';
+                const pctMerc=(v:number)=>((v/result.cif)*100).toFixed(1)+'%';
                 return (
                   <>
-                  <tr><td>CIF</td><td>{usd(result.cif)}</td><td>{brl(result.cif*rate)}</td><td>{pct(result.cif)}</td></tr>
-                  <tr><td>II</td><td>{usd(result.iiValue)}</td><td>{brl(result.iiValue*rate)}</td><td>{pct(result.iiValue)}</td></tr>
-                  <tr><td>IPI</td><td>{usd(result.ipiValue)}</td><td>{brl(result.ipiValue*rate)}</td><td>{pct(result.ipiValue)}</td></tr>
-                  <tr><td>PIS</td><td>{usd(result.pisValue)}</td><td>{brl(result.pisValue*rate)}</td><td>{pct(result.pisValue)}</td></tr>
-                  <tr><td>COFINS</td><td>{usd(result.cofinsValue)}</td><td>{brl(result.cofinsValue*rate)}</td><td>{pct(result.cofinsValue)}</td></tr>
-                  <tr><td>ICMS</td><td>{usd(result.icmsValue)}</td><td>{brl(result.icmsValue*rate)}</td><td>{pct(result.icmsValue)}</td></tr>
-                  <tr className="font-semibold"><td>Total Tributos</td><td>{usd(result.totalTaxes)}</td><td>{brl(result.totalTaxes*rate)}</td><td>{pct(result.totalTaxes)}</td></tr>
-                  <tr className="font-bold"><td>Custo Importação</td><td>{usd(result.landedCost)}</td><td>{brl(result.landedCost*rate)}</td><td>100%</td></tr>
-                  <tr className="font-bold"><td>Custo Final</td><td>{usd(result.finalCost)}</td><td>{brl(result.finalCost*rate)}</td><td>{pct(result.finalCost)}</td></tr>
+                  <tr><td>CIF</td><td>{usd(result.cif)}</td><td>{brl(result.cif*rate)}</td><td>{pctImport(result.cif)}</td><td>{pctMerc(result.cif)}</td></tr>
+                  <tr><td>II</td><td>{usd(result.iiValue)}</td><td>{brl(result.iiValue*rate)}</td><td>{pctImport(result.iiValue)}</td><td>{pctMerc(result.iiValue)}</td></tr>
+                  <tr><td>IPI</td><td>{usd(result.ipiValue)}</td><td>{brl(result.ipiValue*rate)}</td><td>{pctImport(result.ipiValue)}</td><td>{pctMerc(result.ipiValue)}</td></tr>
+                  <tr><td>PIS</td><td>{usd(result.pisValue)}</td><td>{brl(result.pisValue*rate)}</td><td>{pctImport(result.pisValue)}</td><td>{pctMerc(result.pisValue)}</td></tr>
+                  <tr><td>COFINS</td><td>{usd(result.cofinsValue)}</td><td>{brl(result.cofinsValue*rate)}</td><td>{pctImport(result.cofinsValue)}</td><td>{pctMerc(result.cofinsValue)}</td></tr>
+                  <tr><td>ICMS</td><td>{usd(result.icmsValue)}</td><td>{brl(result.icmsValue*rate)}</td><td>{pctImport(result.icmsValue)}</td><td>{pctMerc(result.icmsValue)}</td></tr>
+                  <tr><td>Despesas Aduaneiras</td><td>{usd(extras.customs)}</td><td>{brl(extras.customs*rate)}</td><td>{pctImport(extras.customs)}</td><td>{pctMerc(extras.customs)}</td></tr>
+                  <tr><td>Outras Despesas</td><td>{usd(extras.misc)}</td><td>{brl(extras.misc*rate)}</td><td>{pctImport(extras.misc)}</td><td>{pctMerc(extras.misc)}</td></tr>
+                  <tr className="font-semibold"><td>Total Tributos</td><td>{usd(result.totalTaxes)}</td><td>{brl(result.totalTaxes*rate)}</td><td>{pctImport(result.totalTaxes)}</td><td>{pctMerc(result.totalTaxes)}</td></tr>
+                  <tr className="font-bold"><td>Custo Importação</td><td>{usd(result.landedCost)}</td><td>{brl(result.landedCost*rate)}</td><td>{pctImport(result.landedCost)}</td><td>{pctMerc(result.landedCost)}</td></tr>
+                  <tr className="font-bold"><td>Custo Final</td><td>{usd(result.finalCost)}</td><td>{brl(result.finalCost*rate)}</td><td>100%</td><td>{pctMerc(result.finalCost)}</td></tr>
                   </>
                 );
               })()}
