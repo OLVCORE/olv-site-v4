@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import MainLayout from '../../../components/layout/MainLayout';
 import ImportCostCalculator from '../../../components/simulators/ImportCostCalculator';
