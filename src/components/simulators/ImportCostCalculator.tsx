@@ -23,6 +23,10 @@ export default function ImportCostCalculator() {
   const [extras, setExtras] = useState({customs:0,misc:0});
   const [fileType,setFileType]=useState<'pdf'|'xls'>('pdf');
   const resultRef = useRef<HTMLDivElement|null>(null);
+  const [showForm,setShowForm]=useState(false);
+  const [submitted,setSubmitted]=useState(false);
+
+  const contactRefs = useRef<{name?:HTMLInputElement|null,phone?:HTMLInputElement|null,email?:HTMLInputElement|null,comments?:HTMLTextAreaElement|null}>({});
 
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
@@ -118,6 +122,10 @@ export default function ImportCostCalculator() {
   }, []);
 
   const exportReport=async()=>{
+    if(!submitted){
+      setShowForm(true);
+      return;
+    }
     if(!result) return;
     if(fileType==='pdf'){
       const html2canvas = (await import('html2canvas')).default;
@@ -139,6 +147,21 @@ export default function ImportCostCalculator() {
     }else{
       alert('Exportação XLS será disponibilizada em breve.');
     }
+  };
+
+  const handleFormSubmit=async(e:React.FormEvent)=>{
+    e.preventDefault();
+    const name=contactRefs.current.name?.value.trim()||'';
+    const phone=contactRefs.current.phone?.value.trim()||'';
+    const email=contactRefs.current.email?.value.trim()||'';
+    const comments=contactRefs.current.comments?.value.trim()||'';
+    if(!name||!phone||!email){ alert('Preencha todos os campos obrigatórios'); return; }
+    try {
+      await fetch('/api/report-download',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone,email,comments,format:fileType})});
+    }catch{}
+    setSubmitted(true);
+    setShowForm(false);
+    exportReport();
   };
 
   return (
@@ -202,6 +225,21 @@ export default function ImportCostCalculator() {
         </div>
       )}
     </div>
+    {showForm && (
+      <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+        <form onSubmit={handleFormSubmit} className="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-md space-y-4">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Preencha para baixar o relatório</h3>
+          <input ref={el=>{contactRefs.current.name=el;}} required placeholder="Nome completo*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none" />
+          <input ref={el=>{contactRefs.current.phone=el;}} required placeholder="Telefone / WhatsApp*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none" />
+          <input type="email" ref={el=>{contactRefs.current.email=el;}} required placeholder="Melhor e-mail*" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none" />
+          <textarea ref={el=>{contactRefs.current.comments=el;}} rows={3} placeholder="Empresa ou projeto" className="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 border-none"></textarea>
+          <div className="flex justify-end gap-3">
+            <button type="button" onClick={()=>setShowForm(false)} className="btn">Cancelar</button>
+            <button type="submit" className="btn btn-primary">Enviar e Baixar</button>
+          </div>
+        </form>
+      </div>
+    )}
     </>
   );
 } 
