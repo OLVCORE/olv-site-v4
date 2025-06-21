@@ -91,11 +91,10 @@ export default function ImportCostCalculator() {
   const brl = (v:number)=> v.toLocaleString('pt-BR', {style:'currency',currency:'BRL'});
   const usd = (v:number)=> v.toLocaleString('en-US',{style:'currency',currency:'USD'});
 
-  interface FieldProps { name: string; label: string; suffix?: string; tooltip?:string; }
-  const Field = ({ name, label, suffix, tooltip }: FieldProps) => (
-    <label className="block text-sm font-medium text-gray-700 dark:text-accent-light">
-      {label}
-      {tooltip && <InfoTooltip content={tooltip} />}
+  interface FieldProps { name: string; label: string; suffix?: string; tip?: string; }
+  const Field = ({ name, label, suffix, tip }: FieldProps) => (
+    <label className="block text-sm font-medium text-gray-200 dark:text-accent-light">
+      <span className="inline-flex items-center gap-1">{label} {tip && <InfoTooltip content={tip} />}</span>
       <div className="relative mt-1">
         <input
           type="text"
@@ -209,17 +208,17 @@ export default function ImportCostCalculator() {
     <CurrencyPanel />
     <div className="grid md:grid-cols-2 gap-8">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <Field name="fob" label="Valor FOB" suffix="USD" />
-        <Field name="freight" label="Frete" suffix="USD" />
-        <Field name="insurance" label="Seguro" suffix="USD" />
-        <Field name="exchange" label="Taxa USD → BRL" suffix="R$" />
-        <Field name="ii" label="II" suffix="%" tooltip="Imposto de Importação – alíquota padrão varia conforme NCM" />
-        <Field name="ipi" label="IPI" suffix="%" tooltip="Imposto sobre Produtos Industrializados – % varia conforme NCM" />
-        <Field name="pis" label="PIS" suffix="%" tooltip="Contribuição para o PIS. Ex.: 2,10" />
-        <Field name="cofins" label="COFINS" suffix="%" tooltip="Contribuição COFINS. Ex.: 9,65" />
-        <Field name="icms" label="ICMS" suffix="%" tooltip="ICMS do estado de destino. Ex.: 18" />
-        <Field name="customs" label="Despesas Aduaneiras" suffix="USD" />
-        <Field name="misc" label="Outras Despesas" suffix="USD" />
+        <Field name="fob" label="Valor FOB" suffix="USD" tip="Valor da mercadoria no porto de origem, sem frete ou seguro." />
+        <Field name="freight" label="Frete" suffix="USD" tip="Custo de transporte internacional." />
+        <Field name="insurance" label="Seguro" suffix="USD" tip="Prêmio de seguro internacional." />
+        <Field name="exchange" label="Taxa USD → BRL" suffix="R$" tip="Cotação do dólar no dia da operação." />
+        <Field name="ii" label="II" suffix="%" tip="Imposto de Importação (%)." />
+        <Field name="ipi" label="IPI" suffix="%" tip="Imposto sobre Produtos Industrializados (%)." />
+        <Field name="pis" label="PIS" suffix="%" tip="Programa de Integração Social (%). Ex.: 2,10." />
+        <Field name="cofins" label="COFINS" suffix="%" tip="Contribuição para Financiamento da Seguridade Social (%). Ex.: 9,65." />
+        <Field name="icms" label="ICMS" suffix="%" tip="Imposto sobre Circulação de Mercadorias e Serviços. Varía por estado." />
+        <Field name="customs" label="Despesas Aduaneiras" suffix="USD" tip="Despesas no desembaraço aduaneiro como armazenagem e taxas." />
+        <Field name="misc" label="Outras Despesas" suffix="USD" tip="Qualquer outro custo não previsto no cálculo." />
         <button type="submit" className="btn btn-primary mt-2">Calcular</button>
       </form>
 

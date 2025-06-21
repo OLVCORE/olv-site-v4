@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest) {
   try {
-    const symbols = 'BZ=F,GC=F,DC=F';
+    const symbols = 'BZ=F,GC=F,DC=F,ALI=F,ZW=F,ZC=F,KC=F,CT=F';
     const key = process.env.FMP_API_KEY ?? 'demo';
     const res = await fetch(`https://financialmodelingprep.com/api/v3/quote/${symbols}?apikey=${key}`);
     const json = await res.json(); // array of quotes
@@ -16,6 +16,11 @@ export async function GET(req: NextRequest) {
       'BZUSD': 'BZ=F',
       'GCUSD': 'GC=F',
       'DCUSD': 'DC=F',
+      'ALIUSD': 'ALI=F',
+      'ZWUSD': 'ZW=F',
+      'ZCUSD': 'ZC=F',
+      'KCUSD': 'KC=F',
+      'CTUSD': 'CT=F',
     };
 
     json.forEach((q: any) => {
