@@ -31,16 +31,29 @@ export async function GET(req: NextRequest) {
 
   const result: Record<string, number | null> = {};
 
-  // Fetch fiat rates in parallel
-  const fiatPromises = symbols
-    .filter((s) => s !== 'BTC')
-    .map(async (sym) => {
-      result[sym] = await fetchFiatRate(sym);
-    });
+  const fiatSymbols = symbols.filter((s) => s !== 'BTC');
+  if (fiatSymbols.length) {
+    try {
+      const res = await fetch(
+        `https://api.exchangerate.host/latest?base=BRL&symbols=${fiatSymbols.join(',')}`
+      );
+      const json = await res.json();
+      Object.entries(json?.rates ?? {}).forEach(([sym, rate]) => {
+        result[sym] = typeof rate === 'number' ? 1 / (rate as number) : null; // convert BRL->sym to sym->BRL
+      });
+    } catch (_) {
+      // fallback to individual requests
+      await Promise.all(
+        fiatSymbols.map(async (sym) => {
+          result[sym] = await fetchFiatRate(sym);
+        })
+      );
+    }
+  }
 
-  const btcPromise = symbols.includes('BTC') ? fetchBtcRate().then((v) => (result['BTC'] = v)) : null;
-
-  await Promise.all([...fiatPromises, btcPromise]);
+  if (symbols.includes('BTC')) {
+    result['BTC'] = await fetchBtcRate();
+  }
 
   return Response.json({ rates: result, base: 'BRL', updatedAt: Date.now() });
 } 

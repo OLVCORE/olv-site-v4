@@ -12,23 +12,32 @@ function formatBRL(value: number | null | undefined) {
 }
 
 export default function RealtimeQuotes() {
-  const { data } = useSWR('/api/radar/quotes?symbols=USD,EUR,BTC', fetcher, {
+  const symbolList = ['USD','EUR','GBP','JPY','AUD','CAD','CHF','CNY','BTC'];
+  const { data } = useSWR(`/api/radar/quotes?symbols=${symbolList.join(',')}`, fetcher, {
     refreshInterval: 180_000,
   });
 
   const rates = data?.rates ?? {};
-  const usd = formatBRL(rates['USD']);
-  const eur = formatBRL(rates['EUR']);
-  const btc = formatBRL(rates['BTC']);
+  const labelMap: Record<string,string> = {
+    USD: 'Dólar (USD)',
+    EUR: 'Euro (EUR)',
+    GBP: 'Libra Esterlina (GBP)',
+    JPY: 'Iene (JPY)',
+    AUD: 'Dólar Australiano (AUD)',
+    CAD: 'Dólar Canadense (CAD)',
+    CHF: 'Franco Suíço (CHF)',
+    CNY: 'Yuan (CNY)',
+    BTC: 'Bitcoin (BTC)'
+  };
 
-  const cards = [
-    { label: 'Dólar Comercial', value: usd, icon: '/icons/currency-exchange.svg' },
-    { label: 'Euro', value: eur, icon: '/icons/currency-exchange.svg' },
-    { label: 'Bitcoin (BTC)', value: btc, icon: '/icons/bitcoin.svg' },
-  ];
+  const cards = symbolList.map((sym)=>({
+    label: labelMap[sym],
+    value: formatBRL(rates[sym]),
+    icon: '/icons/currency-exchange.svg'
+  }));
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {cards.map(({ label, value, icon }) => (
         <div key={label} className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
           <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white flex items-center gap-1">
