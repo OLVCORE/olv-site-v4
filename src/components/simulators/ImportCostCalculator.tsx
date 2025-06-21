@@ -98,12 +98,13 @@ export default function ImportCostCalculator() {
       <div className="relative mt-1">
         <input
           type="text"
+          inputMode="decimal"
           name={name}
           defaultValue={(defaultInputs as any)[name]}
           onChange={handleChange}
           onBlur={handleBlur}
           ref={(el) => { inputRefs.current[name] = el; }}
-          className="w-full rounded-md bg-gray-100 dark:bg-gray-700 border-none focus:ring-accent p-2 pr-12 text-sm placeholder-gray-400 dark:placeholder-gray-500"
+          className="w-full rounded-md bg-gray-100 dark:bg-gray-700 border-none focus:ring-accent p-2 pr-12 text-sm placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-white"
           placeholder="0.00"
         />
         {suffix && (
