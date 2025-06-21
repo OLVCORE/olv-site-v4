@@ -1,10 +1,7 @@
-"use client";
-
 import React from 'react';
 import MainLayout from '../../../components/layout/MainLayout';
 import ImportCostCalculator from '../../../components/simulators/ImportCostCalculator';
 import Icon from '../../../components/icons/Icon';
-import { useEffect } from 'react';
 
 export const metadata = {
   title: 'Simulador de Custos de Importação | OLV Internacional',
@@ -12,13 +9,6 @@ export const metadata = {
 };
 
 export default function ImportSimPage() {
-  // remove focus from ticker/anchor links to avoid scroll jumping while typing
-  useEffect(() => {
-    document.querySelectorAll('header a, nav a').forEach((el) => {
-      (el as HTMLElement).setAttribute('tabindex', '-1');
-    });
-  }, []);
-
   return (
     <MainLayout>
       <div className="container pt-40 pb-12">
