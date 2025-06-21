@@ -3,6 +3,7 @@ import Link from 'next/link';
 import MainLayout from '../../components/layout/MainLayout';
 import Icon from '../../components/icons/Icon';
 import RealtimeQuotes from '../../components/radar/RealtimeQuotes';
+import CommoditiesQuotes from '../../components/radar/CommoditiesQuotes';
 
 export const metadata = {
   title: 'Radar 360 | OLV Internacional - Dados, Inteligência e Simuladores',
@@ -51,6 +52,18 @@ export default function Radar360Page() {
               <RealtimeQuotes />
             </div>
           </section>
+
+          {/* COMMODITIES */}
+          <div className="container">
+            <section className="section">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  <Icon src="/icons/chart.svg" alt="Commodities" size="sm" className="text-accent" /> Preços de Commodities
+                </h2>
+                <CommoditiesQuotes />
+              </div>
+            </section>
+          </div>
 
           {/* Simuladores e Calculadoras */}
           <section className="section" id="simuladores">
