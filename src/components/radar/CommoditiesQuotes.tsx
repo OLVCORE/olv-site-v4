@@ -9,9 +9,10 @@ export default function CommoditiesQuotes(){
   const {data} = useSWR('/api/radar/commodities',fetcher,{refreshInterval:300000});
   const prices=data?.prices ?? {};
   const cards=[
-    {label:'Petróleo Brent',value:prices['brent-oil']?.usd,icon:'/icons/oil.svg'},
-    {label:'Ouro',value:prices['gold']?.usd,icon:'/icons/dna.svg'},
-  ];
+    {label:'Petróleo Brent',value:prices['BZ=F'],icon:'/icons/oil.svg'},
+    {label:'Ouro (Oz)',value:prices['GC=F'],icon:'/icons/dna.svg'},
+    {label:'Aço Dalian',value:prices['DC=F'],icon:'/icons/tools.svg'},
+  ].filter(c=>typeof c.value==='number');
   const formatUSD=(v:number)=>typeof v==='number'?v.toLocaleString('en-US',{style:'currency',currency:'USD'}):'—';
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">

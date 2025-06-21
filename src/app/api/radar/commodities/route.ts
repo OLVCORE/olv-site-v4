@@ -5,11 +5,14 @@ import { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest) {
   try {
-    const res = await fetch(
-      'https://api.coingecko.com/api/v3/simple/price?ids=brent-oil,crude-oil,bitcoin,gold&vs_currencies=usd'
-    );
-    const json = await res.json();
-    return Response.json({ prices: json, base: 'USD', updatedAt: Date.now() });
+    const symbols = 'BZ=F,GC=F,DC=F'; // Brent Crude, Gold, Steel Rebar (Dalian) if available
+    const res = await fetch(`https://financialmodelingprep.com/api/v3/quote/${symbols}?apikey=demo`);
+    const json = await res.json(); // array of quotes
+    const prices: Record<string, number> = {};
+    json.forEach((q: any) => {
+      prices[q.symbol] = q.price;
+    });
+    return Response.json({ prices, base: 'USD', updatedAt: Date.now(), source:'financialmodelingprep.com' });
   } catch (e) {
     return Response.json({ error: 'failed', message: (e as Error).message }, { status: 500 });
   }
