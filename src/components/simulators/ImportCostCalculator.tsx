@@ -139,10 +139,6 @@ export default function ImportCostCalculator() {
       const ratio = pageWidth/imgProps.w;
       const imgHeight = imgProps.h*ratio;
       pdf.addImage(imgData,'PNG',0,0,pageWidth,imgHeight);
-      // watermark text
-      pdf.setTextColor(180);
-      pdf.setFontSize(32);
-      pdf.text('OLV Internacional', pageWidth/2, imgHeight/2, {align:'center', angle:45});
       pdf.save('simulador-importacao.pdf');
     }else{
       // generate XLS using sheetjs
