@@ -24,13 +24,26 @@ export default function ImportCostCalculator() {
 
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
+  // remove thousand separators while user types to keep caret position predictable
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.currentTarget.value = e.currentTarget.value.replace(/,/g, '.');
+    e.currentTarget.value = e.currentTarget.value.replace(/\./g, '').replace(/,/g, '.');
+  };
+
+  // format value to pt-BR style (10.000,00) when input loses focus
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const raw = e.currentTarget.value.replace(/\./g, '').replace(/,/g, '.');
+    const num = parseFloat(raw);
+    if (!isNaN(num)) {
+      e.currentTarget.value = new Intl.NumberFormat('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(num);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const toNumber = (s:string)=> parseFloat(s.replace(',','.'))||0;
+    const toNumber = (s:string)=> parseFloat(s.replace(/\./g,'').replace(',','.'))||0;
     const getVal=(key:string)=> inputRefs.current[key]?.value||'';
     const parsed = {
       fob: toNumber(getVal('fob')),
@@ -64,6 +77,7 @@ export default function ImportCostCalculator() {
           name={name}
           defaultValue={(defaultInputs as any)[name]}
           onChange={handleChange}
+          onBlur={handleBlur}
           ref={(el) => { inputRefs.current[name] = el; }}
           className="w-full rounded-md bg-gray-100 dark:bg-gray-700 border-none focus:ring-accent p-2 pr-12 text-sm placeholder-gray-400 dark:placeholder-gray-500"
           placeholder="0.00"
@@ -125,7 +139,7 @@ export default function ImportCostCalculator() {
           <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">Resultado</h3>
           <table className="w-full text-left text-gray-700 dark:text-gray-300 text-sm">
             <thead>
-              <tr><th></th><th>USD</th><th>BRL</th><th>%</th><th>%</th></tr>
+              <tr><th></th><th>USD</th><th>BRL</th><th>% Import</th><th>% Merc.</th></tr>
             </thead>
             <tbody>
               {(()=>{
