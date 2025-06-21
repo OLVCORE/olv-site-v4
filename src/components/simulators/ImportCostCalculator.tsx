@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { calculateImportCost } from '../../lib/importCost';
 
 export default function ImportCostCalculator() {
@@ -19,10 +19,11 @@ export default function ImportCostCalculator() {
   const [result, setResult] = useState<null | ReturnType<typeof calculateImportCost>>(null);
   const [rate, setRate] = useState(5);
 
+  const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // permite vírgula ou ponto como separador decimal
     const { name, value } = e.target;
-    setInputs({ ...inputs, [name]: value.replace(/,/g, '.') });
+    setInputs((prev) => ({ ...prev, [name]: value.replace(/,/g, '.') }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -48,16 +49,18 @@ export default function ImportCostCalculator() {
   const brl = (v:number)=> v.toLocaleString('pt-BR', {style:'currency',currency:'BRL'});
   const usd = (v:number)=> v.toLocaleString('en-US',{style:'currency',currency:'USD'});
 
-  interface FieldProps { name: string; label: string; suffix?: string; }
-  const Field = ({ name, label, suffix }: FieldProps) => (
+  interface FieldProps { name: string; label: string; suffix?: string; autoFocus?: boolean; }
+  const Field = ({ name, label, suffix, autoFocus }: FieldProps) => (
     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
       {label}
       <div className="relative mt-1">
         <input
           type="text"
           name={name}
-          value={(inputs as any)[name]}
+          defaultValue={(inputs as any)[name]}
           onChange={handleChange}
+          ref={(el) => { inputRefs.current[name] = el; }}
+          autoFocus={autoFocus}
           className="w-full rounded-md bg-gray-100 dark:bg-gray-700 border-none focus:ring-accent p-2 pr-12 text-sm placeholder-gray-400 dark:placeholder-gray-500"
           placeholder="0.00"
         />
@@ -80,6 +83,8 @@ export default function ImportCostCalculator() {
           const usdBrl = brl; // endpoint já converte
           setInputs((prev) => ({ ...prev, exchange: usdBrl.toFixed(2) }));
           setRate(usdBrl);
+          const el=inputRefs.current['exchange'];
+          if(el) el.value=usdBrl.toFixed(2);
         }
       })
       .catch(() => {});
@@ -93,7 +98,7 @@ export default function ImportCostCalculator() {
   return (
     <div className="grid md:grid-cols-2 gap-8">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <Field name="fob" label="Valor FOB" suffix="USD" />
+        <Field name="fob" label="Valor FOB" suffix="USD" autoFocus />
         <Field name="freight" label="Frete" suffix="USD" />
         <Field name="insurance" label="Seguro" suffix="USD" />
         <Field name="exchange" label="Taxa USD → BRL" suffix="R$" />
