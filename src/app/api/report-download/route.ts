@@ -16,9 +16,9 @@ async function sendMail(html: string) {
     },
   });
   await transporter.sendMail({
-    from: `Simulador de Importação <no-reply@olvinternacional.com.br>`,
-    to: 'plataformas@olvinternacional.com.br',
-    subject: `Download relatório – Simulador de Importação`,
+    from: `Radar 360 – Simulador <no-reply@olvinternacional.com.br>`,
+    to: 'atendimento@olvinternacional.com.br',
+    subject: `Lead Radar 360 – Simulador de Custos de Importação`,
     html,
   });
 }
@@ -29,11 +29,11 @@ export async function POST(req: Request) {
     const { name, phone, email, comments, format } = data;
 
     const html = `
-      <h2>Solicitação de relatório (${format.toUpperCase()})</h2>
+      <h2>Lead – Radar 360 / Simulador de Custos de Importação (${format.toUpperCase()})</h2>
       <p><strong>Nome:</strong> ${name}</p>
       <p><strong>Telefone/WhatsApp:</strong> ${phone}</p>
       <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Comentários:</strong> ${comments}</p>
+      <p><strong>Comentários:</strong> ${comments || '—'}</p>
     `;
 
     try {
