@@ -1,9 +1,15 @@
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const revalidate = 300; // 5 minutes
 
 import { NextRequest } from 'next/server';
 
 async function fetchFiatRate(symbol: string): Promise<number | null> {
+  // Primary source: Open ER API (all rates in one payload cached globally)
+  if (openErRatesCache && typeof openErRatesCache[symbol] === 'number') {
+    return openErRatesCache[symbol];
+  }
+
+  // Fallback: exchangerate.host per-symbol
   try {
     const res = await fetch(`https://api.exchangerate.host/convert?from=${symbol}&to=BRL`);
     const json = await res.json();
@@ -23,33 +29,42 @@ async function fetchBtcRate(): Promise<number | null> {
   }
 }
 
+// preload Open ER rates once per invocation runtime (10 min cache handled by ISR)
+let openErRatesCache: Record<string, number> | null = null;
+async function loadOpenErRates() {
+  if (openErRatesCache) return openErRatesCache;
+  try {
+    const res = await fetch('https://open.er-api.com/v6/latest/BRL');
+    const json = await res.json();
+    if (json?.result === 'success') {
+      // JSON returns rates[sym] = value of sym per BRL (i.e., 1 BRL = 0.18 USD)
+      // We need BRL per sym ⇒ invert
+      openErRatesCache = Object.fromEntries(
+        Object.entries(json.rates).map(([sym, rate]) => [sym, 1 / (rate as number)])
+      );
+      return openErRatesCache;
+    }
+  } catch (_) {}
+  return null;
+}
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const symbols = (searchParams.get('symbols') || 'USD,EUR,BTC')
     .split(',')
     .map((s) => s.trim().toUpperCase());
 
+  // Preload open ER cache
+  await loadOpenErRates();
+
   const result: Record<string, number | null> = {};
 
   const fiatSymbols = symbols.filter((s) => s !== 'BTC');
-  if (fiatSymbols.length) {
-    try {
-      const res = await fetch(
-        `https://api.exchangerate.host/latest?base=BRL&symbols=${fiatSymbols.join(',')}`
-      );
-      const json = await res.json();
-      Object.entries(json?.rates ?? {}).forEach(([sym, rate]) => {
-        result[sym] = typeof rate === 'number' ? 1 / (rate as number) : null; // convert BRL->sym to sym->BRL
-      });
-    } catch (_) {
-      // fallback to individual requests
-      await Promise.all(
-        fiatSymbols.map(async (sym) => {
-          result[sym] = await fetchFiatRate(sym);
-        })
-      );
-    }
-  }
+  await Promise.all(
+    fiatSymbols.map(async (sym) => {
+      result[sym] = await fetchFiatRate(sym);
+    })
+  );
 
   if (symbols.includes('BTC')) {
     result['BTC'] = await fetchBtcRate();
