@@ -73,10 +73,10 @@ export default function ImportCostCalculator() {
 
   // auto-preencher taxa USD→BRL (sempre na primeira montagem)
   useEffect(() => {
-    fetch('/api/radar/quotes')
+    fetch('/api/radar/quotes?symbols=USD')
       .then((r) => r.json())
       .then((j) => {
-        const brl = j?.rates?.BRL;
+        const brl = j?.rates?.USD;
         if (brl && typeof brl === 'number') {
           const usdBrl = brl; // endpoint já converte
           setInputs((prev) => ({ ...prev, exchange: usdBrl.toFixed(2) }));
