@@ -7,6 +7,7 @@ export interface ImportCostInput {
   pis: number; // %
   cofins: number; // %
   icms: number; // %
+  other: number; // despesas aduaneiras/outros não tributados
 }
 
 export interface ImportCostOutput {
@@ -18,6 +19,7 @@ export interface ImportCostOutput {
   icmsValue: number;
   totalTaxes: number;
   landedCost: number;
+  finalCost: number;
 }
 
 export function calculateImportCost(input: ImportCostInput): ImportCostOutput {
@@ -35,6 +37,7 @@ export function calculateImportCost(input: ImportCostInput): ImportCostOutput {
   const icmsValue = icmsBase * toDecimal(input.icms);
   const totalTaxes = iiValue + ipiValue + pisValue + cofinsValue + icmsValue;
   const landedCost = cif + totalTaxes;
+  const finalCost = landedCost + input.other;
   return {
     cif,
     iiValue,
@@ -44,5 +47,6 @@ export function calculateImportCost(input: ImportCostInput): ImportCostOutput {
     icmsValue,
     totalTaxes,
     landedCost,
+    finalCost,
   };
 } 

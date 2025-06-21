@@ -14,6 +14,7 @@ export default function ImportCostCalculator() {
     pis: '2.1',
     cofins: '9.65',
     icms: '18',
+    other: '0',
   });
   const [result, setResult] = useState<null | ReturnType<typeof calculateImportCost>>(null);
   const [rate, setRate] = useState(5);
@@ -34,6 +35,7 @@ export default function ImportCostCalculator() {
       pis: parseFloat(inputs.pis) || 0,
       cofins: parseFloat(inputs.cofins) || 0,
       icms: parseFloat(inputs.icms) || 0,
+      other: toNumber(inputs.other),
     };
     const usdRes=calculateImportCost(parsed);
     const r= toNumber(inputs.exchange)||1;
@@ -70,6 +72,7 @@ export default function ImportCostCalculator() {
         <Field name="pis" label="PIS (%)" />
         <Field name="cofins" label="COFINS (%)" />
         <Field name="icms" label="ICMS (%)" />
+        <Field name="other" label="Despesas Aduaneiras / Outras (R$)" />
         <button type="submit" className="btn btn-primary mt-2">Calcular</button>
       </form>
 
@@ -89,8 +92,10 @@ export default function ImportCostCalculator() {
               <tr><td>ICMS</td><td>{usd(result.icmsValue)}</td><td>{brl(result.icmsValue*rate)}</td></tr>
               <tr className="font-semibold"><td>Total Tributos</td><td>{usd(result.totalTaxes)}</td><td>{brl(result.totalTaxes*rate)}</td></tr>
               <tr className="font-bold"><td>Custo Importação</td><td>{usd(result.landedCost)}</td><td>{brl(result.landedCost*rate)}</td></tr>
+              <tr className="font-bold"><td>Custo Final</td><td>{usd(result.finalCost)}</td><td>{brl(result.finalCost*rate)}</td></tr>
             </tbody>
           </table>
+          <p className="text-xs text-yellow-600 dark:text-yellow-400 mt-2">Este simulador oferece uma estimativa simplificada. O resultado é de uso exclusivo e responsabilidade do usuário. Para análise completa, consulte um especialista da OLV Internacional.</p>
           <div className="mt-4 flex gap-4">
             <button className="btn btn-secondary" onClick={() => alert('PDF em desenvolvimento')}>Baixar PDF</button>
             <a href="/contato" className="btn btn-primary">Falar com Especialista</a>
