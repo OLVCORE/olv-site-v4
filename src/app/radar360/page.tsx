@@ -2,9 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import MainLayout from '../../components/layout/MainLayout';
 import Icon from '../../components/icons/Icon';
-import useSWR from 'swr';
-
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
+import RealtimeQuotes from '../../components/radar/RealtimeQuotes';
 
 export const metadata = {
   title: 'Radar 360 | OLV Internacional - Dados, Inteligência e Simuladores',
@@ -16,20 +14,6 @@ export const metadata = {
 };
 
 export default function Radar360Page() {
-  const { data: quoteData, error: quoteError } = useSWR('/api/radar/quotes?symbols=USD,EUR,BTC', fetcher, {
-    refreshInterval: 180_000, // 3 minutes
-  });
-
-  const formatBRL = (value: number | null | undefined) =>
-    typeof value === 'number'
-      ? value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-      : '—';
-
-  const rates = quoteData?.rates ?? {};
-  const usdValue = formatBRL(rates['USD']);
-  const eurValue = formatBRL(rates['EUR']);
-  const btcValue = formatBRL(rates['BTC']);
-
   return (
     <MainLayout>
       <div className="main-content">
@@ -64,35 +48,7 @@ export default function Radar360Page() {
               <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 <span className="text-accent">💱</span> Cotações em Tempo Real
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-                  <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Dólar Comercial</h3>
-                  <p className="text-gray-700 dark:text-gray-300">{usdValue}</p>
-                  <small className="text-gray-500 dark:text-gray-400">* Integração de API em desenvolvimento.</small>
-                </div>
-                <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-                  <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Euro</h3>
-                  <p className="text-gray-700 dark:text-gray-300">{eurValue}</p>
-                  <small className="text-gray-500 dark:text-gray-400">* Integração de API em desenvolvimento.</small>
-                </div>
-                <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-                  <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Bitcoin (BTC)</h3>
-                  <p className="text-gray-700 dark:text-gray-300">{btcValue}</p>
-                  <small className="text-gray-500 dark:text-gray-400">* Integração de API em desenvolvimento.</small>
-                </div>
-                <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-                  <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Outras Moedas</h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-2">Consulte cotações de outras moedas globais.</p>
-                  <a 
-                    href="https://www.xe.com/currencyconverter/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-accent hover:underline"
-                  >
-                    Acessar Conversor
-                  </a>
-                </div>
-              </div>
+              <RealtimeQuotes />
             </div>
           </section>
 
