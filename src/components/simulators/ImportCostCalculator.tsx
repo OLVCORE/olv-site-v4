@@ -31,9 +31,9 @@ export default function ImportCostCalculator() {
 
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
-  // remove thousand separators while user types to keep caret position predictable
+  // mantém , ou . como separador decimal; remove caracteres inválidos
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.currentTarget.value = e.currentTarget.value.replace(/\./g, '').replace(/,/g, '.');
+    e.currentTarget.value = e.currentTarget.value.replace(/[^0-9.,]/g, '');
   };
 
   // format value to pt-BR style (10.000,00) when input loses focus
@@ -51,14 +51,21 @@ export default function ImportCostCalculator() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const toNumber = (s:string)=>{
-      const clean=s.trim();
-      if(!clean) return 0;
-      // se contém vírgula, tratamos vírgula como separador decimal e ponto como milhar
-      if(clean.includes(',')){
-        return parseFloat(clean.replace(/\./g,'').replace(',','.'))||0;
+      const value=s.trim();
+      if(!value) return 0;
+      const lastComma=value.lastIndexOf(',');
+      const lastDot=value.lastIndexOf('.');
+      let decimalSep='';
+      if(lastComma>lastDot){ decimalSep=','; }
+      else if(lastDot>lastComma){ decimalSep='.'; }
+      if(decimalSep){
+        const [intPart,decPart]=value.split(decimalSep);
+        const intClean=intPart.replace(/[^0-9]/g,'');
+        const decClean=decPart?.replace(/[^0-9]/g,'')||'';
+        return parseFloat(intClean+'.'+decClean)||0;
       }
-      // senão, ponto é decimal e vírgula (se houver) é milhar
-      return parseFloat(clean.replace(/,/g,''))||0;
+      // nenhum separador decimal
+      return parseFloat(value.replace(/[^0-9]/g,''))||0;
     };
     const getVal=(key:string)=> inputRefs.current[key]?.value||'';
     const parsed = {
