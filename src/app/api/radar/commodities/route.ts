@@ -10,8 +10,17 @@ export async function GET(req: NextRequest) {
     const res = await fetch(`https://financialmodelingprep.com/api/v3/quote/${symbols}?apikey=${key}`);
     const json = await res.json(); // array of quotes
     const pricesUSD: Record<string, number> = {};
+
+    // some symbols come back as BZUSD instead of BZ=F, etc.
+    const alias: Record<string, string> = {
+      'BZUSD': 'BZ=F',
+      'GCUSD': 'GC=F',
+      'DCUSD': 'DC=F',
+    };
+
     json.forEach((q: any) => {
-      pricesUSD[q.symbol] = q.price;
+      const key = alias[q.symbol] ?? q.symbol;
+      pricesUSD[key] = q.price;
     });
 
     // convert to BRL using Open ER API USD rate
