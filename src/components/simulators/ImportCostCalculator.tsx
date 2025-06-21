@@ -129,7 +129,7 @@ export default function ImportCostCalculator() {
     if(!result) return;
     if(fileType==='pdf'){
       const html2canvas = (await import('html2canvas')).default;
-      const { jsPDF } = await import('jspdf');
+      const { default: jsPDF } = await import('jspdf');
       if(!resultRef.current) return;
       const canvas = await html2canvas(resultRef.current,{scale:2});
       const imgData = canvas.toDataURL('image/png');
@@ -145,7 +145,27 @@ export default function ImportCostCalculator() {
       pdf.text('OLV Internacional', pageWidth/2, imgHeight/2, {align:'center', angle:45});
       pdf.save('simulador-importacao.pdf');
     }else{
-      alert('Exportação XLS será disponibilizada em breve.');
+      // generate XLS using sheetjs
+      const XLSXMod = await import('xlsx');
+      const XLSX = (XLSXMod as any).default ?? XLSXMod;
+      const rows=[
+        ['Item','USD','BRL','% Import','% Merc.'],
+        ['CIF',result.cif,result.cif*rate,((result.cif/result.finalCost)*100).toFixed(1)+'%',((result.cif/result.cif)*100).toFixed(1)+'%'],
+        ['II',result.iiValue,result.iiValue*rate,((result.iiValue/result.finalCost)*100).toFixed(1)+'%',((result.iiValue/result.cif)*100).toFixed(1)+'%'],
+        ['IPI',result.ipiValue,result.ipiValue*rate,((result.ipiValue/result.finalCost)*100).toFixed(1)+'%',((result.ipiValue/result.cif)*100).toFixed(1)+'%'],
+        ['PIS',result.pisValue,result.pisValue*rate,((result.pisValue/result.finalCost)*100).toFixed(1)+'%',((result.pisValue/result.cif)*100).toFixed(1)+'%'],
+        ['COFINS',result.cofinsValue,result.cofinsValue*rate,((result.cofinsValue/result.finalCost)*100).toFixed(1)+'%',((result.cofinsValue/result.cif)*100).toFixed(1)+'%'],
+        ['ICMS',result.icmsValue,result.icmsValue*rate,((result.icmsValue/result.finalCost)*100).toFixed(1)+'%',((result.icmsValue/result.cif)*100).toFixed(1)+'%'],
+        ['Despesas Aduaneiras',extras.customs,extras.customs*rate,((extras.customs/result.finalCost)*100).toFixed(1)+'%',((extras.customs/result.cif)*100).toFixed(1)+'%'],
+        ['Outras Despesas',extras.misc,extras.misc*rate,((extras.misc/result.finalCost)*100).toFixed(1)+'%',((extras.misc/result.cif)*100).toFixed(1)+'%'],
+        ['Total Tributos',result.totalTaxes,result.totalTaxes*rate,((result.totalTaxes/result.finalCost)*100).toFixed(1)+'%',((result.totalTaxes/result.cif)*100).toFixed(1)+'%'],
+        ['Custo Importação',result.landedCost,result.landedCost*rate,((result.landedCost/result.finalCost)*100).toFixed(1)+'%',((result.landedCost/result.cif)*100).toFixed(1)+'%'],
+        ['Custo Final',result.finalCost,result.finalCost*rate,'100%',''+((result.finalCost/result.cif)*100).toFixed(1)+'%'],
+      ];
+      const ws=XLSX.utils.aoa_to_sheet(rows);
+      const wb=XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb,ws,'Relatorio');
+      XLSX.writeFile(wb,'simulador-importacao.xlsx');
     }
   };
 
