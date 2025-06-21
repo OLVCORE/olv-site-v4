@@ -21,6 +21,8 @@ export default function ImportCostCalculator() {
   const [result, setResult] = useState<null | ReturnType<typeof calculateImportCost>>(null);
   const [rate, setRate] = useState(5);
   const [extras, setExtras] = useState({customs:0,misc:0});
+  const [fileType,setFileType]=useState<'pdf'|'xls'>('pdf');
+  const resultRef = useRef<HTMLDivElement|null>(null);
 
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
@@ -115,6 +117,30 @@ export default function ImportCostCalculator() {
     inputRefs.current['fob']?.focus();
   }, []);
 
+  const exportReport=async()=>{
+    if(!result) return;
+    if(fileType==='pdf'){
+      const html2canvas = (await import('html2canvas')).default;
+      const { jsPDF } = await import('jspdf');
+      if(!resultRef.current) return;
+      const canvas = await html2canvas(resultRef.current,{scale:2});
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF({orientation:'p',unit:'px',format:'a4'});
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const imgProps = {w: canvas.width, h: canvas.height};
+      const ratio = pageWidth/imgProps.w;
+      const imgHeight = imgProps.h*ratio;
+      pdf.addImage(imgData,'PNG',0,0,pageWidth,imgHeight);
+      // watermark text
+      pdf.setTextColor(180);
+      pdf.setFontSize(32);
+      pdf.text('OLV Internacional', pageWidth/2, imgHeight/2, {align:'center', angle:45});
+      pdf.save('simulador-importacao.pdf');
+    }else{
+      alert('Exportação XLS será disponibilizada em breve.');
+    }
+  };
+
   return (
     <>
     <CurrencyPanel />
@@ -135,7 +161,7 @@ export default function ImportCostCalculator() {
       </form>
 
       {result && (
-        <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-sm md:text-base">
+        <div ref={resultRef} className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-sm md:text-base">
           <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">Resultado</h3>
           <table className="w-full text-left text-gray-700 dark:text-gray-300 text-sm">
             <thead>
@@ -165,8 +191,12 @@ export default function ImportCostCalculator() {
           </table>
           <p className="text-xs text-yellow-600 dark:text-yellow-400 mt-2">Este simulador oferece uma estimativa simplificada. O resultado é de uso exclusivo e responsabilidade do usuário. Para análise completa, consulte um especialista da OLV Internacional.</p>
           <div className="mt-4 flex gap-4">
-            <button className="btn btn-secondary" onClick={() => alert('PDF em desenvolvimento')}>Baixar PDF</button>
-            <a href="/contato" className="btn btn-primary">Falar com Especialista</a>
+            <select value={fileType} onChange={e=>setFileType(e.target.value as 'pdf'|'xls')} className="border rounded-md bg-gray-100 dark:bg-gray-700 p-2 text-sm">
+              <option value="pdf">PDF</option>
+              <option value="xls">XLS</option>
+            </select>
+            <button type="button" className="btn btn-secondary" onClick={exportReport}>Baixar</button>
+            <a href="/contato" className="btn btn-gold animate-gold-pulse">Falar com Especialista</a>
           </div>
           <img src="/images/BANNER-HOME.jpeg" alt="Banner OLV" className="mt-8 rounded-lg w-full" />
         </div>

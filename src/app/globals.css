@@ -910,8 +910,7 @@ body.theme-light .nav-menu-mobile .nav-item {
 body.import-sim .ticker,
 body.import-sim .mobile-sidebar-toggle,
 body.import-sim .mobile-nav-toggle,
-body.import-sim .sidebar,
-body.import-sim button[aria-label="Contato via WhatsApp"] {
+body.import-sim .sidebar {
   /* oculta ou desabilita ponteiros para evitar que capturem foco */
   pointer-events: none !important;
   opacity: 0.15;
@@ -927,4 +926,20 @@ body.import-sim .import-sim-heading {
 }
 body.import-sim footer {
   display: none !important;
+}
+
+/* ---------- Gold button for Specialist CTA ---------- */
+.btn-gold {
+  @apply btn;
+  background-color: #d4af37; /* gold */
+  color: #fff;
+}
+
+@keyframes goldPulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212,175,55,0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(212,175,55,0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212,175,55,0); }
+}
+.animate-gold-pulse {
+  animation: goldPulse 2s infinite;
 } 
