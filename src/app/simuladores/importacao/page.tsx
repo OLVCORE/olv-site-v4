@@ -11,7 +11,7 @@ export const metadata = {
 export default function ImportSimPage() {
   return (
     <MainLayout>
-      <div className="container pt-24 pb-12">
+      <div className="container pt-32 pb-12">
         <h1 className="text-3xl font-bold flex items-center gap-2 mb-6 text-gray-900 dark:text-white">
           <Icon src="/icons/calculator.svg" alt="Simulador" size="sm" className="text-accent" />
           Simulador de Custos de Importação

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { calculateImportCost } from '../../lib/importCost';
 
 export default function ImportCostCalculator() {
@@ -54,11 +54,28 @@ export default function ImportCostCalculator() {
         name={name}
         value={(inputs as any)[name]}
         onChange={handleChange}
-        step="0.01"
+        inputMode="decimal"
+        pattern="[0-9]*[.,]?[0-9]*"
         className="mt-1 w-full rounded-md bg-gray-100 dark:bg-gray-700 border-none focus:ring-accent p-2 text-sm"
       />
     </label>
   );
+
+  // auto-preencher taxa USD→BRL se não alterada
+  useEffect(() => {
+    if (inputs.exchange !== '5.00') return; // já modificado manualmente
+    fetch('/api/radar/quotes')
+      .then((r) => r.json())
+      .then((j) => {
+        const brl = j?.rates?.BRL;
+        if (brl && typeof brl === 'number') {
+          const usdBrl = brl; // endpoint já converte para BRL
+          setInputs((prev) => ({ ...prev, exchange: usdBrl.toFixed(2) }));
+          setRate(usdBrl);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <div className="grid md:grid-cols-2 gap-8">
