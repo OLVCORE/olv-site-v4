@@ -14,8 +14,8 @@ export default function ImportCostCalculator() {
     exchange: '5.00',
     ii: '12',
     ipi: '0',
-    pis: '2.1',
-    cofins: '9.65',
+    pis: '2,10',
+    cofins: '9,65',
     icms: '18',
     customs: '0',
     misc: '0',
@@ -73,11 +73,11 @@ export default function ImportCostCalculator() {
       fob: toNumber(getVal('fob')),
       freight: toNumber(getVal('freight')),
       insurance: toNumber(getVal('insurance')),
-      ii: parseFloat(getVal('ii'))||0,
-      ipi: parseFloat(getVal('ipi'))||0,
-      pis: parseFloat(getVal('pis'))||0,
-      cofins: parseFloat(getVal('cofins'))||0,
-      icms: parseFloat(getVal('icms'))||0,
+      ii: toNumber(getVal('ii'))||0,
+      ipi: toNumber(getVal('ipi'))||0,
+      pis: toNumber(getVal('pis'))||0,
+      cofins: toNumber(getVal('cofins'))||0,
+      icms: toNumber(getVal('icms'))||0,
       customs: toNumber(getVal('customs')),
       misc: toNumber(getVal('misc')),
     };
@@ -105,7 +105,7 @@ export default function ImportCostCalculator() {
           onBlur={handleBlur}
           ref={(el) => { inputRefs.current[name] = el; }}
           className="w-full rounded-md bg-gray-100 dark:bg-gray-700 border-none focus:ring-accent p-2 pr-12 text-sm placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-white"
-          placeholder="0.00"
+          placeholder="0,00"
         />
         {suffix && (
           <span className="absolute inset-y-0 right-3 flex items-center text-xs text-gray-500 pointer-events-none">
