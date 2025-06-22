@@ -358,26 +358,32 @@ export default function EcossistemaPage() {
                 </div>
               ))}
 
-              {/* Delivery Summary Card */}
-              <div className="glass rounded-2xl shadow-gold overflow-hidden border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 max-w-[300px] flex flex-col h-full justify-between">
-                <div>
-                  <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white flex items-center gap-1">
-                    <Icon src="/icons/rocket.svg" alt="Transformação" size="xs" className="text-accent" />
-                    Transforme Sua Empresa
-                  </h3>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 mb-3 leading-snug">
-                    Nosso ecossistema conecta sua PME a ferramentas, conhecimento e oportunidades para <strong>crescer com a agilidade de uma multinacional</strong>.
-                  </p>
-                  <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
-                    <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2" /><span>Alta performance operacional.</span></li>
-                    <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2" /><span>Tecnologia e segurança de ponta.</span></li>
-                    <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="xs" className="text-accent mr-2" /><span>Operação como multinacional.</span></li>
-                    <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2" /><span>Gestão baseada em dados.</span></li>
-                    <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2" /><span>Compliance e due diligence.</span></li>
-                    <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2" /><span>Planejamento financeiro profissional.</span></li>
+              {/* Transformation Highlight Card */}
+              <div className="glass rounded-2xl shadow-gold overflow-hidden border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 max-w-[320px] flex flex-col">
+                <div className="p-6 flex-1 flex flex-col gap-4">
+                  <div>
+                    <h3 className="text-lg md:text-xl font-extrabold text-gray-800 dark:text-white leading-tight">
+                      Sua PME no Nível Multinacional
+                    </h3>
+                    <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mt-2">
+                      Unimos tecnologia, dados e capital para quebrar barreiras e acelerar seu crescimento de forma segura e sustentável.
+                    </p>
+                  </div>
+
+                  <ul className="grid grid-cols-1 gap-1 text-sm text-gray-700 dark:text-gray-300 md:text-[0.9rem]">
+                    <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2 mt-0.5" />Alta performance operacional</li>
+                    <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2 mt-0.5" />Tecnologia & segurança de ponta</li>
+                    <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2 mt-0.5" />Gestão orientada por dados</li>
+                    <li className="flex items-start"><Icon src="/icons/link.svg" alt="Acesso global" size="xs" className="text-accent mr-2 mt-0.5" />Acesso a mercados globais</li>
+                    <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2 mt-0.5" />Compliance e due diligence</li>
+                    <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2 mt-0.5" />Planejamento financeiro profissional</li>
                   </ul>
                 </div>
-                <Link href="#por-que-diferente" className="btn btn-primary mt-4 text-sm w-full text-center">Descubra Por Quê</Link>
+                <div className="p-4">
+                  <Link href="/contato" className="btn btn-primary w-full text-center font-semibold py-2">
+                    Quero Crescer Agora
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
