@@ -964,4 +964,11 @@ body.import-sim footer {
   transform: translateY(-4px);
   box-shadow: 0 6px 22px rgba(212, 175, 55, 0.2);
   border-color: rgba(212, 175, 55, 0.4);
+}
+
+section#monitoramento .grid,
+section#dashboard .grid,
+section#compliance .grid,
+section#noticias .grid {
+  gap: 2.5rem; /* ~1cm visual spacing */
 } 
