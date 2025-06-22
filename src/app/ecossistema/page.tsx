@@ -361,73 +361,23 @@ export default function EcossistemaPage() {
           </div>
         </section>
 
-        {/* O QUE O ECOSSISTEMA ENTREGA */}
-        <section className="section" id="o-que-entrega">
-          <div className="container">
-            <div className="glass p-6 rounded-2xl shadow-gold flex flex-col items-center gap-4 hover:shadow-2xl transition-all duration-300">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
-                <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="sm" className="text-accent" />
-                O Que o Ecossistema Entrega para Sua Empresa?
-              </h2>
-              <ul className="space-y-2 ml-6 mb-6 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span><strong>Transforma empresas sem gestão em empresas de alta performance.</strong></span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Oferece <strong>tecnologia de ponta, inteligência aplicada, governança e segurança.</strong></span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Abre as portas para que qualquer PME opere <strong>como uma multinacional.</strong></span>
-                </li>
+        {/* Portrait Card resumo do Ecossistema dentro da grid */}
+        <div className="grid-item-cta hidden md:block">
+          <div className="glass p-4 rounded-2xl shadow-gold flex flex-col h-full justify-between hover:shadow-2xl transition-all duration-300">
+            <div>
+              <h3 className="text-lg font-bold text-gray-100 mb-2 flex items-center gap-1">
+                <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="xs" className="text-accent" />
+                Ecossistema OLV: Entrega 360°
+              </h3>
+              <ul className="space-y-1 text-sm text-gray-300 list-disc list-inside">
+                <li>Transforma gestão em performance global.</li>
+                <li>Tecnologia, inteligência e governança integradas.</li>
+                <li>Acesso a mercados, dados e capital.</li>
               </ul>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 dark:text-gray-300">
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="mr-2 text-accent" />
-                    <span>Gestão baseada em dados.</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="mr-2 text-accent" />
-                    <span>Compliance e due diligence.</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="mr-2 text-accent" />
-                    <span>Planejamento financeiro profissional.</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Icon src="/icons/ecosystem-icon.svg" alt="Global" size="xs" className="mr-2 text-accent" />
-                    <span>Acesso global a fornecedores, clientes e mercados.</span>
-                  </li>
-                </ul>
-                
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <Icon src="/icons/rocket.svg" alt="Rocket" size="xs" className="mr-2 text-accent" />
-                    <span>Desenvolvimento tecnológico e inovação aplicada.</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Icon src="/icons/compliance-icon.svg" alt="Governança" size="xs" className="mr-2 text-accent" />
-                    <span>Participação em licitações e expansão do mercado.</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Icon src="/icons/team.svg" alt="Team" size="xs" className="mr-2 text-accent" />
-                    <span>Formação executiva contínua e desenvolvimento de cultura empresarial.</span>
-                  </li>
-                </ul>
-              </div>
             </div>
+            <Link href="#por-que-diferente" className="btn btn-primary mt-4 text-sm w-full text-center">Saiba Mais</Link>
           </div>
-        </section>
+        </div>
 
         {/* POR QUE DIFERENTE */}
         <section className="section" id="por-que-diferente">
