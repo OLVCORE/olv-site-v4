@@ -222,11 +222,11 @@ export default function SolucoesPage() {
             </div>
           </div>
 
-          {/* CTA Filler Card */}
+          {/* CTA Filler Card - Transformação Internacional */}
           <div className="glass p-6 rounded-xl shadow-gold flex flex-col items-center text-center gap-4 hover:shadow-2xl transition-all duration-300">
-            <h3 className="text-lg font-bold text-gray-100">Descubra como integrar todas as soluções OLV</h3>
-            <p className="text-sm text-gray-300 max-w-xs">Explore nossa tecnologia, dados e consultoria para transformar sua operação internacional.</p>
-            <Link href="/contato" className="btn btn-primary text-sm px-5 py-2">Fale com o Time</Link>
+            <h3 className="text-xl font-bold text-gray-100 leading-tight">Pronto para Transformar seu Negócio Internacional?</h3>
+            <p className="text-sm text-gray-300 max-w-xs">Fale com nossos consultores hoje mesmo e descubra como podemos levar sua empresa a novos patamares no comércio exterior. <span className="block mt-1 italic text-[#d4af37]">Resultados tangíveis em até 90&nbsp;dias.</span></p>
+            <Link href="/contato" className="btn btn-primary text-sm px-5 py-2">Solicite uma Consultoria</Link>
           </div>
         </div>
 
@@ -558,18 +558,6 @@ export default function SolucoesPage() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-[#141c2f] rounded-lg shadow-xl p-6 text-white text-center mb-8 border border-[#2a3448] hover:border-[#d4af37] transition-all duration-300">
-          <h2 className="text-2xl font-bold mb-3">Pronto para Transformar seu Negócio Internacional?</h2>
-          <p className="mb-4 max-w-3xl mx-auto text-gray-300">
-            Fale com nossos consultores hoje mesmo e descubra como podemos ajudar sua empresa
-            a alcançar novos patamares no comércio internacional.
-          </p>
-          <Link href="/contato" className="inline-block bg-[#0a0f1d] text-[#d4af37] font-semibold py-2 px-6 rounded-lg border border-[#d4af37] hover:bg-[#d4af37] hover:text-[#0a0f1d] transition-colors">
-            Solicite uma Consultoria
-          </Link>
         </div>
       </div>
     </MainLayout>
