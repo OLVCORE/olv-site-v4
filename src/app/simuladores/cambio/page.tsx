@@ -3,6 +3,7 @@ import RealtimeQuotes from '../../../components/radar/RealtimeQuotes';
 import CurrencyConverter from '../../../components/simulators/CurrencyConverter';
 import Icon from '../../../components/icons/Icon';
 import MainLayout from '../../../components/layout/MainLayout';
+import ImportSimWrapper from '../../../components/simulators/ImportSimWrapper';
 
 export const metadata = {
   title: 'Simulador Cambial | OLV Internacional',
@@ -18,11 +19,13 @@ export default function CurrencySimPage() {
           Conversor Cambial
         </h1>
 
-        <SimLayout
-          quotes={<RealtimeQuotes symbols={['USD','EUR','GBP','CNY','BTC']} />}
-          calculator={<CurrencyConverter />}
-          guide={<></>}
-        />
+        <ImportSimWrapper>
+          <SimLayout
+            quotes={<RealtimeQuotes symbols={['USD','EUR','GBP','CNY','BTC']} />}
+            calculator={<CurrencyConverter />}
+            guide={<></>}
+          />
+        </ImportSimWrapper>
       </div>
     </MainLayout>
   );
