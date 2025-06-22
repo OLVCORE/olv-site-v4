@@ -225,7 +225,7 @@ export default function SolucoesPage() {
           {/* CTA Filler Card - Transformação Internacional */}
           <div className="glass p-6 rounded-xl shadow-gold flex flex-col items-center text-center gap-4 hover:shadow-2xl transition-all duration-300">
             <h3 className="text-xl font-bold text-gray-100 leading-tight">Pronto para Transformar seu Negócio Internacional?</h3>
-            <p className="text-sm text-gray-300 max-w-xs">Fale com nossos consultores hoje mesmo e descubra como podemos levar sua empresa a novos patamares no comércio exterior. <span className="block mt-1 italic text-[#d4af37]">Resultados tangíveis em até 90&nbsp;dias.</span></p>
+            <p className="text-sm text-gray-300 max-w-xs">Fale com nossos consultores hoje mesmo e descubra como nossa estratégia e força tática podem impulsionar sua empresa no comércio internacional.</p>
             <Link href="/contato" className="btn btn-primary text-sm px-5 py-2">Solicite uma Consultoria</Link>
           </div>
         </div>
