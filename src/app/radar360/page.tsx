@@ -95,7 +95,7 @@ export default function Radar360Page() {
 
               {/* Banner ilustrado para preencher área vazia */}
               <section className="section p-0 mt-6 hidden lg:block">
-                <IllustrationBanner src="/images/banner-radar.jpg" caption="Soluções integradas em dados e logística internacional" matchRefSelector="#cotacoes" />
+                <IllustrationBanner src="/images/banner-radar.jpg" caption="Soluções integradas em dados e logística internacional" matchRefSelector="#cotacoes .glass:last-of-type" />
               </section>
             </div>
 

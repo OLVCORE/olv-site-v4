@@ -41,7 +41,7 @@ export default function IllustrationBanner({
   return (
     <figure
       className="w-full rounded-2xl overflow-hidden shadow-gold card-hover flex flex-col"
-      style={height ? { height } : undefined}
+      style={height ? { height: Math.min(height, 600) } : undefined}
     >
       <Image
         src={src}
