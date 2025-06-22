@@ -364,7 +364,7 @@ export default function EcossistemaPage() {
         {/* O QUE O ECOSSISTEMA ENTREGA */}
         <section className="section" id="o-que-entrega">
           <div className="container">
-            <div className="glass p-6 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300">
+            <div className="glass p-6 rounded-2xl shadow-gold flex flex-col items-center gap-4 hover:shadow-2xl transition-all duration-300">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
                 <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="sm" className="text-accent" />
                 O Que o Ecossistema Entrega para Sua Empresa?
@@ -465,9 +465,9 @@ export default function EcossistemaPage() {
         {/* FRASE DE IMPACTO */}
         <section className="section" id="frase-impacto">
           <div className="container">
-            <div className="bg-blue-700 dark:bg-blue-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#FFFFFF' }}>Acredite!</h2>
-              <blockquote className="text-xl italic font-medium" style={{ color: '#FFFFFF' }}>
+            <div className="glass p-6 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300">
+              <h2 className="text-2xl font-bold mb-4 text-gray-100">Acredite!</h2>
+              <blockquote className="text-xl italic font-medium text-gray-200">
                 "Nosso ecossistema vai muito além de softwares inteligentes integrados: é a força por trás da transformação que impulsiona sua empresa rumo à gestão, escala e prosperidade, combinando experiência acumulada e o fator humano."
               </blockquote>
             </div>
@@ -476,26 +476,28 @@ export default function EcossistemaPage() {
 
         {/* CTA FINAL */}
         <section className="section">
-          <div className="container text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-              Pronto para Ação?
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Integre-se ao nosso ecossistema e transforme seu negócio com nossas soluções.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link 
-                href="/contato" 
-                className="btn btn-primary font-bold py-3 px-6"
-              >
-                Fale com um Especialista
-              </Link>
-              <Link 
-                href="#plataformas-detalhes" 
-                className="btn btn-primary py-2 px-4"
-              >
-                Conheça Nossas Plataformas
-              </Link>
+          <div className="container">
+            <div className="glass p-6 rounded-2xl shadow-gold flex flex-col items-center text-center gap-4 hover:shadow-2xl transition-all duration-300">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-100">
+                Pronto para Ação?
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-6">
+                Integre-se ao nosso ecossistema e transforme seu negócio com nossas soluções.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link 
+                  href="/contato" 
+                  className="btn btn-primary font-bold py-3 px-6"
+                >
+                  Fale com um Especialista
+                </Link>
+                <Link 
+                  href="#plataformas-detalhes" 
+                  className="btn btn-primary py-2 px-4"
+                >
+                  Conheça Nossas Plataformas
+                </Link>
+              </div>
             </div>
           </div>
         </section>
