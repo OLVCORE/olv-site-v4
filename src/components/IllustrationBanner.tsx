@@ -5,6 +5,7 @@ interface IllustrationBannerProps {
   src?: string;
   alt?: string;
   caption?: string;
+  matchRefSelector?: string;
 }
 
 /**
@@ -16,15 +17,36 @@ export default function IllustrationBanner({
   src = 'https://images.unsplash.com/photo-1581091870627-3b27ecf851d1?auto=format&fit=crop&w=1200&q=80',
   alt = 'Ilustração Comércio Internacional',
   caption,
+  matchRefSelector,
 }: IllustrationBannerProps) {
+  const [height, setHeight] = React.useState<number | undefined>(undefined);
+
+  React.useEffect(() => {
+    if (!matchRefSelector) return;
+    const refEl = document.querySelector<HTMLElement>(matchRefSelector);
+    if (!refEl) return;
+    const update = () => setHeight(refEl.offsetHeight);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(refEl);
+    window.addEventListener('resize', update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', update);
+    };
+  }, [matchRefSelector]);
+
   return (
-    <figure className="w-full rounded-2xl overflow-hidden shadow-gold card-hover">
+    <figure
+      className="w-full rounded-2xl overflow-hidden shadow-gold card-hover flex flex-col"
+      style={height ? { height } : undefined}
+    >
       <Image
         src={src}
         alt={alt}
         width={1200}
         height={400}
-        className="w-full h-auto object-cover"
+        className="w-full h-full object-cover flex-1"
         priority={false}
       />
       {caption && (
