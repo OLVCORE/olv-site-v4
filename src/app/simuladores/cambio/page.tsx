@@ -13,7 +13,7 @@ export const metadata = {
 export default function CurrencySimPage() {
   return (
     <MainLayout>
-      <div className="container mx-auto max-w-7xl pb-12">
+      <div className="container mx-auto max-w-7xl pb-12 mt-[0.5cm]">
         <h1 className="text-3xl font-bold flex items-center gap-2 mb-[19px] text-gray-900 dark:text-white">
           <Icon src="/icons/calculator.svg" alt="Simulador" size="sm" className="text-accent w-6 h-6 shrink-0" />
           Conversor Cambial
