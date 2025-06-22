@@ -918,10 +918,12 @@ body.import-sim .sidebar {
   opacity: 0.15;
 }
 body.import-sim .import-sim-container {
-  padding-top: calc(var(--height-header) + 60px);
+  /* Espaçamento extra para empurrar o conteúdo para baixo do cabeçalho */
+  padding-top: calc(var(--height-header) + 0.5cm);
   z-index: 3000;
   position: relative;
-  scroll-margin-top: calc(var(--height-header) + 60px);
+  /* Garante que âncoras rolem para posição correta */
+  scroll-margin-top: calc(var(--height-header) + 0.5cm);
 }
 body.import-sim .import-sim-heading {
   color: var(--color-on-surface);
