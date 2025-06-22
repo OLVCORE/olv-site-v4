@@ -93,9 +93,12 @@ export default function Radar360Page() {
                 </div>
               </section>
 
-              {/* Banner ilustrado para preencher área vazia */}
+              {/* CTA Filler Card */}
               <section className="section p-0 mt-6 hidden lg:block">
-                <IllustrationBanner src="/images/banner-radar.jpg" caption="Soluções integradas em dados e logística internacional" matchRefSelector="#cotacoes .glass:last-of-type" />
+                <div className="glass p-6 rounded-2xl shadow-gold flex flex-col justify-center items-center h-32 card-hover">
+                  <h3 className="text-lg font-bold mb-2 text-gray-100 text-center">Monitoramento em tempo real dos seus embarques</h3>
+                  <Link href="/contato" className="btn btn-primary text-sm px-4 py-2">Fale com um Especialista</Link>
+                </div>
               </section>
             </div>
 
