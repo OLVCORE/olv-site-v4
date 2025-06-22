@@ -362,38 +362,26 @@ export default function EcossistemaPage() {
         </section>
 
         {/* Portrait Card resumo do Ecossistema dentro da grid */}
-        <div className="grid-item-cta hidden md:block">
-          <div className="glass p-4 rounded-2xl shadow-gold flex flex-col h-full justify-between hover:shadow-2xl transition-all duration-300">
-            <div>
-              <h3 className="text-lg font-bold text-gray-100 mb-2 flex items-center gap-1">
-                <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="xs" className="text-accent" />
-                Ecossistema OLV: Entrega 360°
-              </h3>
-              <ul className="space-y-1 text-sm text-gray-300">
-                <li className="flex items-start">
-                  <Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2 flex-shrink-0" />
-                  <span>Transforma empresas sem gestão em organizações de alta performance.</span>
-                </li>
-                <li className="flex items-start">
-                  <Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2 flex-shrink-0" />
-                  <span>Tecnologia de ponta, inteligência aplicada e governança integradas.</span>
-                </li>
-                <li className="flex items-start">
-                  <Icon src="/icons/ecosystem-icon.svg" alt="Mercados globais" size="xs" className="text-accent mr-2 flex-shrink-0" />
-                  <span>Acesso global a fornecedores, clientes e mercados, com dados e capital.</span>
-                </li>
-                <li className="flex items-start">
-                  <Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2 flex-shrink-0" />
-                  <span>Gestão baseada em dados estratégicos.</span>
-                </li>
-                <li className="flex items-start">
-                  <Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2 flex-shrink-0" />
-                  <span>Compliance, due diligence e segurança regulatória.</span>
-                </li>
-              </ul>
-            </div>
-            <Link href="#por-que-diferente" className="btn btn-primary mt-4 text-sm w-full text-center">Saiba Mais</Link>
+        <div className="glass p-4 rounded-2xl shadow-gold flex flex-col h-full justify-between hover:shadow-2xl transition-all duration-300">
+          <div>
+            <h3 className="text-lg font-bold text-gray-100 mb-2 flex items-center gap-1">
+              <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="xs" className="text-accent" />
+              O Que o Ecossistema Entrega para Sua Empresa
+            </h3>
+            <ul className="space-y-1 text-sm text-gray-300">
+              <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Transforma empresas sem gestão em empresas de alta performance.</span></li>
+              <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Oferece tecnologia de ponta, inteligência aplicada, governança e segurança.</span></li>
+              <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Abre as portas para que qualquer PME opere como uma multinacional.</span></li>
+              <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Gestão baseada em dados.</span></li>
+              <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Compliance e due diligence.</span></li>
+              <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Planejamento financeiro profissional.</span></li>
+              <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Global" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Acesso global a fornecedores, clientes e mercados.</span></li>
+              <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Inovação" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Desenvolvimento tecnológico e inovação aplicada.</span></li>
+              <li className="flex items-start"><Icon src="/icons/solutions-icon.svg" alt="Governança" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Participação em licitações e expansão do mercado.</span></li>
+              <li className="flex items-start"><Icon src="/icons/team.svg" alt="Equipe" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Formação executiva contínua e desenvolvimento de cultura empresarial.</span></li>
+            </ul>
           </div>
+          <Link href="#por-que-diferente" className="btn btn-primary mt-4 text-sm w-full text-center">Saiba Mais</Link>
         </div>
 
         {/* POR QUE DIFERENTE */}
