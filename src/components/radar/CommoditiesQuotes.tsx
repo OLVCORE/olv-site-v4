@@ -51,21 +51,32 @@ export default function CommoditiesQuotes() {
         </p>
       )}
 
-      <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))]">
-        {cards.map((c) => (
-          <div
-            key={c.label}
-            className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg flex flex-col justify-between"
-          >
-            <h3 className="text-base font-semibold mb-2 text-gray-800 dark:text-white flex items-center gap-1">
-              <Icon src={c.icon} alt="icon" size="xs" className="text-accent" />
-              {c.label}
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 text-lg font-medium">
-              {c.value !== null ? formatBRL(c.value as number) : '—'}
-            </p>
-          </div>
-        ))}
+      <div className="overflow-x-auto">
+        <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-sm md:text-base">
+          <thead className="bg-gray-50 dark:bg-gray-800">
+            <tr>
+              <th className="px-4 py-2 text-left font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                Commodity
+              </th>
+              <th className="px-4 py-2 text-right font-semibold text-gray-700 dark:text-gray-300">
+                Preço (BRL)
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-100 dark:divide-gray-800">
+            {cards.map((c) => (
+              <tr key={c.label} className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td className="px-4 py-2 flex items-center gap-2 text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                  <Icon src={c.icon} alt="icon" size="xs" className="text-accent" />
+                  {c.label}
+                </td>
+                <td className="px-4 py-2 text-right text-gray-900 dark:text-gray-100 font-medium">
+                  {c.value !== null ? formatBRL(c.value as number) : '—'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
