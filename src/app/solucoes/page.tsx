@@ -221,6 +221,13 @@ export default function SolucoesPage() {
               </Link>
             </div>
           </div>
+
+          {/* CTA Filler Card */}
+          <div className="glass p-6 rounded-xl shadow-gold flex flex-col items-center text-center gap-4 hover:shadow-2xl transition-all duration-300">
+            <h3 className="text-lg font-bold text-gray-100">Descubra como integrar todas as soluções OLV</h3>
+            <p className="text-sm text-gray-300 max-w-xs">Explore nossa tecnologia, dados e consultoria para transformar sua operação internacional.</p>
+            <Link href="/contato" className="btn btn-primary text-sm px-5 py-2">Fale com o Time</Link>
+          </div>
         </div>
 
         {/* Novos Serviços Detalhados */}
