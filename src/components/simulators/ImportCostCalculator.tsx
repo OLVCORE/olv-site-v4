@@ -206,7 +206,7 @@ export default function ImportCostCalculator() {
 
   return (
     <>
-    <RealtimeQuotes />
+    <RealtimeQuotes symbols={[ 'USD', 'EUR', 'GBP', 'CNY' ]} />
     <div className="grid md:grid-cols-2 gap-8">
       <form onSubmit={handleSubmit} className="space-y-4">
         <Field name="fob" label="Valor FOB" suffix="USD" tip="Valor da mercadoria no porto de origem, sem frete ou seguro." />

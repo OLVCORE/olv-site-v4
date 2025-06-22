@@ -11,8 +11,12 @@ function formatBRL(value: number | null | undefined) {
     : '—';
 }
 
-export default function RealtimeQuotes() {
-  const symbolList = [
+type Props = {
+  symbols?: string[];
+};
+
+export default function RealtimeQuotes({ symbols }: Props) {
+  const defaultList = [
     'USD',
     'EUR',
     'GBP',
@@ -21,8 +25,10 @@ export default function RealtimeQuotes() {
     'CAD',
     'CHF',
     'CNY',
-    'BTC'
+    'BTC',
   ];
+
+  const symbolList = symbols && symbols.length > 0 ? symbols : defaultList;
 
   const { data, isValidating } = useSWR(
     `/api/radar/quotes?symbols=${symbolList.join(',')}`,
