@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import InfoTooltip from '../ui/InfoTooltip';
 import Image from 'next/image';
-import CurrencyPanel from './CurrencyPanel';
+import RealtimeQuotes from '../radar/RealtimeQuotes';
 
 function toNumber(s: string): number {
   if (!s) return 0;
@@ -152,7 +152,7 @@ export default function ExportCostCalculator() {
 
   return (
     <>
-    <CurrencyPanel />
+    <RealtimeQuotes />
     <div className="grid md:grid-cols-2 gap-8">
       <form onSubmit={handleSubmit} className="space-y-4">
         <Field name="fob" label="Valor FOB" suffix="USD" tip="Valor da mercadoria para exportação." />

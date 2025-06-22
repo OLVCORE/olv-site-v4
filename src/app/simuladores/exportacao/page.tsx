@@ -31,7 +31,10 @@ export default function ExportSimPage() {
               <li><strong>Receita Líquida</strong>: FOB – custos + crédito Reintegra. Use-a para definir sua margem e preço de venda.</li>
               <li>Mercados diferentes ⇒ requisitos diferentes. Avalie <em>incoterms</em>, barreiras técnicas e preferências de consumo.</li>
             </ol>
-            <p className="mt-4 text-gray-400 text-xs">Precificar corretamente é o primeiro passo; dominar requisitos de mercado garante que sua oferta seja competitiva e compliant. Conte com a OLV Internacional para abrir novos destinos e maximizar resultados.</p>
+            <p className="mt-4 text-xs"><span className="text-accent">Precificar corretamente é o primeiro passo; dominar requisitos de mercado garante que sua oferta seja competitiva e compliant. Conte com a OLV Internacional para abrir novos destinos e maximizar resultados.</span></p>
+            <div className="mt-4">
+              <a href="/contato" className="btn btn-gold animate-gold-pulse">Falar com Especialista</a>
+            </div>
           </div>
 
           {/* Simulador */}

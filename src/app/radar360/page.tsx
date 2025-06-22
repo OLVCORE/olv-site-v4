@@ -53,28 +53,28 @@ export default function Radar360Page() {
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {/* Import Cost */}
-                    <div className="glass p-4 rounded-xl card-hover order-1">
+                    <div className="glass p-4 rounded-xl card-hover">
                       <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador de Custos de Importação</h3>
                       <p className="text-gray-700 dark:text-gray-300 mb-4">Calcule impostos, fretes e taxas para sua operação de importação.</p>
                       <Link href="/simuladores/importacao" className="btn btn-primary text-sm py-2 px-3 w-full text-center">Abrir Simulador</Link>
                     </div>
                     {/* Export Cost */}
-                    <div className="glass p-4 rounded-xl card-hover order-2">
+                    <div className="glass p-4 rounded-xl card-hover">
                       <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador de Custos de Exportação</h3>
                       <p className="text-gray-700 dark:text-gray-300 mb-4">Calcule receita líquida e crédito Reintegra.</p>
                       <Link href="/simuladores/exportacao" className="btn btn-primary text-sm py-2 px-3 w-full block text-center">Abrir Simulador</Link>
                     </div>
-                    {/* Freight Calc placeholder */}
-                    <div className="glass p-4 rounded-xl card-hover order-3">
-                      <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Calculadora de Fretes Internacionais</h3>
-                      <p className="text-gray-700 dark:text-gray-300 mb-4">Estime custos de frete aéreo, marítimo e rodoviário.</p>
-                      <button className="btn btn-primary text-sm py-2 px-3 w-full">Abrir Calculadora</button>
-                    </div>
-                    {/* Currency */}
+                    {/* Currency Converter */}
                     <div className="glass p-4 rounded-xl card-hover">
                       <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador Cambial</h3>
                       <p className="text-gray-700 dark:text-gray-300 mb-2">Converta valores entre diferentes moedas com taxas atualizadas.</p>
                       <a href="https://www.oanda.com/currency/converter/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Acessar Simulador</a>
+                    </div>
+                    {/* Freight Calc placeholder */}
+                    <div className="glass p-4 rounded-xl card-hover">
+                      <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Calculadora de Fretes Internacionais</h3>
+                      <p className="text-gray-700 dark:text-gray-300 mb-4">Estime custos de frete aéreo, marítimo e rodoviário.</p>
+                      <button className="btn btn-primary text-sm py-2 px-3 w-full">Abrir Calculadora</button>
                     </div>
                     {/* Tax Sim placeholder */}
                     <div className="glass p-4 rounded-xl card-hover">
@@ -118,7 +118,7 @@ export default function Radar360Page() {
         </div>
 
         {/* Monitoramento Logístico & Freight Rates (Em breve) */}
-        <section className="section" id="monitoramento">
+        <section className="section mt-6" id="monitoramento">
           <div className="glass p-6 rounded-2xl shadow-gold card-hover">
             <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
               <span className="text-accent">🚚</span> Monitoramento Logístico & Freight Rates (Em breve)
@@ -139,7 +139,7 @@ export default function Radar360Page() {
         </section>
 
         {/* Dashboard Econômico & Logístico (Fase 2) */}
-        <section className="section" id="dashboard">
+        <section className="section mt-6" id="dashboard">
           <div className="glass p-6 rounded-2xl shadow-gold card-hover">
             <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
               <span className="text-accent">📊</span> Dashboard Econômico & Logístico (Fase 2)
@@ -160,7 +160,7 @@ export default function Radar360Page() {
         </section>
 
         {/* Legislação, Compliance & Recursos Oficiais */}
-        <section className="section" id="compliance">
+        <section className="section mt-6" id="compliance">
           <div className="glass p-6 rounded-2xl shadow-gold card-hover">
             <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
               <span className="text-accent">📋</span> Legislação, Compliance & Recursos Oficiais
@@ -234,7 +234,7 @@ export default function Radar360Page() {
         </section>
 
         {/* Notícias & Insights */}
-        <section className="section" id="noticias">
+        <section className="section mt-6" id="noticias">
           <div className="glass p-6 rounded-2xl shadow-gold card-hover">
             <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
               <span className="text-accent">📰</span> Notícias & Insights
@@ -248,7 +248,7 @@ export default function Radar360Page() {
         </section>
 
         {/* CTA Final */}
-        <section className="section">
+        <section className="section mt-6">
           <div className="glass p-6 rounded-2xl shadow-gold card-hover text-center">
             <h2 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-white">
               Quer ir além dos dados?

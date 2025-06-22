@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { calculateImportCost } from '../../lib/importCost';
-import CurrencyPanel from './CurrencyPanel';
+import RealtimeQuotes from '../radar/RealtimeQuotes';
 import Image from 'next/image';
 import InfoTooltip from '../ui/InfoTooltip';
 
@@ -206,7 +206,7 @@ export default function ImportCostCalculator() {
 
   return (
     <>
-    <CurrencyPanel />
+    <RealtimeQuotes />
     <div className="grid md:grid-cols-2 gap-8">
       <form onSubmit={handleSubmit} className="space-y-4">
         <Field name="fob" label="Valor FOB" suffix="USD" tip="Valor da mercadoria no porto de origem, sem frete ou seguro." />
