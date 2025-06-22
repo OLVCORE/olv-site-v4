@@ -118,7 +118,7 @@ export default function Radar360Page() {
         </div>
 
         {/* Monitoramento Logístico & Freight Rates (Em breve) */}
-        <section className="section mt-6" id="monitoramento">
+        <section className="section mt-3" id="monitoramento">
           <div className="glass p-6 rounded-2xl shadow-gold card-hover">
             <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
               <span className="text-accent">🚚</span> Monitoramento Logístico & Freight Rates (Em breve)
@@ -139,7 +139,7 @@ export default function Radar360Page() {
         </section>
 
         {/* Dashboard Econômico & Logístico (Fase 2) */}
-        <section className="section mt-6" id="dashboard">
+        <section className="section mt-3" id="dashboard">
           <div className="glass p-6 rounded-2xl shadow-gold card-hover">
             <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
               <span className="text-accent">📊</span> Dashboard Econômico & Logístico (Fase 2)
@@ -160,7 +160,7 @@ export default function Radar360Page() {
         </section>
 
         {/* Legislação, Compliance & Recursos Oficiais */}
-        <section className="section mt-6" id="compliance">
+        <section className="section mt-3" id="compliance">
           <div className="glass p-6 rounded-2xl shadow-gold card-hover">
             <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
               <span className="text-accent">📋</span> Legislação, Compliance & Recursos Oficiais
@@ -234,7 +234,7 @@ export default function Radar360Page() {
         </section>
 
         {/* Notícias & Insights */}
-        <section className="section mt-6" id="noticias">
+        <section className="section mt-3" id="noticias">
           <div className="glass p-6 rounded-2xl shadow-gold card-hover">
             <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
               <span className="text-accent">📰</span> Notícias & Insights
@@ -248,7 +248,7 @@ export default function Radar360Page() {
         </section>
 
         {/* CTA Final */}
-        <section className="section mt-6">
+        <section className="section mt-3">
           <div className="glass p-6 rounded-2xl shadow-gold card-hover text-center">
             <h2 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-white">
               Quer ir além dos dados?

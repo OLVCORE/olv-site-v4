@@ -17,13 +17,31 @@ export default function ImportSimPage() {
           <Icon src="/icons/calculator.svg" alt="Simulador" size="sm" className="text-accent" />
           Simulador de Custos de Importação
         </h1>
-        <p className="mb-8 text-gray-700 dark:text-gray-300 max-w-2xl">
-          Informe os valores da sua operação em dólar (USD) para obter uma estimativa rápida de impostos e custo total de
-          importação em tempo real. Os percentuais de tributos são editáveis para você adequar ao NCM e ao estado de destino.
-        </p>
-        <ImportSimWrapper>
-          <ImportCostCalculator />
-        </ImportSimWrapper>
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Guia Explicativo */}
+          <div className="glass p-6 rounded-2xl shadow-gold card-hover order-2 md:order-1">
+            <h2 className="text-xl font-semibold text-gray-100 mb-4 flex items-center gap-2">
+              <Icon src="/icons/info.svg" alt="Guia" size="xs" className="text-accent" />
+              Como Calcular Custos de Importação
+            </h2>
+            <ol className="list-decimal pl-4 space-y-2 text-gray-300 text-sm leading-relaxed">
+              <li><strong>Valor da Mercadoria</strong>: preço FOB no exterior sem impostos brasileiros.</li>
+              <li><strong>Impostos Federais</strong>: II, IPI, PIS e COFINS variam conforme NCM.</li>
+              <li><strong>ICMS</strong>: depende do estado de destino; incide sobre CIF + impostos.</li>
+              <li><strong>Despesas Logísticas</strong>: frete internacional, seguro, taxas portuárias, transporte interno.</li>
+              <li><strong>Custo Total Importação</strong>: soma de impostos + despesas + preço mercadoria (CIF).</li>
+            </ol>
+            <p className="mt-4 text-xs"><span className="text-accent">Entender todos os componentes de custo evita surpresas e garante melhor margem e precificação. A OLV Internacional apoia sua operação ponta-a-ponta.</span></p>
+            <div className="mt-4">
+              <a href="/contato" className="btn btn-gold animate-gold-pulse">Falar com Especialista</a>
+            </div>
+          </div>
+
+          {/* Simulador */}
+          <ImportSimWrapper>
+            <ImportCostCalculator />
+          </ImportSimWrapper>
+        </div>
       </div>
     </MainLayout>
   );
