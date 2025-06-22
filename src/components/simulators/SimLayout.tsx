@@ -10,7 +10,7 @@ interface Props {
 export default function SimLayout({ quotes, calculator, guide }: Props) {
   return (
     <div className="container mx-auto max-w-7xl space-y-10">
-      <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)_320px]">
+      <div className="grid gap-8 lg:grid-cols-[10cm_minmax(0,1fr)_15cm]">
         <aside>{quotes}</aside>
         <section className="col-span-2 lg:col-start-2 lg:col-span-2">{calculator}</section>
       </div>

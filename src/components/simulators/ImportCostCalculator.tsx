@@ -208,7 +208,7 @@ export default function ImportCostCalculator({showQuotes=true}:Props) {
 
   return (
     <>
-    <div className={`grid gap-8 ${showQuotes ? 'lg:grid-cols-[240px_minmax(0,1fr)_320px]' : 'lg:grid-cols-[minmax(0,1fr)_320px]'}`}> 
+    <div className={`grid gap-8 ${showQuotes ? 'lg:grid-cols-[10cm_minmax(0,1fr)_15cm]' : 'lg:grid-cols-[minmax(0,1fr)_15cm]'}`}> 
       {showQuotes && (
         <div className="order-3 lg:order-1">
           <RealtimeQuotes symbols={[ 'USD', 'EUR', 'GBP', 'CNY' ]} />
