@@ -307,17 +307,17 @@ export default function EcossistemaPage() {
               {/* Lista de benefícios */}
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-800 dark:text-white mb-4">O que o Ecossistema Entrega:</h3>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700 dark:text-gray-300 text-sm md:text-base">
-                  <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2 mt-0.5" />Alta performance operacional</li>
-                  <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2 mt-0.5" />Tecnologia e segurança de ponta</li>
-                  <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="xs" className="text-accent mr-2 mt-0.5" />Operação como multinacional</li>
-                  <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2 mt-0.5" />Gestão baseada em dados estratégicos</li>
-                  <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2 mt-0.5" />Compliance e due diligence</li>
-                  <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2 mt-0.5" />Planejamento financeiro profissional</li>
-                  <li className="flex items-start"><Icon src="/icons/link.svg" alt="Acesso global" size="xs" className="text-accent mr-2 mt-0.5" />Acesso a fornecedores e mercados globais</li>
-                  <li className="flex items-start"><Icon src="/icons/dna.svg" alt="Inovação" size="xs" className="text-accent mr-2 mt-0.5" />Inovação aplicada ao negócio</li>
-                  <li className="flex items-start"><Icon src="/icons/analytics.svg" alt="Expansão" size="xs" className="text-accent mr-2 mt-0.5" />Expansão de mercado & licitações</li>
-                  <li className="flex items-start"><Icon src="/icons/training-icon.svg" alt="Pessoas" size="xs" className="text-accent mr-2 mt-0.5" />Desenvolvimento de pessoas e cultura</li>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+                  <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="sm" className="text-accent mr-3 mt-0.5" />Alta performance: operações que viram máquinas de resultados.</li>
+                  <li className="flex items-start"><Icon src="/icons/analytics.svg" alt="Tecnologia e dados" size="sm" className="text-accent mr-3 mt-0.5" />Tecnologia + inteligência de dados para decisões assertivas.</li>
+                  <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="sm" className="text-accent mr-3 mt-0.5" />Operação estilo multinacional: processos, governança e escala global.</li>
+                  <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Segurança e compliance" size="sm" className="text-accent mr-3 mt-0.5" />Segurança e compliance: blindagem jurídica, fiscal e operacional.</li>
+                  <li className="flex items-start"><Icon src="/icons/link.svg" alt="Acesso global" size="sm" className="text-accent mr-3 mt-0.5" />Acesso global: fornecedores, clientes e parceiros internacionais.</li>
+                  <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Planejamento financeiro" size="sm" className="text-accent mr-3 mt-0.5" />Planejamento financeiro profissional para crescer com saúde.</li>
+                  <li className="flex items-start"><Icon src="/icons/dna.svg" alt="Inovação" size="sm" className="text-accent mr-3 mt-0.5" />Inovação aplicada: automações, IA e soluções sob medida.</li>
+                  <li className="flex items-start"><Icon src="/icons/target.svg" alt="Expansão de mercado" size="sm" className="text-accent mr-3 mt-0.5" />Expansão de mercado: licitações, novos canais e receitas.</li>
+                  <li className="flex items-start"><Icon src="/icons/training-icon.svg" alt="Pessoas e cultura" size="sm" className="text-accent mr-3 mt-0.5" />Desenvolvimento de pessoas e cultura: liderança preparada.</li>
+                  <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Resultados" size="sm" className="text-accent mr-3 mt-0.5" />Resultados tangíveis: crescimento acelerado e riscos mitigados.</li>
                 </ul>
               </div>
             </div>
@@ -411,17 +411,17 @@ export default function EcossistemaPage() {
                 Nosso ecossistema vai muito além de entregar soluções: <strong>ele eleva empresas comuns à alta performance</strong>, com a mesma eficiência de uma multinacional, unindo ferramentas, conhecimento e oportunidades de crescimento sustentável.
               </p>
 
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-700 dark:text-gray-300 text-sm md:text-base">
-                <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2 mt-0.5" />Alta performance operacional</li>
-                <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2 mt-0.5" />Tecnologia e segurança de ponta</li>
-                <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="xs" className="text-accent mr-2 mt-0.5" />Operação como multinacional</li>
-                <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2 mt-0.5" />Gestão baseada em dados estratégicos</li>
-                <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2 mt-0.5" />Compliance e due diligence</li>
-                <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2 mt-0.5" />Planejamento financeiro profissional</li>
-                <li className="flex items-start"><Icon src="/icons/link.svg" alt="Acesso global" size="xs" className="text-accent mr-2 mt-0.5" />Acesso a fornecedores e mercados globais</li>
-                <li className="flex items-start"><Icon src="/icons/dna.svg" alt="Inovação" size="xs" className="text-accent mr-2 mt-0.5" />Inovação aplicada ao negócio</li>
-                <li className="flex items-start"><Icon src="/icons/analytics.svg" alt="Expansão" size="xs" className="text-accent mr-2 mt-0.5" />Expansão de mercado & licitações</li>
-                <li className="flex items-start"><Icon src="/icons/training-icon.svg" alt="Pessoas" size="xs" className="text-accent mr-2 mt-0.5" />Desenvolvimento de pessoas e cultura</li>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+                <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="sm" className="text-accent mr-3 mt-0.5" />Alta performance: operações que viram máquinas de resultados.</li>
+                <li className="flex items-start"><Icon src="/icons/analytics.svg" alt="Tecnologia e dados" size="sm" className="text-accent mr-3 mt-0.5" />Tecnologia + inteligência de dados para decisões assertivas.</li>
+                <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="sm" className="text-accent mr-3 mt-0.5" />Operação estilo multinacional: processos, governança e escala global.</li>
+                <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Segurança e compliance" size="sm" className="text-accent mr-3 mt-0.5" />Segurança e compliance: blindagem jurídica, fiscal e operacional.</li>
+                <li className="flex items-start"><Icon src="/icons/link.svg" alt="Acesso global" size="sm" className="text-accent mr-3 mt-0.5" />Acesso global: fornecedores, clientes e parceiros internacionais.</li>
+                <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Planejamento financeiro" size="sm" className="text-accent mr-3 mt-0.5" />Planejamento financeiro profissional para crescer com saúde.</li>
+                <li className="flex items-start"><Icon src="/icons/dna.svg" alt="Inovação" size="sm" className="text-accent mr-3 mt-0.5" />Inovação aplicada: automações, IA e soluções sob medida.</li>
+                <li className="flex items-start"><Icon src="/icons/target.svg" alt="Expansão de mercado" size="sm" className="text-accent mr-3 mt-0.5" />Expansão de mercado: licitações, novos canais e receitas.</li>
+                <li className="flex items-start"><Icon src="/icons/training-icon.svg" alt="Pessoas e cultura" size="sm" className="text-accent mr-3 mt-0.5" />Desenvolvimento de pessoas e cultura: liderança preparada.</li>
+                <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Resultados" size="sm" className="text-accent mr-3 mt-0.5" />Resultados tangíveis: crescimento acelerado e riscos mitigados.</li>
               </ul>
             </div>
           </div>
