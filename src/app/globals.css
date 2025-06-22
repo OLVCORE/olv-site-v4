@@ -971,4 +971,9 @@ section#dashboard .grid,
 section#compliance .grid,
 section#noticias .grid {
   gap: 2.5rem; /* ~1cm visual spacing */
+}
+
+/* ---------- Section Spacing ---------- */
+.section + .section {
+  @apply mt-6;
 } 

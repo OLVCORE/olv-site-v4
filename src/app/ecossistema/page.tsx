@@ -296,7 +296,7 @@ export default function EcossistemaPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {plataformas.map((plataforma, index) => (
-                <div key={index} className="glass rounded-2xl shadow-gold overflow-hidden border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5">
+                <div key={index} className="glass rounded-2xl shadow-gold overflow-hidden border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 max-w-[300px]">
                   <div className="p-4 flex justify-center bg-gray-100 dark:bg-gray-700">
                     <div className="relative w-40 h-40">
                       <Image 
@@ -357,35 +357,31 @@ export default function EcossistemaPage() {
                   </div>
                 </div>
               ))}
+
+              {/* Delivery Summary Card */}
+              <div className="glass rounded-2xl shadow-gold overflow-hidden border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 max-w-[300px] flex flex-col h-full justify-between">
+                <div>
+                  <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white flex items-center gap-1">
+                    <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="xs" className="text-accent" />
+                    O Que o Ecossistema Entrega
+                  </h3>
+                  <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                    <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2" /><span>Transforma empresas sem gestão em empresas de alta performance.</span></li>
+                    <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2" /><span>Tecnologia de ponta, inteligência aplicada, governança e segurança.</span></li>
+                    <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="xs" className="text-accent mr-2" /><span>Permite operar como uma multinacional.</span></li>
+                    <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2" /><span>Gestão baseada em dados.</span></li>
+                    <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2" /><span>Compliance e due diligence.</span></li>
+                    <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2" /><span>Planejamento financeiro profissional.</span></li>
+                  </ul>
+                </div>
+                <Link href="#por-que-diferente" className="btn btn-primary mt-4 text-sm w-full text-center">Saiba Mais</Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Portrait Card resumo do Ecossistema dentro da grid */}
-        <div className="glass p-4 rounded-2xl shadow-gold flex flex-col h-full justify-between hover:shadow-2xl transition-all duration-300">
-          <div>
-            <h3 className="text-lg font-bold text-gray-100 mb-2 flex items-center gap-1">
-              <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="xs" className="text-accent" />
-              O Que o Ecossistema Entrega para Sua Empresa
-            </h3>
-            <ul className="space-y-1 text-sm text-gray-300">
-              <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Transforma empresas sem gestão em empresas de alta performance.</span></li>
-              <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Oferece tecnologia de ponta, inteligência aplicada, governança e segurança.</span></li>
-              <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Abre as portas para que qualquer PME opere como uma multinacional.</span></li>
-              <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Gestão baseada em dados.</span></li>
-              <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Compliance e due diligence.</span></li>
-              <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Planejamento financeiro profissional.</span></li>
-              <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Global" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Acesso global a fornecedores, clientes e mercados.</span></li>
-              <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Inovação" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Desenvolvimento tecnológico e inovação aplicada.</span></li>
-              <li className="flex items-start"><Icon src="/icons/solutions-icon.svg" alt="Governança" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Participação em licitações e expansão do mercado.</span></li>
-              <li className="flex items-start"><Icon src="/icons/team.svg" alt="Equipe" size="xs" className="text-accent mr-2 flex-shrink-0" /><span>Formação executiva contínua e desenvolvimento de cultura empresarial.</span></li>
-            </ul>
-          </div>
-          <Link href="#por-que-diferente" className="btn btn-primary mt-4 text-sm w-full text-center">Saiba Mais</Link>
-        </div>
-
         {/* POR QUE DIFERENTE */}
-        <section className="section" id="por-que-diferente">
+        <section className="section mt-6" id="por-que-diferente">
           <div className="container">
             <div className="glass p-6 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
