@@ -15,8 +15,8 @@ export default function ImportSimPage() {
   return (
     <MainLayout>
       <div className="container import-sim-container pb-12 mx-auto max-w-7xl">
-        <h1 className="import-sim-heading text-3xl font-bold flex items-center gap-2 mb-[19px] -mt-[0.5cm] text-gray-900 dark:text-white container mx-auto max-w-7xl">
-          <Icon src="/icons/calculator.svg" alt="Simulador" size="sm" className="text-accent" />
+        <h1 className="import-sim-heading text-3xl font-bold flex items-center gap-2 mb-[19px] text-gray-900 dark:text-white container mx-auto max-w-7xl">
+          <Icon src="/icons/calculator.svg" alt="Simulador" size="sm" className="text-accent w-6 h-6 shrink-0" />
           Simulador de Custos de Importação
         </h1>
 
