@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import InfoTooltip from '../ui/InfoTooltip';
 import Image from 'next/image';
 import CurrencyPanel from './CurrencyPanel';
-import Icon from '../icons/Icon';
 
 function toNumber(s: string): number {
   if (!s) return 0;
