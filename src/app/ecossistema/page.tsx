@@ -369,10 +369,27 @@ export default function EcossistemaPage() {
                 <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="xs" className="text-accent" />
                 Ecossistema OLV: Entrega 360°
               </h3>
-              <ul className="space-y-1 text-sm text-gray-300 list-disc list-inside">
-                <li>Transforma gestão em performance global.</li>
-                <li>Tecnologia, inteligência e governança integradas.</li>
-                <li>Acesso a mercados, dados e capital.</li>
+              <ul className="space-y-1 text-sm text-gray-300">
+                <li className="flex items-start">
+                  <Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2 flex-shrink-0" />
+                  <span>Transforma empresas sem gestão em organizações de alta performance.</span>
+                </li>
+                <li className="flex items-start">
+                  <Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2 flex-shrink-0" />
+                  <span>Tecnologia de ponta, inteligência aplicada e governança integradas.</span>
+                </li>
+                <li className="flex items-start">
+                  <Icon src="/icons/ecosystem-icon.svg" alt="Mercados globais" size="xs" className="text-accent mr-2 flex-shrink-0" />
+                  <span>Acesso global a fornecedores, clientes e mercados, com dados e capital.</span>
+                </li>
+                <li className="flex items-start">
+                  <Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2 flex-shrink-0" />
+                  <span>Gestão baseada em dados estratégicos.</span>
+                </li>
+                <li className="flex items-start">
+                  <Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2 flex-shrink-0" />
+                  <span>Compliance, due diligence e segurança regulatória.</span>
+                </li>
               </ul>
             </div>
             <Link href="#por-que-diferente" className="btn btn-primary mt-4 text-sm w-full text-center">Saiba Mais</Link>
@@ -388,23 +405,23 @@ export default function EcossistemaPage() {
               </h2>
               <ul className="space-y-2 ml-6 text-gray-700 dark:text-gray-300">
                 <li className="flex items-center">
-                  <span className="text-accent mr-2">🔗</span>
+                  <Icon src="/icons/link.svg" alt="Conectado" size="xs" className="text-accent mr-2" />
                   <strong>Tudo está conectado.</strong>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-accent mr-2">🧠</span>
+                  <Icon src="/icons/dna.svg" alt="Inteligência" size="xs" className="text-accent mr-2" />
                   <strong>Inteligência aplicada em todos os níveis.</strong>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-accent mr-2">💡</span>
+                  <Icon src="/icons/solutions-icon.svg" alt="Gestão" size="xs" className="text-accent mr-2" />
                   <strong>Entrega gestão, não só software.</strong>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-accent mr-2">🚀</span>
+                  <Icon src="/icons/rocket.svg" alt="Transformação" size="xs" className="text-accent mr-2" />
                   <strong>Não vende ferramentas. Entrega transformação.</strong>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-accent mr-2">📈</span>
+                  <Icon src="/icons/chart-bar.svg" alt="Resultados" size="xs" className="text-accent mr-2" />
                   <strong>É o braço direito do empresário moderno.</strong>
                 </li>
               </ul>
