@@ -287,6 +287,43 @@ export default function EcossistemaPage() {
           </div>
         </section>
 
+        {/* TRANSFORME SUA EMPRESA */}
+        <section className="section" id="transforme-empresa">
+          <div className="container">
+            <div className="glass p-8 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300 flex flex-col lg:flex-row gap-8">
+              {/* Texto principal */}
+              <div className="flex-1">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                  Transforme Sua Empresa com o Nosso Ecossistema
+                </h2>
+                <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-prose">
+                  Nosso ecossistema revolucionário não entrega apenas soluções. <strong>Ele converte empresas comuns em negócios de alta performance</strong>, com a eficiência e o profissionalismo de uma multinacional. Conectamos sua PME a tecnologia, conhecimento e oportunidades para crescer de forma sustentável e segura.
+                </p>
+                <Link href="/contato" className="btn btn-primary px-6 py-3 font-semibold w-max">
+                  Fale com um Especialista
+                </Link>
+              </div>
+
+              {/* Lista de benefícios */}
+              <div className="flex-1">
+                <h3 className="font-semibold text-gray-800 dark:text-white mb-4">O que o Ecossistema Entrega:</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+                  <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2 mt-0.5" />Alta performance operacional</li>
+                  <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2 mt-0.5" />Tecnologia e segurança de ponta</li>
+                  <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="xs" className="text-accent mr-2 mt-0.5" />Operação como multinacional</li>
+                  <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2 mt-0.5" />Gestão baseada em dados estratégicos</li>
+                  <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2 mt-0.5" />Compliance e due diligence</li>
+                  <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2 mt-0.5" />Planejamento financeiro profissional</li>
+                  <li className="flex items-start"><Icon src="/icons/link.svg" alt="Acesso global" size="xs" className="text-accent mr-2 mt-0.5" />Acesso a fornecedores e mercados globais</li>
+                  <li className="flex items-start"><Icon src="/icons/dna.svg" alt="Inovação" size="xs" className="text-accent mr-2 mt-0.5" />Inovação aplicada ao negócio</li>
+                  <li className="flex items-start"><Icon src="/icons/analytics.svg" alt="Expansão" size="xs" className="text-accent mr-2 mt-0.5" />Expansão de mercado & licitações</li>
+                  <li className="flex items-start"><Icon src="/icons/training-icon.svg" alt="Pessoas" size="xs" className="text-accent mr-2 mt-0.5" />Desenvolvimento de pessoas e cultura</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* PLATAFORMAS DO ECOSSISTEMA */}
         <section className="section" id="plataformas-detalhes">
           <div className="container">
@@ -357,34 +394,6 @@ export default function EcossistemaPage() {
                   </div>
                 </div>
               ))}
-
-              {/* Transformation Highlight Card */}
-              <div className="glass rounded-2xl shadow-gold overflow-hidden border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 max-w-[320px] flex flex-col">
-                <div className="p-6 flex-1 flex flex-col gap-4">
-                  <div>
-                    <h3 className="text-lg md:text-xl font-extrabold text-gray-800 dark:text-white leading-tight">
-                      Sua PME no Nível Multinacional
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mt-2">
-                      Unimos tecnologia, dados e capital para quebrar barreiras e acelerar seu crescimento de forma segura e sustentável.
-                    </p>
-                  </div>
-
-                  <ul className="grid grid-cols-1 gap-1 text-sm text-gray-700 dark:text-gray-300 md:text-[0.9rem]">
-                    <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2 mt-0.5" />Alta performance operacional</li>
-                    <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2 mt-0.5" />Tecnologia & segurança de ponta</li>
-                    <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2 mt-0.5" />Gestão orientada por dados</li>
-                    <li className="flex items-start"><Icon src="/icons/link.svg" alt="Acesso global" size="xs" className="text-accent mr-2 mt-0.5" />Acesso a mercados globais</li>
-                    <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2 mt-0.5" />Compliance e due diligence</li>
-                    <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2 mt-0.5" />Planejamento financeiro profissional</li>
-                  </ul>
-                </div>
-                <div className="p-4">
-                  <Link href="/contato" className="btn btn-primary w-full text-center font-semibold py-2">
-                    Quero Crescer Agora
-                  </Link>
-                </div>
-              </div>
             </div>
           </div>
         </section>
