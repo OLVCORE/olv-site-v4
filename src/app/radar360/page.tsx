@@ -4,6 +4,7 @@ import MainLayout from '../../components/layout/MainLayout';
 import Icon from '../../components/icons/Icon';
 import RealtimeQuotes from '../../components/radar/RealtimeQuotes';
 import CommoditiesQuotes from '../../components/radar/CommoditiesQuotes';
+import IllustrationBanner from '../../components/IllustrationBanner';
 
 export const metadata = {
   title: 'Radar 360 | OLV Internacional - Dados, Inteligência e Simuladores',
@@ -90,6 +91,11 @@ export default function Radar360Page() {
                     </div>
                   </div>
                 </div>
+              </section>
+
+              {/* Banner ilustrado para preencher área vazia */}
+              <section className="section p-0 mt-6 hidden lg:block">
+                <IllustrationBanner caption="Soluções integradas em dados e logística internacional" />
               </section>
             </div>
 
