@@ -4,7 +4,6 @@ import MainLayout from '../../components/layout/MainLayout';
 import Icon from '../../components/icons/Icon';
 import RealtimeQuotes from '../../components/radar/RealtimeQuotes';
 import CommoditiesQuotes from '../../components/radar/CommoditiesQuotes';
-import IllustrationBanner from '../../components/IllustrationBanner';
 
 export const metadata = {
   title: 'Radar 360 | OLV Internacional - Dados, Inteligência e Simuladores',
@@ -96,8 +95,8 @@ export default function Radar360Page() {
               {/* CTA Filler Card */}
               <section className="section p-0 mt-6 hidden lg:block">
                 <div className="glass p-6 rounded-2xl shadow-gold flex flex-col justify-center items-center h-32 card-hover">
-                  <h3 className="text-lg font-bold mb-2 text-gray-100 text-center">Monitoramento em tempo real dos seus embarques</h3>
-                  <Link href="/contato" className="btn btn-primary text-sm px-4 py-2">Fale com um Especialista</Link>
+                  <h3 className="text-lg font-bold mb-2 text-gray-100 text-center">Conheça nossas Plataformas Integradas</h3>
+                  <Link href="/solucoes" className="btn btn-primary text-sm px-4 py-2">Explorar Soluções</Link>
                 </div>
               </section>
             </div>
