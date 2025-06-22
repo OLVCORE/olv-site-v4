@@ -206,9 +206,14 @@ export default function ImportCostCalculator() {
 
   return (
     <>
-    <RealtimeQuotes symbols={[ 'USD', 'EUR', 'GBP', 'CNY' ]} />
-    <div className="grid md:grid-cols-2 gap-8">
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)_320px]">
+      {/* Coluna 1 – Cotações */}
+      <div className="order-3 lg:order-1">
+        <RealtimeQuotes symbols={[ 'USD', 'EUR', 'GBP', 'CNY' ]} />
+      </div>
+
+      {/* Coluna 2 – Formulário */}
+      <form onSubmit={handleSubmit} className="space-y-4 order-1 lg:order-2">
         <Field name="fob" label="Valor FOB" suffix="USD" tip="Valor da mercadoria no porto de origem, sem frete ou seguro." />
         <Field name="freight" label="Frete" suffix="USD" tip="Custo de transporte internacional." />
         <Field name="insurance" label="Seguro" suffix="USD" tip="Prêmio de seguro internacional." />
@@ -223,8 +228,9 @@ export default function ImportCostCalculator() {
         <button type="submit" className="btn btn-primary mt-2">Calcular</button>
       </form>
 
+      {/* Coluna 3 – Resultado */}
       {result && (
-        <div ref={resultRef} className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-sm md:text-base">
+        <div ref={resultRef} className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-sm md:text-base order-2 lg:order-3">
           <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">Resultado</h3>
           <table className="w-full text-left text-gray-700 dark:text-gray-300 text-sm">
             <thead>
