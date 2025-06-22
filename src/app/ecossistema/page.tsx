@@ -296,7 +296,7 @@ export default function EcossistemaPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {plataformas.map((plataforma, index) => (
-                <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                <div key={index} className="glass rounded-2xl shadow-gold overflow-hidden border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5">
                   <div className="p-4 flex justify-center bg-gray-100 dark:bg-gray-700">
                     <div className="relative w-40 h-40">
                       <Image 
@@ -364,7 +364,7 @@ export default function EcossistemaPage() {
         {/* O QUE O ECOSSISTEMA ENTREGA */}
         <section className="section" id="o-que-entrega">
           <div className="container">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div className="glass p-6 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
                 <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="sm" className="text-accent" />
                 O Que o Ecossistema Entrega para Sua Empresa?
@@ -432,7 +432,7 @@ export default function EcossistemaPage() {
         {/* POR QUE DIFERENTE */}
         <section className="section" id="por-que-diferente">
           <div className="container">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div className="glass p-6 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
                 🤔 Por Que o Nosso Ecossistema É Diferente?
               </h2>
