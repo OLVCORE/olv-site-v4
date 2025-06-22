@@ -1,0 +1,20 @@
+"use client";
+import React from 'react';
+
+interface Props {
+  quotes: React.ReactNode;
+  calculator: React.ReactNode;
+  guide: React.ReactNode;
+}
+
+export default function SimLayout({ quotes, calculator, guide }: Props) {
+  return (
+    <div className="container mx-auto max-w-7xl space-y-10">
+      <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)_320px]">
+        <aside>{quotes}</aside>
+        <section className="col-span-2 lg:col-span-1">{calculator}</section>
+      </div>
+      <section>{guide}</section>
+    </div>
+  );
+} 

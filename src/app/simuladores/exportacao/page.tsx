@@ -3,6 +3,8 @@ import MainLayout from '../../../components/layout/MainLayout';
 import ExportCostCalculator from '../../../components/simulators/ExportCostCalculator';
 import ImportSimWrapper from '../../../components/simulators/ImportSimWrapper';
 import Icon from '../../../components/icons/Icon';
+import SimLayout from '../../../components/simulators/SimLayout';
+import RealtimeQuotes from '../../../components/radar/RealtimeQuotes';
 
 export const metadata = {
   title: 'Simulador de Custos de Exportação | OLV Internacional',
@@ -12,14 +14,16 @@ export const metadata = {
 export default function ExportSimPage() {
   return (
     <MainLayout>
-      <div className="container import-sim-container pb-12 mx-auto max-w-5xl">
-        <h1 className="import-sim-heading text-3xl font-bold flex items-center gap-2 mb-6 text-gray-900 dark:text-white">
+      <div className="container import-sim-container pb-12 mx-auto max-w-7xl">
+        <h1 className="import-sim-heading text-3xl font-bold flex items-center gap-2 mb-6 text-gray-900 dark:text-white container mx-auto max-w-7xl">
           <Icon src="/icons/export.svg" alt="Simulador" size="sm" className="text-accent" />
           Simulador de Custos de Exportação
         </h1>
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Guia Explicativo */}
-          <div className="glass p-6 rounded-2xl shadow-gold card-hover order-2 md:order-1">
+        <SimLayout
+          quotes={<RealtimeQuotes symbols={['USD','EUR','GBP','CNY']} />}
+          calculator={<ImportSimWrapper><ExportCostCalculator showQuotes={false} /></ImportSimWrapper>}
+          guide={(
+          <div className="glass p-6 rounded-2xl shadow-gold card-hover">
             <h2 className="text-xl font-semibold text-gray-100 mb-4 flex items-center gap-2">
               <Icon src="/icons/info.svg" alt="Guia" size="xs" className="text-accent" />
               Como Precificar uma Exportação
@@ -33,15 +37,11 @@ export default function ExportSimPage() {
             </ol>
             <p className="mt-4 text-xs"><span className="text-accent">Precificar corretamente é o primeiro passo; dominar requisitos de mercado garante que sua oferta seja competitiva e compliant. Conte com a OLV Internacional para abrir novos destinos e maximizar resultados.</span></p>
             <div className="mt-4">
-              <a href="/contato" className="btn btn-gold animate-gold-pulse">Falar com Especialista</a>
+              <a href="/contato" className="btn btn-gold animate-gold-pulse">Fale com um Especialista</a>
             </div>
           </div>
-
-          {/* Simulador */}
-          <ImportSimWrapper>
-            <ExportCostCalculator />
-          </ImportSimWrapper>
-        </div>
+          )}
+        />
       </div>
     </MainLayout>
   );

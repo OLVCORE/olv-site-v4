@@ -3,6 +3,8 @@ import MainLayout from '../../../components/layout/MainLayout';
 import ImportCostCalculator from '../../../components/simulators/ImportCostCalculator';
 import ImportSimWrapper from '../../../components/simulators/ImportSimWrapper';
 import Icon from '../../../components/icons/Icon';
+import SimLayout from '../../../components/simulators/SimLayout';
+import RealtimeQuotes from '../../../components/radar/RealtimeQuotes';
 
 export const metadata = {
   title: 'Simulador de Custos de Importação | OLV Internacional',
@@ -12,36 +14,34 @@ export const metadata = {
 export default function ImportSimPage() {
   return (
     <MainLayout>
-      <div className="container import-sim-container pb-12 mx-auto max-w-5xl">
-        <h1 className="import-sim-heading text-3xl font-bold flex items-center gap-2 mb-6 text-gray-900 dark:text-white">
+      <div className="container import-sim-container pb-12 mx-auto max-w-7xl">
+        <h1 className="import-sim-heading text-3xl font-bold flex items-center gap-2 mb-6 text-gray-900 dark:text-white container mx-auto max-w-7xl">
           <Icon src="/icons/calculator.svg" alt="Simulador" size="sm" className="text-accent" />
           Simulador de Custos de Importação
         </h1>
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Guia Explicativo */}
-          <div className="glass p-6 rounded-2xl shadow-gold card-hover order-2 md:order-1">
-            <h2 className="text-xl font-semibold text-gray-100 mb-4 flex items-center gap-2">
-              <Icon src="/icons/info.svg" alt="Guia" size="xs" className="text-accent" />
-              Como Calcular Custos de Importação
-            </h2>
-            <ol className="list-decimal pl-4 space-y-2 text-gray-300 text-sm leading-relaxed">
-              <li><strong>Valor da Mercadoria</strong>: preço FOB no exterior sem impostos brasileiros.</li>
-              <li><strong>Impostos Federais</strong>: II, IPI, PIS e COFINS variam conforme NCM.</li>
-              <li><strong>ICMS</strong>: depende do estado de destino; incide sobre CIF + impostos.</li>
-              <li><strong>Despesas Logísticas</strong>: frete internacional, seguro, taxas portuárias, transporte interno.</li>
-              <li><strong>Custo Total Importação</strong>: soma de impostos + despesas + preço mercadoria (CIF).</li>
-            </ol>
-            <p className="mt-4 text-xs"><span className="text-accent">Entender todos os componentes de custo evita surpresas e garante melhor margem e precificação. A OLV Internacional apoia sua operação ponta-a-ponta.</span></p>
-            <div className="mt-4">
-              <a href="/contato" className="btn btn-gold animate-gold-pulse">Falar com Especialista</a>
-            </div>
-          </div>
 
-          {/* Simulador */}
-          <ImportSimWrapper>
-            <ImportCostCalculator />
-          </ImportSimWrapper>
-        </div>
+        <SimLayout
+          quotes={<RealtimeQuotes symbols={['USD','EUR','GBP','CNY']} />}
+          calculator={<ImportSimWrapper><ImportCostCalculator showQuotes={false} /></ImportSimWrapper>}
+          guide={(
+            <div className="glass p-6 rounded-2xl shadow-gold card-hover">
+              <h2 className="text-xl font-semibold text-gray-100 mb-4 flex items-center gap-2">
+                <Icon src="/icons/info.svg" alt="Guia" size="xs" className="text-accent" />
+                Como Calcular Custos de Importação
+              </h2>
+              <ol className="list-decimal pl-4 space-y-2 text-gray-300 text-sm leading-relaxed">
+                <li><strong>Valor da Mercadoria</strong>: preço FOB no exterior sem impostos brasileiros.</li>
+                <li><strong>Impostos Federais</strong>: II, IPI, PIS e COFINS variam conforme NCM.</li>
+                <li><strong>ICMS</strong>: depende do estado de destino; incide sobre CIF + impostos.</li>
+                <li><strong>Despesas Logísticas</strong>: frete internacional, seguro, taxas portuárias, transporte interno.</li>
+                <li><strong>Custo Total Importação</strong>: soma de impostos + despesas + preço mercadoria (CIF).</li>
+              </ol>
+              <div className="mt-4">
+                <a href="/contato" className="btn btn-gold animate-gold-pulse">Fale com um Especialista</a>
+              </div>
+            </div>
+          )}
+        />
       </div>
     </MainLayout>
   );

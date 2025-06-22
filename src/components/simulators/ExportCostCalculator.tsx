@@ -10,7 +10,9 @@ function toNumber(s: string): number {
   return parseFloat(s.replace(/\./g, '').replace(',', '.')) || 0;
 }
 
-export default function ExportCostCalculator() {
+interface Props { showQuotes?: boolean }
+
+export default function ExportCostCalculator({showQuotes=true}:Props) {
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
   const [result, setResult] = useState<null | {
     totalCosts: number;
@@ -152,14 +154,15 @@ export default function ExportCostCalculator() {
 
   return (
     <>
-    <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)_320px]">
-      {/* Coluna 1 – Cotações */}
-      <div className="order-3 lg:order-1">
-        <RealtimeQuotes symbols={[ 'USD', 'EUR', 'GBP', 'CNY' ]} />
-      </div>
+    <div className={`grid gap-8 ${showQuotes ? 'lg:grid-cols-[240px_minmax(0,1fr)_320px]' : 'lg:grid-cols-[minmax(0,1fr)_320px]'}`}>
+      {showQuotes && (
+        <div className="order-3 lg:order-1">
+          <RealtimeQuotes symbols={[ 'USD', 'EUR', 'GBP', 'CNY' ]} />
+        </div>
+      )}
 
       {/* Coluna 2 – Formulário */}
-      <form onSubmit={handleSubmit} className="space-y-4 order-1 lg:order-2">
+      <form onSubmit={handleSubmit} className="space-y-4 order-1 lg:order-1">
         <Field name="fob" label="Valor FOB" suffix="USD" tip="Valor da mercadoria para exportação." />
         <Field name="freight" label="Frete Internacional" suffix="USD" tip="Custo de frete até o destino." />
         <Field name="insurance" label="Seguro" suffix="USD" tip="Seguro internacional da carga." />
@@ -173,7 +176,10 @@ export default function ExportCostCalculator() {
 
       {/* Coluna 3 – Resultado */}
       {result && (
-        <div ref={resultRef} className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-sm md:text-base order-2 lg:order-3">
+        <div
+          ref={resultRef}
+          className={`bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-sm md:text-base order-2 lg:order-${showQuotes ? '3' : '2'}`}
+        >
           <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">Resultado</h3>
           <table className="w-full text-left text-gray-700 dark:text-gray-300 text-sm">
             <tbody>
