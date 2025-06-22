@@ -68,7 +68,7 @@ export default function Radar360Page() {
                     <div className="glass p-4 rounded-xl card-hover">
                       <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador Cambial</h3>
                       <p className="text-gray-700 dark:text-gray-300 mb-2">Converta valores entre diferentes moedas com taxas atualizadas.</p>
-                      <a href="https://www.oanda.com/currency/converter/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Acessar Simulador</a>
+                      <Link href="/simuladores/cambio" className="btn btn-primary text-sm py-2 px-3 w-full block text-center">Abrir Conversor</Link>
                     </div>
                     {/* Freight Calc placeholder */}
                     <div className="glass p-4 rounded-xl card-hover">
