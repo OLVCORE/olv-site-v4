@@ -362,19 +362,22 @@ export default function EcossistemaPage() {
               <div className="glass rounded-2xl shadow-gold overflow-hidden border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 max-w-[300px] flex flex-col h-full justify-between">
                 <div>
                   <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white flex items-center gap-1">
-                    <Icon src="/icons/solutions-icon.svg" alt="Entrega" size="xs" className="text-accent" />
-                    O Que o Ecossistema Entrega
+                    <Icon src="/icons/rocket.svg" alt="Transformação" size="xs" className="text-accent" />
+                    Transforme Sua Empresa
                   </h3>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 mb-3 leading-snug">
+                    Nosso ecossistema conecta sua PME a ferramentas, conhecimento e oportunidades para <strong>crescer com a agilidade de uma multinacional</strong>.
+                  </p>
                   <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
-                    <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2" /><span>Transforma empresas sem gestão em empresas de alta performance.</span></li>
-                    <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2" /><span>Tecnologia de ponta, inteligência aplicada, governança e segurança.</span></li>
-                    <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="xs" className="text-accent mr-2" /><span>Permite operar como uma multinacional.</span></li>
+                    <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2" /><span>Alta performance operacional.</span></li>
+                    <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2" /><span>Tecnologia e segurança de ponta.</span></li>
+                    <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="xs" className="text-accent mr-2" /><span>Operação como multinacional.</span></li>
                     <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2" /><span>Gestão baseada em dados.</span></li>
                     <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2" /><span>Compliance e due diligence.</span></li>
                     <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2" /><span>Planejamento financeiro profissional.</span></li>
                   </ul>
                 </div>
-                <Link href="#por-que-diferente" className="btn btn-primary mt-4 text-sm w-full text-center">Saiba Mais</Link>
+                <Link href="#por-que-diferente" className="btn btn-primary mt-4 text-sm w-full text-center">Descubra Por Quê</Link>
               </div>
             </div>
           </div>
@@ -384,43 +387,39 @@ export default function EcossistemaPage() {
         <section className="section mt-6" id="por-que-diferente">
           <div className="container">
             <div className="glass p-6 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-                🤔 Por Que o Nosso Ecossistema É Diferente?
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
+                <Icon src="/icons/solutions-icon.svg" alt="Essencial" size="sm" className="text-accent" />
+                Por que o Nosso Ecossistema é Essencial para sua PME?
               </h2>
-              <ul className="space-y-2 ml-6 text-gray-700 dark:text-gray-300">
-                <li className="flex items-center">
-                  <Icon src="/icons/link.svg" alt="Conectado" size="xs" className="text-accent mr-2" />
-                  <strong>Tudo está conectado.</strong>
-                </li>
-                <li className="flex items-center">
-                  <Icon src="/icons/dna.svg" alt="Inteligência" size="xs" className="text-accent mr-2" />
-                  <strong>Inteligência aplicada em todos os níveis.</strong>
-                </li>
-                <li className="flex items-center">
-                  <Icon src="/icons/solutions-icon.svg" alt="Gestão" size="xs" className="text-accent mr-2" />
-                  <strong>Entrega gestão, não só software.</strong>
-                </li>
-                <li className="flex items-center">
-                  <Icon src="/icons/rocket.svg" alt="Transformação" size="xs" className="text-accent mr-2" />
-                  <strong>Não vende ferramentas. Entrega transformação.</strong>
-                </li>
-                <li className="flex items-center">
-                  <Icon src="/icons/chart-bar.svg" alt="Resultados" size="xs" className="text-accent mr-2" />
-                  <strong>É o braço direito do empresário moderno.</strong>
-                </li>
+
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                Nosso ecossistema vai muito além de entregar soluções: <strong>ele eleva empresas comuns à alta performance</strong>, com a mesma eficiência de uma multinacional, unindo ferramentas, conhecimento e oportunidades de crescimento sustentável.
+              </p>
+
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+                <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="xs" className="text-accent mr-2 mt-0.5" />Alta performance operacional</li>
+                <li className="flex items-start"><Icon src="/icons/tech.svg" alt="Tecnologia" size="xs" className="text-accent mr-2 mt-0.5" />Tecnologia e segurança de ponta</li>
+                <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="xs" className="text-accent mr-2 mt-0.5" />Operação como multinacional</li>
+                <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Dados" size="xs" className="text-accent mr-2 mt-0.5" />Gestão baseada em dados estratégicos</li>
+                <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Compliance" size="xs" className="text-accent mr-2 mt-0.5" />Compliance e due diligence</li>
+                <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Financeiro" size="xs" className="text-accent mr-2 mt-0.5" />Planejamento financeiro profissional</li>
+                <li className="flex items-start"><Icon src="/icons/link.svg" alt="Acesso global" size="xs" className="text-accent mr-2 mt-0.5" />Acesso a fornecedores e mercados globais</li>
+                <li className="flex items-start"><Icon src="/icons/dna.svg" alt="Inovação" size="xs" className="text-accent mr-2 mt-0.5" />Inovação aplicada ao negócio</li>
+                <li className="flex items-start"><Icon src="/icons/analytics.svg" alt="Expansão" size="xs" className="text-accent mr-2 mt-0.5" />Expansão de mercado & licitações</li>
+                <li className="flex items-start"><Icon src="/icons/training-icon.svg" alt="Pessoas" size="xs" className="text-accent mr-2 mt-0.5" />Desenvolvimento de pessoas e cultura</li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* FRASE DE IMPACTO */}
+        {/* COMPROMISSO */}
         <section className="section" id="frase-impacto">
           <div className="container">
-            <div className="glass p-6 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300">
-              <h2 className="text-2xl font-bold mb-4 text-gray-100">Acredite!</h2>
-              <blockquote className="text-xl italic font-medium text-gray-200">
-                "Nosso ecossistema vai muito além de softwares inteligentes integrados: é a força por trás da transformação que impulsiona sua empresa rumo à gestão, escala e prosperidade, combinando experiência acumulada e o fator humano."
-              </blockquote>
+            <div className="glass p-6 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300 text-gray-100">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Nosso Compromisso com o Futuro da Sua Empresa</h2>
+              <p className="text-lg leading-relaxed text-gray-200">
+                Imagine sua PME competindo lado a lado com grandes players globais, operando com tecnologia de ponta, governança impecável e uma equipe altamente preparada. <strong>Esse é o futuro que construímos ao seu lado</strong>: derrubamos barreiras de crescimento e adicionamos valor real em cada área estratégica do seu negócio.
+              </p>
             </div>
           </div>
         </section>
