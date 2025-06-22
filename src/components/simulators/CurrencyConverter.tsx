@@ -59,6 +59,22 @@ export default function CurrencyConverter() {
     });
   };
 
+  const PT_NAMES: Record<Currency, string> = {
+    USD: 'Dólar Americano',
+    EUR: 'Euro',
+    GBP: 'Libra Esterlina',
+    CNY: 'Yuan Chinês',
+    JPY: 'Iene Japonês',
+    ARS: 'Peso Argentino',
+    CLP: 'Peso Chileno',
+    MXN: 'Peso Mexicano',
+    CAD: 'Dólar Canadense',
+    AUD: 'Dólar Australiano',
+    CHF: 'Franco Suíço',
+    BRL: 'Real Brasileiro',
+    BTC: 'Bitcoin',
+  } as const;
+
   return (
     <div className="space-y-6">
       {/* Form */}
@@ -110,10 +126,23 @@ export default function CurrencyConverter() {
           <p className="text-2xl font-bold mt-1 text-gray-900 dark:text-white">
             {fmt(converted, to)}
           </p>
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{PT_NAMES[to]}</p>
         </div>
       ) : (
         <p className="text-sm text-yellow-500">Obtendo cotações...</p>
       )}
+
+      {/* Glossário de Moedas */}
+      <details className="text-sm text-accent">
+        <summary className="cursor-pointer select-none">Glossário de Moedas</summary>
+        <ul className="mt-2 grid grid-cols-2 gap-1 text-gray-300 dark:text-gray-400">
+          {CURRENCIES.map((c) => (
+            <li key={c}>
+              <strong>{c}</strong> – {PT_NAMES[c]}
+            </li>
+          ))}
+        </ul>
+      </details>
     </div>
   );
 } 
