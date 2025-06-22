@@ -64,6 +64,12 @@ export default function Radar360Page() {
                       <p className="text-gray-700 dark:text-gray-300 mb-4">Estime custos de frete aéreo, marítimo e rodoviário.</p>
                       <button className="btn btn-primary text-sm py-2 px-3 w-full">Abrir Calculadora</button>
                     </div>
+                    {/* Export cost */}
+                    <div className="glass p-4 rounded-xl card-hover">
+                      <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador de Custos de Exportação</h3>
+                      <p className="text-gray-700 dark:text-gray-300 mb-4">Calcule receita líquida e crédito Reintegra.</p>
+                      <Link href="/simuladores/exportacao" className="btn btn-primary text-sm py-2 px-3 w-full block text-center">Abrir Simulador</Link>
+                    </div>
                     {/* Currency */}
                     <div className="glass p-4 rounded-xl card-hover">
                       <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador Cambial</h3>
@@ -81,12 +87,6 @@ export default function Radar360Page() {
                       <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Conversor Peso ⚖️ Volume</h3>
                       <p className="text-gray-700 dark:text-gray-300 mb-4">Calcule peso cubado e otimização de frete internacional.</p>
                       <Link href="/simuladores/cubagem" className="btn btn-primary text-sm py-2 px-3 w-full block text-center">Abrir Conversor</Link>
-                    </div>
-                    {/* Future: Export Cost Simulator */}
-                    <div className="glass p-4 rounded-xl card-hover">
-                      <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Simulador de Custos de Exportação</h3>
-                      <p className="text-gray-700 dark:text-gray-300 mb-4">Estimativa de tributos e incentivos na exportação.</p>
-                      <Link href="/simuladores/exportacao" className="btn btn-primary text-sm py-2 px-3 w-full block text-center">Abrir Simulador</Link>
                     </div>
                   </div>
                 </div>
