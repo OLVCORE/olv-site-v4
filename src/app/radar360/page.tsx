@@ -94,9 +94,10 @@ export default function Radar360Page() {
 
               {/* CTA Filler Card */}
               <section className="section p-0 mt-6 hidden lg:block">
-                <div className="glass p-6 rounded-2xl shadow-gold flex flex-col justify-center items-center h-32 card-hover">
-                  <h3 className="text-lg font-bold mb-2 text-gray-100 text-center">Conheça nossas Plataformas Integradas</h3>
-                  <Link href="/solucoes" className="btn btn-primary text-sm px-4 py-2">Explorar Soluções</Link>
+                <div className="glass p-6 rounded-2xl shadow-gold flex flex-col items-center text-center gap-4 card-hover">
+                  <h3 className="text-lg font-bold text-gray-100">Radar&nbsp;360 é sua central de inteligência</h3>
+                  <p className="text-sm text-gray-300 max-w-md">Cotações em tempo real, simuladores e insights para decisões globais — totalmente integrados ao ecossistema OLV.</p>
+                  <Link href="/solucoes" className="btn btn-primary text-sm px-5 py-2">Explorar Soluções</Link>
                 </div>
               </section>
             </div>
