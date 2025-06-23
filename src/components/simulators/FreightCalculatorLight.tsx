@@ -20,6 +20,18 @@ const CONTAINER_CAPACITY: Record<string, number> = {
   '40′ OT': 66.0,
 };
 
+// Países das Américas onde o modal rodoviário/ferroviário é viável
+const AMERICAS_ROAD: string[] = [
+  'AR','BO','BR','CL','CO','EC','GY','PY','PE','SR','UY','VE', // América do Sul
+  'BZ','CR','GT','HN','NI','PA','SV','MX','US','CA' // América Central/Norte
+];
+
+function isRoadPossible(o: string, d: string) {
+  return AMERICAS_ROAD.includes(o) && AMERICAS_ROAD.includes(d);
+}
+
+const isRailPossible = isRoadPossible; // mesma lista por simplificação
+
 // Lista de países ISO-2 (amostra ampla para testes – pode ser extendida até 250)
 const COUNTRIES: { code: string; name: string }[] = [
   { code: 'AR', name: 'Argentina' },
@@ -101,7 +113,7 @@ export default function FreightCalculatorLight() {
   const [height, setHeight] = useState('40');
   const [qty, setQty] = useState('1');
   const [weightUnit, setWeightUnit] = useState('20'); // kg per unit
-  const [container, setContainer] = useState('20′ Dry');
+  const [container, setContainer] = useState('');
   const [mode, setMode] = useState('all');
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<Estimate | null>(null);
@@ -172,7 +184,7 @@ export default function FreightCalculatorLight() {
     }
   }
 
-  const capacity = CONTAINER_CAPACITY[container];
+  const capacity = container ? CONTAINER_CAPACITY[container] : undefined;
   const suggestedModal = suggestModal(grossWeight, totalVolume, origin === destination);
   const suggestedContainer = suggestContainer(grossWeight, totalVolume);
   const suggestedContainersQty = Math.max(
@@ -237,8 +249,8 @@ export default function FreightCalculatorLight() {
                 {val:'air', label:'Aéreo', disabled:false},
                 {val:'sea_lcl', label:'Marítimo LCL', disabled:false},
                 {val:'sea_fcl', label:'Marítimo FCL', disabled:false},
-                {val:'road', label:'Rodoviário', disabled: origin!==destination},
-                {val:'rail', label:'Ferroviário', disabled: origin!==destination},
+                {val:'road', label:'Rodoviário', disabled: !isRoadPossible(origin,destination)},
+                {val:'rail', label:'Ferroviário', disabled: !isRailPossible(origin,destination)},
                 {val:'cabotage', label:'Cabotagem', disabled: origin!==destination},
               ].map(opt=> (
                 <option key={opt.val} value={opt.val} disabled={opt.disabled} className={opt.disabled? 'text-gray-400':''}>
