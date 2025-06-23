@@ -20,6 +20,46 @@ const CONTAINER_CAPACITY: Record<string, number> = {
   '40′ OT': 66.0,
 };
 
+// Lista de países ISO-2 (amostra ampla para testes – pode ser extendida até 250)
+const COUNTRIES: { code: string; name: string }[] = [
+  { code: 'AR', name: 'Argentina' },
+  { code: 'AU', name: 'Australia' },
+  { code: 'BR', name: 'Brazil' },
+  { code: 'CA', name: 'Canada' },
+  { code: 'CH', name: 'Switzerland' },
+  { code: 'CN', name: 'China' },
+  { code: 'DE', name: 'Germany' },
+  { code: 'ES', name: 'Spain' },
+  { code: 'FR', name: 'France' },
+  { code: 'GB', name: 'United Kingdom' },
+  { code: 'IN', name: 'India' },
+  { code: 'IT', name: 'Italy' },
+  { code: 'JP', name: 'Japan' },
+  { code: 'KR', name: 'South Korea' },
+  { code: 'MX', name: 'Mexico' },
+  { code: 'NL', name: 'Netherlands' },
+  { code: 'RU', name: 'Russia' },
+  { code: 'TR', name: 'Turkey' },
+  { code: 'US', name: 'United States' },
+  { code: 'ZA', name: 'South Africa' },
+];
+
+function suggestModal(weight: number, volume: number, sameCountry: boolean) {
+  if (sameCountry) {
+    return weight < 15000 ? 'road' : 'rail';
+  }
+  if (weight < 300 && volume < 1) return 'air';
+  if (volume < 15) return 'sea_lcl';
+  return 'sea_fcl';
+}
+
+function suggestContainer(weight: number, volume: number) {
+  // decide 20 vs 40
+  if (volume <= 33 && weight <= 28200) return '20′ Dry';
+  if (volume <= 67 && weight <= 28600) return '40′ Dry';
+  return '40′ HC';
+}
+
 export default function FreightCalculatorLight() {
   const [origin, setOrigin] = useState('CN');
   const [destination, setDestination] = useState('BR');
@@ -100,6 +140,12 @@ export default function FreightCalculatorLight() {
   }
 
   const capacity = CONTAINER_CAPACITY[container];
+  const suggestedModal = suggestModal(grossWeight, totalVolume, origin === destination);
+  const suggestedContainer = suggestContainer(grossWeight, totalVolume);
+  const suggestedContainersQty = Math.max(
+    Math.ceil(totalVolume / CONTAINER_CAPACITY[suggestedContainer]),
+    Math.ceil(grossWeight / (suggestedContainer.startsWith('20') ? 28200 : 28600))
+  );
   const utilization = ((totalVolume / capacity) * 100).toFixed(1);
 
   return (
@@ -110,12 +156,15 @@ export default function FreightCalculatorLight() {
         <div className="space-y-4">
           <label className="flex flex-col text-sm">
             Origem (ISO)
-            <input type="text" value={origin} onChange={(e)=>setOrigin(e.target.value.toUpperCase())} className="p-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded"/>
+            <input list="countryList" type="text" value={origin} onChange={(e)=>setOrigin(e.target.value.toUpperCase())} className="p-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded"/>
           </label>
           <label className="flex flex-col text-sm">
             Destino (ISO)
-            <input type="text" value={destination} onChange={(e)=>setDestination(e.target.value.toUpperCase())} className="p-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded"/>
+            <input list="countryList" type="text" value={destination} onChange={(e)=>setDestination(e.target.value.toUpperCase())} className="p-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded"/>
           </label>
+          <datalist id="countryList">
+            {COUNTRIES.map(c=> <option key={c.code} value={c.code}>{c.name}</option>)}
+          </datalist>
           {/* dimensões */}
           <div className="grid grid-cols-3 gap-2">
             <label className="flex flex-col text-sm">
@@ -184,6 +233,13 @@ export default function FreightCalculatorLight() {
                 </tbody>
               </table>
               <p className="text-xs text-gray-400 mt-2">Volume total: {totalVolume.toFixed(4)} m³ — capacidade container: {capacity} m³ — ocupação {utilization}%.<br/>Valores baseados em tarifas médias de mercado; consulte seu agente de carga para cotações exatas.</p>
+
+              {/* Sugestões Premium (visíveis aqui para testes) */}
+              <div className="mt-4 text-sm bg-gray-100 dark:bg-gray-700 p-3 rounded">
+                <p className="font-medium mb-1">Sugestões automáticas</p>
+                <p>Modal ideal: <strong className="capitalize">{suggestedModal.replace('_',' ')}</strong></p>
+                <p>Configuração de container: <strong>{suggestedContainersQty} × {suggestedContainer}</strong></p>
+              </div>
             </>
           )}
         </div>
