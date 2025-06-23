@@ -70,11 +70,11 @@ export default function Radar360Page() {
                       <p className="text-gray-700 dark:text-gray-300 mb-2">Converta valores entre diferentes moedas com taxas atualizadas.</p>
                       <Link href="/simuladores/cambio" className="btn btn-primary text-sm py-2 px-3 w-full block text-center">Abrir Conversor</Link>
                     </div>
-                    {/* Freight Calc placeholder */}
+                    {/* Freight Calculator */}
                     <div className="glass p-4 rounded-xl card-hover">
                       <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Calculadora de Fretes Internacionais</h3>
                       <p className="text-gray-700 dark:text-gray-300 mb-4">Estime custos de frete aéreo, marítimo e rodoviário.</p>
-                      <button className="btn btn-primary text-sm py-2 px-3 w-full">Abrir Calculadora</button>
+                      <Link href="/simuladores/frete-light" className="btn btn-primary text-sm py-2 px-3 w-full block text-center">Abrir Calculadora</Link>
                     </div>
                     {/* Tax Sim placeholder */}
                     <div className="glass p-4 rounded-xl card-hover">
