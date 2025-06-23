@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import VolumesTable from './VolumesTable';
 
 interface Estimate {
   air: number;
@@ -19,6 +20,14 @@ const CONTAINER_INFO: Record<string, ContainerInfo> = {
   "20′ Dry": { vol: 33, payload: 24000 },
   "40′ Dry": { vol: 67, payload: 26500 },
   "40′ HC": { vol: 76, payload: 28000 },
+  "45′ HC": { vol: 86, payload: 29500 },
+  "20′ OT": { vol: 32, payload: 28000 },
+  "40′ OT": { vol: 66, payload: 28500 },
+  "20′ FR": { vol: 30, payload: 27000 },
+  "40′ FR": { vol: 65, payload: 28500 },
+  "ISO Tank": { vol: 25, payload: 26000 },
+  "FlexiTank": { vol: 24, payload: 24000 },
+  "Bulk-Bag": { vol: 30, payload: 20000 },
 };
 
 const CAPACITY_FACTOR = 0.9; // usamos 90 % do payload por segurança
@@ -34,10 +43,12 @@ const AMERICAS_ROAD: string[] = [
 ];
 
 function isRoadPossible(o: string, d: string) {
+  if(!o || !d) return false;
+  if(o===d) return true;
   return AMERICAS_ROAD.includes(o) && AMERICAS_ROAD.includes(d);
 }
 
-const isRailPossible = isRoadPossible; // mesma lista por simplificação
+const isRailPossible = isRoadPossible;
 
 // Lista de países ISO-2 (amostra ampla para testes – pode ser extendida até 250)
 const COUNTRIES: { code: string; name: string }[] = [
@@ -110,8 +121,8 @@ function computeContainerSuggestion(weight: number, volume: number) {
   let remainingV = volume;
   const result: Record<string, number> = {};
 
-  // prioriza 40 HC, depois 40 Dry, depois 20 Dry
-  const order = ["40′ HC", "40′ Dry", "20′ Dry"];
+  // prioriza 45 HC, depois 40 HC, depois 40 Dry, depois 20 Dry, depois 40 OT, depois 20 OT, depois 40 FR, depois 20 FR, depois ISO Tank, depois FlexiTank, depois Bulk-Bag
+  const order = ["45′ HC", "40′ HC", "40′ Dry", "20′ Dry", "40′ OT", "20′ OT", "40′ FR", "20′ FR", "ISO Tank", "FlexiTank", "Bulk-Bag"];
 
   for (const type of order) {
     const info = CONTAINER_INFO[type];
@@ -137,28 +148,17 @@ function computeContainerSuggestion(weight: number, volume: number) {
 }
 
 export default function FreightCalculatorLight() {
-  const [origin, setOrigin] = useState('CN');
-  const [destination, setDestination] = useState('BR');
-  const [length, setLength] = useState('40'); // cm
-  const [width, setWidth] = useState('40');
-  const [height, setHeight] = useState('40');
-  const [qty, setQty] = useState('1');
-  const [weightUnit, setWeightUnit] = useState('20'); // kg per unit
+  const [origin, setOrigin] = useState('');
+  const [destination, setDestination] = useState('');
   const [container, setContainer] = useState('');
-  const [mode, setMode] = useState('all');
+  const [mode, setMode] = useState('');
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<Estimate | null>(null);
   const [error, setError] = useState('');
+  const [totWeight, setTotWeight] = useState(0);
+  const [totVolume, setTotVolume] = useState(0);
 
   const searchParams = useSearchParams();
-
-  const L = parseFloat(length) / 100;
-  const W = parseFloat(width) / 100;
-  const H = parseFloat(height) / 100;
-  const Q = Math.max(1, parseFloat(qty));
-  const grossWeight = parseFloat(weightUnit) * Q;
-  const volumePerUnit = L * W * H;
-  const totalVolume = volumePerUnit * Q;
 
   useEffect(() => {
     const paramToken = searchParams.get('token');
@@ -183,8 +183,8 @@ export default function FreightCalculatorLight() {
   function validateInputs() {
     if (!/^[A-Z]{2}$/.test(origin)) return 'Origem deve ter código ISO-2';
     if (!/^[A-Z]{2}$/.test(destination)) return 'Destino deve ter código ISO-2';
-    if (grossWeight <= 0) return 'Peso deve ser maior que zero';
-    if (totalVolume <= 0) return 'Volume deve ser maior que zero';
+    if (totWeight <= 0) return 'Peso deve ser maior que zero';
+    if (totVolume <= 0) return 'Volume deve ser maior que zero';
     return '';
   }
 
@@ -199,8 +199,9 @@ export default function FreightCalculatorLight() {
     setError('');
     setData(null);
     try {
+      const safeMode = mode || 'all';
       const res = await fetch(
-        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${grossWeight}&volume=${totalVolume}&container=${encodeURIComponent(container)}&mode=${mode}`
+        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${totWeight}&volume=${totVolume}&container=${encodeURIComponent(container || suggestedContainer)}&mode=${safeMode}`
       );
       if (!res.ok) {
         const txt = await res.text();
@@ -216,11 +217,16 @@ export default function FreightCalculatorLight() {
   }
 
   const capacity = container ? CONTAINER_CAPACITY[container] : undefined;
-  const suggestedModal = suggestModal(grossWeight, totalVolume, origin === destination);
-  const containerPlan = computeContainerSuggestion(grossWeight, totalVolume);
+  const suggestedModal = suggestModal(totWeight, totVolume, origin === destination);
+  const containerPlan = computeContainerSuggestion(totWeight, totVolume);
+  const suggestedContainer = Object.keys(containerPlan)[0] ?? '';
   const utilization = container
-    ? ((totalVolume / CONTAINER_CAPACITY[container]) * 100).toFixed(1)
+    ? ((totVolume / CONTAINER_CAPACITY[container]) * 100).toFixed(1)
     : undefined;
+
+  useEffect(()=>{
+    if(!container && suggestedContainer){ setContainer(suggestedContainer); }
+  },[suggestedContainer]);
 
   return (
     <div className="space-y-6">
@@ -239,29 +245,8 @@ export default function FreightCalculatorLight() {
           <datalist id="countryList">
             {COUNTRIES.map(c=> <option key={c.code} value={c.code}>{c.name}</option>)}
           </datalist>
-          {/* dimensões */}
-          <div className="grid grid-cols-3 gap-2">
-            <label className="flex flex-col text-sm">
-              C (cm)
-              <input type="number" value={length} onChange={(e)=>setLength(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded"/>
-            </label>
-            <label className="flex flex-col text-sm">
-              L (cm)
-              <input type="number" value={width} onChange={(e)=>setWidth(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded"/>
-            </label>
-            <label className="flex flex-col text-sm">
-              A (cm)
-              <input type="number" value={height} onChange={(e)=>setHeight(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded"/>
-            </label>
-          </div>
-          <label className="flex flex-col text-sm">
-            Peso Bruto/Unidade (kg)
-            <input type="number" value={weightUnit} onChange={(e)=>setWeightUnit(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded"/>
-          </label>
-          <label className="flex flex-col text-sm">
-            Quantidade
-            <input type="number" value={qty} onChange={(e)=>setQty(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded"/>
-          </label>
+          {/* Volumes */}
+          <VolumesTable onChange={(w,v)=>{setTotWeight(w);setTotVolume(v);}} maxLines={15} premium={true} />
           <label className="flex flex-col text-sm">
             Tipo de Container
             <select value={container} onChange={(e)=>setContainer(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
@@ -280,6 +265,7 @@ export default function FreightCalculatorLight() {
           <label className="flex flex-col text-sm">
             Modal de Cálculo
             <select value={mode} onChange={(e)=>setMode(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
+              <option value="">Escolha sua opção…</option>
               {[
                 {val:'air', label:'Aéreo', disabled:false},
                 {val:'sea_lcl', label:'Marítimo LCL', disabled:false},
@@ -288,7 +274,7 @@ export default function FreightCalculatorLight() {
                 {val:'rail', label:'Ferroviário', disabled: !isRailPossible(origin,destination)},
                 {val:'cabotage', label:'Cabotagem', disabled: origin!==destination},
               ].map(opt=> (
-                <option key={opt.val} value={opt.val} disabled={opt.disabled} className={opt.disabled? 'text-gray-400':''}>
+                <option key={opt.val} value={opt.val} disabled={opt.disabled} className={opt.disabled? 'text-gray-400':''} title={opt.disabled? 'Modal indisponível para esta rota':''}>
                   {opt.label}
                 </option>
               ))}
@@ -320,10 +306,12 @@ export default function FreightCalculatorLight() {
               </table>
               {container && (
                 <p className="text-xs text-gray-400 mt-2">
-                  Volume total: {totalVolume.toFixed(3)} m³ — container&nbsp;escolhido: {container}{' '}
+                  Volume total: {totVolume.toFixed(3)} m³ — container&nbsp;escolhido: {container}{' '}
                   • ocupação {utilization}%
                 </p>
               )}
+
+              <p className="text-xs text-gray-400 mt-2">Peso bruto total: {totWeight.toFixed(2)} kg • Volume total: {totVolume.toFixed(4)} m³</p>
 
               {/* Disclaimer destacado */}
               <div className="mt-3 p-3 rounded bg-yellow-100 dark:bg-yellow-900/30 text-xs text-yellow-900 dark:text-yellow-200">
@@ -344,10 +332,68 @@ export default function FreightCalculatorLight() {
                   </strong>
                 </p>
               </div>
+
+              <div className="mt-6 space-y-2 text-sm" id="domestic-br">
+                { (origin === 'BR' || destination === 'BR') && totWeight > 0 && (
+                  <DomesticBR weightKg={totWeight} />
+                )}
+              </div>
             </>
           )}
         </div>
       </form>
+    </div>
+  );
+}
+
+function DomesticBR({ weightKg }: { weightKg: number }) {
+  // Simple domestic estimator using ANTT minima (geral carga granel) – 2,50 R$/t·km + pedágio médio 0,20 R$/km
+  // Distância aproximada Santos→capitais (km). Fonte: DNIT 2023.
+  const DIST: Record<string, number> = {
+    SP: 100, MG: 640, RJ: 450, ES: 850, PR: 500, SC: 750, RS: 1000,
+    BA: 1500, DF: 1030, GO: 940, MT: 1400, MS: 900, PE: 2240, CE: 2800,
+    PA: 2900, AM: 3800, MA: 2700, PI: 2500, RN: 2850,
+  };
+  const [ufDest, setUfDest] = useState('SP');
+  const distKm = DIST[ufDest] ?? 1000;
+  const tonnes = weightKg / 1000;
+  const roadRate = 2.5; // R$/t·km
+  const tollRatePerKm = 0.2; // R$/km
+  const roadCostBRL = (tonnes * roadRate + tollRatePerKm) * distKm;
+  const airRatePerKg = 6; // R$/kg média mercado Brasil
+  const airCostBRL = weightKg * airRatePerKg + 200; // taxa embarque média
+
+  return (
+    <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded">
+      <p className="font-medium mb-2">Frete Doméstico Brasil (Santos ➔ UF destino)</p>
+      <label className="text-xs flex flex-col gap-1 w-40">
+        UF Destino
+        <select value={ufDest} onChange={e=>setUfDest(e.target.value)} className="p-1 rounded bg-gray-100 dark:bg-gray-700">
+          {Object.keys(DIST).map(uf=>(<option key={uf} value={uf}>{uf}</option>))}
+        </select>
+      </label>
+      <table className="table-auto mt-2 w-full text-xs border">
+        <thead>
+          <tr>
+            <th className="border px-2 py-1">Modal</th>
+            <th className="border px-2 py-1">Distância (km)</th>
+            <th className="border px-2 py-1">Custo (R$)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="border px-2 py-1">Rodoviário</td>
+            <td className="border px-2 py-1 text-center">{distKm}</td>
+            <td className="border px-2 py-1">{roadCostBRL.toFixed(2)}</td>
+          </tr>
+          <tr>
+            <td className="border px-2 py-1">Aéreo</td>
+            <td className="border px-2 py-1 text-center">{distKm}</td>
+            <td className="border px-2 py-1">{airCostBRL.toFixed(2)}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p className="text-[10px] text-gray-500 mt-1">Cálculo baseado em piso mínimo ANTT (Res. 5.867/2020) e tarifa média aérea nacional. Valores de referência — consulte transportadora.</p>
     </div>
   );
 } 
