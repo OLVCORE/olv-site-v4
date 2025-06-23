@@ -32,7 +32,7 @@ export default function FreightCalculatorLight() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<Estimate | null>(null);
   const [error, setError] = useState('');
-  const [unlocked, setUnlocked] = useState(false);
+  const [unlocked, setUnlocked] = useState(true);
 
   const searchParams = useSearchParams();
 
@@ -82,7 +82,7 @@ export default function FreightCalculatorLight() {
     setData(null);
     try {
       const res = await fetch(
-        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${grossWeight}&volume=${totalVolume}`
+        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${grossWeight}&volume=${totalVolume}&container=${encodeURIComponent(container)}`
       );
       if (!res.ok) {
         const txt = await res.text();
@@ -146,8 +146,7 @@ export default function FreightCalculatorLight() {
             <select
               value={container}
               onChange={(e) => setContainer(e.target.value)}
-              disabled={!unlocked}
-              className="w-full mt-1 rounded-md bg-gray-800 border border-gray-600 p-2 text-sm text-gray-500 cursor-not-allowed"
+              className="w-full mt-1 rounded-md bg-gray-100 dark:bg-gray-700 border-none p-2 text-sm"
             >
               {Object.keys(CONTAINER_CAPACITY).map((c) => (
                 <option key={c} value={c}>
@@ -167,22 +166,22 @@ export default function FreightCalculatorLight() {
       </form>
       {error && <p className="text-red-500">{error}</p>}
       {data && (
-        <table className="table-auto mt-6 text-sm">
+        <table className="table-auto border mt-6">
           <thead>
             <tr>
-              <th className="px-2 py-1">Modal</th>
-              <th className="px-2 py-1">Custo (USD)</th>
+              <th className="px-4 py-2 border">Modal</th>
+              <th className="px-4 py-2 border">Custo (USD)</th>
             </tr>
           </thead>
           <tbody>
-            {Object.entries(data).map(([modal, cost]) => (
-              cost !== null && (
+            {Object.entries(data).map(([modal, value]) =>
+              value ? (
                 <tr key={modal}>
-                  <td className="border px-2 py-1 capitalize">{modal.replace('_', ' ')}</td>
-                  <td className="border px-2 py-1">{cost.toFixed(2)}</td>
+                  <td className="border px-4 py-2 capitalize">{modal.replace('_', ' ')}</td>
+                  <td className="border px-4 py-2">{value.toFixed(2)}</td>
                 </tr>
-              )
-            ))}
+              ) : null
+            )}
           </tbody>
         </table>
       )}

@@ -7,6 +7,20 @@ import { NextRequest } from 'next/server';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
+interface ContainerSpec {
+  vol: number; // m3
+  weight: number; // kg
+  base: number; // USD base cost por container
+}
+
+const CONTAINER_SPECS: Record<string, ContainerSpec> = {
+  '20′ Dry': { vol: 33, weight: 28200, base: 1800 },
+  '40′ Dry': { vol: 67, weight: 28600, base: 2500 },
+  '40′ HC': { vol: 76, weight: 28600, base: 2600 },
+  '20′ OT': { vol: 32, weight: 28000, base: 1900 },
+  '40′ OT': { vol: 66, weight: 28500, base: 2550 },
+};
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
 
@@ -14,6 +28,7 @@ export async function GET(req: NextRequest) {
   const destination = searchParams.get('destination')?.toUpperCase();
   const weight = parseFloat(searchParams.get('weight') || '0'); // kg
   const volume = parseFloat(searchParams.get('volume') || '0'); // m3
+  const containerType = decodeURIComponent(searchParams.get('container') || '40′ Dry');
 
   if (!origin || !destination || !weight || !volume) {
     return Response.json(
@@ -25,7 +40,13 @@ export async function GET(req: NextRequest) {
   // Basic heuristics (USD)
   const airCost = 50 + weight * 5;
   const seaLclCost = 150 + volume * 25 + weight * 0.1;
-  const seaFclCost = 2500; // one 40ft container flat
+
+  // FCL
+  const spec = CONTAINER_SPECS[containerType] || CONTAINER_SPECS['40′ Dry'];
+  const containersByVol = Math.ceil(volume / spec.vol);
+  const containersByWeight = Math.ceil(weight / spec.weight);
+  const nContainers = Math.max(containersByVol, containersByWeight);
+  const seaFclCost = nContainers * spec.base;
 
   const sameCountry = origin === destination;
   const cabotageCost = sameCountry ? 100 + volume * 12 : null;
@@ -46,7 +67,6 @@ export async function GET(req: NextRequest) {
       road: roadCost,
       rail: railCost,
     },
-    disclaimer:
-      'Valores aproximados para fins de demonstração. Para cotações em tempo real utilize a versão Premium.'
+    disclaimer: `Valores aproximados para fins de demonstração. Containers: ${nContainers}. Para cotações em tempo real utilize a versão Premium.`
   });
 } 
