@@ -29,11 +29,10 @@ export default function FreightCalculatorLight() {
   const [qty, setQty] = useState('1');
   const [weightUnit, setWeightUnit] = useState('20'); // kg per unit
   const [container, setContainer] = useState('20′ Dry');
+  const [mode, setMode] = useState('all');
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<Estimate | null>(null);
   const [error, setError] = useState('');
-  const [unlocked, setUnlocked] = useState(true);
-  const [mode, setMode] = useState('all');
 
   const searchParams = useSearchParams();
 
@@ -56,7 +55,9 @@ export default function FreightCalculatorLight() {
       try {
         const res = await fetch(`/api/validate?token=${token}`);
         const json = await res.json();
-        if (json.valid) setUnlocked(true);
+        if (json.valid) {
+          // unlocked logic would be here
+        }
       } catch {
         // ignore
       }
@@ -103,48 +104,52 @@ export default function FreightCalculatorLight() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold">Calculadora de Fretes (Versão Light)</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid md:grid-cols-2 gap-4">
+      <h2 className="text-2xl font-semibold mb-4">Calculadora de Fretes (Versão Light)</h2>
+      <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-8">
+        {/* Coluna 1 – Entradas */}
+        <div className="space-y-4">
           <label className="flex flex-col text-sm">
             Origem (ISO)
-            <input
-              className="input"
-              value={origin}
-              onChange={(e) => setOrigin(e.target.value.toUpperCase())}
-            />
+            <input type="text" value={origin} onChange={(e)=>setOrigin(e.target.value.toUpperCase())} className="p-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded"/>
           </label>
           <label className="flex flex-col text-sm">
             Destino (ISO)
-            <input
-              className="input"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value.toUpperCase())}
-            />
+            <input type="text" value={destination} onChange={(e)=>setDestination(e.target.value.toUpperCase())} className="p-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded"/>
           </label>
-          <label className="flex flex-col text-sm">
-            Comprimento (cm)
-            <input type="number" value={length} onChange={(e)=>setLength(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
-          </label>
-          <label className="flex flex-col text-sm">
-            Largura (cm)
-            <input type="number" value={width} onChange={(e)=>setWidth(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
-          </label>
-          <label className="flex flex-col text-sm">
-            Altura (cm)
-            <input type="number" value={height} onChange={(e)=>setHeight(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
-          </label>
+          {/* dimensões */}
+          <div className="grid grid-cols-3 gap-2">
+            <label className="flex flex-col text-sm">
+              C (cm)
+              <input type="number" value={length} onChange={(e)=>setLength(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded"/>
+            </label>
+            <label className="flex flex-col text-sm">
+              L (cm)
+              <input type="number" value={width} onChange={(e)=>setWidth(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded"/>
+            </label>
+            <label className="flex flex-col text-sm">
+              A (cm)
+              <input type="number" value={height} onChange={(e)=>setHeight(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded"/>
+            </label>
+          </div>
           <label className="flex flex-col text-sm">
             Peso Bruto/Unidade (kg)
-            <input type="number" value={weightUnit} onChange={(e)=>setWeightUnit(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
+            <input type="number" value={weightUnit} onChange={(e)=>setWeightUnit(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded"/>
           </label>
           <label className="flex flex-col text-sm">
             Quantidade
-            <input type="number" value={qty} onChange={(e)=>setQty(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
+            <input type="number" value={qty} onChange={(e)=>setQty(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded"/>
           </label>
-          <label className="flex flex-col text-sm col-span-2 md:col-span-1">
+          <label className="flex flex-col text-sm">
+            Tipo de Container
+            <select value={container} onChange={(e)=>setContainer(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
+              {Object.keys(CONTAINER_CAPACITY).map(key=> (
+                <option key={key} value={key}>{key}</option>
+              ))}
+            </select>
+          </label>
+          <label className="flex flex-col text-sm">
             Modal de Cálculo
-            <select value={mode} onChange={(e)=>setMode(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700">
+            <select value={mode} onChange={(e)=>setMode(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
               <option value="all">Automático (todos)</option>
               <option value="air">Aéreo</option>
               <option value="sea_lcl">Marítimo LCL</option>
@@ -154,54 +159,35 @@ export default function FreightCalculatorLight() {
               <option value="cabotage">Cabotagem</option>
             </select>
           </label>
-          <label className="block text-sm font-medium text-gray-200 dark:text-accent-light col-span-2 md:col-span-1">
-            <span className="inline-flex items-center gap-1">Tipo de Container (Premium) <span className="text-yellow-400">🔒</span></span>
-            <select
-              value={container}
-              onChange={(e) => setContainer(e.target.value)}
-              className="w-full mt-1 rounded-md bg-gray-100 dark:bg-gray-700 border-none p-2 text-sm"
-            >
-              {Object.keys(CONTAINER_CAPACITY).map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          </label>
+          <button type="submit" className="px-4 py-2 bg-accent rounded text-white">Calcular</button>
         </div>
-        <button
-          type="submit"
-          className="col-span-2 btn btn-primary"
-          disabled={loading}
-        >
-          {loading ? 'Calculando…' : 'Calcular'}
-        </button>
+
+        {/* Coluna 2 – Resultados */}
+        <div>
+          {error && <p className="text-red-500 mb-2">{error}</p>}
+          {data && (
+            <>
+              <table className="table-auto w-full text-sm border">
+                <thead>
+                  <tr className="bg-gray-200 dark:bg-gray-600">
+                    <th className="px-3 py-1 border">Modal</th>
+                    <th className="px-3 py-1 border">Custo (USD)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.entries(data).map(([modal,value])=> value ? (
+                    <tr key={modal}>
+                      <td className="border px-3 py-1 capitalize">{modal.replace('_',' ')}</td>
+                      <td className="border px-3 py-1">{value.toFixed(2)}</td>
+                    </tr>
+                  ):null)}
+                </tbody>
+              </table>
+              <p className="text-xs text-gray-400 mt-2">Volume total: {totalVolume.toFixed(4)} m³ — capacidade container: {capacity} m³ — ocupação {utilization}%.<br/>Valores baseados em tarifas médias de mercado; consulte seu agente de carga para cotações exatas.</p>
+            </>
+          )}
+        </div>
       </form>
-      {error && <p className="text-red-500">{error}</p>}
-      {data && (
-        <table className="table-auto border mt-6">
-          <thead>
-            <tr>
-              <th className="px-4 py-2 border">Modal</th>
-              <th className="px-4 py-2 border">Custo (USD)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.entries(data).map(([modal, value]) =>
-              value ? (
-                <tr key={modal}>
-                  <td className="border px-4 py-2 capitalize">{modal.replace('_', ' ')}</td>
-                  <td className="border px-4 py-2">{value.toFixed(2)}</td>
-                </tr>
-              ) : null
-            )}
-          </tbody>
-        </table>
-      )}
-      <p className="text-xs text-gray-400 mt-4">
-        Volume total: {totalVolume.toFixed(4)} m³ — capacidade do container selecionado: {capacity} m³ — ocupação {utilization}%
-        {unlocked ? ' (Premium liberado 🎉)' : ' (recurso Premium 🔒)'}.
-      </p>
     </div>
   );
 } 
