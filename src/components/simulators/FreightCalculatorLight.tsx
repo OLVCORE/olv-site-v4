@@ -11,11 +11,20 @@ interface Estimate {
   rail: number | null;
 }
 
+const CONTAINER_CAPACITY: Record<string, number> = {
+  '20′ Dry': 33.0, // m3 aproximado
+  '40′ Dry': 67.0,
+  '40′ HC': 76.0,
+  '20′ OT': 32.0,
+  '40′ OT': 66.0,
+};
+
 export default function FreightCalculatorLight() {
   const [origin, setOrigin] = useState('CN');
   const [destination, setDestination] = useState('BR');
   const [weight, setWeight] = useState(1000);
   const [volume, setVolume] = useState(2);
+  const [container, setContainer] = useState('20′ Dry');
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<Estimate | null>(null);
   const [error, setError] = useState('');
@@ -55,45 +64,65 @@ export default function FreightCalculatorLight() {
     }
   }
 
+  const capacity = CONTAINER_CAPACITY[container];
+  const utilization = ((volume / capacity) * 100).toFixed(1);
+
   return (
     <div className="space-y-6">
       <h2 className="text-xl font-semibold">Calculadora de Fretes (Versão Light)</h2>
-      <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
-        <label className="flex flex-col text-sm">
-          Origem (ISO)
-          <input
-            className="input"
-            value={origin}
-            onChange={(e) => setOrigin(e.target.value.toUpperCase())}
-          />
-        </label>
-        <label className="flex flex-col text-sm">
-          Destino (ISO)
-          <input
-            className="input"
-            value={destination}
-            onChange={(e) => setDestination(e.target.value.toUpperCase())}
-          />
-        </label>
-        <label className="flex flex-col text-sm">
-          Peso (kg)
-          <input
-            type="number"
-            className="input"
-            value={weight}
-            onChange={(e) => setWeight(Number(e.target.value))}
-          />
-        </label>
-        <label className="flex flex-col text-sm">
-          Volume (m³)
-          <input
-            type="number"
-            step="0.01"
-            className="input"
-            value={volume}
-            onChange={(e) => setVolume(Number(e.target.value))}
-          />
-        </label>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4">
+          <label className="flex flex-col text-sm">
+            Origem (ISO)
+            <input
+              className="input"
+              value={origin}
+              onChange={(e) => setOrigin(e.target.value.toUpperCase())}
+            />
+          </label>
+          <label className="flex flex-col text-sm">
+            Destino (ISO)
+            <input
+              className="input"
+              value={destination}
+              onChange={(e) => setDestination(e.target.value.toUpperCase())}
+            />
+          </label>
+          <label className="flex flex-col text-sm">
+            Peso (kg)
+            <input
+              type="number"
+              className="input"
+              value={weight}
+              onChange={(e) => setWeight(Number(e.target.value))}
+            />
+          </label>
+          <label className="flex flex-col text-sm">
+            Volume (m³)
+            <input
+              type="number"
+              step="0.01"
+              className="input"
+              value={volume}
+              onChange={(e) => setVolume(Number(e.target.value))}
+            />
+          </label>
+          <label className="block text-sm font-medium text-gray-200 dark:text-accent-light col-span-2 md:col-span-1">
+            <span className="inline-flex items-center gap-1">Tipo de Container (Premium) <span className="text-yellow-400">🔒</span></span>
+            <select
+              value={container}
+              onChange={(e) => setContainer(e.target.value)}
+              disabled
+              className="w-full mt-1 rounded-md bg-gray-800 border border-gray-600 p-2 text-sm text-gray-500 cursor-not-allowed"
+            >
+              {Object.keys(CONTAINER_CAPACITY).map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
         <button
           type="submit"
           className="col-span-2 btn btn-primary"
@@ -123,6 +152,9 @@ export default function FreightCalculatorLight() {
           </tbody>
         </table>
       )}
+      <p className="text-xs text-gray-400 mt-4">
+        Volume informado: {volume} m³ — capacidade do container selecionado: {capacity} m³ — ocupação {utilization}% (recurso Premium).
+      </p>
     </div>
   );
 } 
