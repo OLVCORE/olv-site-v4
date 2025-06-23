@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
       credit_1: 1,
       credit_5: 5,
       credit_20: 20,
-      sub_50: 50,
+      credit_50: 50,
     };
     const credits_remaining = lookup ? creditsMap[lookup] ?? 0 : 0;
 
