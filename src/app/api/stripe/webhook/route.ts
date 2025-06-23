@@ -37,11 +37,4 @@ export async function POST(req: NextRequest) {
   }
 
   return new Response('Received', { status: 200 });
-}
-
-// Disable Next.js body parsing to retrieve raw body
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}; 
+} 
