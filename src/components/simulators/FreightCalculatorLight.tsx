@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 interface Estimate {
   air: number;
@@ -28,6 +29,27 @@ export default function FreightCalculatorLight() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<Estimate | null>(null);
   const [error, setError] = useState('');
+  const [unlocked, setUnlocked] = useState(false);
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const paramToken = searchParams.get('token');
+    const stored = typeof window !== 'undefined' ? localStorage.getItem('freight_token') : null;
+    const token = paramToken || stored;
+    if (!token) return;
+    // store for next visits
+    if (paramToken) localStorage.setItem('freight_token', paramToken);
+    (async () => {
+      try {
+        const res = await fetch(`/api/validate?token=${token}`);
+        const json = await res.json();
+        if (json.valid) setUnlocked(true);
+      } catch {
+        // ignore
+      }
+    })();
+  }, [searchParams]);
 
   function validateInputs() {
     if (!/^[A-Z]{2}$/.test(origin)) return 'Origem deve ter código ISO-2';
@@ -112,7 +134,7 @@ export default function FreightCalculatorLight() {
             <select
               value={container}
               onChange={(e) => setContainer(e.target.value)}
-              disabled
+              disabled={!unlocked}
               className="w-full mt-1 rounded-md bg-gray-800 border border-gray-600 p-2 text-sm text-gray-500 cursor-not-allowed"
             >
               {Object.keys(CONTAINER_CAPACITY).map((c) => (
@@ -153,7 +175,8 @@ export default function FreightCalculatorLight() {
         </table>
       )}
       <p className="text-xs text-gray-400 mt-4">
-        Volume informado: {volume} m³ — capacidade do container selecionado: {capacity} m³ — ocupação {utilization}% (recurso Premium).
+        Volume informado: {volume} m³ — capacidade do container selecionado: {capacity} m³ — ocupação {utilization}%
+        {unlocked ? ' (Premium liberado 🎉)' : ' (recurso Premium 🔒)'}.
       </p>
     </div>
   );
