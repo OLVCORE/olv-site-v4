@@ -29,6 +29,7 @@ export async function GET(req: NextRequest) {
   const weight = parseFloat(searchParams.get('weight') || '0'); // kg
   const volume = parseFloat(searchParams.get('volume') || '0'); // m3
   const containerType = decodeURIComponent(searchParams.get('container') || '40′ Dry');
+  const modeParam = (searchParams.get('mode') || 'all').toLowerCase();
 
   if (!origin || !destination || !weight || !volume) {
     return Response.json(
@@ -60,12 +61,12 @@ export async function GET(req: NextRequest) {
     volumeM3: volume,
     currency: 'USD',
     estimates: {
-      air: airCost,
-      sea_lcl: seaLclCost,
-      sea_fcl: seaFclCost,
-      cabotage: cabotageCost,
-      road: roadCost,
-      rail: railCost,
+      air: modeParam === 'all' || modeParam === 'air' ? airCost : null,
+      sea_lcl: modeParam === 'all' || modeParam === 'sea_lcl' ? seaLclCost : null,
+      sea_fcl: modeParam === 'all' || modeParam === 'sea_fcl' ? seaFclCost : null,
+      cabotage: modeParam === 'all' || modeParam === 'cabotage' ? cabotageCost : null,
+      road: modeParam === 'all' || modeParam === 'road' ? roadCost : null,
+      rail: modeParam === 'all' || modeParam === 'rail' ? railCost : null,
     },
     disclaimer: `Valores aproximados para fins de demonstração. Containers: ${nContainers}. Para cotações em tempo real utilize a versão Premium.`
   });

@@ -33,6 +33,7 @@ export default function FreightCalculatorLight() {
   const [data, setData] = useState<Estimate | null>(null);
   const [error, setError] = useState('');
   const [unlocked, setUnlocked] = useState(true);
+  const [mode, setMode] = useState('all');
 
   const searchParams = useSearchParams();
 
@@ -82,7 +83,7 @@ export default function FreightCalculatorLight() {
     setData(null);
     try {
       const res = await fetch(
-        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${grossWeight}&volume=${totalVolume}&container=${encodeURIComponent(container)}`
+        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${grossWeight}&volume=${totalVolume}&container=${encodeURIComponent(container)}&mode=${mode}`
       );
       if (!res.ok) {
         const txt = await res.text();
@@ -140,6 +141,18 @@ export default function FreightCalculatorLight() {
           <label className="flex flex-col text-sm">
             Quantidade
             <input type="number" value={qty} onChange={(e)=>setQty(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
+          </label>
+          <label className="flex flex-col text-sm col-span-2 md:col-span-1">
+            Modal de Cálculo
+            <select value={mode} onChange={(e)=>setMode(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700">
+              <option value="all">Automático (todos)</option>
+              <option value="air">Aéreo</option>
+              <option value="sea_lcl">Marítimo LCL</option>
+              <option value="sea_fcl">Marítimo FCL</option>
+              <option value="road">Rodoviário</option>
+              <option value="rail">Ferroviário</option>
+              <option value="cabotage">Cabotagem</option>
+            </select>
           </label>
           <label className="block text-sm font-medium text-gray-200 dark:text-accent-light col-span-2 md:col-span-1">
             <span className="inline-flex items-center gap-1">Tipo de Container (Premium) <span className="text-yellow-400">🔒</span></span>
