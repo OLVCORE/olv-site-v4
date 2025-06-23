@@ -224,6 +224,7 @@ export default function FreightCalculatorLight() {
           <label className="flex flex-col text-sm">
             Tipo de Container
             <select value={container} onChange={(e)=>setContainer(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
+              <option value="">Escolha sua opção…</option>
               {Object.keys(CONTAINER_CAPACITY).map(key=> (
                 <option key={key} value={key}>{key}</option>
               ))}
@@ -232,13 +233,18 @@ export default function FreightCalculatorLight() {
           <label className="flex flex-col text-sm">
             Modal de Cálculo
             <select value={mode} onChange={(e)=>setMode(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
-              <option value="all">Automático (todos)</option>
-              <option value="air">Aéreo</option>
-              <option value="sea_lcl">Marítimo LCL</option>
-              <option value="sea_fcl">Marítimo FCL</option>
-              <option value="road">Rodoviário</option>
-              <option value="rail">Ferroviário</option>
-              <option value="cabotage">Cabotagem</option>
+              {[
+                {val:'air', label:'Aéreo', disabled:false},
+                {val:'sea_lcl', label:'Marítimo LCL', disabled:false},
+                {val:'sea_fcl', label:'Marítimo FCL', disabled:false},
+                {val:'road', label:'Rodoviário', disabled: origin!==destination},
+                {val:'rail', label:'Ferroviário', disabled: origin!==destination},
+                {val:'cabotage', label:'Cabotagem', disabled: origin!==destination},
+              ].map(opt=> (
+                <option key={opt.val} value={opt.val} disabled={opt.disabled} className={opt.disabled? 'text-gray-400':''}>
+                  {opt.label}
+                </option>
+              ))}
             </select>
           </label>
           <button type="submit" className="px-4 py-2 bg-accent rounded text-white">Calcular</button>
