@@ -12,13 +12,20 @@ interface Estimate {
   rail: number | null;
 }
 
-const CONTAINER_CAPACITY: Record<string, number> = {
-  '20′ Dry': 33.0, // m3 aproximado
-  '40′ Dry': 67.0,
-  '40′ HC': 76.0,
-  '20′ OT': 32.0,
-  '40′ OT': 66.0,
+interface ContainerInfo { vol: number; payload: number }
+
+// capacidade volumétrica em m³ (aprox.) e payload máximo operacional (kg) — usaremos 90 % para cálculos
+const CONTAINER_INFO: Record<string, ContainerInfo> = {
+  "20′ Dry": { vol: 33, payload: 24000 },
+  "40′ Dry": { vol: 67, payload: 26500 },
+  "40′ HC": { vol: 76, payload: 28000 },
 };
+
+const CAPACITY_FACTOR = 0.9; // usamos 90 % do payload por segurança
+
+const CONTAINER_CAPACITY = Object.fromEntries(
+  Object.entries(CONTAINER_INFO).map(([k, v]) => [k, v.vol])
+);
 
 // Países das Américas onde o modal rodoviário/ferroviário é viável
 const AMERICAS_ROAD: string[] = [
@@ -98,11 +105,35 @@ function suggestModal(weight: number, volume: number, sameCountry: boolean) {
   return 'sea_fcl';
 }
 
-function suggestContainer(weight: number, volume: number) {
-  // decide 20 vs 40
-  if (volume <= 33 && weight <= 28200) return '20′ Dry';
-  if (volume <= 67 && weight <= 28600) return '40′ Dry';
-  return '40′ HC';
+function computeContainerSuggestion(weight: number, volume: number) {
+  let remainingW = weight;
+  let remainingV = volume;
+  const result: Record<string, number> = {};
+
+  // prioriza 40 HC, depois 40 Dry, depois 20 Dry
+  const order = ["40′ HC", "40′ Dry", "20′ Dry"];
+
+  for (const type of order) {
+    const info = CONTAINER_INFO[type];
+    const maxW = info.payload * CAPACITY_FACTOR;
+    const maxV = info.vol;
+    let needed = 0;
+    while (remainingW > 0 || remainingV > 0) {
+      if (remainingW > 0.1 || remainingV > 0.1) {
+        needed += 1;
+        remainingW -= maxW;
+        remainingV -= maxV;
+      }
+      if (remainingW <= 0 && remainingV <= 0) break;
+      if (needed > 15) break; // safety
+    }
+    if (needed) {
+      result[type] = needed;
+    }
+    if (remainingW <= 0 && remainingV <= 0) break;
+  }
+
+  return result;
 }
 
 export default function FreightCalculatorLight() {
@@ -186,12 +217,10 @@ export default function FreightCalculatorLight() {
 
   const capacity = container ? CONTAINER_CAPACITY[container] : undefined;
   const suggestedModal = suggestModal(grossWeight, totalVolume, origin === destination);
-  const suggestedContainer = suggestContainer(grossWeight, totalVolume);
-  const suggestedContainersQty = Math.max(
-    Math.ceil(totalVolume / CONTAINER_CAPACITY[suggestedContainer]),
-    Math.ceil(grossWeight / (suggestedContainer.startsWith('20') ? 28200 : 28600))
-  );
-  const utilization = ((totalVolume / capacity) * 100).toFixed(1);
+  const containerPlan = computeContainerSuggestion(grossWeight, totalVolume);
+  const utilization = container
+    ? ((totalVolume / CONTAINER_CAPACITY[container]) * 100).toFixed(1)
+    : undefined;
 
   return (
     <div className="space-y-6">
@@ -237,10 +266,16 @@ export default function FreightCalculatorLight() {
             Tipo de Container
             <select value={container} onChange={(e)=>setContainer(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
               <option value="">Escolha sua opção…</option>
-              {Object.keys(CONTAINER_CAPACITY).map(key=> (
+              {Object.keys(CONTAINER_INFO).map(key=> (
                 <option key={key} value={key}>{key}</option>
               ))}
             </select>
+            {container && (
+              <span className="text-xs text-gray-500 mt-1">
+                Capacidade: {CONTAINER_INFO[container].vol} m³ • {CONTAINER_INFO[container].payload.toLocaleString()} kg (90 % →{' '}
+                {(CONTAINER_INFO[container].payload * CAPACITY_FACTOR).toLocaleString()} kg)
+              </span>
+            )}
           </label>
           <label className="flex flex-col text-sm">
             Modal de Cálculo
@@ -283,13 +318,31 @@ export default function FreightCalculatorLight() {
                   ):null)}
                 </tbody>
               </table>
-              <p className="text-xs text-gray-400 mt-2">Volume total: {totalVolume.toFixed(4)} m³ — capacidade container: {capacity} m³ — ocupação {utilization}%.<br/>Valores baseados em tarifas médias de mercado; consulte seu agente de carga para cotações exatas.</p>
+              {container && (
+                <p className="text-xs text-gray-400 mt-2">
+                  Volume total: {totalVolume.toFixed(3)} m³ — container&nbsp;escolhido: {container}{' '}
+                  • ocupação {utilization}%
+                </p>
+              )}
+
+              {/* Disclaimer destacado */}
+              <div className="mt-3 p-3 rounded bg-yellow-100 dark:bg-yellow-900/30 text-xs text-yellow-900 dark:text-yellow-200">
+                Estas estimativas são apenas referência. Para valores finais e requisitos operacionais,
+                consulte seu agente de carga ou especialista logístico.
+              </div>
 
               {/* Sugestões Premium (visíveis aqui para testes) */}
               <div className="mt-4 text-sm bg-gray-100 dark:bg-gray-700 p-3 rounded">
                 <p className="font-medium mb-1">Sugestões automáticas</p>
                 <p>Modal ideal: <strong className="capitalize">{suggestedModal.replace('_',' ')}</strong></p>
-                <p>Configuração de container: <strong>{suggestedContainersQty} × {suggestedContainer}</strong></p>
+                <p>
+                  Configuração de container:&nbsp;
+                  <strong>
+                    {Object.entries(containerPlan)
+                      .map(([k, v]) => `${v} × ${k}`)
+                      .join(' + ')}
+                  </strong>
+                </p>
               </div>
             </>
           )}
