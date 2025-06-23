@@ -23,8 +23,11 @@ const CONTAINER_CAPACITY: Record<string, number> = {
 export default function FreightCalculatorLight() {
   const [origin, setOrigin] = useState('CN');
   const [destination, setDestination] = useState('BR');
-  const [weight, setWeight] = useState(1000);
-  const [volume, setVolume] = useState(2);
+  const [length, setLength] = useState('40'); // cm
+  const [width, setWidth] = useState('40');
+  const [height, setHeight] = useState('40');
+  const [qty, setQty] = useState('1');
+  const [weightUnit, setWeightUnit] = useState('20'); // kg per unit
   const [container, setContainer] = useState('20′ Dry');
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<Estimate | null>(null);
@@ -32,6 +35,14 @@ export default function FreightCalculatorLight() {
   const [unlocked, setUnlocked] = useState(false);
 
   const searchParams = useSearchParams();
+
+  const L = parseFloat(length) / 100;
+  const W = parseFloat(width) / 100;
+  const H = parseFloat(height) / 100;
+  const Q = Math.max(1, parseFloat(qty));
+  const grossWeight = parseFloat(weightUnit) * Q;
+  const volumePerUnit = L * W * H;
+  const totalVolume = volumePerUnit * Q;
 
   useEffect(() => {
     const paramToken = searchParams.get('token');
@@ -54,8 +65,8 @@ export default function FreightCalculatorLight() {
   function validateInputs() {
     if (!/^[A-Z]{2}$/.test(origin)) return 'Origem deve ter código ISO-2';
     if (!/^[A-Z]{2}$/.test(destination)) return 'Destino deve ter código ISO-2';
-    if (weight <= 0) return 'Peso deve ser maior que zero';
-    if (volume <= 0) return 'Volume deve ser maior que zero';
+    if (grossWeight <= 0) return 'Peso deve ser maior que zero';
+    if (totalVolume <= 0) return 'Volume deve ser maior que zero';
     return '';
   }
 
@@ -71,7 +82,7 @@ export default function FreightCalculatorLight() {
     setData(null);
     try {
       const res = await fetch(
-        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${weight}&volume=${volume}`
+        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${grossWeight}&volume=${totalVolume}`
       );
       if (!res.ok) {
         const txt = await res.text();
@@ -87,7 +98,7 @@ export default function FreightCalculatorLight() {
   }
 
   const capacity = CONTAINER_CAPACITY[container];
-  const utilization = ((volume / capacity) * 100).toFixed(1);
+  const utilization = ((totalVolume / capacity) * 100).toFixed(1);
 
   return (
     <div className="space-y-6">
@@ -111,23 +122,24 @@ export default function FreightCalculatorLight() {
             />
           </label>
           <label className="flex flex-col text-sm">
-            Peso (kg)
-            <input
-              type="number"
-              className="input"
-              value={weight}
-              onChange={(e) => setWeight(Number(e.target.value))}
-            />
+            Comprimento (cm)
+            <input type="number" value={length} onChange={(e)=>setLength(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
           </label>
           <label className="flex flex-col text-sm">
-            Volume (m³)
-            <input
-              type="number"
-              step="0.01"
-              className="input"
-              value={volume}
-              onChange={(e) => setVolume(Number(e.target.value))}
-            />
+            Largura (cm)
+            <input type="number" value={width} onChange={(e)=>setWidth(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
+          </label>
+          <label className="flex flex-col text-sm">
+            Altura (cm)
+            <input type="number" value={height} onChange={(e)=>setHeight(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
+          </label>
+          <label className="flex flex-col text-sm">
+            Peso Bruto/Unidade (kg)
+            <input type="number" value={weightUnit} onChange={(e)=>setWeightUnit(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
+          </label>
+          <label className="flex flex-col text-sm">
+            Quantidade
+            <input type="number" value={qty} onChange={(e)=>setQty(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700" />
           </label>
           <label className="block text-sm font-medium text-gray-200 dark:text-accent-light col-span-2 md:col-span-1">
             <span className="inline-flex items-center gap-1">Tipo de Container (Premium) <span className="text-yellow-400">🔒</span></span>
@@ -175,7 +187,7 @@ export default function FreightCalculatorLight() {
         </table>
       )}
       <p className="text-xs text-gray-400 mt-4">
-        Volume informado: {volume} m³ — capacidade do container selecionado: {capacity} m³ — ocupação {utilization}%
+        Volume total: {totalVolume.toFixed(4)} m³ — capacidade do container selecionado: {capacity} m³ — ocupação {utilization}%
         {unlocked ? ' (Premium liberado 🎉)' : ' (recurso Premium 🔒)'}.
       </p>
     </div>
