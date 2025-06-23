@@ -20,8 +20,21 @@ export default function FreightCalculatorLight() {
   const [data, setData] = useState<Estimate | null>(null);
   const [error, setError] = useState('');
 
+  function validateInputs() {
+    if (!/^[A-Z]{2}$/.test(origin)) return 'Origem deve ter código ISO-2';
+    if (!/^[A-Z]{2}$/.test(destination)) return 'Destino deve ter código ISO-2';
+    if (weight <= 0) return 'Peso deve ser maior que zero';
+    if (volume <= 0) return 'Volume deve ser maior que zero';
+    return '';
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const msg = validateInputs();
+    if (msg) {
+      setError(msg);
+      return;
+    }
     setLoading(true);
     setError('');
     setData(null);
@@ -29,11 +42,14 @@ export default function FreightCalculatorLight() {
       const res = await fetch(
         `/api/freight/light?origin=${origin}&destination=${destination}&weight=${weight}&volume=${volume}`
       );
-      if (!res.ok) throw new Error('erro');
+      if (!res.ok) {
+        const txt = await res.text();
+        throw new Error(txt);
+      }
       const json = await res.json();
       setData(json.estimates);
-    } catch (err) {
-      setError('Falha ao obter estimativas.');
+    } catch (err: any) {
+      setError('Falha ao obter estimativas: ' + err.message);
     } finally {
       setLoading(false);
     }

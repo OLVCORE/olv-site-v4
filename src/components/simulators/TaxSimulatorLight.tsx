@@ -24,18 +24,39 @@ export default function TaxSimulatorLight() {
   const [data, setData] = useState<Result | null>(null);
   const [error, setError] = useState('');
 
+  function validateInputs() {
+    if (!/^\d{8}$/.test(ncm)) {
+      return 'NCM deve conter 8 dígitos numéricos';
+    }
+    if (!/^[A-Z]{2}$/.test(uf)) {
+      return 'UF deve ter 2 letras';
+    }
+    if (value <= 0) {
+      return 'Valor FOB deve ser maior que zero';
+    }
+    return '';
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const validationMsg = validateInputs();
+    if (validationMsg) {
+      setError(validationMsg);
+      return;
+    }
     setLoading(true);
     setError('');
     setData(null);
     try {
       const res = await fetch(`/api/tax/light?ncm=${ncm}&uf=${uf}&value=${value}`);
-      if (!res.ok) throw new Error('erro');
+      if (!res.ok) {
+        const txt = await res.text();
+        throw new Error(txt);
+      }
       const json = await res.json();
       setData(json);
-    } catch {
-      setError('Falha ao calcular impostos.');
+    } catch (err: any) {
+      setError('Falha ao calcular impostos: ' + err.message);
     } finally {
       setLoading(false);
     }
