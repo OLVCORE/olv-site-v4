@@ -23,7 +23,18 @@ export async function POST(req: NextRequest) {
 
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as any;
-    // Generate token valid for 24h (can be adjusted)
+
+    // Determine credits based on lookup_key passed via metadata
+    const lookup = session.metadata?.lookup_key as string | undefined;
+    const creditsMap: Record<string, number> = {
+      credit_1: 1,
+      credit_5: 5,
+      credit_20: 20,
+      sub_50: 50,
+    };
+    const credits_remaining = lookup ? creditsMap[lookup] ?? 0 : 0;
+
+    // Generate token valid for 24h (or persist until credits zerados)
     const access_token = crypto.randomUUID();
     const expires_at = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
 
@@ -32,6 +43,7 @@ export async function POST(req: NextRequest) {
       customer_email: session.customer_details?.email ?? null,
       simulator: session.metadata?.simulator ?? null,
       access_token,
+      credits_remaining,
       expires_at,
     });
   }
