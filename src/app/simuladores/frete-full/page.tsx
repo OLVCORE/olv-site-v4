@@ -67,8 +67,16 @@ export default function FreightFullPage() {
 
           <h3 className="font-medium mb-2 mt-4">2. Tabela de Volumes</h3>
           <VolumesTable /*@ts-ignore*/
-            onChange={(w,v)=>{
-              if(w&&v){setPackages([{id:'auto',length:100,width:100,height:100,weight:w,quantity:1}]);}
+            onChange={(w,v,rows)=>{
+              const pkgs: PackageInput[] = rows.filter(r=>r.length && r.width && r.height && r.weight && r.qty).map((r,idx)=>({
+                id:`row-${idx}`,
+                length:parseFloat(r.length),
+                width:parseFloat(r.width),
+                height:parseFloat(r.height),
+                weight:parseFloat(r.weight),
+                quantity:parseInt(r.qty,10)
+              }));
+              setPackages(pkgs);
             }}
             maxLines={30}
             premium={true}
@@ -88,7 +96,7 @@ export default function FreightFullPage() {
             <div key={idx} className="border p-3 rounded">
               <h3 className="font-medium mb-2">{c.container.code} – {idx+1}</h3>
               <p>Peso usado: {c.usedWeight.toFixed(2)} kg • Volume usado: {c.usedVolume.toFixed(3)} m³</p>
-              <p>Pacotes: {c.packages.length}</p>
+              <p>Pacotes: {c.packages.length} {pkgType && (`• Tipo: ${pkgType}`)}</p>
             </div>
           ))}
         </div>

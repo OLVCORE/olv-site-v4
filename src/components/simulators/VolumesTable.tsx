@@ -9,16 +9,12 @@ interface PackageLine {
 }
 
 interface Props {
-  onChange: (totalWeight: number, totalVolume: number) => void;
+  onChange: (totalWeight: number, totalVolume: number, rows: PackageLine[]) => void;
   maxLines?: number;
   premium?: boolean;
 }
 
-function VolumesTable({ onChange, maxLines = 15, premium = true }: Props) {
-  // premium not used yet but keep for future gating - disable lint
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const _prem = premium;
-
+const VolumesTable: React.FC<Props> = ({ onChange, maxLines = 15, premium = true }) => {
   const [rows, setRows] = useState<PackageLine[]>([
     { length: '', width: '', height: '', qty: '', weight: '' },
   ]);
@@ -52,7 +48,7 @@ function VolumesTable({ onChange, maxLines = 15, premium = true }: Props) {
       }
     });
     setTot({ peso: totWeight, volume: totVol });
-    onChange(totWeight, totVol);
+    onChange(totWeight, totVol, arr);
   }
 
   useEffect(()=>{ computeTotals(rows); },[rows]);
@@ -80,6 +76,6 @@ function VolumesTable({ onChange, maxLines = 15, premium = true }: Props) {
       <p className="text-xs mt-1 text-gray-500">Peso bruto total: <strong>{tot.peso.toFixed(2)} kg</strong> • Volume total: <strong>{tot.volume.toFixed(4)} m³</strong></p>
     </div>
   );
-}
+};
 
 export default VolumesTable; 

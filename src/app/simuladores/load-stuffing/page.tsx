@@ -9,7 +9,7 @@ export default function LoadStuffingPage() {
   const [plan, setPlan] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleVolumesChange = (_totWeight: number, _totVol: number) => {
+  const handleVolumesChange = (_totWeight: number, _totVol: number, _rows:any[]) => {
     if (_totWeight && _totVol) {
       setPackages([
         {

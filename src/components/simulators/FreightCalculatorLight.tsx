@@ -155,8 +155,6 @@ export default function FreightCalculatorLight() {
   const [error, setError] = useState('');
   const [totWeight, setTotWeight] = useState(0);
   const [totVolume, setTotVolume] = useState(0);
-  const [cargoType, setCargoType] = useState('');
-  const [cargoDesc, setCargoDesc] = useState('');
 
   const searchParams = useSearchParams();
 
@@ -185,7 +183,6 @@ export default function FreightCalculatorLight() {
     if (!/^[A-Z]{2}$/.test(destination)) return 'Destino deve ter código ISO-2';
     if (totWeight <= 0) return 'Peso deve ser maior que zero';
     if (totVolume <= 0) return 'Volume deve ser maior que zero';
-    if(isAirDisabled && mode==='air') return 'Carga perigosa não pode ser enviada por modal aéreo';
     return '';
   }
 
@@ -202,7 +199,7 @@ export default function FreightCalculatorLight() {
     try {
       const safeMode = 'all';
       const res = await fetch(
-        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${totWeight}&volume=${totVolume}&container=${encodeURIComponent(container || suggestedContainer)}&mode=${safeMode}`
+        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${totWeight}&volume=${totVolume}&container=${encodeURIComponent(container || fallbackContainer)}&mode=${safeMode}`
       );
       if (!res.ok) {
         const txt = await res.text();
@@ -219,21 +216,12 @@ export default function FreightCalculatorLight() {
 
   const suggestedModal = suggestModal(totWeight, totVolume, origin === destination);
   let containerPlan = computeContainerSuggestion(totWeight, totVolume);
-  if(cargoType==='Granel líquido') {
-    containerPlan = { 'ISO Tank': { qty: Math.ceil(totWeight/(CONTAINER_INFO['ISO Tank'].payload*CAPACITY_FACTOR)), occ: 100 } };
-  } else if(cargoType==='Granel sólido') {
-    containerPlan = { 'Bulk-Bag': { qty: Math.ceil(totWeight/(CONTAINER_INFO['Bulk-Bag'].payload*CAPACITY_FACTOR)), occ: 100 } };
-  }
-  const suggestedContainer = Object.keys(containerPlan)[0] ?? '';
+  const fallbackContainer = Object.keys(containerPlan)[0] ?? '';
   const utilization = container
     ? ((totVolume / CONTAINER_CAPACITY[container]) * 100).toFixed(1)
     : undefined;
 
-  const isAirDisabled = cargoType==='Perigosa' || cargoType==='Baterias';
-
-  useEffect(()=>{
-    if(!container && suggestedContainer){ setContainer(suggestedContainer); }
-  },[suggestedContainer]);
+  const isAirDisabled = false;
 
   return (
     <div className="space-y-6">
@@ -253,23 +241,7 @@ export default function FreightCalculatorLight() {
             {COUNTRIES.map(c=> <option key={c.code} value={c.code}>{c.name}</option>)}
           </datalist>
           {/* Volumes */}
-          <VolumesTable onChange={(w,v)=>{setTotWeight(w);setTotVolume(v);}} maxLines={15} premium={true} />
-          <label className="flex flex-col text-sm">
-            Tipo de Carga
-            <select value={cargoType} onChange={(e)=>setCargoType(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
-              <option value="">Escolha…</option>
-              <option>Caixas / Paletizada</option>
-              <option>Carga solta</option>
-              <option>Granel sólido</option>
-              <option>Granel líquido</option>
-              <option>Perigosa</option>
-              <option>Baterias</option>
-            </select>
-          </label>
-          <label className="flex flex-col text-sm">
-            Descrição / NCM
-            <input type="text" value={cargoDesc} onChange={(e)=>setCargoDesc(e.target.value)} placeholder="Ex.: 8507.60.00" className="p-2 bg-gray-100 dark:bg-gray-700 rounded" />
-          </label>
+          <VolumesTable /*@ts-ignore*/ onChange={(w,v)=>{setTotWeight(w);setTotVolume(v);}} maxLines={15} premium={true} />
           <label className="flex flex-col text-sm">
             Tipo de Container
             <select value={container} onChange={(e)=>setContainer(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
