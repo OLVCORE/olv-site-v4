@@ -117,33 +117,28 @@ function suggestModal(weight: number, volume: number, sameCountry: boolean) {
 }
 
 function computeContainerSuggestion(weight: number, volume: number) {
+  // returns Record<type, {qty:number, occ:number}> where occ is % volume utilization of last container type
+  const order: string[] = ["20′ Dry","40′ Dry","40′ HC","45′ HC","20′ OT","40′ OT","20′ FR","40′ FR"];
+  const result: Record<string,{qty:number,occ:number}> = {};
   let remainingW = weight;
   let remainingV = volume;
-  const result: Record<string, number> = {};
-
-  // prioriza 45 HC, depois 40 HC, depois 40 Dry, depois 20 Dry, depois 40 OT, depois 20 OT, depois 40 FR, depois 20 FR, depois ISO Tank, depois FlexiTank, depois Bulk-Bag
-  const order = ["45′ HC", "40′ HC", "40′ Dry", "20′ Dry", "40′ OT", "20′ OT", "40′ FR", "20′ FR", "ISO Tank", "FlexiTank", "Bulk-Bag"];
-
-  for (const type of order) {
+  for(const type of order){
     const info = CONTAINER_INFO[type];
-    const maxW = info.payload * CAPACITY_FACTOR;
+    const maxW = info.payload*CAPACITY_FACTOR;
     const maxV = info.vol;
-    let needed = 0;
-    while (remainingW > 0 || remainingV > 0) {
-      if (remainingW > 0.1 || remainingV > 0.1) {
-        needed += 1;
-        remainingW -= maxW;
-        remainingV -= maxV;
-      }
-      if (remainingW <= 0 && remainingV <= 0) break;
-      if (needed > 15) break; // safety
+    let qty=0;
+    while((remainingW>0.1||remainingV>0.0001) && qty<50){
+      qty+=1;
+      remainingW = Math.max(0,remainingW-maxW);
+      remainingV = Math.max(0,remainingV-maxV);
     }
-    if (needed) {
-      result[type] = needed;
+    if(qty){
+      const usedV = volume===0?0:Math.min(volume,qty*maxV)-remainingV;
+      const occ = Number(((usedV/(qty*maxV))*100).toFixed(1));
+      result[type]={qty,occ};
     }
-    if (remainingW <= 0 && remainingV <= 0) break;
+    if(remainingW<=0.1 && remainingV<=0.0001) break;
   }
-
   return result;
 }
 
@@ -216,7 +211,6 @@ export default function FreightCalculatorLight() {
     }
   }
 
-  const capacity = container ? CONTAINER_CAPACITY[container] : undefined;
   const suggestedModal = suggestModal(totWeight, totVolume, origin === destination);
   const containerPlan = computeContainerSuggestion(totWeight, totVolume);
   const suggestedContainer = Object.keys(containerPlan)[0] ?? '';
@@ -327,7 +321,7 @@ export default function FreightCalculatorLight() {
                   Configuração de container:&nbsp;
                   <strong>
                     {Object.entries(containerPlan)
-                      .map(([k, v]) => `${v} × ${k}`)
+                      .map(([k, v]) => `${v.qty} × ${k} (${v.occ}% ocupação)`)
                       .join(' + ')}
                   </strong>
                 </p>
