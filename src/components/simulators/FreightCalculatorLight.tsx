@@ -152,6 +152,8 @@ export default function FreightCalculatorLight() {
   const [error, setError] = useState('');
   const [totWeight, setTotWeight] = useState(0);
   const [totVolume, setTotVolume] = useState(0);
+  const [cargoType, setCargoType] = useState('');
+  const [cargoDesc, setCargoDesc] = useState('');
 
   const searchParams = useSearchParams();
 
@@ -180,6 +182,7 @@ export default function FreightCalculatorLight() {
     if (!/^[A-Z]{2}$/.test(destination)) return 'Destino deve ter código ISO-2';
     if (totWeight <= 0) return 'Peso deve ser maior que zero';
     if (totVolume <= 0) return 'Volume deve ser maior que zero';
+    if(isAirDisabled && mode==='air') return 'Carga perigosa não pode ser enviada por modal aéreo';
     return '';
   }
 
@@ -212,11 +215,18 @@ export default function FreightCalculatorLight() {
   }
 
   const suggestedModal = suggestModal(totWeight, totVolume, origin === destination);
-  const containerPlan = computeContainerSuggestion(totWeight, totVolume);
+  let containerPlan = computeContainerSuggestion(totWeight, totVolume);
+  if(cargoType==='Granel líquido') {
+    containerPlan = { 'ISO Tank': { qty: Math.ceil(totWeight/(CONTAINER_INFO['ISO Tank'].payload*CAPACITY_FACTOR)), occ: 100 } };
+  } else if(cargoType==='Granel sólido') {
+    containerPlan = { 'Bulk-Bag': { qty: Math.ceil(totWeight/(CONTAINER_INFO['Bulk-Bag'].payload*CAPACITY_FACTOR)), occ: 100 } };
+  }
   const suggestedContainer = Object.keys(containerPlan)[0] ?? '';
   const utilization = container
     ? ((totVolume / CONTAINER_CAPACITY[container]) * 100).toFixed(1)
     : undefined;
+
+  const isAirDisabled = cargoType==='Perigosa' || cargoType==='Baterias';
 
   useEffect(()=>{
     if(!container && suggestedContainer){ setContainer(suggestedContainer); }
@@ -242,6 +252,22 @@ export default function FreightCalculatorLight() {
           {/* Volumes */}
           <VolumesTable onChange={(w,v)=>{setTotWeight(w);setTotVolume(v);}} maxLines={15} premium={true} />
           <label className="flex flex-col text-sm">
+            Tipo de Carga
+            <select value={cargoType} onChange={(e)=>setCargoType(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
+              <option value="">Escolha…</option>
+              <option>Caixas / Paletizada</option>
+              <option>Carga solta</option>
+              <option>Granel sólido</option>
+              <option>Granel líquido</option>
+              <option>Perigosa</option>
+              <option>Baterias</option>
+            </select>
+          </label>
+          <label className="flex flex-col text-sm">
+            Descrição / NCM
+            <input type="text" value={cargoDesc} onChange={(e)=>setCargoDesc(e.target.value)} placeholder="Ex.: 8507.60.00" className="p-2 bg-gray-100 dark:bg-gray-700 rounded" />
+          </label>
+          <label className="flex flex-col text-sm">
             Tipo de Container
             <select value={container} onChange={(e)=>setContainer(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
               <option value="">Escolha sua opção…</option>
@@ -261,14 +287,14 @@ export default function FreightCalculatorLight() {
             <select value={mode} onChange={(e)=>setMode(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
               <option value="">Escolha sua opção…</option>
               {[
-                {val:'air', label:'Aéreo', disabled:false},
+                {val:'air', label:'Aéreo', disabled:isAirDisabled},
                 {val:'sea_lcl', label:'Marítimo LCL', disabled:false},
                 {val:'sea_fcl', label:'Marítimo FCL', disabled:false},
                 {val:'road', label:'Rodoviário', disabled: !isRoadPossible(origin,destination)},
                 {val:'rail', label:'Ferroviário', disabled: !isRailPossible(origin,destination)},
                 {val:'cabotage', label:'Cabotagem', disabled: origin!==destination},
               ].map(opt=> (
-                <option key={opt.val} value={opt.val} disabled={opt.disabled} className={opt.disabled? 'text-gray-400':''} title={opt.disabled? 'Modal indisponível para esta rota':''}>
+                <option key={opt.val} value={opt.val} disabled={opt.disabled} className={opt.disabled? 'text-gray-400':''} title={opt.disabled? 'Modal indisponível para esta configuração':''}>
                   {opt.label}
                 </option>
               ))}
