@@ -5,6 +5,7 @@ import FreightCalculatorLight from '@/components/simulators/FreightCalculatorLig
 import VolumesTable from '@/components/simulators/VolumesTable';
 import { PackageInput } from '@/lib/binPacking';
 import DomesticBR from '@/components/simulators/DomesticBR';
+import PackageTypeSelector, { PackageKind } from '@/components/simulators/PackageTypeSelector';
 
 type LoadPlan = {
   containers: {
@@ -20,6 +21,7 @@ export default function FreightFullPage() {
   const [packages, setPackages] = useState<PackageInput[]>([]);
   const [plan, setPlan] = useState<LoadPlan | null>(null);
   const [loading, setLoading] = useState(false);
+  const [pkgType, setPkgType] = useState<PackageKind | ''>('');
 
   const generatePlan = async () => {
     if (!packages.length) return;
@@ -60,6 +62,10 @@ export default function FreightFullPage() {
       )}
       {tab===1 && (
         <div>
+          <h3 className="font-medium mb-2">1. Tipo de Embalagem</h3>
+          <PackageTypeSelector value={pkgType} onChange={setPkgType} />
+
+          <h3 className="font-medium mb-2 mt-4">2. Tabela de Volumes</h3>
           <VolumesTable /*@ts-ignore*/
             onChange={(w,v)=>{
               if(w&&v){setPackages([{id:'auto',length:100,width:100,height:100,weight:w,quantity:1}]);}
