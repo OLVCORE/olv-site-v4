@@ -1,3 +1,4 @@
+'use client';
 import { useState } from "react";
 import VolumesTable from "@/components/simulators/VolumesTable";
 import { PackageInput } from "@/lib/binPacking";
