@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import FreightCalculatorLight from '@/components/simulators/FreightCalculatorLight';
 import LoadStuffingPage from '@/app/simuladores/load-stuffing/page';
@@ -22,7 +22,9 @@ export default function FreightFullPage() {
       </div>
 
       {tab===0 && (
-        <FreightCalculatorLight />
+        <Suspense fallback={<p>Carregando…</p>}>
+          <FreightCalculatorLight />
+        </Suspense>
       )}
       {tab===1 && (
         <VolumesTable onChange={(w,v)=>{setPackages([{id:'auto',length:100,width:100,height:100,weight:w,quantity:1}])}} maxLines={30} premium={true} />
