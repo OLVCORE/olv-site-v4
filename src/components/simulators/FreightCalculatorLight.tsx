@@ -117,27 +117,30 @@ function suggestModal(weight: number, volume: number, sameCountry: boolean) {
 }
 
 function computeContainerSuggestion(weight: number, volume: number) {
-  // returns Record<type, {qty:number, occ:number}> where occ is % volume utilization of last container type
-  const order: string[] = ["20′ Dry","40′ Dry","40′ HC","45′ HC","20′ OT","40′ OT","20′ FR","40′ FR"];
+  // Greedy fill from smallest to biggest following order.
+  const order = ["20′ Dry","40′ Dry","40′ HC","45′ HC","20′ OT","40′ OT","20′ FR","40′ FR"];
   const result: Record<string,{qty:number,occ:number}> = {};
-  let remainingW = weight;
-  let remainingV = volume;
+  let remW = weight;
+  let remV = volume;
+
   for(const type of order){
+    if(remW<=0.1 && remV<=0.0001) break;
     const info = CONTAINER_INFO[type];
-    const maxW = info.payload*CAPACITY_FACTOR;
-    const maxV = info.vol;
-    let qty=0;
-    while((remainingW>0.1||remainingV>0.0001) && qty<50){
-      qty+=1;
-      remainingW = Math.max(0,remainingW-maxW);
-      remainingV = Math.max(0,remainingV-maxV);
+    const capW = info.payload*CAPACITY_FACTOR;
+    const capV = info.vol;
+    // Determine how many containers of this type are required by limiting factor
+    const needByW = capW>0 ? Math.ceil(remW/capW) : 0;
+    const needByV = capV>0 ? Math.ceil(remV/capV) : 0;
+    const qty = Math.max(needByW, needByV);
+    if(qty>0){
+      // occupancy of last container based on limiting factor volume
+      const usedV = Math.min(remV, qty*capV);
+      const occ = Number(((usedV/(qty*capV))*100).toFixed(1));
+      result[type] = { qty, occ };
+      // subtract filled capacity
+      remW = Math.max(0, remW - qty*capW);
+      remV = Math.max(0, remV - qty*capV);
     }
-    if(qty){
-      const usedV = volume===0?0:Math.min(volume,qty*maxV)-remainingV;
-      const occ = Number(((usedV/(qty*maxV))*100).toFixed(1));
-      result[type]={qty,occ};
-    }
-    if(remainingW<=0.1 && remainingV<=0.0001) break;
   }
   return result;
 }
@@ -197,7 +200,7 @@ export default function FreightCalculatorLight() {
     setError('');
     setData(null);
     try {
-      const safeMode = mode || 'all';
+      const safeMode = 'all';
       const res = await fetch(
         `/api/freight/light?origin=${origin}&destination=${destination}&weight=${totWeight}&volume=${totVolume}&container=${encodeURIComponent(container || suggestedContainer)}&mode=${safeMode}`
       );
@@ -316,12 +319,19 @@ export default function FreightCalculatorLight() {
                   </tr>
                 </thead>
                 <tbody>
-                  {Object.entries(data).map(([modal,value])=> value ? (
-                    <tr key={modal}>
-                      <td className="border px-3 py-1 capitalize">{modal.replace('_',' ')}</td>
-                      <td className="border px-3 py-1">{value.toFixed(2)}</td>
-                    </tr>
-                  ):null)}
+                  {(
+                    ['air','sea_lcl','sea_fcl','road','rail','cabotage'] as (keyof Estimate)[]
+                  ).map((modal)=>{
+                    const value = (data as any)[modal];
+                    if(value===null) return null;
+                    const isSelected = mode && mode!=='' && mode===modal;
+                    return (
+                      <tr key={modal} className={isSelected ? 'bg-accent/10 font-medium' : ''}>
+                        <td className="border px-3 py-1 capitalize">{modal.replace('_',' ')}</td>
+                        <td className="border px-3 py-1">{value.toFixed(2)}</td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
               {container && (
@@ -343,6 +353,7 @@ export default function FreightCalculatorLight() {
               <div className="mt-4 text-sm bg-gray-100 dark:bg-gray-700 p-3 rounded">
                 <p className="font-medium mb-1">Sugestões automáticas</p>
                 <p>Modal ideal: <strong className="capitalize">{suggestedModal.replace('_',' ')}</strong></p>
+                <p className="text-[10px] text-gray-500">Cálculo considera margem de segurança de 90 % do payload máximo.</p>
                 <p>
                   Configuração de container:&nbsp;
                   <strong>
