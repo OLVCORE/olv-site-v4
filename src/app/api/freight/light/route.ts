@@ -24,8 +24,9 @@ const CONTAINER_SPECS: Record<string, ContainerSpec> = {
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
 
-  const origin = searchParams.get('origin')?.toUpperCase();
-  const destination = searchParams.get('destination')?.toUpperCase();
+  // Normalizamos removendo espaços e convertendo para maiúsculas
+  const origin = searchParams.get('origin')?.trim().toUpperCase();
+  const destination = searchParams.get('destination')?.trim().toUpperCase();
   const weight = parseFloat(searchParams.get('weight') || '0'); // kg
   const volume = parseFloat(searchParams.get('volume') || '0'); // m3
   const containerType = decodeURIComponent(searchParams.get('container') || '40′ Dry');
@@ -51,15 +52,25 @@ export async function GET(req: NextRequest) {
 
   const sameCountry = origin === destination;
   const cabotageCost = sameCountry ? 100 + volume * 12 : null;
-  const roadLtlCost = sameCountry ? 80 + weight * 0.9 : null;
-  const roadFtlCost = sameCountry ? 900 + 0.2*weight : null;
-  const railCost = sameCountry ? 90 + weight * 0.6 : null;
 
   // road/rail eligibility across Americas
   const AMERICAS_ROAD = ['AR','BO','BR','CL','CO','EC','GY','PY','PE','SR','UY','VE','BZ','CR','GT','HN','NI','PA','SV','MX','US','CA'];
   const interAmerica = AMERICAS_ROAD.includes(origin) && AMERICAS_ROAD.includes(destination);
   const roadEligible = sameCountry || interAmerica;
   const railEligible = sameCountry || interAmerica;
+
+  // Estimativas rodoviárias – permitimos rotas internacionais dentro das Américas.
+  // Fórmulas simples: custo base + fator por kg, com acréscimo maior para rotas internacionais.
+  const roadLtlCost = roadEligible
+    ? (sameCountry ? 80 + weight * 0.9 : 250 + weight * 1.2)
+    : null;
+
+  const roadFtlCost = roadEligible
+    ? (sameCountry ? 900 + 0.2 * weight : 1800 + 0.3 * weight)
+    : null;
+
+  // Estimativa ferroviária – aplicável a rotas onde exista interligação terrestre.
+  const railCost = railEligible ? (sameCountry ? 90 + weight * 0.6 : 400 + weight * 0.8) : null;
 
   return Response.json({
     origin,

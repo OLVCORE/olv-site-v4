@@ -45,8 +45,10 @@ const AMERICAS_ROAD: string[] = [
 
 function isRoadPossible(o: string, d: string) {
   if(!o || !d) return false;
-  if(o===d) return true;
-  return AMERICAS_ROAD.includes(o) && AMERICAS_ROAD.includes(d);
+  const oo = o.trim().toUpperCase();
+  const dd = d.trim().toUpperCase();
+  if(oo===dd) return true;
+  return AMERICAS_ROAD.includes(oo) && AMERICAS_ROAD.includes(dd);
 }
 
 const isRailPossible = isRoadPossible;
@@ -180,8 +182,10 @@ export default function FreightCalculatorLight() {
   }, [searchParams]);
 
   function validateInputs() {
-    if (!/^[A-Z]{2}$/.test(origin)) return 'Origem deve ter código ISO-2';
-    if (!/^[A-Z]{2}$/.test(destination)) return 'Destino deve ter código ISO-2';
+    const o = origin.trim().toUpperCase();
+    const d = destination.trim().toUpperCase();
+    if (!/^[A-Z]{2}$/.test(o)) return 'Origem deve ter código ISO-2';
+    if (!/^[A-Z]{2}$/.test(d)) return 'Destino deve ter código ISO-2';
     if (totWeight <= 0) return 'Peso deve ser maior que zero';
     if (totVolume <= 0) return 'Volume deve ser maior que zero';
     return '';
@@ -199,8 +203,10 @@ export default function FreightCalculatorLight() {
     setData(null);
     try {
       const safeMode = 'all';
+      const o = origin.trim().toUpperCase();
+      const d = destination.trim().toUpperCase();
       const res = await fetch(
-        `/api/freight/light?origin=${origin}&destination=${destination}&weight=${totWeight}&volume=${totVolume}&container=${encodeURIComponent(container || fallbackContainer)}&mode=${safeMode}`
+        `/api/freight/light?origin=${o}&destination=${d}&weight=${totWeight}&volume=${totVolume}&container=${encodeURIComponent(container || fallbackContainer)}&mode=${safeMode}`
       );
       if (!res.ok) {
         const txt = await res.text();
@@ -215,7 +221,7 @@ export default function FreightCalculatorLight() {
     }
   }
 
-  const suggestedModal = suggestModal(totWeight, totVolume, origin === destination);
+  const suggestedModal = suggestModal(totWeight, totVolume, origin.trim().toUpperCase() === destination.trim().toUpperCase());
   const containerPlan = computeContainerSuggestion(totWeight, totVolume);
   const fallbackContainer = Object.keys(containerPlan)[0] ?? '';
   const utilization = container
