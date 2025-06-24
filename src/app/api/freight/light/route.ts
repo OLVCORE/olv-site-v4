@@ -51,8 +51,15 @@ export async function GET(req: NextRequest) {
 
   const sameCountry = origin === destination;
   const cabotageCost = sameCountry ? 100 + volume * 12 : null;
-  const roadCost = sameCountry ? 80 + weight * 0.8 : null;
+  const roadLtlCost = sameCountry ? 80 + weight * 0.9 : null;
+  const roadFtlCost = sameCountry ? 900 + 0.2*weight : null;
   const railCost = sameCountry ? 90 + weight * 0.6 : null;
+
+  // road/rail eligibility across Americas
+  const AMERICAS_ROAD = ['AR','BO','BR','CL','CO','EC','GY','PY','PE','SR','UY','VE','BZ','CR','GT','HN','NI','PA','SV','MX','US','CA'];
+  const interAmerica = AMERICAS_ROAD.includes(origin) && AMERICAS_ROAD.includes(destination);
+  const roadEligible = sameCountry || interAmerica;
+  const railEligible = sameCountry || interAmerica;
 
   return Response.json({
     origin,
@@ -65,7 +72,8 @@ export async function GET(req: NextRequest) {
       sea_lcl: modeParam === 'all' || modeParam === 'sea_lcl' ? seaLclCost : null,
       sea_fcl: modeParam === 'all' || modeParam === 'sea_fcl' ? seaFclCost : null,
       cabotage: modeParam === 'all' || modeParam === 'cabotage' ? cabotageCost : null,
-      road: modeParam === 'all' || modeParam === 'road' ? roadCost : null,
+      road_ltl: (modeParam==='all'||modeParam==='road_ltl') && roadEligible ? roadLtlCost : null,
+      road_ftl: (modeParam==='all'||modeParam==='road_ftl') && roadEligible ? roadFtlCost : null,
       rail: modeParam === 'all' || modeParam === 'rail' ? railCost : null,
     },
     disclaimer: `Valores aproximados para fins de demonstração. Containers: ${nContainers}. Para cotações em tempo real utilize a versão Premium.`

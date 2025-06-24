@@ -9,7 +9,8 @@ interface Estimate {
   sea_lcl: number;
   sea_fcl: number;
   cabotage: number | null;
-  road: number | null;
+  road_ltl: number | null;
+  road_ftl: number | null;
   rail: number | null;
 }
 
@@ -215,7 +216,7 @@ export default function FreightCalculatorLight() {
   }
 
   const suggestedModal = suggestModal(totWeight, totVolume, origin === destination);
-  let containerPlan = computeContainerSuggestion(totWeight, totVolume);
+  const containerPlan = computeContainerSuggestion(totWeight, totVolume);
   const fallbackContainer = Object.keys(containerPlan)[0] ?? '';
   const utilization = container
     ? ((totVolume / CONTAINER_CAPACITY[container]) * 100).toFixed(1)
@@ -265,7 +266,8 @@ export default function FreightCalculatorLight() {
                 {val:'air', label:'Aéreo', disabled:isAirDisabled},
                 {val:'sea_lcl', label:'Marítimo LCL', disabled:false},
                 {val:'sea_fcl', label:'Marítimo FCL', disabled:false},
-                {val:'road', label:'Rodoviário', disabled: !isRoadPossible(origin,destination)},
+                {val:'road_ltl', label:'Rodoviário LTL', disabled: !isRoadPossible(origin,destination)},
+                {val:'road_ftl', label:'Rodoviário FTL', disabled: !isRoadPossible(origin,destination)},
                 {val:'rail', label:'Ferroviário', disabled: !isRailPossible(origin,destination)},
                 {val:'cabotage', label:'Cabotagem', disabled: origin!==destination},
               ].map(opt=> (
@@ -292,14 +294,14 @@ export default function FreightCalculatorLight() {
                 </thead>
                 <tbody>
                   {(
-                    ['air','sea_lcl','sea_fcl','road','rail','cabotage'] as (keyof Estimate)[]
+                    ['air','sea_lcl','sea_fcl','road_ltl','road_ftl','rail','cabotage'] as any
                   ).map((modal)=>{
                     const value = (data as any)[modal];
                     if(value===null) return null;
                     const isSelected = mode && mode!=='' && mode===modal;
                     return (
                       <tr key={modal} className={isSelected ? 'bg-accent/10 font-medium' : ''}>
-                        <td className="border px-3 py-1 capitalize">{modal.replace('_',' ')}</td>
+                        <td className="border px-3 py-1 capitalize">{modal.replace('_',' ').toUpperCase()}</td>
                         <td className="border px-3 py-1">{value.toFixed(2)}</td>
                       </tr>
                     );
