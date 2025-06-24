@@ -4,6 +4,7 @@ import DisclaimerAlert from '@/components/DisclaimerAlert';
 import FreightCalculatorLight from '@/components/simulators/FreightCalculatorLight';
 import VolumesTable from '@/components/simulators/VolumesTable';
 import { PackageInput } from '@/lib/binPacking';
+import DomesticBR from '@/components/simulators/DomesticBR';
 
 type LoadPlan = {
   containers: {
@@ -87,7 +88,7 @@ export default function FreightFullPage() {
         </div>
       )}
       {tab===3 && (
-        <p>Integração com frete doméstico QualP em desenvolvimento nesta rodada.</p>
+        <DomesticBR weightKg={packages.reduce((acc,p)=>acc+p.weight*p.quantity,0)} />
       )}
     </div>
   );
