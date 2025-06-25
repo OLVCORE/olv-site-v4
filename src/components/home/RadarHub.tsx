@@ -32,7 +32,7 @@ const sims = [
     slug: '/simuladores/cubagem',
     title: 'Simulador de Cubagem',
     desc: 'Descubra ocupação ideal por contêiner ou caminhão.',
-    icon: '/icons/box.svg',
+    icon: '/icons/analytics.svg',
   },
   {
     slug: '/simuladores/tributario-light',
@@ -46,7 +46,7 @@ export default function RadarHub(){
   return (
     <section className="section py-6" id="simuladores">
       <div className="container">
-        <div className="bg-[#141c2f] p-5 rounded-lg border-2 border-[#d4af37] shadow-lg space-y-4 max-w-[840px] mx-auto">
+        <div className="bg-[#141c2f] p-5 rounded-lg border-2 border-[#d4af37] shadow-lg space-y-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[#d4af37]/60">
           <div className="section-heading flex items-center gap-3">
             <div className="w-14 h-14 mb-1 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
               <Image src="/icons/calculator.svg" alt="Ícone Simuladores" width={28} height={28} />
