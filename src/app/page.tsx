@@ -78,7 +78,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Radar Hub inserido aqui */}
+          {/* Radar 360 Hub – Simuladores & Calculadoras */}
           <div className="my-8">
             <RadarHub />
           </div>

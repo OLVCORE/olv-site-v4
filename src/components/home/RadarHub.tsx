@@ -4,21 +4,21 @@ import Image from 'next/image';
 const sims = [
   {
     slug: '/simuladores/importacao',
-    title: 'Custo de Importação',
+    title: 'Simulador de Custo de Importação',
     desc: 'Calcule impostos, frete, despesas e câmbio para saber o custo total landed.',
     icon: '/icons/import-icon.svg',
     highlight: true,
   },
   {
     slug: '/simuladores/exportacao',
-    title: 'Custo de Exportação',
+    title: 'Simulador de Custo de Exportação',
     desc: 'Simule margem, preços FOB/CIF e compare cenários de incentivo.',
     icon: '/icons/export-icon.svg',
     highlight: true,
   },
   {
     slug: '/simuladores/frete-light',
-    title: 'Frete Internacional',
+    title: 'Simulador de Frete Internacional e Nacional',
     desc: 'Compare custos aéreo, marítimo, rodoviário e ferroviário.',
     icon: '/icons/truck-gear.svg',
   },
@@ -36,7 +36,7 @@ const sims = [
   },
   {
     slug: '/simuladores/tributario-light',
-    title: 'Tributos Importação',
+    title: 'Simulador de Tributos de Importação',
     desc: 'ICMS, IPI, PIS/COFINS, II federais e estaduais (IBPT).',
     icon: '/icons/tax.svg',
   },
