@@ -5,14 +5,20 @@ import { supabase } from '@/lib/supabaseClient';
 
 interface Props { isOpen: boolean; onClose: () => void; }
 
+declare const process: { env: Record<string, string | undefined> };
+
 export default function AuthModal({ isOpen, onClose }: Props) {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const redirectTo = (typeof window !== 'undefined' && !window.location.origin.includes('localhost'))
+    ? window.location.origin
+    : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://api.olvinternacional.com.br';
+
   const handleMagicLink = async () => {
     setLoading(true);
-    const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
+    const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: redirectTo } });
     setLoading(false);
     if (!error) setSent(true);
     else alert(error.message);

@@ -5,6 +5,8 @@ import { supabase } from '@/lib/supabaseClient';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+declare const process: { env: Record<string,string|undefined> };
+
 export default function LoginPage() {
   const router = useRouter();
   const returnTo = typeof window !== 'undefined' ? (new URLSearchParams(window.location.search).get('returnTo') || '/') : '/';
@@ -27,7 +29,11 @@ export default function LoginPage() {
       if (error) setError(error.message);
       else router.push(returnTo);
     } else {
-      const { error } = await supabase.auth.signUp({ email, password });
+      const redirectTo = (typeof window !== 'undefined' && !window.location.origin.includes('localhost'))
+        ? window.location.origin + '/login'
+        : (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://api.olvinternacional.com.br') + '/login';
+
+      const { error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: redirectTo } });
       if (error) setError(error.message);
       else setInfo('Enviamos um e-mail para confirmar sua conta.');
     }
