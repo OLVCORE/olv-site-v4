@@ -17,7 +17,7 @@ const sims = [
     highlight: true,
   },
   {
-    slug: '/simuladores/frete-light',
+    slug: '/simuladores/frete-full',
     title: 'Simulador de Frete Internacional e Nacional',
     desc: 'Compare custos aéreo, marítimo, rodoviário e ferroviário.',
     icon: '/icons/truck-gear.svg',
@@ -46,7 +46,7 @@ export default function RadarHub(){
   return (
     <section className="section py-6" id="simuladores">
       <div className="container">
-        <div className="bg-[#141c2f] p-5 rounded-lg border border-[#2a3448] shadow-lg space-y-4">
+        <div className="bg-[#141c2f] p-5 rounded-lg border-2 border-[#d4af37] shadow-lg space-y-4 max-w-[840px] mx-auto">
           <div className="section-heading flex items-center gap-3">
             <div className="w-14 h-14 mb-1 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
               <Image src="/icons/calculator.svg" alt="Ícone Simuladores" width={28} height={28} />
@@ -59,7 +59,7 @@ export default function RadarHub(){
             {sims.map(sim=> {
               const extra = sim.highlight ? 'sm:col-span-2 lg:col-span-2 xl:col-span-2' : '';
               return (
-                <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white/5 backdrop-blur border border-amber-400/40 hover:border-amber-400 transition shadow-lg hover:shadow-amber-400/20 overflow-hidden flex items-start gap-3`}>
+                <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white/5 backdrop-blur border border-[#d4af37]/60 hover:border-[#d4af37] transition shadow-lg hover:shadow-[#d4af37]/20 overflow-hidden flex items-start gap-3`}>
                   <span className="absolute inset-0 bg-amber-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <Image src={sim.icon} alt={sim.title} width={28} height={28} className="mt-1 flex-shrink-0 relative z-10" />
                   <div>
