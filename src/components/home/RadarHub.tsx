@@ -59,7 +59,7 @@ export default function RadarHub(){
             {sims.map(sim=> {
               const extra = sim.highlight ? 'sm:col-span-2 lg:col-span-2 xl:col-span-2' : '';
               return (
-                <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white dark:bg-[#0a0f1d] border border-[#d4af37]/60 hover:border-[#d4af37] transition shadow-lg hover:shadow-[#d4af37]/20 overflow-hidden flex items-start gap-3`}>
+                <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white dark:bg-gray-800 border border-[#d4af37]/60 hover:border-[#d4af37] transition shadow-lg hover:shadow-[#d4af37]/20 overflow-hidden flex items-start gap-3`}>
                   <span className="absolute inset-0 bg-amber-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <Image src={sim.icon} alt={sim.title} width={28} height={28} className="mt-1 flex-shrink-0 relative z-10" />
                   <div>
