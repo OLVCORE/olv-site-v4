@@ -3,12 +3,11 @@
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const router = useRouter();
-  const search = useSearchParams();
-  const returnTo = search.get('returnTo') || '/';
+  const returnTo = typeof window !== 'undefined' ? (new URLSearchParams(window.location.search).get('returnTo') || '/') : '/';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
