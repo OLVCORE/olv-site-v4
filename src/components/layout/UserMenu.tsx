@@ -26,6 +26,9 @@ export default function UserMenu() {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<ThemeValue>("system");
 
+  // TODO: integrate real auth; null indicates not authenticated
+  const user: { name: string; email: string } | null = null;
+
   // init theme
   useEffect(() => {
     const saved = (localStorage.getItem("theme") as ThemeValue | null) ?? "system";
@@ -72,35 +75,43 @@ export default function UserMenu() {
 
       {open && (
         <div className="mt-2 w-64 rounded-md border border-gray-600 bg-[var(--color-surface)] shadow-lg p-4 space-y-3">
-          {/* profile */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden border border-[var(--color-accent)] flex-shrink-0">
-              <Image src="/images/olv-logo.jpeg" alt="Avatar" width={40} height={40} className="object-cover" />
-            </div>
-            <div className="text-sm leading-tight">
-              <p className="font-semibold">Marcos Oliveira</p>
-              <p className="text-xs opacity-80">marcos@olv.com.br</p>
-            </div>
-          </div>
+          {user && (
+            <>
+              {/* profile */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-[var(--color-accent)] flex-shrink-0">
+                  <Image src="/images/olv-logo.jpeg" alt="Avatar" width={40} height={40} className="object-cover" />
+                </div>
+                <div className="text-sm leading-tight">
+                  <p className="font-semibold">{user.name}</p>
+                  <p className="text-xs opacity-80">{user.email}</p>
+                </div>
+              </div>
 
-          {/* links */}
-          <ul className="flex flex-col gap-1 text-sm">
-            <li>
-              <a href="/core" className="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-700/30">
-                <FaTachometerAlt size={14} /> Dashboard
-              </a>
-            </li>
-            <li>
-              <a href="/account" className="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-700/30">
-                <FaUserCog size={14} /> Account Settings
-              </a>
-            </li>
-            <li>
-              <a href="/team" className="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-700/30">
-                <FaUsers size={14} /> Create Team
-              </a>
-            </li>
-          </ul>
+              {/* links */}
+              <ul className="flex flex-col gap-1 text-sm">
+                <li>
+                  <a href="/core" className="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-700/30">
+                    <FaTachometerAlt size={14} /> Dashboard
+                  </a>
+                </li>
+                <li>
+                  <a href="/account" className="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-700/30">
+                    <FaUserCog size={14} /> Account Settings
+                  </a>
+                </li>
+                <li>
+                  <a href="/team" className="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-700/30">
+                    <FaUsers size={14} /> Create Team
+                  </a>
+                </li>
+              </ul>
+            </>
+          )}
+
+          {!user && (
+            <button className="w-full px-3 py-2 rounded text-sm bg-[var(--color-accent)] text-on-primary hover:opacity-90" onClick={() => alert('Implementar fluxo de autenticação')}>Entrar / Criar Conta</button>
+          )}
 
           {/* theme selector */}
           <div>
@@ -129,11 +140,13 @@ export default function UserMenu() {
                 <FaHome size={14} /> Home Page
               </a>
             </li>
-            <li>
-              <button className="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-700/30 w-full text-left">
-                <FaSignOutAlt size={14} /> Log Out
-              </button>
-            </li>
+            {user && (
+              <li>
+                <button className="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-700/30 w-full text-left">
+                  <FaSignOutAlt size={14} /> Log Out
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       )}
