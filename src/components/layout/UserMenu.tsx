@@ -14,6 +14,8 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 import Image from "next/image";
+import { supabase } from "@/lib/supabaseClient";
+import AuthModal from "../auth/AuthModal";
 
 const themeOptions = [
   { value: "system", icon: <FaDesktop size={14} />, label: "System" },
@@ -25,6 +27,7 @@ export default function UserMenu() {
   type ThemeValue = (typeof themeOptions)[number]["value"];
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<ThemeValue>("system");
+  const [showAuth, setShowAuth] = useState(false);
 
   // TODO: integrate real auth; null indicates not authenticated
   const user: { name: string; email: string } | null = null;
@@ -110,7 +113,7 @@ export default function UserMenu() {
           )}
 
           {!user && (
-            <button className="w-full px-3 py-2 rounded text-sm bg-[var(--color-accent)] text-on-primary hover:opacity-90" onClick={() => alert('Implementar fluxo de autenticação')}>Entrar / Criar Conta</button>
+            <button className="w-full px-3 py-2 rounded text-sm bg-[var(--color-accent)] text-on-primary hover:opacity-90" onClick={() => setShowAuth(true)}>Entrar / Criar Conta</button>
           )}
 
           {/* theme selector */}
@@ -142,7 +145,7 @@ export default function UserMenu() {
             </li>
             {user && (
               <li>
-                <button className="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-700/30 w-full text-left">
+                <button className="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-700/30 w-full text-left" onClick={() => supabase.auth.signOut()}>
                   <FaSignOutAlt size={14} /> Log Out
                 </button>
               </li>
@@ -150,6 +153,8 @@ export default function UserMenu() {
           </ul>
         </div>
       )}
+
+      {showAuth && <AuthModal isOpen={showAuth} onClose={() => setShowAuth(false)} />}
     </div>
   );
 } 
