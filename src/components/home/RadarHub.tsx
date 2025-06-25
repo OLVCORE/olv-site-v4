@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Icon from '../icons/Icon';
 
 const sims = [
   {
@@ -45,26 +44,26 @@ const sims = [
 
 export default function RadarHub(){
   return (
-    <section className="py-12 bg-gradient-to-r from-[#0a0f1d] via-[#10182b] to-[#0a0f1d] border-y border-[#1e293b]">
-      <div className="container mx-auto max-w-7xl px-4">
-        <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-6 text-[#d4af37] drop-shadow">Radar 360 Hub – Simuladores & Calculadoras</h2>
-        <p className="text-center text-gray-400 max-w-2xl mx-auto mb-10 text-sm">Ferramentas gratuitas para estimar custos e otimizar suas decisões rapidamente.</p>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {sims.map(sim=>{
-            const CardClass = sim.highlight ? 'md:col-span-2 lg:col-span-2' : '';
-            return (
-              <Link key={sim.slug} href={sim.slug} className={`${CardClass} group relative rounded-xl p-6 bg-white/5 backdrop-blur border border-amber-400/40 hover:border-amber-400 transition shadow-lg hover:shadow-amber-400/20 overflow-hidden`}>
-                <span className="absolute inset-0 bg-amber-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                <div className="relative z-10 flex items-start gap-3">
-                  <Image src={sim.icon} alt="icon" width={36} height={36} className="flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold text-white mb-1">{sim.title}</h3>
-                    <p className="text-gray-300 text-xs leading-snug">{sim.desc}</p>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
+    <section className="section py-6" id="simuladores">
+      <div className="container">
+        <div className="section-heading mb-2 flex items-center gap-3">
+          <div className="w-14 h-14 mb-1 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
+            <Image src="/icons/calculator.svg" alt="Ícone Simuladores" width={28} height={28} />
+          </div>
+          <h2 className="text-2xl font-semibold mb-2 text-[#d4af37]">Radar 360 Hub – Simuladores & Calculadoras</h2>
+        </div>
+        <p className="text-gray-400 mb-4 text-sm max-w-3xl">Ferramentas gratuitas para estimar custos de importação, exportação e logística, gerando insights em menos de 1 minuto.</p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {sims.map(sim=> (
+            <Link key={sim.slug} href={sim.slug} className="bg-[#141c2f] p-3 rounded-lg border border-[#2a3448] shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)] flex items-start gap-3">
+              <Image src={sim.icon} alt={sim.title} width={24} height={24} className="mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="text-gray-200 font-semibold text-sm mb-1">{sim.title}</h3>
+                <p className="text-gray-400 text-xs leading-snug max-w-[220px]">{sim.desc}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
