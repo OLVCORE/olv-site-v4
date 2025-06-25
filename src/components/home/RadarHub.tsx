@@ -53,13 +53,13 @@ export default function RadarHub(){
             </div>
             <h2 className="text-2xl font-semibold text-[#d4af37]">Radar 360 Hub – Simuladores & Calculadoras</h2>
           </div>
-          <p className="text-gray-300 text-base md:text-lg font-bold italic max-w-3xl">Ferramentas gratuitas para estimar custos de importação, exportação e logística, gerando insights em menos de 1&nbsp;minuto.</p>
+          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-bold italic max-w-3xl">Ferramentas gratuitas para estimar custos de importação, exportação e logística, gerando insights em menos de 1&nbsp;minuto.</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {sims.map(sim=> {
               const extra = sim.highlight ? 'sm:col-span-2 lg:col-span-2 xl:col-span-2' : '';
               return (
-                <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white dark:bg-white/5 backdrop-blur border border-[#d4af37]/60 hover:border-[#d4af37] transition shadow-lg hover:shadow-[#d4af37]/20 overflow-hidden flex items-start gap-3`}>
+                <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white dark:bg-[#0a0f1d] border border-[#d4af37]/60 hover:border-[#d4af37] transition shadow-lg hover:shadow-[#d4af37]/20 overflow-hidden flex items-start gap-3`}>
                   <span className="absolute inset-0 bg-amber-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <Image src={sim.icon} alt={sim.title} width={28} height={28} className="mt-1 flex-shrink-0 relative z-10" />
                   <div>
