@@ -18,6 +18,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
+  const [name, setName] = useState('');
 
   async function handleSubmit() {
     setLoading(true);
@@ -49,7 +50,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-[var(--color-background)] text-[var(--color-on-surface)] p-4">
       <div className="bg-[var(--color-surface)]/80 backdrop-blur border border-[var(--color-gold)] shadow-lg rounded-lg md:rounded-l-lg overflow-hidden w-full max-w-5xl grid grid-cols-1 md:grid-cols-2">
         {/* Form */}
-        <div className="p-8 md:p-12 flex flex-col justify-center space-y-6">
+        <div className="p-8 md:p-12 flex flex-col justify-center space-y-6 text-[var(--color-on-surface)]">
           <div>
             <h1 className="text-2xl font-semibold mb-1">{mode === 'login' ? 'Welcome!' : 'Create your account'}</h1>
             <p className="text-sm opacity-80">We are glad to see you</p>
@@ -59,16 +60,30 @@ export default function LoginPage() {
           {info && <p className="text-sm text-green-500">{info}</p>}
 
           <div className="space-y-4">
-            <input type="email" placeholder="Email" value={email} onChange={e=>setEmail(e.target.value)} className="w-full p-2 rounded border bg-transparent" />
-            <input type="password" placeholder="Password" value={password} onChange={e=>setPassword(e.target.value)} className="w-full p-2 rounded border bg-transparent" />
+            {mode === 'signup' && (
+              <>
+                <label className="text-xs font-semibold uppercase opacity-70" htmlFor="name">Name</label>
+                <input id="name" type="text" placeholder="Full name" value={name} onChange={e=>setName(e.target.value)} className="w-full p-2 rounded border bg-transparent" />
+              </>
+            )}
+            <label className="text-xs font-semibold uppercase opacity-70" htmlFor="email">Login or Email</label>
+            <input id="email" type="email" placeholder="you@example.com" value={email} onChange={e=>setEmail(e.target.value)} className="w-full p-2 rounded border bg-transparent" />
+            <label className="text-xs font-semibold uppercase opacity-70" htmlFor="pass">Password</label>
+            <input id="pass" type="password" placeholder="••••••••" value={password} onChange={e=>setPassword(e.target.value)} className="w-full p-2 rounded border bg-transparent" />
+            {mode === 'signup' && (
+              <>
+                <label className="text-xs font-semibold uppercase opacity-70" htmlFor="cpass">Confirm Password</label>
+                <input id="cpass" type="password" placeholder="••••••••" value={info ?? ''} onChange={e=>setInfo(e.target.value)} className="w-full p-2 rounded border bg-transparent" />
+              </>
+            )}
             {mode === 'login' && <div className="text-right text-xs"><a href="#" className="hover:underline">Forgot password?</a></div>}
-            <button onClick={handleSubmit} disabled={loading} className="w-full py-2 rounded bg-[var(--color-accent)] text-on-primary hover:opacity-90 disabled:opacity-60">
+            <button onClick={handleSubmit} disabled={loading} className="w-full py-2 rounded bg-[var(--color-primary)] text-white hover:opacity-90 disabled:opacity-60">
               {loading ? 'Please wait...' : mode === 'login' ? 'Sign in' : 'Sign up'}
             </button>
           </div>
 
-          <div className="text-center text-sm opacity-70">Ou continue com</div>
-          <div className="grid gap-3">
+          <div className="text-center text-sm opacity-70">Or continue with</div>
+          <div className="flex gap-3 justify-center">
             <SocialButton provider="google" onClick={() => signInWithProvider('google')} />
             <SocialButton provider="facebook" onClick={() => signInWithProvider('facebook')} />
             <SocialButton provider="linkedin" onClick={() => signInWithProvider('linkedin' as any)} />
