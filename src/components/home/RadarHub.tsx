@@ -46,7 +46,7 @@ export default function RadarHub(){
   return (
     <section className="section py-6" id="simuladores">
       <div className="container">
-        <div className="bg-[#141c2f] p-5 mx-[-1.5cm] px-[1.5cm] rounded-lg border-2 border-[#d4af37] shadow-lg space-y-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[#d4af37]/60">
+        <div className="bg-[#141c2f] p-5 mx-[-2cm] px-[2cm] rounded-lg border-2 border-[#d4af37] shadow-[0_0_25px_rgba(0,0,0,0.7)] space-y-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(212,175,55,0.6)]">
           <div className="section-heading flex items-center gap-3">
             <div className="w-14 h-14 mb-1 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
               <Image src="/icons/calculator.svg" alt="Ícone Simuladores" width={28} height={28} />
