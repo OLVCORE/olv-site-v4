@@ -148,6 +148,73 @@ function computeContainerSuggestion(weight: number, volume: number) {
   return result;
 }
 
+const CONTAINER_ORDERS: string[][] = [
+  ["20′ Dry","40′ Dry","40′ HC","45′ HC"], // menor → maior (já existia)
+  ["45′ HC","40′ HC","40′ Dry","20′ Dry"], // maior → menor
+  ["40′ Dry","20′ Dry","40′ HC","45′ HC"],  // mix comum
+];
+
+function fillUsingOrder(order: string[], weight: number, volume: number){
+  const plan: Record<string,{qty:number,occ:number}> = {};
+  let remW = weight;
+  let remV = volume;
+  for(const type of order){
+    if(remW<=0.1 && remV<=0.0001) break;
+    const info = CONTAINER_INFO[type];
+    const capW = info.payload*CAPACITY_FACTOR;
+    const capV = info.vol;
+    const needByW = capW>0 ? Math.ceil(remW/capW) : 0;
+    const needByV = capV>0 ? Math.ceil(remV/capV) : 0;
+    const qty = Math.max(needByW, needByV);
+    if(qty>0){
+      const usedV = Math.min(remV, qty*capV);
+      const occ = Number(((usedV/(qty*capV))*100).toFixed(1));
+      plan[type]={qty,occ};
+      remW=Math.max(0,remW-qty*capW);
+      remV=Math.max(0,remV-qty*capV);
+    }
+  }
+  return plan;
+}
+
+function computeContainerAlternatives(weight:number, volume:number, maxAlt:number=3){
+  const alts: Record<string,{qty:number,occ:number}>[] = [];
+  for(const ord of CONTAINER_ORDERS){
+    const plan = fillUsingOrder(ord, weight, volume);
+    if(Object.keys(plan).length>0){
+      // avoid duplicates by summary string
+      const sig = Object.entries(plan).map(([k,v])=>`${v.qty}x${k}`).join('+');
+      if(!alts.some(p=>Object.entries(p).map(([k,v])=>`${v.qty}x${k}`).join('+')===sig)){
+        alts.push(plan);
+      }
+    }
+    if(alts.length>=maxAlt) break;
+  }
+  return alts;
+}
+
+function planToString(plan:Record<string,{qty:number,occ:number}>){
+  return Object.entries(plan).map(([k,v])=>`${v.qty} × ${k} (${v.occ}% occ.)`).join(' + ');
+}
+
+// Veículos rodoviários simplificados
+const ROAD_VEHICLES: {name:string; payload:number}[] = [
+  {name:'Carreta 3-eixos', payload:28000},
+  {name:'Truck toco', payload:14000},
+  {name:'VUC', payload:3000},
+];
+function roadSuggestions(weight:number){
+  if(weight<=0) return [];
+  const suggestions:string[]=[];
+  // opção 1 – carreta(s)
+  const nCarreta = Math.ceil(weight/ROAD_VEHICLES[0].payload);
+  suggestions.push(`${nCarreta} × ${ROAD_VEHICLES[0].name}`);
+  // opção 2 – mix truck toco
+  const nToco = Math.ceil(weight/ROAD_VEHICLES[1].payload);
+  suggestions.push(`${nToco} × ${ROAD_VEHICLES[1].name}`);
+  return suggestions;
+}
+
 export default function FreightCalculatorLight() {
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
@@ -222,7 +289,8 @@ export default function FreightCalculatorLight() {
   }
 
   const suggestedModal = suggestModal(totWeight, totVolume, origin.trim().toUpperCase() === destination.trim().toUpperCase());
-  const containerPlan = computeContainerSuggestion(totWeight, totVolume);
+  const containerAlternatives = computeContainerAlternatives(totWeight, totVolume);
+  const containerPlan = containerAlternatives[0] || {};
   const fallbackContainer = Object.keys(containerPlan)[0] ?? '';
   const utilization = container
     ? ((totVolume / CONTAINER_CAPACITY[container]) * 100).toFixed(1)
@@ -330,18 +398,22 @@ export default function FreightCalculatorLight() {
               </div>
 
               {/* Sugestões Premium (visíveis aqui para testes) */}
-              <div className="mt-4 text-sm bg-gray-100 dark:bg-gray-700 p-3 rounded">
-                <p className="font-medium mb-1">Sugestões automáticas</p>
+              <div className="mt-4 text-sm bg-gray-100 dark:bg-gray-700 p-3 rounded space-y-1">
+                <p className="font-medium">Sugestões automáticas</p>
                 <p>Modal ideal: <strong className="capitalize">{suggestedModal.replace('_',' ')}</strong></p>
-                <p className="text-[10px] text-gray-500">Cálculo considera margem de segurança de 90 % do payload máximo.</p>
-                <p>
-                  Configuração de container:&nbsp;
-                  <strong>
-                    {Object.entries(containerPlan)
-                      .map(([k, v]) => `${v.qty} × ${k} (${v.occ}% ocupação)`)
-                      .join(' + ')}
-                  </strong>
-                </p>
+                {/* Containers */}
+                {containerAlternatives.length>0 && (
+                  <p>Configurações de contêiner:&nbsp;
+                    <strong>
+                      {containerAlternatives.map(plan=>planToString(plan)).join(' ou ')}
+                    </strong>
+                  </p>
+                )}
+                {/* Road vehicles */}
+                {isRoadPossible(origin,destination) && (
+                  <p className="text-xs text-gray-500">Opções rodoviárias: {roadSuggestions(totWeight).join(' ou ')}</p>
+                )}
+                <p className="text-[10px] text-gray-500">Occupação calculada com 90&nbsp;% do payload máximo.</p>
               </div>
 
               {/* Domestic section movido para aba Frete Doméstico */}
