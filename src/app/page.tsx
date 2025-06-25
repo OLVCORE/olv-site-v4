@@ -1,6 +1,7 @@
 import MainLayout from '../components/layout/MainLayout';
 import Image from 'next/image';
 import Link from 'next/link';
+import RadarHub from '../components/home/RadarHub';
 
 export const metadata = {
   title: 'OLV Internacional – Consultoria em Comércio Exterior, Logística Internacional e Supply Chain',
@@ -97,6 +98,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Radar 360 Hub – vitrine de simuladores */}
+      <RadarHub />
 
       {/* Nossas Soluções Estratégicas */}
       <section className="section py-0 mb-0" id="servicos">

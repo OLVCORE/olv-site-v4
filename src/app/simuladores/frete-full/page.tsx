@@ -6,6 +6,7 @@ import VolumesTable from '@/components/simulators/VolumesTable';
 import { PackageInput } from '@/lib/binPacking';
 import DomesticBR from '@/components/simulators/DomesticBR';
 import PackageTypeSelector, { PackageKind } from '@/components/simulators/PackageTypeSelector';
+import MainLayout from '@/components/layout/MainLayout';
 
 type LoadPlan = {
   containers: {
@@ -44,6 +45,7 @@ export default function FreightFullPage() {
   };
 
   return (
+    <MainLayout>
     <div className="import-sim-container mx-auto max-w-6xl py-6">
       <h1 className="import-sim-heading text-2xl font-bold mb-2">Simulador de Fretes – Versão FULL</h1>
 
@@ -105,5 +107,6 @@ export default function FreightFullPage() {
         <DomesticBR weightKg={packages.reduce((acc,p)=>acc+p.weight*p.quantity,0)} />
       )}
     </div>
+    </MainLayout>
   );
 } 
