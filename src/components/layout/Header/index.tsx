@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import dynamic from 'next/dynamic';
-import SettingsMenu from '../SettingsMenu';
+import UserMenu from '../UserMenu';
 
 interface HeaderProps {
   theme: 'light' | 'dark';
@@ -93,8 +93,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             </nav>
           </div>
 
-          {/* Settings Menu (inclui tema) */}
-          <SettingsMenu />
+          {/* User Menu (avatar + settings) */}
+          <UserMenu />
 
           {/* Botão BUSCAR – apenas mobile (ação futura) */}
           <button
