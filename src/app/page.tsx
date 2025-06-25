@@ -78,6 +78,11 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Radar Hub inserido aqui */}
+          <div className="my-8">
+            <RadarHub />
+          </div>
+
           {/* Pilares de Atuação em mini-cards */}
           <div className="mb-2">
             <h3 className="text-2xl font-semibold mb-2 text-[#d4af37]">Pilares da Nossa Atuação</h3>
@@ -98,9 +103,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Radar 360 Hub – vitrine de simuladores */}
-      <RadarHub />
 
       {/* Nossas Soluções Estratégicas */}
       <section className="section py-0 mb-0" id="servicos">

@@ -55,15 +55,19 @@ export default function RadarHub(){
         <p className="text-gray-400 mb-4 text-sm max-w-3xl">Ferramentas gratuitas para estimar custos de importação, exportação e logística, gerando insights em menos de 1 minuto.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {sims.map(sim=> (
-            <Link key={sim.slug} href={sim.slug} className="bg-[#141c2f] p-3 rounded-lg border border-[#2a3448] shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)] flex items-start gap-3">
-              <Image src={sim.icon} alt={sim.title} width={24} height={24} className="mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="text-gray-200 font-semibold text-sm mb-1">{sim.title}</h3>
-                <p className="text-gray-400 text-xs leading-snug max-w-[220px]">{sim.desc}</p>
-              </div>
-            </Link>
-          ))}
+          {sims.map(sim=> {
+            const extra = sim.highlight ? 'sm:col-span-2 lg:col-span-2 xl:col-span-2' : '';
+            return (
+              <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white/5 backdrop-blur border border-amber-400/40 hover:border-amber-400 transition shadow-lg hover:shadow-amber-400/20 overflow-hidden flex items-start gap-3`}>
+                <span className="absolute inset-0 bg-amber-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Image src={sim.icon} alt={sim.title} width={28} height={28} className="mt-1 flex-shrink-0 relative z-10" />
+                <div>
+                  <h3 className="text-white font-semibold text-base mb-1 relative z-10">{sim.title}</h3>
+                  <p className="text-gray-300 text-xs leading-snug max-w-[240px] relative z-10">{sim.desc}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
