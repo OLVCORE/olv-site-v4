@@ -46,7 +46,7 @@ export default function RadarHub(){
   return (
     <section className="section py-6" id="simuladores">
       <div className="container">
-        <div className="bg-[#141c2f] p-5 mx-[-2cm] px-[2cm] rounded-lg border-2 border-[#d4af37] shadow-[0_0_25px_rgba(0,0,0,0.7)] space-y-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(212,175,55,0.6)]">
+        <div className="bg-white dark:bg-[#141c2f] p-5 mx-0 px-4 md:mx-[-2cm] md:px-[2cm] rounded-lg border-2 border-[#d4af37] shadow-[0_0_25px_rgba(0,0,0,0.2)] dark:shadow-[0_0_25px_rgba(0,0,0,0.7)] space-y-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(212,175,55,0.6)]">
           <div className="section-heading flex items-center gap-3">
             <div className="w-14 h-14 mb-1 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
               <Image src="/icons/calculator.svg" alt="Ícone Simuladores" width={28} height={28} />
@@ -59,12 +59,12 @@ export default function RadarHub(){
             {sims.map(sim=> {
               const extra = sim.highlight ? 'sm:col-span-2 lg:col-span-2 xl:col-span-2' : '';
               return (
-                <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white/5 backdrop-blur border border-[#d4af37]/60 hover:border-[#d4af37] transition shadow-lg hover:shadow-[#d4af37]/20 overflow-hidden flex items-start gap-3`}>
+                <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white dark:bg-white/5 backdrop-blur border border-[#d4af37]/60 hover:border-[#d4af37] transition shadow-lg hover:shadow-[#d4af37]/20 overflow-hidden flex items-start gap-3`}>
                   <span className="absolute inset-0 bg-amber-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <Image src={sim.icon} alt={sim.title} width={28} height={28} className="mt-1 flex-shrink-0 relative z-10" />
                   <div>
-                    <h3 className="text-white font-semibold text-base mb-1 relative z-10">{sim.title}</h3>
-                    <p className="text-gray-300 text-xs leading-snug max-w-[240px] relative z-10">{sim.desc}</p>
+                    <h3 className="font-semibold text-base mb-1 relative z-10 text-gray-900 dark:text-white">{sim.title}</h3>
+                    <p className="text-xs leading-snug max-w-[240px] relative z-10 text-gray-600 dark:text-gray-300">{sim.desc}</p>
                   </div>
                 </Link>
               );
