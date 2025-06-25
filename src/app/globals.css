@@ -955,6 +955,7 @@ body.import-sim footer {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 4px 18px rgba(212, 175, 55, 0.08);
+  border-radius: 0.75rem; /* rounded-xl */
 }
 .shadow-gold {
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.15);
@@ -978,4 +979,13 @@ section#noticias .grid {
 /* ---------- Section Spacing ---------- */
 .section + .section {
   @apply mt-6;
+}
+
+/* Light theme variant for glass cards */
+body.theme-light .glass {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(199, 154, 48, 0.25);
+  box-shadow: 0 4px 14px rgba(199, 154, 48, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 } 
