@@ -3,6 +3,7 @@
 // Returns rough cost estimates for various modes until external API key configured.
 
 import { NextRequest } from 'next/server';
+import { getMarketRate } from '@/lib/marketRates';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -48,7 +49,21 @@ export async function GET(req: NextRequest) {
   const containersByVol = Math.ceil(volume / spec.vol);
   const containersByWeight = Math.ceil(weight / spec.weight);
   const nContainers = Math.max(containersByVol, containersByWeight);
-  const seaFclCost = nContainers * spec.base;
+  let seaFclCost = nContainers * spec.base;
+
+  // Try to override with market rates where available
+  const airRate = getMarketRate(origin,destination,'air');
+  const seaLclRate = getMarketRate(origin,destination,'sea_lcl');
+  const seaFclRate = getMarketRate(origin,destination,'sea_fcl');
+  const roadLtlRate = getMarketRate(origin,destination,'road_ltl');
+  const roadFtlRate = getMarketRate(origin,destination,'road_ftl');
+  const railRate = getMarketRate(origin,destination,'rail');
+
+  const override = (heur:number, rate:any, factor:number=1)=> rate ? rate.valueUSD*factor : heur;
+
+  const airCostFinal = override(airCost, airRate, weight);
+  const seaLclCostFinal = override(seaLclCost, seaLclRate, volume);
+  seaFclCost = override(seaFclCost, seaFclRate, nContainers);
 
   const sameCountry = origin === destination;
   const cabotageCost = sameCountry ? 100 + volume * 12 : null;
@@ -61,16 +76,22 @@ export async function GET(req: NextRequest) {
 
   // Estimativas rodoviárias – permitimos rotas internacionais dentro das Américas.
   // Fórmulas simples: custo base + fator por kg, com acréscimo maior para rotas internacionais.
-  const roadLtlCost = roadEligible
+  let roadLtlCost = roadEligible
     ? (sameCountry ? 80 + weight * 0.9 : 250 + weight * 1.2)
     : null;
 
-  const roadFtlCost = roadEligible
+  let roadFtlCost = roadEligible
     ? (sameCountry ? 900 + 0.2 * weight : 1800 + 0.3 * weight)
     : null;
 
+  if(roadEligible){
+    if(roadLtlRate) roadLtlCost = roadLtlRate.valueUSD * weight; // kg rate
+    if(roadFtlRate) roadFtlCost = roadFtlRate.valueUSD; // per truck rate
+  }
+
   // Estimativa ferroviária – aplicável a rotas onde exista interligação terrestre.
-  const railCost = railEligible ? (sameCountry ? 90 + weight * 0.6 : 400 + weight * 0.8) : null;
+  let railCost = railEligible ? (sameCountry ? 90 + weight * 0.6 : 400 + weight * 0.8) : null;
+  if(railRate) railCost = railRate.valueUSD * weight; // kg rate
 
   return Response.json({
     origin,
@@ -79,8 +100,8 @@ export async function GET(req: NextRequest) {
     volumeM3: volume,
     currency: 'USD',
     estimates: {
-      air: modeParam === 'all' || modeParam === 'air' ? airCost : null,
-      sea_lcl: modeParam === 'all' || modeParam === 'sea_lcl' ? seaLclCost : null,
+      air: modeParam === 'all' || modeParam === 'air' ? airCostFinal : null,
+      sea_lcl: modeParam === 'all' || modeParam === 'sea_lcl' ? seaLclCostFinal : null,
       sea_fcl: modeParam === 'all' || modeParam === 'sea_fcl' ? seaFclCost : null,
       cabotage: modeParam === 'all' || modeParam === 'cabotage' ? cabotageCost : null,
       road_ltl: (modeParam==='all'||modeParam==='road_ltl') && roadEligible ? roadLtlCost : null,
