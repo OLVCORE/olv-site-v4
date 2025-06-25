@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import SettingsMenu from '../SettingsMenu';
 
 interface HeaderProps {
   theme: 'light' | 'dark';
@@ -92,35 +93,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             </nav>
           </div>
 
-          {/* Switch de Tema */}
-          <div className="theme-switch-wrapper">
-            <label className="theme-switch" htmlFor="theme-checkbox">
-              <input 
-                type="checkbox" 
-                id="theme-checkbox" 
-                checked={theme === 'light'}
-                onChange={toggleTheme}
-              />
-              <div className="switch-inner">
-                <span className="switch-icon moon-icon">
-                  <Image 
-                    src="/icons/moon.svg" 
-                    alt="Lua" 
-                    width={16} 
-                    height={16}
-                  />
-                </span>
-                <span className="switch-icon sun-icon">
-                  <Image 
-                    src="/icons/sun.svg" 
-                    alt="Sol" 
-                    width={16} 
-                    height={16}
-                  />
-                </span>
-              </div>
-            </label>
-          </div>
+          {/* Settings Menu (inclui tema) */}
+          <SettingsMenu />
 
           {/* Botão BUSCAR – apenas mobile (ação futura) */}
           <button
