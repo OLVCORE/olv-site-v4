@@ -38,7 +38,7 @@ const sims = [
     slug: '/simuladores/tributario-light',
     title: 'Simulador de Tributos de Importação',
     desc: 'ICMS, IPI, PIS/COFINS, II federais e estaduais (IBPT).',
-    icon: '/icons/tax.svg',
+    icon: '/icons/compliance-icon.svg',
   },
 ];
 
@@ -46,14 +46,14 @@ export default function RadarHub(){
   return (
     <section className="section py-6" id="simuladores">
       <div className="container">
-        <div className="bg-[#141c2f] p-5 rounded-lg border-2 border-[#d4af37] shadow-lg space-y-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[#d4af37]/60">
+        <div className="bg-[#141c2f] p-5 mx-[-1.5cm] px-[1.5cm] rounded-lg border-2 border-[#d4af37] shadow-lg space-y-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[#d4af37]/60">
           <div className="section-heading flex items-center gap-3">
             <div className="w-14 h-14 mb-1 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
               <Image src="/icons/calculator.svg" alt="Ícone Simuladores" width={28} height={28} />
             </div>
             <h2 className="text-2xl font-semibold text-[#d4af37]">Radar 360 Hub – Simuladores & Calculadoras</h2>
           </div>
-          <p className="text-gray-400 text-sm max-w-3xl">Ferramentas gratuitas para estimar custos de importação, exportação e logística, gerando insights em menos de 1 minuto.</p>
+          <p className="text-gray-300 text-base md:text-lg font-bold italic max-w-3xl">Ferramentas gratuitas para estimar custos de importação, exportação e logística, gerando insights em menos de 1&nbsp;minuto.</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {sims.map(sim=> {
