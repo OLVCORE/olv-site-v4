@@ -20,20 +20,35 @@ interface RecordOut {
   dt: string;
 }
 
-const LANES: Lane[] = [
-  { origin: 'AR', destination: 'BR' },
-  { origin: 'CN', destination: 'BR' },
-  { origin: 'US', destination: 'BR' },
-  { origin: 'DE', destination: 'BR' },
-];
+const PRIORITY: string[] = ['CN','US','AR','DE','NL','MX','IN','IT','FR','JP','KR','CL','ES','RU','SG','CA','GB','BE','ID','PY'];
+const SECONDARY: string[] = ['PT','MY','TH','TR','PL','ZA','SE','CH','DK','NO','AU','AT','IL','VN','RO','CZ','HU','PE','AE','CO','UA','EG','MA','UY','FI','GR','QA','SA','OM','NZ'];
+
+function buildLanes(countries: string[]): Lane[] {
+  const lanes: Lane[] = [];
+  for(const code of countries){
+    lanes.push({origin: code, destination: 'BR'}); // import
+    lanes.push({origin: 'BR', destination: code}); // export
+  }
+  return lanes;
+}
+
+const useSecondary = process.argv.includes('--secondary');
+const LANES: Lane[] = buildLanes(useSecondary ? SECONDARY : PRIORITY);
 
 async function fetchSeaRatesFcl20(o: string, d: string): Promise<number | null> {
   try {
-    const url = `https://www.searates.com/transit/price?o=${o}&d=${d}&t=20`;
+    const key = process.env.SEARATES_KEY;
+    const url = key
+      ? `https://api.searates.com/v2/fcl?o=${o}&d=${d}&cont=20&key=${key}`
+      : `https://www.searates.com/transit/price?o=${o}&d=${d}&t=20`;
     const res = await fetch(url, { headers: { 'User-Agent': 'olv-site-bot' } });
     if (!res.ok) return null;
     const json: any = await res.json();
-    if (json && json.price) return Number(json.price);
+    if(key){
+      if(json && json.rate && typeof json.rate.price === 'number') return json.rate.price;
+    } else {
+      if (json && json.price) return Number(json.price);
+    }
     return null;
   } catch {
     return null;
@@ -71,7 +86,7 @@ async function run() {
   const outPath = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'market_rates.json');
   await fs.mkdir(path.dirname(outPath), { recursive: true });
   await fs.writeFile(outPath, JSON.stringify(out, null, 2));
-  console.log(`Saved ${out.length} records to ${outPath}`);
+  console.log(`Saved ${out.length} records (${useSecondary? 'secondary':'priority'}) to ${outPath}`);
 }
 
 run(); 
