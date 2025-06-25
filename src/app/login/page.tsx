@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import SocialButton from '@/components/auth/SocialButton';
 
 declare const process: { env: Record<string,string|undefined> };
 
@@ -46,7 +47,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--color-background)] text-[var(--color-on-surface)] p-4">
-      <div className="bg-[var(--color-surface)] shadow-lg rounded-lg overflow-hidden w-full max-w-5xl grid grid-cols-1 md:grid-cols-2">
+      <div className="bg-[var(--color-surface)]/80 backdrop-blur border border-[var(--color-gold)] shadow-lg rounded-lg md:rounded-l-lg overflow-hidden w-full max-w-5xl grid grid-cols-1 md:grid-cols-2">
         {/* Form */}
         <div className="p-8 md:p-12 flex flex-col justify-center space-y-6">
           <div>
@@ -66,11 +67,11 @@ export default function LoginPage() {
             </button>
           </div>
 
-          <div className="text-center text-sm opacity-70">Or continue with</div>
-          <div className="flex gap-3 justify-center">
-            <button onClick={()=>signInWithProvider('google')} className="px-4 py-2 border rounded text-sm">Google</button>
-            <button onClick={()=>signInWithProvider('apple')} className="px-4 py-2 border rounded text-sm">Apple</button>
-            <button onClick={()=>signInWithProvider('facebook')} className="px-4 py-2 border rounded text-sm">Facebook</button>
+          <div className="text-center text-sm opacity-70">Ou continue com</div>
+          <div className="grid gap-3">
+            <SocialButton provider="google" onClick={() => signInWithProvider('google')} />
+            <SocialButton provider="facebook" onClick={() => signInWithProvider('facebook')} />
+            <SocialButton provider="linkedin" onClick={() => signInWithProvider('linkedin' as any)} />
           </div>
 
           <div className="text-center text-sm">
@@ -83,7 +84,7 @@ export default function LoginPage() {
         </div>
 
         {/* Banner */}
-        <div className="hidden md:block relative">
+        <div className="hidden md:block relative rounded-r-lg overflow-hidden">
           <Image src="/images/BANNER-HOME.jpeg" alt="OLV banner" fill className="object-cover" />
         </div>
       </div>
