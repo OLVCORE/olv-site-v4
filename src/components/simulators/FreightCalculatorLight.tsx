@@ -215,6 +215,11 @@ function roadSuggestions(weight:number){
   return suggestions;
 }
 
+const ENABLED_CONTAINERS = new Set<string>([
+  "20′ Dry","40′ Dry","40′ HC","45′ HC","20′ OT","40′ OT","20′ FR","40′ FR","ISO Tank","FlexiTank","Bulk-Bag"
+]);
+const formatter = new Intl.NumberFormat('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+
 export default function FreightCalculatorLight() {
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
@@ -322,7 +327,7 @@ export default function FreightCalculatorLight() {
             <select value={container} onChange={(e)=>setContainer(e.target.value)} className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
               <option value="">Escolha sua opção…</option>
               {Object.keys(CONTAINER_INFO).map(key=> (
-                <option key={key} value={key}>{key}</option>
+                <option key={key} value={key} disabled={!ENABLED_CONTAINERS.has(key)} className={!ENABLED_CONTAINERS.has(key)?'text-gray-400':''}>{key}</option>
               ))}
             </select>
             {container && (
@@ -376,7 +381,7 @@ export default function FreightCalculatorLight() {
                     return (
                       <tr key={modal} className={isSelected ? 'bg-accent/10 font-medium' : ''}>
                         <td className="border px-3 py-1 capitalize">{modal.replace('_',' ').toUpperCase()}</td>
-                        <td className="border px-3 py-1">{value.toFixed(2)}</td>
+                        <td className="border px-3 py-1">{formatter.format(value)}</td>
                       </tr>
                     );
                   })}

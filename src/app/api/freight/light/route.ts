@@ -20,6 +20,12 @@ const CONTAINER_SPECS: Record<string, ContainerSpec> = {
   '40′ HC': { vol: 76, weight: 28600, base: 2600 },
   '20′ OT': { vol: 32, weight: 28000, base: 1900 },
   '40′ OT': { vol: 66, weight: 28500, base: 2550 },
+  "45′ HC": { vol: 86, weight: 29500, base: 3000 },
+  "20′ FR": { vol: 30, weight: 27000, base: 2000 },
+  "40′ FR": { vol: 65, weight: 28500, base: 2600 },
+  "ISO Tank": { vol: 25, weight: 26000, base: 2300 },
+  "FlexiTank": { vol: 24, weight: 24000, base: 2250 },
+  "Bulk-Bag": { vol: 30, weight: 20000, base: 1900 },
 };
 
 export async function GET(req: NextRequest) {
@@ -54,6 +60,17 @@ export async function GET(req: NextRequest) {
   const roadFtlRate = getMarketRate(origin,destination,'road_ftl');
   const railRate = getMarketRate(origin,destination,'rail');
 
+  // helper – adjust base rate depending on container size if we only have one generic rate (20')
+  const getSeaFclRateForContainer = (rate: any, type: string) => {
+    if (!rate) return undefined;
+    const is40 = /40|45/.test(type);
+    if (!is40) return rate.valueUSD; // assume 20′ equivalência
+    // use simple uplift if 40/45 – dataset usually traz 40′ mas caso não exista aplicamos fator 1.4
+    const alt = getMarketRate(origin, destination, 'sea_fcl'); // tentativa extra (poderíamos filtrar por unidade futuramente)
+    if (alt && alt.unit === 'container_40') return alt.valueUSD;
+    return rate.valueUSD * 1.4; // fallback
+  };
+
   const calcCost = (rate:any, factor:number|undefined)=> {
     if(!rate) return null;
     if(factor===undefined) return rate.valueUSD;
@@ -62,7 +79,8 @@ export async function GET(req: NextRequest) {
 
   const airCostFinal = calcCost(airRate, weight);
   const seaLclCostFinal = calcCost(seaLclRate, volume);
-  const seaFclCost = calcCost(seaFclRate, nContainers);
+  const seaFclPerContainer = getSeaFclRateForContainer(seaFclRate, containerType);
+  const seaFclCost = seaFclPerContainer ? seaFclPerContainer * nContainers : null;
 
   const sameCountry = origin === destination;
   const cabotageCost = sameCountry ? 100 + volume * 12 : null;
@@ -73,10 +91,13 @@ export async function GET(req: NextRequest) {
   const roadEligible = sameCountry || interAmerica;
   const railEligible = sameCountry || interAmerica;
 
-  // Estimativas rodoviárias – permitimos rotas internacionais dentro das Américas.
-  // Fórmulas simples: custo base + fator por kg, com acréscimo maior para rotas internacionais.
-  const roadLtlCost = roadEligible && roadLtlRate ? roadLtlRate.valueUSD * weight : null;
-  const roadFtlCost = roadEligible && roadFtlRate ? roadFtlRate.valueUSD : null;
+  // LTL assume tarifa por tonelada (1000 kg)
+  const roadLtlCost = roadEligible && roadLtlRate ? roadLtlRate.valueUSD * (weight / 1000) : null;
+
+  // FTL – custo por caminhão completo (payload ~28 t)
+  const TRUCK_PAYLOAD_KG = 28000;
+  const nTrucks = Math.ceil(weight / TRUCK_PAYLOAD_KG);
+  const roadFtlCost = roadEligible && roadFtlRate ? roadFtlRate.valueUSD * nTrucks : null;
 
   // Estimativa ferroviária – aplicável a rotas onde exista interligação terrestre.
   const railCost = railEligible && railRate ? railRate.valueUSD * weight : null;
@@ -96,6 +117,6 @@ export async function GET(req: NextRequest) {
       road_ftl: (modeParam==='all'||modeParam==='road_ftl') && roadEligible ? roadFtlCost : null,
       rail: modeParam === 'all' || modeParam === 'rail' ? railCost : null,
     },
-    disclaimer: `Valores aproximados para fins de demonstração. Containers: ${nContainers}. Para cotações em tempo real utilize a versão Premium.`
+    disclaimer: `Valores aproximados para fins de demonstração. Containers: ${nContainers}; caminhões: ${nTrucks}. Para cotações em tempo real utilize a versão Premium.`
   });
 } 
