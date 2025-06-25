@@ -8,6 +8,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { setTimeout as delay } from 'timers/promises';
 
 interface Lane { origin: string; destination: string; }
 interface RecordOut {
@@ -81,12 +82,68 @@ async function run() {
         dt: today,
       });
     }
+
+    // AÉREO – AirRates (USD/kg)
+    const airKg = await fetchAirRatesKg(lane.origin, lane.destination);
+    if(airKg){
+      out.push({
+        modal:'air',
+        origin: lane.origin,
+        destination: lane.destination,
+        unit:'kg',
+        valueUSD: airKg,
+        source:'AirRates',
+        dt: today
+      });
+    }
+
+    // RODOVIÁRIO – LandRates FTL (USD/viagem)
+    const roadFtl = await fetchLandRatesFtl(lane.origin,lane.destination);
+    if(roadFtl){
+      out.push({
+        modal:'road_ftl',
+        origin: lane.origin,
+        destination: lane.destination,
+        unit:'truck',
+        valueUSD: roadFtl,
+        source:'LandRates',
+        dt: today
+      });
+    }
+
+    await delay(500); // respeitar rate-limit
   }
 
   const outPath = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'market_rates.json');
   await fs.mkdir(path.dirname(outPath), { recursive: true });
   await fs.writeFile(outPath, JSON.stringify(out, null, 2));
   console.log(`Saved ${out.length} records (${useSecondary? 'secondary':'priority'}) to ${outPath}`);
+}
+
+// ==================== helpers =====================
+
+// Fetch AirRates price USD/kg – uses public widget similar to SeaRates
+async function fetchAirRatesKg(o:string,d:string):Promise<number|null>{
+  try{
+    const url=`https://www.airrates.com/transit/price?o=${o}&d=${d}`;
+    const res=await fetch(url,{headers:{'User-Agent':'olv-site-bot'}});
+    if(!res.ok) return null;
+    const json:any=await res.json();
+    if(json && json.price) return Number(json.price); // USD per kg
+    return null;
+  }catch{return null;}
+}
+
+// Fetch LandRates road FTL cost USD/truck – public widget endpoint
+async function fetchLandRatesFtl(o:string,d:string):Promise<number|null>{
+  try{
+    const url=`https://www.landrates.com/transit/price?o=${o}&d=${d}&type=ftl`;
+    const res=await fetch(url,{headers:{'User-Agent':'olv-site-bot'}});
+    if(!res.ok) return null;
+    const json:any=await res.json();
+    if(json && json.price) return Number(json.price);
+    return null;
+  }catch{return null;}
 }
 
 run(); 
