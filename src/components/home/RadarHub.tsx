@@ -46,28 +46,30 @@ export default function RadarHub(){
   return (
     <section className="section py-6" id="simuladores">
       <div className="container">
-        <div className="section-heading mb-2 flex items-center gap-3">
-          <div className="w-14 h-14 mb-1 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
-            <Image src="/icons/calculator.svg" alt="Ícone Simuladores" width={28} height={28} />
+        <div className="bg-[#141c2f] p-5 rounded-lg border border-[#2a3448] shadow-lg space-y-4">
+          <div className="section-heading flex items-center gap-3">
+            <div className="w-14 h-14 mb-1 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
+              <Image src="/icons/calculator.svg" alt="Ícone Simuladores" width={28} height={28} />
+            </div>
+            <h2 className="text-2xl font-semibold text-[#d4af37]">Radar 360 Hub – Simuladores & Calculadoras</h2>
           </div>
-          <h2 className="text-2xl font-semibold mb-2 text-[#d4af37]">Radar 360 Hub – Simuladores & Calculadoras</h2>
-        </div>
-        <p className="text-gray-400 mb-4 text-sm max-w-3xl">Ferramentas gratuitas para estimar custos de importação, exportação e logística, gerando insights em menos de 1 minuto.</p>
+          <p className="text-gray-400 text-sm max-w-3xl">Ferramentas gratuitas para estimar custos de importação, exportação e logística, gerando insights em menos de 1 minuto.</p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {sims.map(sim=> {
-            const extra = sim.highlight ? 'sm:col-span-2 lg:col-span-2 xl:col-span-2' : '';
-            return (
-              <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white/5 backdrop-blur border border-amber-400/40 hover:border-amber-400 transition shadow-lg hover:shadow-amber-400/20 overflow-hidden flex items-start gap-3`}>
-                <span className="absolute inset-0 bg-amber-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                <Image src={sim.icon} alt={sim.title} width={28} height={28} className="mt-1 flex-shrink-0 relative z-10" />
-                <div>
-                  <h3 className="text-white font-semibold text-base mb-1 relative z-10">{sim.title}</h3>
-                  <p className="text-gray-300 text-xs leading-snug max-w-[240px] relative z-10">{sim.desc}</p>
-                </div>
-              </Link>
-            );
-          })}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {sims.map(sim=> {
+              const extra = sim.highlight ? 'sm:col-span-2 lg:col-span-2 xl:col-span-2' : '';
+              return (
+                <Link key={sim.slug} href={sim.slug} className={`${extra} relative group rounded-xl p-5 bg-white/5 backdrop-blur border border-amber-400/40 hover:border-amber-400 transition shadow-lg hover:shadow-amber-400/20 overflow-hidden flex items-start gap-3`}>
+                  <span className="absolute inset-0 bg-amber-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                  <Image src={sim.icon} alt={sim.title} width={28} height={28} className="mt-1 flex-shrink-0 relative z-10" />
+                  <div>
+                    <h3 className="text-white font-semibold text-base mb-1 relative z-10">{sim.title}</h3>
+                    <p className="text-gray-300 text-xs leading-snug max-w-[240px] relative z-10">{sim.desc}</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
