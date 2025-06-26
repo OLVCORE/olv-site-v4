@@ -41,13 +41,13 @@ const ImportacaoExclusiva = () => {
     <MainLayout>
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         {/* Hero Section */}
-        <section className="relative py-20 px-4 bg-gradient-to-b from-[#0d1324] via-[#0b1120] to-[#060a17]">
+        <section className="relative py-12 px-4 bg-gradient-to-b from-[#0d1324] via-[#0b1120] to-[#060a17]">
           <div className="max-w-6xl mx-auto text-center">
             <div className="mb-8">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#d4af37] to-[#2e8ce6] bg-clip-text text-transparent">
+              <h1 className="uppercase tracking-wider text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-[#d4af37] to-[#2e8ce6] bg-clip-text text-transparent">
                 Domine Sua Rota de Importação
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8">
+              <p className="text-xl md:text-2xl text-slate-400/90 max-w-4xl mx-auto mb-6">
                 Pare de importar junto com seus concorrentes. Comece a importar para vencê-los.
                 Transforme sua PME de dependente para dominante com inteligência e exclusividade.
               </p>
@@ -81,7 +81,7 @@ const ImportacaoExclusiva = () => {
         {/* Case Real Section */}
         <section className="py-16 px-4 bg-slate-800/50">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#d4af37]">
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider text-center mb-8 text-[#d4af37]">
               Caso Real: A Virada de Jogo de uma PME
             </h2>
 
@@ -100,7 +100,7 @@ const ImportacaoExclusiva = () => {
                   </blockquote>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6 mt-8">
+                <div className="grid md:grid-cols-3 gap-6 mt-6 max-w-3xl mx-auto">
                   <div className="text-center">
                     <Shield className="w-12 h-12 text-[#d4af37] mx-auto mb-3" />
                     <h4 className="font-bold text-[#d4af37]">Proteção Total</h4>
@@ -125,11 +125,11 @@ const ImportacaoExclusiva = () => {
         {/* Problemas da Importação Compartilhada */}
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#2e8ce6]">
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider text-center mb-8 text-[#2e8ce6]">
               Por Que PMEs Perdem Mercado na Importação Compartilhada?
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               <Card className="bg-[#1a2338]/60 border-[#2a3448]/30">
                 <CardHeader>
                   <CardTitle className="text-[#2e8ce6] flex items-center gap-3">
@@ -170,7 +170,7 @@ const ImportacaoExclusiva = () => {
         {/* Solução OLV */}
         <section className="py-16 px-4 bg-gradient-to-r from-slate-800/50 to-slate-900/50">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#d4af37]">
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider text-center mb-8 text-[#d4af37]">
               A Solução da OLV Internacional
             </h2>
 
@@ -181,7 +181,7 @@ const ImportacaoExclusiva = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {/* Card items */}
               {[{
                 icon: Globe,
@@ -229,7 +229,7 @@ const ImportacaoExclusiva = () => {
         {/* Metodologia OLV */}
         <section className="py-16 px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#d4af37]">
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider text-center mb-8 text-[#d4af37]">
               Etapas do Modelo OLV: Importação com Exclusividade
             </h2>
 
@@ -274,10 +274,10 @@ const ImportacaoExclusiva = () => {
         </section>
 
         {/* Lead Magnet Form */}
-        <section id="lead-form" className="py-20 px-4 bg-gradient-to-r from-[#2e8ce6]/10 to-[#2e8ce6]/5">
+        <section id="lead-form" className="py-12 px-4 bg-gradient-to-r from-[#2e8ce6]/10 to-[#2e8ce6]/5">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#d4af37]">
+              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-6 text-[#d4af37]">
                 🚀 Diagnóstico Gratuito e Personalizado
               </h2>
               <p className="text-xl text-gray-300 mb-8">
@@ -326,7 +326,7 @@ const ImportacaoExclusiva = () => {
         {/* Credibilidade Final */}
         <section className="py-16 px-4 bg-slate-800/50">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-[#d4af37] mb-4">
+            <h3 className="text-2xl font-bold uppercase tracking-wider text-[#d4af37] mb-4">
               Sim, é desafiador. Mas é totalmente possível.
             </h3>
             <p className="text-lg text-gray-300 mb-8">
