@@ -10,17 +10,38 @@ export default function ImportacaoExclusivaPage() {
   return (
     <MainLayout>
       {/* HERO – estilo hub, com sub-marca */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#141c2f] via-[#0a0f1d] to-[#141c2f] text-center py-16 px-6">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a0f1d] via-[#0a1633] to-[#0a0f1d] text-center py-20 px-6 border-b border-[#1e293b]">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-yellow-400 mb-4">
-            OLV&nbsp;EXCLUSIVE™ – Inteligência de Importação com Rota Protegida
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#d4af37] mb-6 tracking-wide">
+            OLV&nbsp;EXCLUSIVE™
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+          <h2 className="text-xl md:text-2xl font-semibold text-[#2e8ce6] mb-6">Importação com Rota Protegida para PMEs</h2>
+          <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-10">
             Pare de importar junto com seus concorrentes. Construa sua própria cadeia, proteja sua margem e domine seu nicho de mercado.
           </p>
-          <a href="#lead-magnet" className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-3 px-6 rounded-full transition">
+          <a href="#lead-magnet" className="inline-flex items-center gap-2 bg-[#2e8ce6] hover:bg-[#1b6ec4] text-white font-semibold py-3 px-6 rounded-full transition">
             🚀 Quero meu Diagnóstico Gratuito
           </a>
+        </div>
+      </section>
+
+      {/* BENEFÍCIOS CHAVE */}
+      <section className="container mx-auto px-4 py-14">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#d4af37] text-center mb-10">Benefícios Que Só o Modelo Exclusivo Entrega</h2>
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {[
+            {title:'Margem Protegida',desc:'Preço sob seu controle, sem guerra de descontos.'},
+            {title:'Insights Antecipados',desc:'Você lança tendências, não as copia.'},
+            {title:'Controle Cambial',desc:'Poder de travar câmbio e negociar frete em volume.'},
+            {title:'Escalabilidade',desc:'Modelo replicável para novas linhas e mercados.'},
+            {title:'Marca Fortalecida',desc:'Exclusividade gera percepção premium e fideliza clientes.'},
+            {title:'Risco Reduzido',desc:'Compliance integral e documentação blindada.'},
+          ].map((b,i)=>(
+            <div key={i} className="platform-card text-sm md:text-base">
+              <h3 className="text-[#2e8ce6] font-semibold mb-2 text-lg">{b.title}</h3>
+              <p className="text-gray-300 leading-relaxed">{b.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -46,7 +67,7 @@ export default function ImportacaoExclusivaPage() {
       <section className="bg-[#0a0f1d] text-gray-200 px-6 py-16">
         <div className="max-w-4xl mx-auto">
           <blockquote className="italic text-lg md:text-xl leading-relaxed border-l-4 border-yellow-400 pl-4">
-            “Cada vez que meu contêiner chegava, o mercado já estava inundado de cópias. Decidi construir minha própria base na origem, blindar minha cadeia e hoje sou eu quem dita o ritmo do setor.”
+            "Cada vez que meu contêiner chegava, o mercado já estava inundado de cópias. Decidi construir minha própria base na origem, blindar minha cadeia e hoje sou eu quem dita o ritmo do setor."
           </blockquote>
           <p className="mt-4 text-sm text-gray-400">Importador do segmento de brinquedos – caso real acompanhado pela OLV Internacional (nome preservado).</p>
         </div>
@@ -73,16 +94,18 @@ export default function ImportacaoExclusivaPage() {
       </section>
 
       {/* LEAD MAGNET – formulário */}
-      <section id="lead-magnet" className="bg-yellow-400 text-black px-6 py-14 text-center max-w-xl mx-auto my-16 rounded-xl shadow-xl">
-        <h3 className="text-2xl md:text-3xl font-extrabold mb-4">Pronto para Dominar Sua Rota?</h3>
-        <p className="text-md mb-8">Solicite um diagnóstico gratuito e receba um plano de ação personalizado.</p>
-        <form className="space-y-4" action="https://formspree.io/f/mayvlzyq" method="POST">
-          <input type="hidden" name="source" value="importacao-exclusiva-landing" />
-          <input name="nome" type="text" placeholder="Seu Nome" required className="w-full rounded px-4 py-3 border-2 border-yellow-600 placeholder-black focus:ring-2 focus:ring-yellow-800" />
-          <input name="email" type="email" placeholder="Seu E-mail" required className="w-full rounded px-4 py-3 border-2 border-yellow-600 placeholder-black focus:ring-2 focus:ring-yellow-800" />
-          <textarea name="mensagem" placeholder="Resumo da sua operação" className="w-full h-32 rounded px-4 py-3 border-2 border-yellow-600 placeholder-black focus:ring-2 focus:ring-yellow-800"></textarea>
-          <button type="submit" className="w-full bg-black text-yellow-400 py-3 rounded-md font-bold hover:bg-yellow-800 transition">Quero meu Diagnóstico</button>
-        </form>
+      <section id="lead-magnet" className="px-6 py-14 text-center max-w-xl mx-auto my-20">
+        <div className="glass">
+          <h3 className="text-2xl md:text-3xl font-extrabold mb-4">Pronto para Dominar Sua Rota?</h3>
+          <p className="text-sm md:text-base text-gray-200 mb-8">Solicite um diagnóstico gratuito e receba um plano de ação personalizado.</p>
+          <form className="space-y-4" action="https://formspree.io/f/mayvlzyq" method="POST">
+            <input type="hidden" name="source" value="importacao-exclusiva-landing" />
+            <input name="nome" type="text" placeholder="Seu Nome" required className="w-full rounded px-4 py-3 border-2 border-yellow-600 placeholder-black focus:ring-2 focus:ring-yellow-800" />
+            <input name="email" type="email" placeholder="Seu E-mail" required className="w-full rounded px-4 py-3 border-2 border-yellow-600 placeholder-black focus:ring-2 focus:ring-yellow-800" />
+            <textarea name="mensagem" placeholder="Resumo da sua operação" className="w-full h-32 rounded px-4 py-3 border-2 border-yellow-600 placeholder-black focus:ring-2 focus:ring-yellow-800"></textarea>
+            <button type="submit" className="w-full bg-[#2e8ce6] text-white py-3 rounded-md font-bold hover:bg-[#1b6ec4] transition">Quero meu Diagnóstico</button>
+          </form>
+        </div>
       </section>
     </MainLayout>
   );
