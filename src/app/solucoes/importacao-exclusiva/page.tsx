@@ -41,7 +41,7 @@ const ImportacaoExclusiva = () => {
     <MainLayout>
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         {/* Hero Section */}
-        <section className="relative py-20 px-4">
+        <section className="relative py-20 px-4 bg-gradient-to-b from-[#0d1324] via-[#0b1120] to-[#060a17]">
           <div className="max-w-6xl mx-auto text-center">
             <div className="mb-8">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#d4af37] to-[#2e8ce6] bg-clip-text text-transparent">
@@ -53,16 +53,20 @@ const ImportacaoExclusiva = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-r from-[#d4af37]/10 to-[#2e8ce6]/10 border border-[#d4af37]/30 rounded-2xl p-8 mb-12">
-              <AlertTriangle className="w-12 h-12 text-[#d4af37] mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-[#d4af37] mb-4">
-                Você compartilha sua importação... ou domina sua rota?
-              </h2>
-              <p className="text-lg text-gray-300">
-                Na OLV Internacional, ajudamos PMEs a sair da dependência de operadores logísticos
-                compartilhados para criar operações exclusivas e blindadas.
-              </p>
-            </div>
+            <Card className="mb-12 max-w-4xl mx-auto">
+              <CardHeader className="text-center flex flex-col items-center gap-2 bg-transparent border-none">
+                <AlertTriangle className="w-12 h-12 text-[#d4af37]" />
+                <CardTitle className="text-2xl font-bold text-[#d4af37]">
+                  Você compartilha sua importação... ou domina sua rota?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-lg text-gray-300 text-center">
+                  Na OLV Internacional, ajudamos PMEs a sair da dependência de operadores logísticos
+                  compartilhados para criar operações exclusivas e blindadas.
+                </p>
+              </CardContent>
+            </Card>
 
             <Button
               size="lg"
