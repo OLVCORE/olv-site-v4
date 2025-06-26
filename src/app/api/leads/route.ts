@@ -25,8 +25,8 @@ async function sendLeadEmail(payload: any) {
   `;
 
   await transporter.sendMail({
-    from: `Leads OLV <no-reply@olvinternacional.com.br>`,
-    to: 'atendimento@olvinternacional.com.br',
+    from: 'OLV Internacional <comercial@olvinternacional.com.br>',
+    to: 'comercial@olvinternacional.com.br',
     subject: 'Novo Lead – Importação Exclusiva',
     html,
   });

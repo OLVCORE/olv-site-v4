@@ -256,9 +256,9 @@ const Footer: React.FC = () => {
               <div className="flex">
                 <FaEnvelope className="text-accent mt-1 mr-3 flex-shrink-0" size={16} />
                 <p className="text-sm text-white">
-                  <span className="font-semibold">Consultas e Projetos:</span> 
-                  <a href="mailto:atendimento@olvinternacional.com.br" className="ml-1 text-gray-300 hover:text-white transition-colors">
-                    atendimento@olvinternacional.com.br
+                  <span className="font-semibold">Projetos:</span> 
+                  <a href="mailto:comercial@olvinternacional.com.br" className="ml-1 text-gray-300 hover:text-white transition-colors">
+                    comercial@olvinternacional.com.br
                   </a>
                 </p>
               </div>
@@ -267,9 +267,9 @@ const Footer: React.FC = () => {
               <div className="flex">
                 <FaEnvelope className="text-accent mt-1 mr-3 flex-shrink-0" size={16} />
                 <p className="text-sm text-white">
-                  <span className="font-semibold">Vendas:</span> 
-                  <a href="mailto:comercial@olvinternacional.com.br" className="ml-1 text-gray-300 hover:text-white transition-colors">
-                    comercial@olvinternacional.com.br
+                  <span className="font-semibold">Atendimento:</span> 
+                  <a href="mailto:atendimento@olvinternacional.com.br" className="ml-1 text-gray-300 hover:text-white transition-colors">
+                    atendimento@olvinternacional.com.br
                   </a>
                 </p>
               </div>
