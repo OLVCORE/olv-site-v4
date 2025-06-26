@@ -87,39 +87,39 @@ export default function AuthCard({ mode, onModeChange, onClose }: Props) {
             <>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="form-label" htmlFor="fname">Nome</label>
-                  <input id="fname" type="text" placeholder="Nome" className="form-input" value={form.firstName} onChange={handleChange('firstName')} />
+                  <label className="form-label sr-only" htmlFor="fname">Nome</label>
+                  <input id="fname" type="text" placeholder="Nome" className="form-input text-sm" value={form.firstName} onChange={handleChange('firstName')} />
                 </div>
                 <div>
-                  <label className="form-label" htmlFor="lname">Sobrenome</label>
-                  <input id="lname" type="text" placeholder="Sobrenome" className="form-input" value={form.lastName} onChange={handleChange('lastName')} />
+                  <label className="form-label sr-only" htmlFor="lname">Sobrenome</label>
+                  <input id="lname" type="text" placeholder="Sobrenome" className="form-input text-sm" value={form.lastName} onChange={handleChange('lastName')} />
                 </div>
               </div>
-              <label className="form-label" htmlFor="company">Empresa</label>
-              <input id="company" type="text" placeholder="Empresa" className="form-input" value={form.company} onChange={handleChange('company')} />
+              <label className="form-label sr-only" htmlFor="company">Empresa</label>
+              <input id="company" type="text" placeholder="Empresa" className="form-input text-sm" value={form.company} onChange={handleChange('company')} />
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="form-label" htmlFor="city">Cidade</label>
-                  <input id="city" type="text" placeholder="Cidade" className="form-input" value={form.city} onChange={handleChange('city')} />
+                  <label className="form-label sr-only" htmlFor="city">Cidade</label>
+                  <input id="city" type="text" placeholder="Cidade" className="form-input text-sm" value={form.city} onChange={handleChange('city')} />
                 </div>
                 <div>
-                  <label className="form-label" htmlFor="phone">Telefone</label>
-                  <input id="phone" type="tel" placeholder="Telefone" className="form-input" value={form.phone} onChange={handleChange('phone')} />
+                  <label className="form-label sr-only" htmlFor="phone">Telefone</label>
+                  <input id="phone" type="tel" placeholder="Telefone" className="form-input text-sm" value={form.phone} onChange={handleChange('phone')} />
                 </div>
               </div>
             </>
           )}
 
-          <label className="form-label" htmlFor="email">E-mail</label>
-          <input id="email" type="email" placeholder="E-mail" className="form-input" value={form.email} onChange={handleChange('email')} />
+          <label className="form-label sr-only" htmlFor="email">E-mail</label>
+          <input id="email" type="email" placeholder="E-mail" className="form-input text-sm" value={form.email} onChange={handleChange('email')} />
 
-          <label className="form-label" htmlFor="pass">Senha</label>
-          <input id="pass" type="password" placeholder="Senha" className="form-input" value={form.password} onChange={handleChange('password')} />
+          <label className="form-label sr-only" htmlFor="pass">Senha</label>
+          <input id="pass" type="password" placeholder="Senha" className="form-input text-sm" value={form.password} onChange={handleChange('password')} />
 
           {mode === 'signup' && (
             <>
-              <label className="form-label" htmlFor="confirm">Confirmar senha</label>
-              <input id="confirm" type="password" placeholder="Confirmar senha" className="form-input" value={form.confirm} onChange={handleChange('confirm')} />
+              <label className="form-label sr-only" htmlFor="confirm">Confirmar senha</label>
+              <input id="confirm" type="password" placeholder="Confirmar senha" className="form-input text-sm" value={form.confirm} onChange={handleChange('confirm')} />
             </>
           )}
 
@@ -135,9 +135,18 @@ export default function AuthCard({ mode, onModeChange, onClose }: Props) {
         {/* social */}
         <div className="text-center text-sm opacity-70">Ou continuar com</div>
         <div className="flex gap-3 justify-center">
-          <SocialButton provider="google" onClick={()=>supabase.auth.signInWithOAuth({provider:'google'})} />
-          <SocialButton provider="facebook" onClick={()=>supabase.auth.signInWithOAuth({provider:'facebook'})} />
-          <SocialButton provider="linkedin" onClick={()=>supabase.auth.signInWithOAuth({provider:'linkedin'})} />
+          <SocialButton provider="google" onClick={async ()=>{
+            try { await supabase.auth.signInWithOAuth({provider:'google'}); }
+            catch(err){ alert('Login Google indisponível no momento'); }
+          }} />
+          <SocialButton provider="facebook" onClick={async ()=>{
+            try { await supabase.auth.signInWithOAuth({provider:'facebook'}); }
+            catch(err){ alert('Login Facebook indisponível no momento'); }
+          }} />
+          <SocialButton provider="linkedin" onClick={async ()=>{
+            try { await supabase.auth.signInWithOAuth({provider:'linkedin'}); }
+            catch(err){ alert('Login LinkedIn indisponível no momento'); }
+          }} />
         </div>
 
         <div className="text-center text-sm">
@@ -150,8 +159,8 @@ export default function AuthCard({ mode, onModeChange, onClose }: Props) {
       </div>
 
       {/* banner */}
-      <div className="hidden md:block relative rounded-r-lg overflow-hidden min-h-full">
-        <Image src="/images/BANNER-HOME.jpeg" alt="banner" fill className="object-cover min-h-full" />
+      <div className="hidden md:block relative rounded-r-lg overflow-hidden h-full">
+        <Image src="/images/BANNER-HOME.jpeg" alt="banner" fill className="object-cover" />
       </div>
     </div>
   );
