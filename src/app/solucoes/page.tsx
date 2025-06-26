@@ -16,9 +16,9 @@ export default function SolucoesPage() {
   return (
     <MainLayout>
       {/* HERO DE AUTORIDADE */}
-      <section className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-700/30 shadow-xl rounded-xl p-10 mt-[calc(var(--height-header)+0.8cm)] mb-12 text-center text-yellow-100 max-w-6xl mx-auto">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-16 h-16 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
+      <section className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-700/30 shadow-xl rounded-xl p-10 mt-[calc(var(--height-header)+0.8cm)] mb-12 text-yellow-100 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center md:justify-center gap-4 text-center md:text-left">
+          <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
             <Image src="/icons/solutions-icon.svg" alt="Soluções" width={32} height={32} />
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold text-yellow-400">
