@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { AlertTriangle, CheckCircle, Target, TrendingUp, Shield, Globe } from 'lucide-react';
-import { toast } from '@/hooks/use-toast';
+import { toast } from '../../../hooks/use-toast';
 import MainLayout from "@/components/layout/MainLayout";
 
 const ImportacaoExclusiva = () => {
@@ -14,11 +14,16 @@ const ImportacaoExclusiva = () => {
     nome: '',
     email: '',
     empresa: '',
+    cnpj: '',
+    setor: '',
+    nicho: '',
+    produto: '',
+    investimento: '',
     telefone: '',
     mensagem: ''
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -34,14 +39,14 @@ const ImportacaoExclusiva = () => {
       description: 'Nossa equipe entrará em contato em até 24 horas.'
     });
     // Reset form
-    setFormData({ nome: '', email: '', empresa: '', telefone: '', mensagem: '' });
+    setFormData({ nome: '', email: '', empresa: '', cnpj: '', setor: '', nicho: '', produto: '', investimento: '', telefone: '', mensagem: '' });
   };
 
   return (
     <MainLayout>
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         {/* Hero Section */}
-        <section className="relative py-10 px-4 bg-gradient-to-b from-[#0d1324] via-[#0b1120] to-[#060a17]">
+        <section className="relative py-10 px-4 bg-gradient-to-b from-[#0d1324] via-[#0b1120] to-[#060a17] pt-[calc(var(--height-header)+0.5cm)]" id="hero">
           <div className="container text-center">
             <div className="mb-8">
               <h1 className="uppercase tracking-wider text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-[#d4af37] to-[#2e8ce6] bg-clip-text text-transparent">
@@ -233,7 +238,7 @@ const ImportacaoExclusiva = () => {
               Etapas do Modelo OLV: Importação com Exclusividade
             </h2>
 
-            <div className="space-y-8">
+            <ol className="relative border-l border-[#d4af37]/30 ml-6 space-y-8">
               {[{
                 step: '01',
                 title: 'Diagnóstico Estratégico',
@@ -258,18 +263,14 @@ const ImportacaoExclusiva = () => {
                 step: '06',
                 title: 'Aceleração Comercial',
                 description: 'Venda B2B, marketplaces e marketing digital para escala'
-              }].map((item, index) => (
-                <div key={index} className="flex items-start gap-6 p-6 bg-slate-800/50 rounded-xl border border-[#d4af37]/20">
-                  <div className="bg-[#d4af37] text-black font-bold text-xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
-                    {item.step}
-                  </div>
-                  <div>
-                     <h3 className="text-xl font-bold text-[#d4af37] mb-2">{item.title}</h3>
-                     <p className="text-gray-300">{item.description}</p>
-                  </div>
-                </div>
+              }].map(({step, title, description}) => (
+                <li key={step} className="relative pl-10">
+                  <span className="absolute -left-4 top-0 w-8 h-8 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center text-xs font-bold text-[#d4af37] shadow-md">{step}</span>
+                  <h4 className="font-bold text-[#d4af37] mb-1">{title}</h4>
+                  <p className="text-gray-300 text-sm">{description}</p>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </section>
 
@@ -301,23 +302,47 @@ const ImportacaoExclusiva = () => {
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
-                    <Input type="text" name="nome" placeholder="Seu nome completo" value={formData.nome} onChange={handleInputChange} required className="bg-slate-800 border-slate-600 text-white placeholder-gray-400" />
-                    <Input type="email" name="email" placeholder="Seu melhor email" value={formData.email} onChange={handleInputChange} required className="bg-slate-800 border-slate-600 text-white placeholder-gray-400" />
+                    <Input required name="nome" placeholder="Seu nome" value={formData.nome} onChange={handleInputChange} />
+                    <Input required type="email" name="email" placeholder="E-mail corporativo" value={formData.email} onChange={handleInputChange} />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4">
-                    <Input type="text" name="empresa" placeholder="Nome da sua empresa" value={formData.empresa} onChange={handleInputChange} required className="bg-slate-800 border-slate-600 text-white placeholder-gray-400" />
-                    <Input type="tel" name="telefone" placeholder="WhatsApp para contato" value={formData.telefone} onChange={handleInputChange} required className="bg-slate-800 border-slate-600 text-white placeholder-gray-400" />
+                    <Input required name="empresa" placeholder="Empresa" value={formData.empresa} onChange={handleInputChange} />
+                    <Input required name="cnpj" placeholder="CNPJ" value={formData.cnpj} onChange={handleInputChange} />
                   </div>
 
-                  <Textarea name="mensagem" placeholder="Conte-nos sobre seu produto/segmento e principais desafios na importação" value={formData.mensagem} onChange={handleInputChange} rows={4} className="bg-slate-800 border-slate-600 text-white placeholder-gray-400" />
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <Input required name="setor" placeholder="Setor (ex: Varejo, Indústria)" value={formData.setor} onChange={handleInputChange} />
+                    <Input required name="nicho" placeholder="Nicho de atuação" value={formData.nicho} onChange={handleInputChange} />
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <Input required name="produto" placeholder="Produto de interesse" value={formData.produto} onChange={handleInputChange} />
+                    <select
+                      required
+                      name="investimento"
+                      value={formData.investimento}
+                      onChange={handleInputChange}
+                      className="bg-transparent border border-[#2a3448] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+                    >
+                      <option value="" disabled>Capital disponível (mín. US$25k)</option>
+                      <option value="25000">US$ 25k +</option>
+                      <option value="50000">US$ 50k +</option>
+                      <option value="150000">US$ 150k +</option>
+                      <option value="300000">US$ 300k +</option>
+                    </select>
+                  </div>
+
+                  <Textarea required name="mensagem" placeholder="Descreva brevemente o projeto" value={formData.mensagem} onChange={handleInputChange} className="md:col-span-2" />
 
                   <Button type="submit" size="lg" className="w-full bg-[#d4af37] hover:bg-[#c9a332] text-black font-bold py-4 text-lg">
                     📞 Quero Meu Diagnóstico Gratuito Agora
                   </Button>
                 </form>
 
-                <p className="text-sm text-gray-400 text-center mt-6">* Diagnóstico 100% gratuito • Sem compromisso • Resposta em até 24h</p>
+                <p className="text-gray-400 text-xs mt-4 text-center max-w-md mx-auto">
+                  Todos os dados serão analisados por nossa equipe. Caso exista fit estratégico, um especialista retornará em até 24 h.
+                </p>
               </CardContent>
             </Card>
           </div>
