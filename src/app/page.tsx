@@ -78,16 +78,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Slim CTA banner – full width & pulse */}
-          <div className="my-10 animate-gold-pulse">
-            <div className="container bg-yellow-200/10 border-l-4 border-yellow-400 px-4 py-8 text-sm text-yellow-100 rounded shadow-md">
-              <p className="text-center text-md">
-                ⚠️ Importar junto com seus concorrentes destrói sua margem.
-                <Link href="/solucoes/importacao-exclusiva" className="font-semibold underline hover:text-yellow-300 ml-1">
-                  Descubra como dominar sua própria rota de importação →
-                </Link>
-              </p>
-            </div>
+          {/* Slim CTA banner – agora ocupa toda a largura da viewport */}
+          <div className="my-10 animate-gold-pulse bg-yellow-200/10 border-y-2 border-yellow-400 px-4 py-6 text-sm text-yellow-100 shadow-md">
+            <p className="text-center text-md max-w-6xl mx-auto">
+              ⚠️ Importar junto com seus concorrentes destrói sua margem.
+              <Link href="/solucoes/importacao-exclusiva" className="font-semibold underline hover:text-yellow-300 ml-1">
+                Descubra como dominar sua própria rota de importação →
+              </Link>
+            </p>
           </div>
 
           {/* Radar 360 Hub – Simuladores & Calculadoras */}
