@@ -80,7 +80,7 @@ export default function HomePage() {
 
           {/* Slim CTA banner – full width & pulse */}
           <div className="my-10 animate-gold-pulse">
-            <div className="container bg-yellow-200/10 border-l-4 border-yellow-400 px-4 py-4 text-sm text-yellow-100 rounded shadow-md">
+            <div className="container bg-yellow-200/10 border-l-4 border-yellow-400 px-4 py-8 text-sm text-yellow-100 rounded shadow-md">
               <p className="text-center">
                 ⚠️ Importar junto com seus concorrentes destrói sua margem.
                 <Link href="/solucoes/importacao-exclusiva" className="font-semibold underline hover:text-yellow-300 ml-1">

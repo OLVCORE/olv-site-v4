@@ -25,6 +25,14 @@ export default function ImportacaoExclusivaPage() {
         </div>
       </section>
 
+      {/* NARRATIVA */}
+      <section className="container mx-auto px-4 py-12 max-w-4xl text-gray-300 leading-relaxed">
+        <h2 className="sr-only">Por que Importação Exclusiva</h2>
+        <p className="mb-4 text-lg">Domine sua Rota de Importação com Inteligência e Exclusividade.</p>
+        <p className="mb-4">Pare de importar junto com seus concorrentes. Comece a importar para vencê-los.</p>
+        <p className="">Na OLV Internacional, ajudamos PMEs a sair da dependência de operadores logísticos compartilhados para criar operações exclusivas e blindadas, protegendo margem, produto e inteligência de mercado.</p>
+      </section>
+
       {/* BENEFÍCIOS CHAVE */}
       <section className="container mx-auto px-4 py-14">
         <h2 className="text-2xl md:text-3xl font-bold text-[#d4af37] text-center mb-10">Benefícios Que Só o Modelo Exclusivo Entrega</h2>
