@@ -35,7 +35,7 @@ export default function ImportacaoExclusivaPage() {
 
       {/* BENEFÍCIOS CHAVE */}
       <section className="container mx-auto px-4 py-14">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#d4af37] text-center mb-10">Benefícios Que Só o Modelo Exclusivo Entrega</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#2e8ce6] text-center mb-10">Benefícios Que Só o Modelo Exclusivo Entrega</h2>
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
             {title:'Margem Protegida',desc:'Preço sob seu controle, sem guerra de descontos.'},
@@ -55,7 +55,7 @@ export default function ImportacaoExclusivaPage() {
 
       {/* PROBLEMA – cards chamativos */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-2xl md:text-3xl font-bold text-yellow-400 text-center mb-10">Por que a Importação Compartilhada Destrói Margem?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#2e8ce6] text-center mb-10">Por que a Importação Compartilhada Destrói Margem?</h2>
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {[
             {title:'Vazamento de Inteligência',desc:'Seu fornecedor replica o produto e entrega aos seus concorrentes.'},
@@ -83,7 +83,7 @@ export default function ImportacaoExclusivaPage() {
 
       {/* SOLUÇÃO – etapas timeline */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-2xl md:text-3xl font-bold text-yellow-400 text-center mb-10">Como Funciona o Método OLV Exclusive</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#2e8ce6] text-center mb-10">Como Funciona o Método OLV Exclusive</h2>
         <ol className="relative border-l border-yellow-700 max-w-3xl mx-auto">
           {[
             'Diagnóstico Estratégico – mapeamos viabilidade, riscos e oportunidade de margem',
