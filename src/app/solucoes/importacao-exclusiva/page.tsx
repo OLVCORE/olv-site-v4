@@ -15,9 +15,11 @@ export default function ImportacaoExclusivaPage() {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#d4af37] mb-6 tracking-wide">
             OLV&nbsp;EXCLUSIVE™
           </h1>
-          <h2 className="text-xl md:text-2xl font-semibold text-[#2e8ce6] mb-6">Importação com Rota Protegida para PMEs</h2>
-          <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-10">
-            Pare de importar junto com seus concorrentes. Construa sua própria cadeia, proteja sua margem e domine seu nicho de mercado.
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#2e8ce6] mb-4 tracking-wide">
+            Importação com Rota Protegida para PMEs
+          </h2>
+          <p className="text-base md:text-lg text-gray-200 max-w-3xl mx-auto mb-6 leading-relaxed">
+            Pare de importar junto com seus concorrentes <span className="font-semibold text-white">e comece a importar para vencê-los</span>. Crie sua própria cadeia, proteja sua margem e dite o ritmo do mercado com produtos que só você possui.
           </p>
           <a href="#lead-magnet" className="inline-flex items-center gap-2 bg-[#2e8ce6] hover:bg-[#1b6ec4] text-white font-semibold py-3 px-6 rounded-full transition">
             🚀 Quero meu Diagnóstico Gratuito
@@ -26,28 +28,30 @@ export default function ImportacaoExclusivaPage() {
       </section>
 
       {/* NARRATIVA */}
-      <section className="container mx-auto px-4 py-12 max-w-4xl text-gray-300 leading-relaxed">
-        <h2 className="sr-only">Por que Importação Exclusiva</h2>
-        <p className="mb-4 text-lg">Domine sua Rota de Importação com Inteligência e Exclusividade.</p>
-        <p className="mb-4">Pare de importar junto com seus concorrentes. Comece a importar para vencê-los.</p>
-        <p className="">Na OLV Internacional, ajudamos PMEs a sair da dependência de operadores logísticos compartilhados para criar operações exclusivas e blindadas, protegendo margem, produto e inteligência de mercado.</p>
+      <section className="container mx-auto px-4 py-14 max-w-4xl text-gray-300 leading-relaxed">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#d4af37] mb-6 text-center">Domine sua Rota de Importação com Inteligência e Exclusividade</h2>
+        <p className="mb-4 text-lg text-center">Chega de dividir container, fornecedor e segredo de mercado.</p>
+        <p className="mb-4">Na <span className="font-semibold text-white">OLV Internacional</span> ajudamos PMEs a abandonar operações compartilhadas e dependentes de traders para criar <span className="text-[#2e8ce6] font-medium">cadeias exclusivas</span>, blindadas e lucrativas – com controle total sobre margem, produto e inteligência competitiva.</p>
       </section>
 
       {/* BENEFÍCIOS CHAVE */}
-      <section className="container mx-auto px-4 py-14">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#2e8ce6] text-center mb-10">Benefícios Que Só o Modelo Exclusivo Entrega</h2>
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#2e8ce6] text-center mb-10">Benefícios Exclusivos do Modelo OLV</h2>
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
-            {title:'Margem Protegida',desc:'Preço sob seu controle, sem guerra de descontos.'},
-            {title:'Insights Antecipados',desc:'Você lança tendências, não as copia.'},
-            {title:'Controle Cambial',desc:'Poder de travar câmbio e negociar frete em volume.'},
-            {title:'Escalabilidade',desc:'Modelo replicável para novas linhas e mercados.'},
-            {title:'Marca Fortalecida',desc:'Exclusividade gera percepção premium e fideliza clientes.'},
-            {title:'Risco Reduzido',desc:'Compliance integral e documentação blindada.'},
+            {title:'Margem Protegida',icon:'/icons/shield.svg',desc:'Preço sob seu controle, sem guerra de descontos.'},
+            {title:'Insights Antecipados',icon:'/icons/analytics.svg',desc:'Você lança tendências, não as copia.'},
+            {title:'Controle Cambial',icon:'/icons/currency-exchange.svg',desc:'Trave câmbio e negocie frete em volume.'},
+            {title:'Escalabilidade',icon:'/icons/rocket.svg',desc:'Modelo replicável para novas linhas e mercados.'},
+            {title:'Marca Fortalecida',icon:'/icons/handshake.svg',desc:'Exclusividade gera percepção premium.'},
+            {title:'Risco Reduzido',icon:'/icons/compliance-icon.svg',desc:'Compliance integral e documentação blindada.'},
           ].map((b,i)=>(
-            <div key={i} className="platform-card text-sm md:text-base">
-              <h3 className="text-[#2e8ce6] font-semibold mb-2 text-lg">{b.title}</h3>
-              <p className="text-gray-300 leading-relaxed">{b.desc}</p>
+            <div key={i} className="bg-[#141c2f] border border-yellow-600/20 rounded-xl p-6 shadow-lg hover:shadow-yellow-700/20 transition">
+              <div className="flex items-center mb-3">
+                <img src={b.icon} alt="" className="w-6 h-6 mr-2" />
+                <h3 className="text-[#2e8ce6] font-semibold text-lg">{b.title}</h3>
+              </div>
+              <p className="text-gray-300 text-sm leading-relaxed">{b.desc}</p>
             </div>
           ))}
         </div>
