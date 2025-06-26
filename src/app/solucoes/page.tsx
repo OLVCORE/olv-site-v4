@@ -15,31 +15,58 @@ export const metadata = {
 export default function SolucoesPage() {
   return (
     <MainLayout>
-      {/* Hero Section */}
-      <div className="bg-[#141c2f] text-white pt-8 pb-8 mt-10 md:mt-14 mb-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-2/3">
-              <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">Nossas Soluções Consultivas</h1>
-              <p className="text-lg max-w-3xl text-gray-300">
-                Oferecemos serviços especializados para otimizar seus processos de comércio exterior, 
-                logística internacional e gestão empresarial. Transformamos desafios em oportunidades 
-                através de soluções inovadoras e personalizadas para sua empresa.
-              </p>
-            </div>
-            <div className="md:w-1/3 flex justify-center mt-6 md:mt-0">
-              <div className="relative w-48 h-48 bg-[#0a0f1d] p-5 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
-                <Image 
-                  src="/icons/solutions-icon.svg" 
-                  alt="Soluções" 
-                  width={100} 
-                  height={100}
-                  className="opacity-90"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* HERO DE AUTORIDADE */}
+      <section className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-700/30 shadow-xl rounded-xl p-10 my-12 text-center text-yellow-100 max-w-6xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-yellow-400 mb-4">
+          Soluções Reais para Empresas Reais
+        </h1>
+        <p className="text-base md:text-lg text-yellow-100 max-w-2xl mx-auto mb-6">
+          Nossa missão não é oferecer consultoria genérica. É entregar operações completas, seguras, validadas em campo, e com foco total em resultado.  
+          Da inteligência à execução. Da importação à monetização.
+        </p>
+      </section>
+
+      {/* CARDS DE SOLUÇÕES */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-8">
+        {/* Importação Exclusiva */}
+        <a href="/solucoes/importacao-exclusiva" className="bg-zinc-800 border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition">
+          <h3 className="text-lg font-bold text-yellow-400 mb-2">Importação Exclusiva</h3>
+          <p className="text-sm text-yellow-100">
+            Monte sua própria rota de importação com proteção estratégica. Controle origem, margem e canal de vendas.
+          </p>
+        </a>
+
+        {/* Exceltta */}
+        <a href="/solucoes/exceltta" className="bg-zinc-800 border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition">
+          <h3 className="text-lg font-bold text-yellow-400 mb-2">Exceltta – Simulação Inteligente</h3>
+          <p className="text-sm text-yellow-100">
+            Compare produtos importados vs. nacionais, visualize margens e tome decisões com base em dados reais.
+          </p>
+        </a>
+
+        {/* Stratevo */}
+        <a href="/solucoes/stratevo" className="bg-zinc-800 border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition">
+          <h3 className="text-lg font-bold text-yellow-400 mb-2">Stratevo – Inteligência Comercial</h3>
+          <p className="text-sm text-yellow-100">
+            Relatórios completos com base em CNPJ, domínios e dados públicos para definir estratégias comerciais.
+          </p>
+        </a>
+
+        {/* OLV Engage */}
+        <a href="/solucoes/engage" className="bg-zinc-800 border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition">
+          <h3 className="text-lg font-bold text-yellow-400 mb-2">OLV Engage – Ativação Comercial</h3>
+          <p className="text-sm text-yellow-100">
+            Transforme dados em ação. Ative leads, integre canais e acelere resultados com IA aplicada ao front de vendas.
+          </p>
+        </a>
+
+        {/* Veritus */}
+        <a href="/solucoes/veritus" className="bg-zinc-800 border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition">
+          <h3 className="text-lg font-bold text-yellow-400 mb-2">Veritus – Auditoria & Compliance</h3>
+          <p className="text-sm text-yellow-100">
+            Auditoria estratégica e revisão de processos de comércio exterior para segurança e conformidade total.
+          </p>
+        </a>
       </div>
 
       {/* Main Content */}
