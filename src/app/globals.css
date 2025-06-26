@@ -996,4 +996,9 @@ body.theme-light .glass {
   box-shadow: 0 4px 14px rgba(199, 154, 48, 0.08);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+/* ---------- Unified Container ---------- */
+.container {
+  @apply max-w-6xl mx-auto px-4;
 } 
