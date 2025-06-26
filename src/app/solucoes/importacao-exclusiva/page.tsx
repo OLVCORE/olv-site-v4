@@ -19,6 +19,7 @@ const ImportacaoExclusiva = () => {
     nicho: '',
     produto: '',
     investimento: '',
+    urgencia: '',
     telefone: '',
     mensagem: ''
   });
@@ -33,13 +34,22 @@ const ImportacaoExclusiva = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Simple CNPJ validity (14 digits)
+    if (!/^[0-9]{14}$/.test(formData.cnpj.replace(/\D/g, ''))) {
+      toast({ title: 'CNPJ inválido', description: 'Digite um CNPJ com 14 dígitos.' });
+      return;
+    }
+    if (formData.mensagem.trim().length < 100) {
+      toast({ title: 'Detalhe mais o projeto', description: 'Mínimo 100 caracteres na descrição.' });
+      return;
+    }
     console.log('Lead capturado:', formData);
     toast({
       title: 'Diagnóstico Solicitado!',
       description: 'Nossa equipe entrará em contato em até 24 horas.'
     });
     // Reset form
-    setFormData({ nome: '', email: '', empresa: '', cnpj: '', setor: '', nicho: '', produto: '', investimento: '', telefone: '', mensagem: '' });
+    setFormData({ nome: '', email: '', empresa: '', cnpj: '', setor: '', nicho: '', produto: '', investimento: '', urgencia: '', telefone: '', mensagem: '' });
   };
 
   return (
@@ -323,9 +333,9 @@ const ImportacaoExclusiva = () => {
                       name="investimento"
                       value={formData.investimento}
                       onChange={handleInputChange}
-                      className="bg-transparent border border-[#2a3448] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+                      className="bg-[#1a2338] border border-[#2a3448] rounded-md px-3 py-2 text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
                     >
-                      <option value="" disabled>Capital disponível (mín. US$25k)</option>
+                      <option value="" disabled>Qual o seu investimento inicial?</option>
                       <option value="25000">US$ 25k +</option>
                       <option value="50000">US$ 50k +</option>
                       <option value="150000">US$ 150k +</option>
@@ -333,10 +343,26 @@ const ImportacaoExclusiva = () => {
                     </select>
                   </div>
 
-                  <Textarea required name="mensagem" placeholder="Descreva brevemente o projeto" value={formData.mensagem} onChange={handleInputChange} className="md:col-span-2" />
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <select
+                      required
+                      name="urgencia"
+                      value={formData.urgencia}
+                      onChange={handleInputChange}
+                      className="bg-[#1a2338] border border-[#2a3448] rounded-md px-3 py-2 text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#2e8ce6]"
+                    >
+                      <option value="" disabled>Início do projeto</option>
+                      <option value="imediato">Urgente / Imediato</option>
+                      <option value="3meses">Dentro de 3 meses</option>
+                      <option value="6meses">Dentro de 6 meses</option>
+                      <option value="mais">Mais de 6 meses</option>
+                    </select>
+                  </div>
+
+                  <Textarea required name="mensagem" placeholder="Descreva brevemente o projeto (mín. 100 caracteres)" value={formData.mensagem} onChange={handleInputChange} minLength={100} maxLength={1500} rows={6} className="md:col-span-2" />
 
                   <Button type="submit" size="lg" className="w-full bg-[#d4af37] hover:bg-[#c9a332] text-black font-bold py-4 text-lg">
-                    📞 Quero Meu Diagnóstico Gratuito Agora
+                    �� Quero Meu Diagnóstico Gratuito Agora
                   </Button>
                 </form>
 
