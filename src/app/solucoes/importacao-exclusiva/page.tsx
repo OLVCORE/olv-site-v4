@@ -296,7 +296,7 @@ const ImportacaoExclusiva = () => {
           <div className="container max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-6 text-[#d4af37]">
-                🚀 Diagnóstico Gratuito e Personalizado
+                🚀 ENTREGÁVEIS DO SEU DIAGNÓSTICO APÓS A TRIAGEM
               </h2>
               <p className="text-xl text-gray-300 mb-8">
                 Transforme sua PME hoje. Identifique gargalos, crie vantagens exclusivas no mercado,
