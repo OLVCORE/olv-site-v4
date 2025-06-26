@@ -76,8 +76,8 @@ export default function AuthCard({ mode, onModeChange, onClose }: Props) {
       {/* Form */}
       <div className="p-8 md:p-10 flex flex-col justify-center space-y-6 text-[var(--color-on-surface)]">
         <div>
-          <h1 className="text-2xl font-semibold mb-1">{mode === 'login' ? 'Welcome!' : 'Create your account'}</h1>
-          <p className="text-sm opacity-80">We are glad to see you</p>
+          <h1 className="text-2xl font-semibold mb-1">{mode === 'login' ? 'Bem-vindo!' : 'Criar sua conta'}</h1>
+          <p className="text-sm opacity-80">Que bom ter você aqui</p>
         </div>
 
         {error && <p className="text-sm text-red-500">{error}</p>}
@@ -85,55 +85,55 @@ export default function AuthCard({ mode, onModeChange, onClose }: Props) {
         <div className="space-y-4 max-h-[55vh] overflow-y-auto pr-2">
           {mode === 'signup' && (
             <>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="form-label" htmlFor="fname">First name</label>
-                  <input id="fname" type="text" className="form-input" value={form.firstName} onChange={handleChange('firstName')} />
+                  <label className="form-label" htmlFor="fname">Nome</label>
+                  <input id="fname" type="text" placeholder="Nome" className="form-input" value={form.firstName} onChange={handleChange('firstName')} />
                 </div>
                 <div>
-                  <label className="form-label" htmlFor="lname">Last name</label>
-                  <input id="lname" type="text" className="form-input" value={form.lastName} onChange={handleChange('lastName')} />
+                  <label className="form-label" htmlFor="lname">Sobrenome</label>
+                  <input id="lname" type="text" placeholder="Sobrenome" className="form-input" value={form.lastName} onChange={handleChange('lastName')} />
                 </div>
               </div>
-              <label className="form-label" htmlFor="company">Company name</label>
-              <input id="company" type="text" className="form-input" value={form.company} onChange={handleChange('company')} />
-              <div className="grid grid-cols-2 gap-3">
+              <label className="form-label" htmlFor="company">Empresa</label>
+              <input id="company" type="text" placeholder="Empresa" className="form-input" value={form.company} onChange={handleChange('company')} />
+              <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="form-label" htmlFor="city">City</label>
-                  <input id="city" type="text" className="form-input" value={form.city} onChange={handleChange('city')} />
+                  <label className="form-label" htmlFor="city">Cidade</label>
+                  <input id="city" type="text" placeholder="Cidade" className="form-input" value={form.city} onChange={handleChange('city')} />
                 </div>
                 <div>
-                  <label className="form-label" htmlFor="phone">Phone</label>
-                  <input id="phone" type="tel" className="form-input" value={form.phone} onChange={handleChange('phone')} />
+                  <label className="form-label" htmlFor="phone">Telefone</label>
+                  <input id="phone" type="tel" placeholder="Telefone" className="form-input" value={form.phone} onChange={handleChange('phone')} />
                 </div>
               </div>
             </>
           )}
 
-          <label className="form-label" htmlFor="email">Email</label>
-          <input id="email" type="email" className="form-input" value={form.email} onChange={handleChange('email')} />
+          <label className="form-label" htmlFor="email">E-mail</label>
+          <input id="email" type="email" placeholder="E-mail" className="form-input" value={form.email} onChange={handleChange('email')} />
 
-          <label className="form-label" htmlFor="pass">Password</label>
-          <input id="pass" type="password" className="form-input" value={form.password} onChange={handleChange('password')} />
+          <label className="form-label" htmlFor="pass">Senha</label>
+          <input id="pass" type="password" placeholder="Senha" className="form-input" value={form.password} onChange={handleChange('password')} />
 
           {mode === 'signup' && (
             <>
-              <label className="form-label" htmlFor="confirm">Confirm password</label>
-              <input id="confirm" type="password" className="form-input" value={form.confirm} onChange={handleChange('confirm')} />
+              <label className="form-label" htmlFor="confirm">Confirmar senha</label>
+              <input id="confirm" type="password" placeholder="Confirmar senha" className="form-input" value={form.confirm} onChange={handleChange('confirm')} />
             </>
           )}
 
           {mode === 'login' && (
-            <div className="text-right text-xs"><button className="hover:underline" onClick={() => supabase.auth.resetPasswordForEmail(form.email)}>Forgot password?</button></div>
+            <div className="text-right text-xs"><button className="hover:underline" onClick={() => supabase.auth.resetPasswordForEmail(form.email)}>Esqueceu a senha?</button></div>
           )}
 
           <button onClick={handleSubmit} disabled={loading} className="w-full py-2 rounded bg-[var(--color-primary)] text-white hover:opacity-90 disabled:opacity-60">
-            {loading ? 'Please wait...' : mode === 'login' ? 'Sign in' : 'Join us'}
+            {loading ? 'Aguarde...' : mode === 'login' ? 'Entrar' : 'Criar conta'}
           </button>
         </div>
 
         {/* social */}
-        <div className="text-center text-sm opacity-70">Or continue with</div>
+        <div className="text-center text-sm opacity-70">Ou continuar com</div>
         <div className="flex gap-3 justify-center">
           <SocialButton provider="google" onClick={()=>supabase.auth.signInWithOAuth({provider:'google'})} />
           <SocialButton provider="facebook" onClick={()=>supabase.auth.signInWithOAuth({provider:'facebook'})} />
@@ -142,16 +142,16 @@ export default function AuthCard({ mode, onModeChange, onClose }: Props) {
 
         <div className="text-center text-sm">
           {mode === 'login' ? (
-            <>Don't have an account yet? <button onClick={() => onModeChange('signup')} className="text-[var(--color-accent)] hover:underline">Sign up</button></>
+            <>Ainda não tem conta? <button onClick={() => onModeChange('signup')} className="text-[var(--color-accent)] hover:underline">Criar conta</button></>
           ) : (
-            <>Back to <button onClick={() => onModeChange('login')} className="text-[var(--color-accent)] hover:underline">Sign in</button></>
+            <>Voltar para <button onClick={() => onModeChange('login')} className="text-[var(--color-accent)] hover:underline">Entrar</button></>
           )}
         </div>
       </div>
 
       {/* banner */}
-      <div className="hidden md:block relative rounded-r-lg overflow-hidden">
-        <Image src="/images/BANNER-HOME.jpeg" alt="banner" fill className="object-cover" />
+      <div className="hidden md:block relative rounded-r-lg overflow-hidden min-h-full">
+        <Image src="/images/BANNER-HOME.jpeg" alt="banner" fill className="object-cover min-h-full" />
       </div>
     </div>
   );
