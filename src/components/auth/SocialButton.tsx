@@ -32,7 +32,7 @@ export default function SocialButton({ provider, onClick }: Props) {
   return (
     <button
       onClick={onClick}
-      className="flex items-center justify-center gap-2 w-full py-2 rounded border-2 border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 transition text-[var(--color-on-surface)]"
+      className="flex items-center justify-center gap-2 w-full py-2 rounded border-2 border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 transition text-[var(--color-on-surface-opposite)]"
     >
       {Icons[provider]}
       <span className="text-sm font-medium uppercase tracking-wide">

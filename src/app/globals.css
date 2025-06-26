@@ -19,6 +19,10 @@
   --color-surface-light: #1a1f29; /* para cards escuros */
   --color-accent-light: #c4a96b;  /* dourado suave no dark */
 
+  /* Opposite surface for modals */
+  --color-surface-opposite: #ffffff;
+  --color-on-surface-opposite: #1f2937;
+
   /* Platform brand colours */
   --stratevo-color: #1B3F8B;
   --exceltta-color: #0F5F66;
@@ -61,6 +65,10 @@
     --color-on-surface: #1f2937;
     --color-surface-light: #f1f5f9;
     --color-accent-light: #f9eecd;
+
+    /* Opposite surface for modals */
+    --color-surface-opposite: #11161e;
+    --color-on-surface-opposite: #d1d5db;
 
     /* Platform brand colours */
     --stratevo-color: #2e59a8; /* 15% lighter */
