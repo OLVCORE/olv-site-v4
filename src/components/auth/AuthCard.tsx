@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { supabase } from '@/lib/supabaseClient';
 import SocialButton from './SocialButton';
+import './auth-card.css';
 
 interface Props {
   mode: 'login' | 'signup';
@@ -71,7 +72,7 @@ export default function AuthCard({ mode, onModeChange, onClose }: Props) {
   }
 
   return (
-    <div className="bg-[var(--color-surface)] bg-opacity-100 border border-[var(--color-gold)] shadow-lg rounded-lg md:rounded-l-lg overflow-hidden w-full max-w-5xl grid grid-cols-1 md:grid-cols-2">
+    <div className="auth-card border border-[var(--color-gold)] shadow-lg rounded-lg md:rounded-l-lg overflow-hidden w-full max-w-5xl grid grid-cols-1 md:grid-cols-2">
       {/* Form */}
       <div className="p-8 md:p-10 flex flex-col justify-center space-y-6 text-[var(--color-on-surface)]">
         <div>
