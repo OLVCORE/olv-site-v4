@@ -79,7 +79,7 @@ export default function HomePage() {
           </div>
 
           {/* Slim CTA banner – agora ocupa toda a largura da viewport */}
-          <div className="my-10 animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 px-4 py-1 md:py-[6px] text-sm md:text-base leading-snug text-yellow-100 shadow-md">
+          <div className="my-10 animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 px-4 py-1 md:py-[6px] text-sm md:text-base leading-snug text-yellow-100 dark:text-yellow-100 text-[#2e8ce6] shadow-md home-alert">
             <p className="text-center max-w-6xl mx-auto">
               ⚠️ Importar junto com seus concorrentes destrói sua margem.
               <Link href="/solucoes/importacao-exclusiva" className="font-semibold underline hover:text-yellow-300 ml-1">

@@ -986,7 +986,12 @@ section#noticias .grid {
 
 /* ---------- Section Spacing ---------- */
 .section + .section {
-  @apply mt-6;
+  margin-top: 0.8cm; /* ≈30px */
+}
+
+/* card grid gap helper */
+.card-grid {
+  gap: 0.5cm;
 }
 
 /* Light theme variant for glass cards */
