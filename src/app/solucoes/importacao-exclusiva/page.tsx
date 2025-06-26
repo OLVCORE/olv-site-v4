@@ -44,7 +44,7 @@ const ImportacaoExclusiva = () => {
         <section className="relative py-20 px-4">
           <div className="max-w-6xl mx-auto text-center">
             <div className="mb-8">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#d4af37] to-[#2e8ce6] bg-clip-text text-transparent">
                 Domine Sua Rota de Importação
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8">
@@ -53,9 +53,9 @@ const ImportacaoExclusiva = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/30 rounded-2xl p-8 mb-12">
-              <AlertTriangle className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-yellow-400 mb-4">
+            <div className="bg-gradient-to-r from-[#d4af37]/10 to-[#2e8ce6]/10 border border-[#d4af37]/30 rounded-2xl p-8 mb-12">
+              <AlertTriangle className="w-12 h-12 text-[#d4af37] mx-auto mb-4" />
+              <h2 className="text-2xl font-bold text-[#d4af37] mb-4">
                 Você compartilha sua importação... ou domina sua rota?
               </h2>
               <p className="text-lg text-gray-300">
@@ -66,7 +66,7 @@ const ImportacaoExclusiva = () => {
 
             <Button
               size="lg"
-              className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-8 py-4 text-lg rounded-full"
+              className="bg-[#d4af37] hover:bg-[#c9a332] text-black font-bold px-8 py-4 text-lg rounded-full"
               onClick={() => document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
               🚀 Quero Meu Diagnóstico Gratuito
@@ -77,19 +77,19 @@ const ImportacaoExclusiva = () => {
         {/* Case Real Section */}
         <section className="py-16 px-4 bg-slate-800/50">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#d4af37]">
               Caso Real: A Virada de Jogo de uma PME
             </h2>
 
-            <Card className="bg-slate-900/80 border-yellow-500/20">
+            <Card className="bg-slate-900/80 border-[#d4af37]/20">
               <CardContent className="p-8">
                 <blockquote className="text-lg md:text-xl italic text-gray-300 leading-relaxed mb-6">
                   "Toda vez que meu contêiner chegava, os chineses já tinham espalhado o produto.
                   Me copiaram, me queimaram, me derrubaram. Eu virei o jogo."
                 </blockquote>
 
-                <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-xl p-6 mb-6">
-                  <h3 className="text-xl font-bold text-green-400 mb-3">A Solução Estratégica:</h3>
+                <div className="bg-gradient-to-r from-[#2e8ce6]/20 to-[#2e8ce6]/20 border border-[#2e8ce6]/30 rounded-xl p-6 mb-6">
+                  <h3 className="text-xl font-bold text-[#2e8ce6] mb-3">A Solução Estratégica:</h3>
                   <blockquote className="text-lg text-gray-300 italic">
                     "Montei minha própria estrutura, cortei os intermediários e hoje sou eu quem desenvolve
                     diretamente na origem. Agora vendo para atacadistas e conquistei controle completo da cadeia."
@@ -98,18 +98,18 @@ const ImportacaoExclusiva = () => {
 
                 <div className="grid md:grid-cols-3 gap-6 mt-8">
                   <div className="text-center">
-                    <Shield className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-                    <h4 className="font-bold text-yellow-400">Proteção Total</h4>
+                    <Shield className="w-12 h-12 text-[#d4af37] mx-auto mb-3" />
+                    <h4 className="font-bold text-[#d4af37]">Proteção Total</h4>
                     <p className="text-gray-400">Operação blindada na origem</p>
                   </div>
                   <div className="text-center">
-                    <Target className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-                    <h4 className="font-bold text-yellow-400">Exclusividade</h4>
+                    <Target className="w-12 h-12 text-[#d4af37] mx-auto mb-3" />
+                    <h4 className="font-bold text-[#d4af37]">Exclusividade</h4>
                     <p className="text-gray-400">Produtos que só ele tem</p>
                   </div>
                   <div className="text-center">
-                    <TrendingUp className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-                    <h4 className="font-bold text-yellow-400">Controle de Preços</h4>
+                    <TrendingUp className="w-12 h-12 text-[#d4af37] mx-auto mb-3" />
+                    <h4 className="font-bold text-[#d4af37]">Controle de Preços</h4>
                     <p className="text-gray-400">Margem protegida e lucrativa</p>
                   </div>
                 </div>
@@ -121,14 +121,14 @@ const ImportacaoExclusiva = () => {
         {/* Problemas da Importação Compartilhada */}
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-red-400">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#2e8ce6]">
               Por Que PMEs Perdem Mercado na Importação Compartilhada?
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="bg-red-900/20 border-red-500/30">
+              <Card className="bg-[#1a2338]/60 border-[#2a3448]/30">
                 <CardHeader>
-                  <CardTitle className="text-red-400 flex items-center gap-3">
+                  <CardTitle className="text-[#2e8ce6] flex items-center gap-3">
                     <AlertTriangle className="w-6 h-6" />
                     Vazamento de Inteligência
                   </CardTitle>
@@ -143,10 +143,10 @@ const ImportacaoExclusiva = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-red-900/20 border-red-500/30">
+              <Card className="bg-[#1a2338]/60 border-[#2a3448]/30">
                 <CardHeader>
-                  <CardTitle className="text-red-400 flex items-center gap-3">
-                    <TrendingUp className="w-6 h-6 rotate-180" />
+                  <CardTitle className="text-[#2e8ce6] flex items-center gap-3">
+                    <TrendingUp className="w-6 h-6 rotate-180 text-[#d4af37]" />
                     Destruição de Margem
                   </CardTitle>
                 </CardHeader>
@@ -166,7 +166,7 @@ const ImportacaoExclusiva = () => {
         {/* Solução OLV */}
         <section className="py-16 px-4 bg-gradient-to-r from-slate-800/50 to-slate-900/50">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#d4af37]">
               A Solução da OLV Internacional
             </h2>
 
@@ -204,9 +204,9 @@ const ImportacaoExclusiva = () => {
                 title: 'Suporte Tático',
                 desc: 'Acompanhamento estratégico e operacional contínuo para domínio do mercado.'
               }].map((card, idx) => (
-                <Card key={idx} className="bg-slate-900/80 border-yellow-500/20 hover:border-yellow-400/50 transition-colors">
+                <Card key={idx} className="bg-slate-900/80 border-[#d4af37]/20 hover:border-[#d4af37]/50 transition-colors">
                   <CardHeader>
-                    <CardTitle className="text-yellow-400 flex items-center gap-3">
+                    <CardTitle className="text-[#d4af37] flex items-center gap-3">
                       <card.icon className="w-6 h-6" />
                       {card.title}
                     </CardTitle>
@@ -225,7 +225,7 @@ const ImportacaoExclusiva = () => {
         {/* Metodologia OLV */}
         <section className="py-16 px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#d4af37]">
               Etapas do Modelo OLV: Importação com Exclusividade
             </h2>
 
@@ -255,12 +255,12 @@ const ImportacaoExclusiva = () => {
                 title: 'Aceleração Comercial',
                 description: 'Venda B2B, marketplaces e marketing digital para escala'
               }].map((item, index) => (
-                <div key={index} className="flex items-start gap-6 p-6 bg-slate-800/50 rounded-xl border border-yellow-500/20">
-                  <div className="bg-yellow-500 text-black font-bold text-xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                <div key={index} className="flex items-start gap-6 p-6 bg-slate-800/50 rounded-xl border border-[#d4af37]/20">
+                  <div className="bg-[#d4af37] text-black font-bold text-xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                     {item.step}
                   </div>
                   <div>
-                     <h3 className="text-xl font-bold text-yellow-400 mb-2">{item.title}</h3>
+                     <h3 className="text-xl font-bold text-[#d4af37] mb-2">{item.title}</h3>
                      <p className="text-gray-300">{item.description}</p>
                   </div>
                 </div>
@@ -270,10 +270,10 @@ const ImportacaoExclusiva = () => {
         </section>
 
         {/* Lead Magnet Form */}
-        <section id="lead-form" className="py-20 px-4 bg-gradient-to-r from-yellow-500/10 to-orange-500/10">
+        <section id="lead-form" className="py-20 px-4 bg-gradient-to-r from-[#2e8ce6]/10 to-[#2e8ce6]/5">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-yellow-400">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#d4af37]">
                 🚀 Diagnóstico Gratuito e Personalizado
               </h2>
               <p className="text-xl text-gray-300 mb-8">
@@ -281,8 +281,8 @@ const ImportacaoExclusiva = () => {
                 proteja suas margens e monte um plano sob medida para sua operação exclusiva.
               </p>
 
-              <div className="bg-slate-900/80 border border-yellow-500/30 rounded-xl p-8 mb-8">
-                <h3 className="text-lg font-bold text-yellow-400 mb-4">O que você receberá:</h3>
+              <div className="bg-slate-900/80 border border-[#d4af37]/30 rounded-xl p-8 mb-8">
+                <h3 className="text-lg font-bold text-[#d4af37] mb-4">O que você receberá:</h3>
                 <ul className="text-left space-y-2 text-gray-300">
                   <li>✅ Análise do potencial do seu produto/segmento</li>
                   <li>✅ Mapeamento de fornecedores estratégicos</li>
@@ -293,7 +293,7 @@ const ImportacaoExclusiva = () => {
               </div>
             </div>
 
-            <Card className="bg-slate-900/80 border-yellow-500/30">
+            <Card className="bg-slate-900/80 border-[#d4af37]/30">
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
@@ -308,7 +308,7 @@ const ImportacaoExclusiva = () => {
 
                   <Textarea name="mensagem" placeholder="Conte-nos sobre seu produto/segmento e principais desafios na importação" value={formData.mensagem} onChange={handleInputChange} rows={4} className="bg-slate-800 border-slate-600 text-white placeholder-gray-400" />
 
-                  <Button type="submit" size="lg" className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 text-lg">
+                  <Button type="submit" size="lg" className="w-full bg-[#d4af37] hover:bg-[#c9a332] text-black font-bold py-4 text-lg">
                     📞 Quero Meu Diagnóstico Gratuito Agora
                   </Button>
                 </form>
@@ -322,7 +322,7 @@ const ImportacaoExclusiva = () => {
         {/* Credibilidade Final */}
         <section className="py-16 px-4 bg-slate-800/50">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-yellow-400 mb-4">
+            <h3 className="text-2xl font-bold text-[#d4af37] mb-4">
               Sim, é desafiador. Mas é totalmente possível.
             </h3>
             <p className="text-lg text-gray-300 mb-8">
