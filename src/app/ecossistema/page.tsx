@@ -197,6 +197,10 @@ export default function EcossistemaPage() {
 
   return (
     <MainLayout>
+      {/* Beta banner */}
+      <div className="animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 px-4 py-2 text-center text-sm leading-snug text-on-surface dark:text-yellow-100 mb-6">
+        🚧 Todas as ferramentas do Ecossistema estão em fase BETA – grandes lançamentos a caminho!
+      </div>
       <div className="main-content">
         {/* SEÇÃO HERO ECOSSISTEMA */}
         <section className="section mt-12">

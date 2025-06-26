@@ -17,9 +17,14 @@ export default function SolucoesPage() {
     <MainLayout>
       {/* HERO DE AUTORIDADE */}
       <section className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-700/30 shadow-xl rounded-xl p-10 mt-[calc(var(--height-header)+0.8cm)] mb-12 text-center text-yellow-100 max-w-6xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-yellow-400 mb-4">
-          Soluções Reais para Empresas Reais
-        </h1>
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-16 h-16 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
+            <Image src="/icons/solutions-icon.svg" alt="Soluções" width={32} height={32} />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-yellow-400">
+            Soluções Reais para Empresas Reais
+          </h1>
+        </div>
         <p className="text-base md:text-lg text-yellow-100 max-w-2xl mx-auto mb-6">
           Nossa missão não é oferecer consultoria genérica. É entregar operações completas, seguras, validadas em campo, e com foco total em resultado.  
           Da inteligência à execução. Da importação à monetização.
@@ -27,9 +32,9 @@ export default function SolucoesPage() {
       </section>
 
       {/* CARDS DE SOLUÇÕES */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 card-grid max-w-6xl mx-auto mt-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 card-grid max-w-6xl mx-auto mt-6">
         {/* Importação Exclusiva */}
-        <a href="/solucoes/importacao-exclusiva" className="bg-[#141c2f] dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition text-on-surface dark:text-yellow-100">
+        <a href="/solucoes/importacao-exclusiva" className="dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition dark:text-white text-on-surface">
           <h3 className="text-lg font-bold text-yellow-400 mb-2">Importação Exclusiva</h3>
           <p className="text-sm text-yellow-100">
             Monte sua própria rota de importação com proteção estratégica. Controle origem, margem e canal de vendas.
@@ -37,7 +42,7 @@ export default function SolucoesPage() {
         </a>
 
         {/* Exceltta */}
-        <a href="/solucoes/exceltta" className="bg-[#141c2f] dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition text-on-surface dark:text-yellow-100">
+        <a href="/solucoes/exceltta" className="dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition dark:text-white text-on-surface">
           <h3 className="text-lg font-bold text-yellow-400 mb-2">Exceltta – Simulação Inteligente</h3>
           <p className="text-sm text-yellow-100">
             Compare produtos importados vs. nacionais, visualize margens e tome decisões com base em dados reais.
@@ -45,7 +50,7 @@ export default function SolucoesPage() {
         </a>
 
         {/* Stratevo */}
-        <a href="/solucoes/stratevo" className="bg-[#141c2f] dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition text-on-surface dark:text-yellow-100">
+        <a href="/solucoes/stratevo" className="dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition dark:text-white text-on-surface">
           <h3 className="text-lg font-bold text-yellow-400 mb-2">Stratevo – Inteligência Comercial</h3>
           <p className="text-sm text-yellow-100">
             Relatórios completos com base em CNPJ, domínios e dados públicos para definir estratégias comerciais.
@@ -53,7 +58,7 @@ export default function SolucoesPage() {
         </a>
 
         {/* OLV Engage */}
-        <a href="/solucoes/engage" className="bg-[#141c2f] dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition text-on-surface dark:text-yellow-100">
+        <a href="/solucoes/engage" className="dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition dark:text-white text-on-surface">
           <h3 className="text-lg font-bold text-yellow-400 mb-2">OLV Engage – Ativação Comercial</h3>
           <p className="text-sm text-yellow-100">
             Transforme dados em ação. Ative leads, integre canais e acelere resultados com IA aplicada ao front de vendas.
@@ -61,7 +66,7 @@ export default function SolucoesPage() {
         </a>
 
         {/* Veritus */}
-        <a href="/solucoes/veritus" className="bg-[#141c2f] dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition text-on-surface dark:text-yellow-100">
+        <a href="/solucoes/veritus" className="dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition dark:text-white text-on-surface">
           <h3 className="text-lg font-bold text-yellow-400 mb-2">Veritus – Auditoria & Compliance</h3>
           <p className="text-sm text-yellow-100">
             Auditoria estratégica e revisão de processos de comércio exterior para segurança e conformidade total.
