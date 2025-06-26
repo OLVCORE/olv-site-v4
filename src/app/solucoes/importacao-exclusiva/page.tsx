@@ -32,7 +32,7 @@ const ImportacaoExclusiva = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Simple CNPJ validity (14 digits)
     if (!/^[0-9]{14}$/.test(formData.cnpj.replace(/\D/g, ''))) {
@@ -43,11 +43,18 @@ const ImportacaoExclusiva = () => {
       toast({ title: 'Detalhe mais o projeto', description: 'Mínimo 100 caracteres na descrição.' });
       return;
     }
-    console.log('Lead capturado:', formData);
-    toast({
-      title: 'Diagnóstico Solicitado!',
-      description: 'Nossa equipe entrará em contato em até 24 horas.'
-    });
+    try {
+      const res = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (!res.ok) throw new Error('Erro ao enviar');
+      toast({ title: 'Diagnóstico solicitado!', description: 'Recebemos seus dados e entraremos em contato.' });
+    } catch (err) {
+      toast({ title: 'Falha ao enviar', description: 'Tente novamente em instantes.' });
+      return;
+    }
     // Reset form
     setFormData({ nome: '', email: '', empresa: '', cnpj: '', setor: '', nicho: '', produto: '', investimento: '', urgencia: '', telefone: '', mensagem: '' });
   };
