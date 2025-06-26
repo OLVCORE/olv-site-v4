@@ -83,7 +83,7 @@ const ImportacaoExclusiva = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg text-gray-300 text-center">
+                <p className="text-lg text-on-surface text-center">
                   Na OLV Internacional, ajudamos PMEs a sair da dependência de operadores logísticos
                   compartilhados para criar operações exclusivas e blindadas.
                 </p>
@@ -109,14 +109,14 @@ const ImportacaoExclusiva = () => {
 
             <Card className="bg-slate-900/80 border-[#d4af37]/20">
               <CardContent className="p-8">
-                <blockquote className="text-lg md:text-xl italic text-gray-300 leading-relaxed mb-6">
+                <blockquote className="text-lg md:text-xl italic text-on-surface leading-relaxed mb-6">
                   "Toda vez que meu contêiner chegava, os chineses já tinham espalhado o produto.
                   Me copiaram, me queimaram, me derrubaram. Eu virei o jogo."
                 </blockquote>
 
                 <div className="bg-gradient-to-r from-[#2e8ce6]/20 to-[#2e8ce6]/20 border border-[#2e8ce6]/30 rounded-xl p-6 mb-6">
                   <h3 className="text-xl font-bold text-[#2e8ce6] mb-3">A Solução Estratégica:</h3>
-                  <blockquote className="text-lg text-gray-300 italic">
+                  <blockquote className="text-lg text-on-surface italic">
                     "Montei minha própria estrutura, cortei os intermediários e hoje sou eu quem desenvolve
                     diretamente na origem. Agora vendo para atacadistas e conquistei controle completo da cadeia."
                   </blockquote>
@@ -160,7 +160,7 @@ const ImportacaoExclusiva = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3 text-gray-300">
+                  <ul className="space-y-3 text-on-surface">
                     <li>• Seu produto é conhecido antes mesmo de chegar</li>
                     <li>• Fornecedor chinês replica e vende para outros</li>
                     <li>• Você vira cobaia de mercado para os outros ganharem</li>
@@ -177,7 +177,7 @@ const ImportacaoExclusiva = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3 text-gray-300">
+                  <ul className="space-y-3 text-on-surface">
                     <li>• Sua margem é destruída pela guerra de preços</li>
                     <li>• "Cadeia dividida" facilita guerra de preços</li>
                     <li>• Contribui para rivalidade direta de players maiores</li>
@@ -197,7 +197,7 @@ const ImportacaoExclusiva = () => {
             </h2>
 
             <div className="text-center mb-12">
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+              <p className="text-xl text-on-surface max-w-4xl mx-auto">
                 Criamos com você uma rota protegida, com controle, blindagem e autonomia.
                 Oferecemos apoio tático-operacional, planejamento de margem e visão de longo prazo.
               </p>
@@ -238,7 +238,7 @@ const ImportacaoExclusiva = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-300">
+                    <p className="text-on-surface">
                       {card.desc}
                     </p>
                   </CardContent>
@@ -284,7 +284,7 @@ const ImportacaoExclusiva = () => {
                 <li key={step} className="relative pl-10">
                   <span className="absolute -left-4 top-0 w-8 h-8 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center text-xs font-bold text-[#d4af37] shadow-md">{step}</span>
                   <h4 className="font-bold text-[#d4af37] mb-1">{title}</h4>
-                  <p className="text-gray-300 text-sm">{description}</p>
+                  <p className="text-on-surface text-sm">{description}</p>
                 </li>
               ))}
             </ol>
@@ -298,14 +298,14 @@ const ImportacaoExclusiva = () => {
               <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-6 text-[#d4af37]">
                 🚀 ENTREGÁVEIS DO SEU DIAGNÓSTICO APÓS A TRIAGEM
               </h2>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-xl text-on-surface mb-8">
                 Transforme sua PME hoje. Identifique gargalos, crie vantagens exclusivas no mercado,
                 proteja suas margens e monte um plano sob medida para sua operação exclusiva.
               </p>
 
               <div className="bg-slate-900/80 border border-[#d4af37]/30 rounded-xl p-8 mb-8">
                 <h3 className="text-lg font-bold text-[#d4af37] mb-4">O que você receberá:</h3>
-                <ul className="text-left space-y-2 text-gray-300">
+                <ul className="text-left space-y-2 text-on-surface">
                   <li>✅ Análise do potencial do seu produto/segmento</li>
                   <li>✅ Mapeamento de fornecedores estratégicos</li>
                   <li>✅ Projeção de margem e viabilidade</li>
@@ -387,7 +387,7 @@ const ImportacaoExclusiva = () => {
             <h3 className="text-2xl font-bold uppercase tracking-wider text-[#d4af37] mb-4">
               Sim, é desafiador. Mas é totalmente possível.
             </h3>
-            <p className="text-lg text-gray-300 mb-8">
+            <p className="text-lg text-on-surface mb-8">
               Com experiência, método e apoio sólido, você pode criar uma operação de importação
               tática, lucrativa e independente. Esse é o diferencial entre os dominantes e os sobreviventes.
             </p>
