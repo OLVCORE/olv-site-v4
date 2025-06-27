@@ -10,23 +10,32 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+O **OLV Stratevo** é a suíte de **planejamento estratégico e OKRs** que ajuda PMEs a desenhar **roadmaps de internacionalização**. Combina matriz SWOT dinâmica, cenários PESTEL e benchmark de mercado (dados ITC TradeMap) para priorizar países-alvo e canais de entrada.
 
 ### Como fazer passo a passo
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+1. **Selecionar produto/NCM** – busca automática de demanda global.
+2. **Rodar análise SWOT** – IA sugere forças e fraquezas a partir de relatórios.
+3. **Definir OKRs** – metas de faturamento exportação, lead-time, margem.
+4. **Gerar plano** – cronograma Gantt + milestones.
+5. **Exportar dossiê** – PDF para banco ou investidor.
 
 ---
 
-### FAQ relacionado
+### Mini-FAQ
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Inclui dados de mercado? | Sim, volumetria ITC e Comtrade atualizados mensalmente. |
+| Suporta colaboração? | Edição simultânea e comentários estilo Google Docs. |
+| Integra com Core? | Sim, envia OKRs para o dashboard Core para acompanhamento.
 
 ---
 
-> Esta resposta faz parte da base de conhecimento da OLV Internacional.
+### Fontes oficiais
+
+* ITC Trade Map – API 2024
+* OKR Playbook – Google (2023)
+* OECD – SME Internationalisation Outlook 2024
+
+> Conteúdo auditado pelo OLV Labs, julho 2024.

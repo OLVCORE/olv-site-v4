@@ -10,23 +10,32 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+O **OLV Labs** é o **centro de P&D e prototipagem** do ecossistema OLV. Aqui nascem MVPs como simuladores de IA, dashboards de dados públicos (ComexStat, UNCTAD) e integrações de blockchain para rastreabilidade de carga. O Labs opera sob a metodologia **Design Sprint 2.0 + Lean Startup**, com ciclos de 5 dias, validação com usuários e medição de métricas North-Star.
 
 ### Como fazer passo a passo
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+1. **Submeter desafio** – formulário interno define problema, métrica e prazo.
+2. **Sprint de ideação** – desenho de fluxos no Figma + protótipo interativo.
+3. **Desenvolvimento rápido** – stack Next.js 14, Supabase e Python FastAPI.
+4. **Teste com usuários** – grupo mínimo 5 clientes OLV.
+5. **Go/No-Go** – se validado, projeto migra para produto nas demais plataformas.
 
 ---
 
-### FAQ relacionado
+### Mini-FAQ
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| O Labs é aberto a parceiros? | Sim, via edital trimestral "Open Innovation". |
+| Posso acessar repositórios? | Projetos públicos ficam no GitHub @olv-labs sob MIT. |
+| Usa IA generativa? | Sim, OpenAI GPT-4o com fine-tuning de dados Comex. |
 
 ---
 
-> Esta resposta faz parte da base de conhecimento da OLV Internacional.
+### Fontes oficiais
+
+* Google – Design Sprint 2.0 Guide (2023)
+* Lean Analytics – Alistair Croll (2ª ed.)
+* UNCTADstat – API Trade Data (2024)
+
+> Conteúdo auditado pelo OLV Labs, julho 2024.

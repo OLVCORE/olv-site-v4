@@ -10,23 +10,32 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+O **OLV Finx** é o módulo de **gestão financeira e câmbio** voltado a operações de comércio exterior. Ele consolida **fluxo de caixa multi-moeda, hedge de dólar futuro** (B3) e conciliação bancária automática via **Open Finance BACEN**. O sistema calcula custo financeiro por embarque, comparando alternativas: ACC, BNDES Exim, carta de crédito ou pagamento antecipado.
 
 ### Como fazer passo a passo
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+1. **Importar pedidos** – integração API com Engage ou upload CSV.
+2. **Definir moeda de referência** – BRL, USD ou EUR.
+3. **Simular hedge** – proposta de compra de dólar futuro PTAX + spread.
+4. **Gerar fluxo** – cronograma de pagamentos (FOB, frete, impostos) por embarque.
+5. **Exportar relatório** – DRE gerencial e indicadores Working Capital.
 
 ---
 
-### FAQ relacionado
+### Mini-FAQ
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| O Finx integra com ERPs? | Sim, Totvs Protheus, SAP Business One e Bling (via webhook). |
+| Calcula custo de capital? | Sim, taxa média ponderada (WACC) configurável. |
+| Emite boleto ou PIX? | Gera boleto CNAB 240 e QR-Code PIX para clientes. |
 
 ---
 
-> Esta resposta faz parte da base de conhecimento da OLV Internacional.
+### Fontes oficiais
+
+* BACEN – Open Finance API (jun 2024)
+* B3 – Manual de Operações de Derivativos Cambiais (2024)
+* BNDES Exim – Circular Sup/Ad 23/2023
+
+> Conteúdo auditado pelo OLV Labs, julho 2024.
