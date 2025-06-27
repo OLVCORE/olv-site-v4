@@ -16,7 +16,7 @@ export default function SolucoesPage() {
   return (
     <MainLayout>
       {/* HERO DE AUTORIDADE */}
-      <section className="container bg-[#141c2f] border border-[#2a3448] shadow-md rounded-xl p-8 mt-[calc(var(--height-header)+0.8cm)] mb-12 text-gray-200 hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+      <section className="container bg-[#141c2f] border border-[#2a3448] shadow-md rounded-xl p-8 mt-[0.8cm] mb-[0.8cm] text-gray-200 hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
         <div className="flex flex-row items-center justify-start gap-4 text-left">
           <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
             <Image src="/icons/solutions-icon.svg" alt="Soluções" width={32} height={32} />
@@ -32,7 +32,7 @@ export default function SolucoesPage() {
       </section>
 
       {/* SLIM CTA BANNER – substitui grid de cards */}
-      <div className="my-10 animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 px-4 py-1 md:py-[6px] text-sm md:text-base leading-snug text-gray-200 dark:text-gray-200 shadow-md container home-alert">
+      <div className="animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 px-4 py-1 md:py-[6px] text-sm md:text-base leading-snug text-gray-200 dark:text-gray-200 shadow-md container my-[0.8cm] home-alert">
         <p className="text-center">
           ⚠️ Importar junto com seus concorrentes destrói sua margem.
           <Link href="/solucoes/importacao-exclusiva" className="font-semibold underline text-[#d4af37] hover:text-yellow-300 ml-1">
