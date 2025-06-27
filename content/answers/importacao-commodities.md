@@ -5,7 +5,7 @@ description: "Riscos de volatilidade, logística granel e exigências sanitária
 mainQuestion: "Como importar commodities como soja, minério de ferro e petróleo?"
 faqs:
   - q: "Como importar commodities como soja, minério de ferro e petróleo?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Para importar commodities é indispensável travar preço via hedge em bolsa, reservar logística a granel compatível (silo/tanque) e cumprir normas sanitárias ou fitossanitárias do MAPA/ANP."
 ---
 
 ## Resposta rápida

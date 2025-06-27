@@ -5,7 +5,7 @@ description: "Benefícios fiscais, financiamento e operações turn-key."
 mainQuestion: "Quais cuidados ao importar máquinas e equipamentos?"
 faqs:
   - q: "Quais cuidados ao importar máquinas e equipamentos?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Aproveite Ex-Tarifário para reduzir imposto, financie pela linha FINAME ou PROEX e inclua instalação turn-key (posição 98.01) já no projeto de importação para evitar reclassificação fiscal."
 ---
 
 ## Resposta rápida

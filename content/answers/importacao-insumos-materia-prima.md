@@ -5,7 +5,7 @@ description: "Planejamento de demanda, regimes especiais e compliance de fornece
 mainQuestion: "Como planejar a importação de insumos e matéria-prima?"
 faqs:
   - q: "Como planejar a importação de insumos e matéria-prima?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Integre MRP com contratos open account, use regimes especiais como Drawback ou Admissão Temporária para fluxo de caixa e audite fornecedores para garantir qualidade e compliance."
 ---
 
 ## Resposta rápida

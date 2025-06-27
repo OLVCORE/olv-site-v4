@@ -5,7 +5,7 @@ description: "Rotulagem, certificações e estratégias de precificação."
 mainQuestion: "Quais cuidados ao importar produtos acabados para revenda?"
 faqs:
   - q: "Quais cuidados ao importar produtos acabados para revenda?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Verifique certificações compulsórias (Inmetro, Anvisa, Anatel), calcule preço incluindo ST/DIFAL e escolha entre fulfillment 3PL ou distribuição própria conforme estratégia de marca."
 ---
 
 ## Resposta rápida
