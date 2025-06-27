@@ -16,26 +16,26 @@ export default function SolucoesPage() {
   return (
     <MainLayout>
       {/* HERO DE AUTORIDADE */}
-      <section className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-700/30 shadow-xl rounded-xl p-10 mt-[calc(var(--height-header)+0.8cm)] mb-12 text-yellow-100 max-w-6xl mx-auto">
+      <section className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-700/30 shadow-xl rounded-xl p-10 mt-[calc(var(--height-header)+0.8cm)] mb-12 text-gray-200 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center md:justify-center gap-4 text-center md:text-left">
           <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
             <Image src="/icons/solutions-icon.svg" alt="Soluções" width={32} height={32} />
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-yellow-400">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-white">
             Soluções Reais para Empresas Reais
           </h1>
         </div>
-        <p className="text-base md:text-lg text-yellow-100 max-w-2xl mx-auto mb-6">
+        <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-6">
           Nossa missão não é oferecer consultoria genérica. É entregar operações completas, seguras, validadas em campo, e com foco total em resultado.  
           Da inteligência à execução. Da importação à monetização.
         </p>
       </section>
 
       {/* SLIM CTA BANNER – substitui grid de cards */}
-      <div className="my-10 animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 px-4 py-1 md:py-[6px] text-sm md:text-base leading-snug text-yellow-100 dark:text-yellow-100 text-[#2e8ce6] shadow-md home-alert">
-        <p className="text-center max-w-6xl mx-auto dark:text-yellow-100 text-[#2e8ce6]">
+      <div className="my-10 animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 px-4 py-1 md:py-[6px] text-sm md:text-base leading-snug text-gray-200 dark:text-gray-200 shadow-md max-w-6xl mx-auto home-alert">
+        <p className="text-center">
           ⚠️ Importar junto com seus concorrentes destrói sua margem.
-          <Link href="/solucoes/importacao-exclusiva" className="font-semibold underline hover:text-yellow-300 ml-1">
+          <Link href="/solucoes/importacao-exclusiva" className="font-semibold underline text-[#d4af37] hover:text-yellow-300 ml-1">
             Descubra como dominar sua própria rota de importação →
           </Link>
         </p>
