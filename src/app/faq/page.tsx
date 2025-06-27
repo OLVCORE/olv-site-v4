@@ -66,7 +66,8 @@ const categoryMap: Record<string, string[]> = {
     'passos-da-li-anvisa'
   ],
   'Exportação & Preço de Venda': [
-    'formacao-do-preco-de-exportacao'
+    'formacao-do-preco-de-exportacao',
+    'exportacao-diferencial-pmes'
   ],
   'Tecnologia & Simuladores OLV': [
     'simulador-custo-importacao-como-usar',
@@ -85,6 +86,18 @@ const categoryMap: Record<string, string[]> = {
     'veritus-o-que-e',
     'core-o-que-e',
     'academy-o-que-e'
+  ],
+  'Estratégia de Internacionalização & Supply Chain': [
+    'plano-internacionalizacao-pme',
+    'escolha-mercado-alvo-exportacao',
+    'supply-chain-resiliente',
+    'comparativo-3pl-4pl',
+    'due-diligence-global',
+    'risco-cambial-hedge',
+    'financiamento-exim',
+    'compliance-oea',
+    'otimizacao-estoques-importacao',
+    'digitalizacao-processos-comex'
   ]
 };
 
