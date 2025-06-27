@@ -1025,4 +1025,4 @@ body.theme-light .glass {
 }
 
 /* === Spacing overrides for Soluções page === */
-body.solucoes-page .main-content { margin-top: calc(var(--height-header) + 0.5cm) !important; } 
+/* body.solucoes-page .main-content { margin-top: calc(var(--height-header) + 0.5cm) !important; } */ 
