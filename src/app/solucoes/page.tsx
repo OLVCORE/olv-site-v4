@@ -16,16 +16,16 @@ export default function SolucoesPage() {
   return (
     <MainLayout>
       {/* HERO DE AUTORIDADE */}
-      <section className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-700/30 shadow-xl rounded-xl p-10 mt-[calc(var(--height-header)+0.8cm)] mb-12 text-gray-200 max-w-6xl mx-auto">
+      <section className="dark:bg-[#141c2f] bg-white border border-[#2a3448] shadow-md rounded-lg p-8 mt-[calc(var(--height-header)+0.8cm)] mb-12 text-gray-700 dark:text-gray-200 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center md:justify-center gap-4 text-center md:text-left">
-          <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
+          <div className="flex-shrink-0 w-16 h-16 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
             <Image src="/icons/solutions-icon.svg" alt="Soluções" width={32} height={32} />
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold text-white">
             Soluções Reais para Empresas Reais
           </h1>
         </div>
-        <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-6">
+        <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
           Nossa missão não é oferecer consultoria genérica. É entregar operações completas, seguras, validadas em campo, e com foco total em resultado.  
           Da inteligência à execução. Da importação à monetização.
         </p>
