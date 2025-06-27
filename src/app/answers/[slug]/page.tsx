@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import MainLayout from '../../../components/layout/MainLayout';
 import { FaqSchema } from '../../../components/SeoSchemas';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface AnswerFrontMatter {
   title: string;
@@ -51,7 +52,7 @@ export default function AnswerPage({ params }: { params: { slug: string } }) {
       <div className="main-content container py-8">
         <h1 className="text-3xl font-bold mb-4 text-accent">{data.title}</h1>
         <article className="prose prose-invert max-w-none">
-          <ReactMarkdown>{content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </article>
       </div>
       {data.mainQuestion && data.faqs ? (
