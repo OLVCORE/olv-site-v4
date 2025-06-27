@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               <Link href="/ecossistema" className={`nav-item ${isActive('/ecossistema') ? 'active' : ''}`} data-page="ecossistema">Ecossistema</Link>
               <Link href="/radar360" className={`nav-item ${isActive('/radar360') ? 'active' : ''}`} data-page="radar360">Radar 360</Link>
               <Link href="/blog" className={`nav-item ${isActive('/blog') ? 'active' : ''}`} data-page="blog">Blog</Link>
-              <Link href="/sitemap" className={`nav-item ${isActive('/sitemap') ? 'active' : ''}`} data-page="sitemap">Mapa do Site</Link>
+              <Link href="/faq" className={`nav-item ${isActive('/faq') ? 'active' : ''}`} data-page="faq">FAQ</Link>
               <Link href="/contato" className={`nav-item ${isActive('/contato') ? 'active' : ''}`} data-page="contato">Contato</Link>
             </nav>
           </div>
@@ -134,16 +134,9 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
         <Link href="/ecossistema" className={`nav-item ${isActive('/ecossistema') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Ecossistema</Link>
         <Link href="/radar360" className={`nav-item ${isActive('/radar360') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Radar 360</Link>
         <Link href="/blog" className={`nav-item ${isActive('/blog') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Blog</Link>
-        <Link href="/sitemap" className={`nav-item ${isActive('/sitemap') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Mapa do Site</Link>
+        <Link href="/faq" className={`nav-item ${isActive('/faq') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>FAQ</Link>
         <Link href="/contato" className={`nav-item ${isActive('/contato') ? 'active' : ''}`} onClick={() => setNavOpen(false)}>Contato</Link>
       </nav>
-
-      {/* Overlay Search Mobile */}
-      {searchOpen && (
-        <div className="search-overlay-mobile md:hidden">
-          <GlobalSearch />
-        </div>
-      )}
     </>
   );
 };
