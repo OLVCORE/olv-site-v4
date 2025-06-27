@@ -1,16 +1,20 @@
 ---
-title: "Formação do preço de exportação"
-slug: "formacao-do-preco-de-exportacao"
-description: "Como calcular preço FOB para exportar."
-mainQuestion: "Formação do preço de exportação?"
+title: "Exportação: o diferencial estratégico para as PMEs"
+slug: "exportacao-diferencial-pmes"
+description: "Como embarcar commodities e outros produtos com margem e segurança."
+mainQuestion: "Como transformar a exportação em vantagem competitiva para PMEs?"
 faqs:
-  - q: "Formação do preço de exportação?"
+  - q: "Como transformar a exportação em vantagem competitiva para PMEs?"
     a: "Resposta curta em desenvolvimento."
 ---
 
 ## Resposta rápida
 
-O **preço de exportação** deve cobrir custo Ex Works, despesas até o ponto Incoterm (FOB/CIF etc.), margens e incentivos fiscais. Fórmula básica para preço **FOB**:
+Exportar é mais do que vender ao exterior: é **estratégia de escala, hedge natural contra câmbio e acesso a novos mercados**. Para ter margem, a PME deve dominar **formação de preço, cobertura cambial, certificações de qualidade e logística integrada**.
+
+### 1. Formação de preço e hedge
+
+O preço **FOB** precisa cobrir custo Ex Works, despesas internas e margem. Fórmula simplificada:
 
 `Preço FOB = (Custo ExW + Embalagem + Despesas Internas + Lucro) / (1 - %Comissão)`
 
@@ -28,7 +32,7 @@ O **preço de exportação** deve cobrir custo Ex Works, despesas até o ponto I
 
 Se o Incoterm for **CIF**, acrescente: frete internacional + seguro.
 
-### Passo a passo para formação
+### Passo a passo de precificação
 
 1. **Levantar custo Ex Works**: matéria-prima, mão de obra, overhead.  
 2. **Adicionar custos logísticos internos** até o ponto de embarque.  
@@ -45,6 +49,31 @@ Se o Incoterm for **CIF**, acrescente: frete internacional + seguro.
 Onde:  
 Cx = custo fábrica, Li = logística interna, D = despesas, Mk = markup, Cm = comissão.
 
+### 2. Certificações e contratos
+
+| Produto | Certificação | Padrão contratual |
+| --- | --- | --- |
+| Grãos | ISCC, GMP+ | GAFTA 100 |
+| Óleos vegetais | GMP+, Kosher/Halal | FOSFA 80 |
+| Minérios | ISO 9001, SGS | LME Sales Contract |
+| Açúcar | Bonsucro | Sugar No.11 (ICE) |
+
+### 3. Linhas de crédito à exportação
+
+| Linha | Moeda | Taxa | Prazo |
+| --- | --- | --- | --- |
+| ACC / ACE | USD | SOFR + spread 2–3 % | Até 360 dias |
+| PROEX Financiamento | BRL | IPCA + 2 % | Até 10 anos |
+| PROEX Equalização | USD | Equaliza TJLP | Até 12 anos |
+
+### 4. Logística de escoamento
+
+| Modal | Pontos de atenção | Custo médio |
+| --- | --- | --- |
+| Ferrovia | Disponibilidade de vagões | US$ 35/t (Centro-Oeste → Porto) |
+| Cabotagem | Transbordo portuário | US$ 28/t contêiner |
+| Rodoviário | Pedágio + SADA fronteira | R$ 0,17/t.km |
+
 ### Mini-FAQ
 
 | Pergunta | Resposta breve |
@@ -52,6 +81,8 @@ Cx = custo fábrica, Li = logística interna, D = despesas, Mk = markup, Cm = co
 | Reintegra impacta preço? | Sim, crédito de até 3,8 % sobre receita exportada. |
 | Posso cotar em EUR e produzir em BRL? | Sim, recomende hedge cambial. |
 | Despesas portuárias entram no FOB? | Sim, até gate-in do navio. |
+| GAFTA ou FOSFA? | Use GAFTA para grãos, FOSFA para óleos. |
+| ACC pode financiar produção? | Sim, ACC Pré-Embarque cobre fabricação.
 
 ---
 
