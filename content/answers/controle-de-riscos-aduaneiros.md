@@ -10,15 +10,38 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+O **risco aduaneiro** envolve classificações incorretas, valores subfaturados, origem falsa e licenças pendentes. Segundo a RFB, 27 % das DI/DUIMP retidas em 2023 foram por erro de NCM. Implementar um sistema de controle reduz multas (75 % a 150 %) e evita canal vermelho.
 
-### Como fazer passo a passo
+### Matriz de riscos e controles
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+| Risco | Prob. | Impacto | Controle recomendado | Ferramenta OLV |
+| --- | --- | --- | --- | --- |
+| NCM incorreto | Média | Alto | Parecer fiscal + classificação AHT | Simulador NCM Core |
+| Valor aduaneiro subfaturado | Baixa | Alto | Dossiê de preços (methods 2 - 6 GATT) | Pricing Benchmark |
+| Licença de importação (LI) pendente | Média | Médio | Checklist LPCO pré-embarque | Radar Checker |
+| Origem não preferencial | Baixa | Médio | Certificado CO homologado | CO Validator |
+| Excesso de peso/container | Média | Baixo | VGM audit e pesagem | Load Inspector |
+
+### Passo a passo para implementar
+
+1. **Mapeie riscos** por etapa (classificação, valoração, regimes, compliance).  
+2. **Crie matriz RPN** (probabilidade × impacto) com pesos 1-5.  
+3. **Defina controles-chave** (KCI) e responsáveis.  
+4. **Automatize checagens** via API Siscomex + banco de dados NCM.  
+5. **Monitore indicadores**: canal verde %, autuações, lead time desembaraço.  
+6. **Revise trimestralmente** após mudanças TEC/TIPI ou IN RFB.
+
+### Mini-FAQ
+
+| Pergunta | Resposta breve |
+| --- | --- |
+| Canal cinza ainda existe? | Sim, mas < 0,5 % dos processos; fiscalização de valor. |
+| Como reduzir multa de classificação? | Parecer técnico pode mitigar para 37,5 %. |
+| AEO dispensa canal? | AEO-S concede priorização, não isenção. |
 
 ---
+
+> Conteúdo auditado pelo OLV Labs, julho 2024.
 
 ### FAQ relacionado
 

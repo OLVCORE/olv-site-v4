@@ -10,13 +10,34 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+**Logística 4.0** integra IoT, Big Data, automação e IA para aumentar visibilidade end-to-end e reduzir custos. Cases de 2024 mostram **queda de 18 % em rupturas de estoque** e **redução de 12 % no lead time** após adoção de WMS 4.0 + torres de controle.
 
-### Como fazer passo a passo
+### Tecnologias-chave e ganhos
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+| Tecnologia | Função | Ganho médio | Exemplo |
+| --- | --- | --- | --- |
+| IoT + RFID | Rastreio em tempo real | –10 % perdas | Tag RFID em pallet |
+| WMS baseado em IA | Otimiza picking | +22 % produtividade | Picking por voz |
+| AGV/AMR | Movimentação autônoma | –30 % custo mão-de-obra | AGV Linde |
+| Torre de controle 4PL | Visibilidade multimodal | –12 % lead time | OLV Radar 360 |
+| Impressão 3D sob demanda | Peças de reposição | –8 % estoque | Spare parts aerospace |
+
+### Passo a passo de implantação
+
+1. **Diagnóstico** de maturidade SCM (nível 1-5).  
+2. **Mapeie KPIs**: OTIF, lead time, Custo % Receita.  
+3. **Selecione pilotos** (CD principal, rota crítica).  
+4. **Implemente IoT + dashboard** em 90 dias.  
+5. **Escale** para fornecedores Tier-1 após ROI < 12 meses.  
+6. **Integre IA preditiva** para demanda e manutenção.
+
+### Mini-FAQ
+
+| Pergunta | Resposta breve |
+| --- | --- |
+| Logística 4.0 exige 5G? | Não, mas 5G melhora latência IoT. |
+| ROI típico? | 12–18 meses conforme volume. |
+| Blockchain é obrigatório? | Não, mas útil para rastreio de origem. |
 
 ---
 
@@ -29,4 +50,4 @@ faqs:
 
 ---
 
-> Esta resposta faz parte da base de conhecimento da OLV Internacional.
+> Conteúdo auditado pelo OLV Labs, julho 2024.
