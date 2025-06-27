@@ -1,11 +1,8 @@
-"use client";
-
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import Link from 'next/link';
 import MainLayout from '../../components/layout/MainLayout';
-import { useState } from 'react';
+import FaqAccordion from './FaqAccordion';
 
 export const metadata = {
   title: 'FAQ | OLV Internacional',
@@ -102,36 +99,12 @@ function groupByCategory(all: AnswerItem[]) {
 
 export default function FaqPage() {
   const grouped = groupByCategory(getAllAnswers());
-  const [open, setOpen] = useState<string | null>(null);
 
   return (
     <MainLayout>
       <div className="main-content container py-10">
         <h1 className="text-3xl font-bold mb-6 text-accent">Perguntas Frequentes (FAQ)</h1>
-        <div className="space-y-4">
-          {Object.entries(grouped).map(([cat, items]) => (
-            <div key={cat} className="border border-[#2a3448] rounded-lg">
-              <button
-                className="w-full text-left px-4 py-3 font-semibold flex justify-between items-center hover:bg-[#2a3448]/40"
-                onClick={() => setOpen(open === cat ? null : cat)}
-              >
-                <span>{cat}</span>
-                <span>{open === cat ? '−' : '+'}</span>
-              </button>
-              {open === cat && (
-                <ul className="px-6 py-3 space-y-2">
-                  {items.map((a) => (
-                    <li key={a.slug}>
-                      <Link href={`/answers/${a.slug}`} className="text-[#d4af37] hover:underline">
-                        {a.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
+        <FaqAccordion grouped={grouped} />
       </div>
     </MainLayout>
   );
