@@ -1030,4 +1030,33 @@ body[class*="page-"] .main-content {
 }
 
 /* === Spacing overrides for Soluções page === */
-/* body.solucoes-page .main-content { margin-top: calc(var(--height-header) + 0.5cm) !important; } */ 
+/* body.solucoes-page .main-content { margin-top: calc(var(--height-header) + 0.5cm) !important; } */
+
+/* Markdown tables inside prose */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem; /* ~text-sm */
+}
+.prose thead tr {
+  border-bottom: 1px solid #3f3f46; /* neutral-700 */
+}
+.prose th {
+  text-align: left;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+}
+.prose td {
+  padding: 0.25rem 0.5rem;
+  vertical-align: top;
+}
+.prose tbody tr:nth-child(odd) {
+  background-color: rgba(39, 40, 48, 0.3); /* neutral-800/30 */
+}
+
+@media (max-width: 768px) {
+  .prose table {
+    display: block;
+    overflow-x: auto;
+  }
+} 
