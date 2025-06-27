@@ -8,6 +8,8 @@ faqs:
     a: "Resposta curta em desenvolvimento."
 ---
 
+**Versão Beta – funcionalidades em desenvolvimento. Lançamento previsto para Q4 2024. Cadastre-se na lista de espera.**
+
 ## Resposta rápida
 
 O **OLV Engage** é o **CRM especializado em comércio exterior** que integra **funil de vendas, qualificação de leads e automação de follow-ups** (e-mail, WhatsApp, LinkedIn) em um único painel. Diferente dos CRMs genéricos, já vem com **templates de propostas CIF/FOB**, cálculo automático de margens pós-impostos e sincronização direta com o simulador OLV para gerar estimativas de custos em um clique.

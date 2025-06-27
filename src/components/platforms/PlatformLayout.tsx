@@ -8,6 +8,7 @@ import Ticker from '../layout/Ticker';
 import WhatsAppButton from '../layout/WhatsAppButton';
 import PlatformHero from './PlatformHero';
 import { usePathname } from 'next/navigation';
+import BetaVersion from '../layout/BetaVersion';
 
 interface PlatformLayoutProps {
   children?: React.ReactNode;
@@ -97,6 +98,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
             platformIntro={platformIntro}
             platformColor={platformColor}
           />
+          <div className="my-6"><BetaVersion /></div>
           
           {/* Apply global platform styling */}
           <style jsx global>{`

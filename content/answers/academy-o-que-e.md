@@ -8,6 +8,8 @@ faqs:
     a: "Resposta curta em desenvolvimento."
 ---
 
+**Versão Beta – funcionalidades em desenvolvimento. Lançamento previsto para Q4 2024. Cadastre-se na lista de espera.**
+
 ## Resposta rápida
 
 A **OLV Academy** é o hub de **capacitação on-demand** da OLV Internacional, oferecendo cursos EAD, trilhas de aprendizagem e certificações orientadas ao comércio exterior, logística e cadeia de suprimentos. Os conteúdos seguem a Matriz de Competências ABT&L-Comex 2024 e são produzidos em parceria com **ESPM Tech** e especialistas da Receita Federal.

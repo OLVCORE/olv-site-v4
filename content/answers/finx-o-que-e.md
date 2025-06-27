@@ -8,6 +8,8 @@ faqs:
     a: "Resposta curta em desenvolvimento."
 ---
 
+**Versão Beta – funcionalidades em desenvolvimento. Lançamento previsto para Q4 2024. Cadastre-se na lista de espera.**
+
 ## Resposta rápida
 
 O **OLV Finx** é o módulo de **gestão financeira e câmbio** voltado a operações de comércio exterior. Ele consolida **fluxo de caixa multi-moeda, hedge de dólar futuro** (B3) e conciliação bancária automática via **Open Finance BACEN**. O sistema calcula custo financeiro por embarque, comparando alternativas: ACC, BNDES Exim, carta de crédito ou pagamento antecipado.

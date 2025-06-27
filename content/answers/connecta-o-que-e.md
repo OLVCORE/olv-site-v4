@@ -8,6 +8,8 @@ faqs:
     a: "Resposta curta em desenvolvimento."
 ---
 
+**Versão Beta – funcionalidades em desenvolvimento. Lançamento previsto para Q4 2024. Cadastre-se na lista de espera.**
+
 ## Resposta rápida
 
 O **OLV Connecta** é o marketplace B2B que conecta importadores brasileiros a uma **rede homologada** de mais de **1 200 fabricantes internacionais** e **180 prestadores logísticos**. A plataforma verifica **compliance aduaneiro, certificações (ISO, CE, FDA)** e histórico de embarques via ComexStat antes de aprovar cada fornecedor.
