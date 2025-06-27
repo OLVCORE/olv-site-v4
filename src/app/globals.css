@@ -1024,8 +1024,10 @@ body.theme-light .glass {
   }
 }
 
-/* === Spacing overrides for Soluções page === */
-body.solucoes-page .main-content { padding-top: 1cm !important; }
+/* === Universal main-content top spacing for all pages === */
+body[class*="page-"] .main-content {
+  margin-top: calc(var(--height-header) + 0.5cm) !important;
+}
 
 /* === Spacing overrides for Soluções page === */
 /* body.solucoes-page .main-content { margin-top: calc(var(--height-header) + 0.5cm) !important; } */ 
