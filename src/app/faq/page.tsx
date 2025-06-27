@@ -102,7 +102,7 @@ export default function FaqPage() {
 
   return (
     <MainLayout className="faq-page">
-      <div className="main-content container py-10 mt-[0.3cm]">
+      <div className="main-content container py-10 mt-[1cm]">
         <h1 className="text-3xl font-bold mb-6 text-accent">Perguntas Frequentes (FAQ)</h1>
         <FaqAccordion grouped={grouped} />
       </div>
