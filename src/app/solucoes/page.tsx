@@ -2,8 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import MainLayout from '../../components/layout/MainLayout';
-import fs from 'fs';
-import path from 'path';
 
 export const metadata = {
   title: 'Soluções em Comércio Exterior e Logística Internacional | OLV Internacional',
@@ -13,14 +11,6 @@ export const metadata = {
     canonical: 'https://olvinternacional.com.br/solucoes'
   }
 };
-
-// Read legacy HTML at build time so its content is embedded in the bundle
-const legacyHTMLPath = path.join(process.cwd(), 'solucoes.html');
-let legacyHTML = '';
-if (fs.existsSync(legacyHTMLPath)) {
-  const raw = fs.readFileSync(legacyHTMLPath, 'utf8');
-  legacyHTML = raw.split('<main class="main-content">')[1]?.split('</main>')[0] ?? '';
-}
 
 export default function SolucoesPage() {
   return (
@@ -602,14 +592,6 @@ export default function SolucoesPage() {
           </div>
         </div>
       </div>
-
-      {/* Legacy full-page content preserved from original static HTML */}
-      {legacyHTML && (
-        <section className="legacy-solutions prose max-w-none dark:prose-invert">
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: legacyHTML }} />
-        </section>
-      )}
     </MainLayout>
   );
 } 
