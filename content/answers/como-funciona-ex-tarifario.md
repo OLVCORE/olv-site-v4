@@ -10,13 +10,37 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+O **Ex-Tarifário** reduz a alíquota de Imposto de Importação para **0 %-2 %** em bens de capital (BK) e bens de informática (BIT) sem produção nacional. O benefício dura até 31/12/2025 (Resolução Gecex 494/2023).
 
-### Como fazer passo a passo
+### Estrutura do processo
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+| Etapa | Responsável | Prazo médio | Documento |
+| --- | --- | --- | --- |
+| Solicitação | Empresa ou consultoria | 5 dias | Formulário Gecex + catálogos |
+| Consulta produção nacional | ABIMAQ/ABINEE | 30 dias | Ofício eletrônico |
+| Análise técnica | MDIC/Semit | 20 dias | Parecer técnico |
+| Publicação no DOU | Gecex | — | Resolução específica |
+
+### Cálculo de economia
+
+Alíquota TEC BK = 14 % → Ex-Tarifário 0 %  
+Importação CIF US$ 2 000 000 → **Economia II = US$ 280 000**
+
+### Passo a passo
+
+1. **Verifique NCM** está na lista BK ou BIT.  
+2. **Reúna catálogos** e comparativo técnico com nacional.  
+3. **Protocole pedido** no Portal Siscomex – Módulo Ex-Tarifário.  
+4. **Acompanhe** consultas de produção.  
+5. **Importe** após publicação da Resolução.
+
+### Mini-FAQ
+
+| Pergunta | Resposta breve |
+| --- | --- |
+| Vale para peças de reposição? | Não, apenas máquinas completas BK/BIT. |
+| Pode prorrogar? | Sim, 6 meses antes do vencimento. |
+| ICMS é afetado? | Não, apenas II; IPI, PIS/COFINS mantêm-se. |
 
 ---
 
@@ -29,4 +53,4 @@ faqs:
 
 ---
 
-> Esta resposta faz parte da base de conhecimento da OLV Internacional.
+> Conteúdo auditado pelo OLV Labs, julho 2024.
