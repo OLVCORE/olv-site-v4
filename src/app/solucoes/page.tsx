@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import MainLayout from '../../components/layout/MainLayout';
+import fs from 'fs';
+import path from 'path';
 
 export const metadata = {
   title: 'Soluções em Comércio Exterior e Logística Internacional | OLV Internacional',
@@ -592,6 +594,20 @@ export default function SolucoesPage() {
           </div>
         </div>
       </div>
+
+      {/* Legacy full-page content preserved from original static HTML */}
+      {(() => {
+        const legacyPath = path.join(process.cwd(), 'solucoes.html');
+        if (!fs.existsSync(legacyPath)) return null;
+        const html = fs.readFileSync(legacyPath, 'utf8');
+        const slice = html.split('<main class="main-content">')[1]?.split('</main>')[0] ?? '';
+        return (
+          <section className="legacy-solutions prose max-w-none dark:prose-invert">
+            {/* eslint-disable-next-line react/no-danger */}
+            <div dangerouslySetInnerHTML={{ __html: slice }} />
+          </section>
+        );
+      })()}
     </MainLayout>
   );
 } 
