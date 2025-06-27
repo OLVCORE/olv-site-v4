@@ -16,35 +16,68 @@ export default function SolucoesPage() {
   return (
     <MainLayout>
       {/* HERO DE AUTORIDADE */}
-      <section className="dark:bg-[#141c2f] bg-white border border-[#2a3448] shadow-md rounded-lg p-8 mt-[calc(var(--height-header)+0.8cm)] mb-12 text-gray-700 dark:text-gray-200 max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center md:justify-center gap-4 text-center md:text-left">
-          <div className="flex-shrink-0 w-16 h-16 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center">
+      <section className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-700/30 shadow-xl rounded-xl p-10 mt-[calc(var(--height-header)+0.8cm)] mb-12 text-yellow-100 max-w-6xl mx-auto hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+        <div className="flex flex-row items-center justify-start gap-4 text-left">
+          <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
             <Image src="/icons/solutions-icon.svg" alt="Soluções" width={32} height={32} />
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-white">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-yellow-400">
             Soluções Reais para Empresas Reais
           </h1>
         </div>
-        <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+        <p className="text-base md:text-lg text-yellow-100 max-w-2xl mx-auto mb-6">
           Nossa missão não é oferecer consultoria genérica. É entregar operações completas, seguras, validadas em campo, e com foco total em resultado.  
           Da inteligência à execução. Da importação à monetização.
         </p>
       </section>
 
-      {/* SLIM CTA BANNER – substitui grid de cards */}
-      <div className="my-10 animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 px-4 py-1 md:py-[6px] text-sm md:text-base leading-snug text-gray-200 dark:text-gray-200 shadow-md max-w-6xl mx-auto home-alert">
-        <p className="text-center">
-          ⚠️ Importar junto com seus concorrentes destrói sua margem.
-          <Link href="/solucoes/importacao-exclusiva" className="font-semibold underline text-[#d4af37] hover:text-yellow-300 ml-1">
-            Descubra como dominar sua própria rota de importação →
-          </Link>
-        </p>
+      {/* CARDS DE SOLUÇÕES */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 card-grid max-w-6xl mx-auto mt-6">
+        {/* Importação Exclusiva */}
+        <a href="/solucoes/importacao-exclusiva" className="dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition dark:text-white text-on-surface">
+          <h3 className="text-lg font-bold text-[#2e8ce6] dark:text-yellow-400 mb-2">Importação Exclusiva</h3>
+          <p className="text-sm text-gray-600 dark:text-yellow-100">
+            Monte sua própria rota de importação com proteção estratégica. Controle origem, margem e canal de vendas.
+          </p>
+        </a>
+
+        {/* Exceltta */}
+        <a href="/solucoes/exceltta" className="dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition dark:text-white text-on-surface">
+          <h3 className="text-lg font-bold text-[#2e8ce6] dark:text-yellow-400 mb-2">Exceltta – Simulação Inteligente</h3>
+          <p className="text-sm text-gray-600 dark:text-yellow-100">
+            Compare produtos importados vs. nacionais, visualize margens e tome decisões com base em dados reais.
+          </p>
+        </a>
+
+        {/* Stratevo */}
+        <a href="/solucoes/stratevo" className="dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition dark:text-white text-on-surface">
+          <h3 className="text-lg font-bold text-[#2e8ce6] dark:text-yellow-400 mb-2">Stratevo – Inteligência Comercial</h3>
+          <p className="text-sm text-gray-600 dark:text-yellow-100">
+            Relatórios completos com base em CNPJ, domínios e dados públicos para definir estratégias comerciais.
+          </p>
+        </a>
+
+        {/* OLV Engage */}
+        <a href="/solucoes/engage" className="dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition dark:text-white text-on-surface">
+          <h3 className="text-lg font-bold text-[#2e8ce6] dark:text-yellow-400 mb-2">OLV Engage – Ativação Comercial</h3>
+          <p className="text-sm text-gray-600 dark:text-yellow-100">
+            Transforme dados em ação. Ative leads, integre canais e acelere resultados com IA aplicada ao front de vendas.
+          </p>
+        </a>
+
+        {/* Veritus */}
+        <a href="/solucoes/veritus" className="dark:bg-[#141c2f] bg-white border border-yellow-500/20 p-6 rounded-xl hover:border-yellow-400 transition dark:text-white text-on-surface">
+          <h3 className="text-lg font-bold text-[#2e8ce6] dark:text-yellow-400 mb-2">Veritus – Auditoria & Compliance</h3>
+          <p className="text-sm text-gray-600 dark:text-yellow-100">
+            Auditoria estratégica e revisão de processos de comércio exterior para segurança e conformidade total.
+          </p>
+        </a>
       </div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         {/* Introdução */}
-        <div className="bg-[#141c2f] rounded-lg p-6 mb-8 shadow-md border border-[#2a3448]">
+        <div className="bg-[#141c2f] rounded-lg p-6 mb-8 shadow-md border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
           <h2 className="text-2xl font-bold text-white mb-4">Nossa Expertise</h2>
           <p className="text-gray-300 mb-3">
             Bem-vindo ao portfólio de Soluções da OLV Internacional. Aqui você encontrará nossos serviços 

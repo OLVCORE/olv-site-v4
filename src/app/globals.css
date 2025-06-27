@@ -1006,4 +1006,20 @@ body.theme-light .glass {
 /* ---------- Unified Container ---------- */
 .container {
   @apply max-w-6xl mx-auto px-4;
+}
+
+/* === Responsive logo sizing (keeps within header height) === */
+@media (min-width: 1024px) {
+  .logo-olv-padrao {
+    height: 72px !important;
+    width: auto !important;
+    max-height: calc(var(--height-header) - 4px);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-olv-padrao {
+    height: 52px !important;
+    width: auto !important;
+  }
 } 
