@@ -10,13 +10,40 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+O **Drawback Suspensão** permite importar ou comprar no mercado interno **insumos** com suspensão de II, IPI, PIS, COFINS e AFRMM, desde que os produtos sejam exportados após industrialização. A economia tributária média fica entre 30 % e 40 % do custo FOB.
 
-### Como fazer passo a passo
+### Tributos abrangidos
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+| Tributo | Situação na importação | Base legal |
+| --- | --- | --- |
+| Imposto de Importação | Suspenso | Dec. 6.500/2008 |
+| IPI | Suspenso | Dec. 6.500/2008 |
+| PIS e COFINS-Import | Suspensos | Lei 10.865/2004 |
+| AFRMM | Suspenso | Lei 10.893/2004 |
+| ICMS | Dependente de adesão estadual (SP/SC) |
+
+### Passo a passo resumido
+
+1. **Planejamento**: definir NCM dos insumos e NCM do produto final; calcular coeficientes técnicos.  
+2. **Pedido**: protocolar ato concessório (AC) no **Siscomex Drawback** informando quantidades, valores e prazos.  
+3. **Aquisições**: importar ou comprar domesticamente com adição "Via Drawback".  
+4. **Industrialização**: gerar saldo técnico em sistema ERP para comprovação.  
+5. **Exportação**: registrar DU-E vinculada ao AC.  
+6. **Prestação de contas**: inserir dados no Siscomex até 60 dias após expiração do AC.
+
+### Exemplo de economia
+
+Importação CIF US$ 500 000 (insumos plásticos)  
+Tributos suspensos estimados: II 12 %, IPI 10 %, PIS/COFINS 9,65 %  
+Economia = **US$ 158 250**.
+
+### Mini-FAQ
+
+| Pergunta | Resposta breve |
+| --- | --- |
+| Prazo do Ato Concessório? | 1 ano, prorrogável por +1. |
+| Posso vender parte no mercado interno? | Sim, até 20 %, recolhendo tributos suspensos. |
+| Drawback interno existe? | Sim, "Isenção" para reposição de estoque exportado. |
 
 ---
 
