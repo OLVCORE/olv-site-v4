@@ -16,7 +16,7 @@ export default function SolucoesPage() {
   return (
     <MainLayout className="solucoes-page">
       {/* HERO DE AUTORIDADE */}
-      <section className="container bg-[#141c2f] border border-[#2a3448] shadow-md rounded-xl p-8 mt-[0.5cm] text-gray-200 hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+      <section className="container bg-[#141c2f] border border-[#2a3448] shadow-md rounded-xl p-8 mt-[1cm] text-gray-200 hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
         <div className="flex flex-row items-center justify-start gap-4 text-left">
           <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
             <Image src="/icons/solutions-icon.svg" alt="Soluções" width={32} height={32} />
