@@ -80,8 +80,8 @@
     "title": "Custos portuários no despacho aduaneiro",
     "slug": "C:/Projects/olv-site-v4/content/answers/custos-portuarios-no-despacho.md",
     "category": "C:",
-    "excerpt": "Esta resposta faz parte da base de conhecimento da OLV Internacional.",
-    "searchText": "\nresposta rapida\n\nconteudo em elaboracao.\n\ncomo fazer passo a passo\n\npasso 1 – texto.\npasso 2 – texto.\npasso 3 – texto.\n\nfaq relacionado\n\n| pergunta | resposta |\n| --- | --- |\n| exemplo 1 | placeholder |\n| exemplo 2 | placeholder |\n\nesta resposta faz parte da base de conhecimento da olv internacional.\n"
+    "excerpt": "No Brasil, os custos portuários durante o despacho aduaneiro incluem tarifas de capatazia, armazenagem, Sistema Portuário (Siscomex-Carga), THC e serviços adicionais (scanner, pesagem). Para um contêiner de 20' em Santos, o gasto médio em 2024 fica entre US$ 650 e US$ 980, representando até 12 % do CIF de cargas de baixo valor agregado.",
+    "searchText": "\nresposta rapida\n\nno brasil, os custos portuarios durante o despacho aduaneiro incluem tarifas de capatazia, armazenagem, sistema portuario (siscomex-carga), thc e servicos adicionais (scanner, pesagem). para um conteiner de 20' em santos, o gasto medio em 2024 fica entre us$ 650 e us$ 980, representando ate 12 % do cif de cargas de baixo valor agregado.\n\nestrutura de custos (porto de santos)\n\n| componente | formula / base | valor tipico 20' | notas |\n| --- | --- | --- | --- |\n| thc terminal | tabela publica | us$ 335 | cobrado na descarga |\n| capatazia/crt | peso ou conteiner | us$ 90 | movimentacao interna |\n| escaner | por unidade | us$ 45 | res. rfb 3101/22 |\n| armazenagem | diaria apos d0+3 | us$ 22/dia | 5 dias medios= us$ 110 |\n| siscomex-carga | ad valorem 0,129 % | us$ 50 | limite r$ 10 259 |\n| taxa maritima (isps) | conteiner | us$ 20 | seguranca portuaria |\n| total estimado | — | ≈ us$ 650 | sem demurrage |\n\ncomo estimar passo a passo\n\nverifique o terminal (santos brasil, btp, dp world) e baixe a tabela vigente.  \ncalcule thc + crt conforme tipo de carga (reefer? imo?).  \nprojete dias de armazenagem (considerar feriados e li).  \ninclua extras obrigatorios: escaner, pesagem, remocao.  \nsome siscomex-carga (0,129 % do va + ii).  \nadicione margem de contingencia 10 % para servicos imprevistos.\n\nmini-faq\n\n| pergunta | resposta breve |\n| --- | --- |\n| capatazia ja inclui escaner? | nao, sao codigos distintos na fatura do terminal. |\n| posso negociar thc? | impossivel, tarifa homologada pela antaq. |\n| siscomex-carga tem teto? | sim, r$ 10 259 por di/duimp. |\n\nconteudo auditado pelo olv labs, julho 2024.\n"
   },
   {
     "title": "Como evitar demurrage no porto",
@@ -206,8 +206,8 @@
     "title": "Como negociar câmbio para importação",
     "slug": "C:/Projects/olv-site-v4/content/answers/negociar-cambio-para-importacao.md",
     "category": "C:",
-    "excerpt": "Esta resposta faz parte da base de conhecimento da OLV Internacional.",
-    "searchText": "\nresposta rapida\n\nconteudo em elaboracao.\n\ncomo fazer passo a passo\n\npasso 1 – texto.\npasso 2 – texto.\npasso 3 – texto.\n\nfaq relacionado\n\n| pergunta | resposta |\n| --- | --- |\n| exemplo 1 | placeholder |\n| exemplo 2 | placeholder |\n\nesta resposta faz parte da base de conhecimento da olv internacional.\n"
+    "excerpt": "Negociar câmbio envolve taxa, spread bancário, IOF e prazo de liquidação. Importadores competitivos buscam **spread  Conteúdo auditado pelo OLV Labs, julho 2024.",
+    "searchText": "\nresposta rapida\n\nnegociar cambio envolve taxa, spread bancario, iof e prazo de liquidacao. importadores competitivos buscam **spread  conteudo auditado pelo olv labs, julho 2024.\n"
   },
   {
     "title": "Passos para obter LI da ANVISA",

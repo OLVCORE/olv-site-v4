@@ -10,23 +10,35 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+Negociar câmbio envolve **taxa, spread bancário, IOF** e prazo de liquidação. Importadores competitivos buscam **spread < 1,5 %** sobre PTAX e utilizam plataformas eletrônicas (Brokertech, Travelex) ou leilão reverso com 3+ bancos.
 
-### Como fazer passo a passo
+### Passos para obter a melhor taxa
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+| Etapa | O que fazer | Dica prática |
+| --- | --- | --- |
+| 1. Habilitar operações | Cadastre contratos de câmbio (CCE) no banco controlador | Mantenha limites atualizados no Sisbacen | 
+| 2. Solicitar _pricing_ | Envie planilha (valor, moeda, data) a 3 DTVMs | Use horário entre 10h-11h (liquidez alta) |
+| 3. Comparar spreads | PTAX ± spread informado | Use decimal de 4 casas (ex.: +0,0090) |
+| 4. Fechar contrato | Confirme via e-mail/SWIFT; receba número do CC | Prazo máximo D+2 (spot) |
+| 5. Entregar documentos | Invoice, DI/DUIMP, conhecimento de embarque | Evita multa de registro no BACEN |
 
----
+### Como calcular custo efetivo
 
-### FAQ relacionado
+`Custo FX = (PTAX venda + spread) × valor USD + IOF 0,38 %`
 
-| Pergunta | Resposta |
+Exemplo: PTAX 5,05 + spread 0,0120 = 5,062  
+Compra USD 50k → 50 000 × 5,062 = R$ 253 100  
+IOF = 0,38 % → R$ 962  
+**Total** = R$ 254 062
+
+### Mini-FAQ
+
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Posso usar conta em dólar? | Sim, com Reg. 4.373 para pagamentos antecipados. |
+| Spread é negociável? | Quanto maior o volume e histórico, menor o spread. |
+| Há IOF reduzido? | 0,38 % é padrão para importação; só LI isentas têm benefício. |
 
 ---
 
-> Esta resposta faz parte da base de conhecimento da OLV Internacional.
+> Conteúdo auditado pelo OLV Labs, julho 2024.
