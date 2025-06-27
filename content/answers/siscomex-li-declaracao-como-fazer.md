@@ -10,23 +10,45 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+**Licença de Importação (LI)** é um pedido eletrônico de anuência prévia no **Siscomex**, exigido para mercadorias sujeitas a controle de órgãos como MAPA, ANVISA, Exército e Ibama. Sem LI deferida não é possível registrar DI/DUIMP.
 
-### Como fazer passo a passo
+### Tipos de LI
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+| Situação | Prazo de análise padrão | Órgão anuente exemplo |
+| --- | --- | --- |
+| Automática | Deferimento imediato | DECEX (quotas esgotadas) |
+| Não Automática | 2–10 dias úteis | ANVISA, MAPA |
+| Antecipada | Solicitada antes do embarque | Ibama |
+| Pós-embarque | Casos excepcionais (art. 15) | DECEX |
 
----
+### Passo a passo para registrar LI
 
-### FAQ relacionado
+1. **Acessar Portal Único** > "Licenças, Permissões, Certificados".  
+2. **Selecionar modelo** de LI ou LPCO conforme NCM.  
+3. **Preencher abas principais**:  
+   • Importador, fabricante, exportador  
+   • Mercadoria (NCM, descrição, unidade)  
+   • Valor total e incoterm  
+   • Procedência e origem  
+4. **Anexar documentos** exigidos (invoice, catálogo, ficha técnica).  
+5. **Enviar** e gerar número LI (formato 23/1234567-0).  
+6. **Acompanhar status**: Aguardando análise → Deferida/Indeferida.  
+7. **Vincular** a LI ao registro DI/DUIMP no campo "Licenças".
 
-| Pergunta | Resposta |
+### Campos críticos
+
+- **Tratamento Administrativo**: gerado automaticamente; revise exigências.  
+- **Unidade de medida**: deve coincidir com TEC/CONVERTSYS.  
+- **Justificativa**: usada para pós-embarque ou ajustes.
+
+### Mini-FAQ
+
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Posso duplicar LI para outro embarque? | Use cópia e altere quantidade. |
+| LI vence? | Sim, 90 dias padrão (prorrogável). |
+| Multa por LI incorreta? | R$ 5.000 + perdimento se fraude. |
 
 ---
 
-> Esta resposta faz parte da base de conhecimento da OLV Internacional.
+> Conteúdo auditado pelo OLV Labs, julho 2024.

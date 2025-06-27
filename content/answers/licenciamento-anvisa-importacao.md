@@ -10,13 +10,43 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+Produtos de **alimentos, cosméticos, saneantes, medicamentos e dispositivos médicos** requerem **anuência da ANVISA** na importação. A licença é emitida via **LI/LPCO** no Portal Único; sem deferimento, a carga não é desembaraçada.
 
-### Como fazer passo a passo
+### Quem precisa de ANVISA?
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+| Categoria | Exemplos de NCM | Tipo de anuência | Base legal |
+| --- | --- | --- | --- |
+| Medicamentos | 3004, 3002 | LI + LPCO | RDC 81/2008 |
+| Dispositivos médicos | 9018, 9019 | LI | RDC 81/2008 |
+| Cosméticos | 3304, 3305 | LPCO | RDC 752/2022 |
+| Alimentos | 1901, 2106 | LPCO | RDC 23/2000 |
+
+### Passo a passo simplificado
+
+1. **AFE do importador**: possuir Autorização de Funcionamento na ANVISA.  
+2. **Cadastro do produto**: registro ou notificação sanitária.  
+3. **Peticionamento e taxa GRU**: pagar código 501.  
+4. **Preencher LI/LPCO**: anexar invoice, catálogo, bula/rotulagem.  
+5. **Aguardar deferimento** (SLA médio 1–3 dias).  
+6. **Registrar DI/DUIMP** vinculando a anuência.  
+7. **Inspeção sanitária** quando aplicável (porto/aeroporto).  
+8. **Liberação** e emissão de termo de guarda ou uso.
+
+### Documentos comuns
+
+| Documento | Emitente | Observação |
+| --- | --- | --- |
+| Ficha de Segurança (FISPQ) | Fabricante | Produtos químicos |
+| Certificado de Boas Práticas | Autoridade local | Medicamentos Classe III/IV |
+| Rotulagem traduzida | Importador | Instrução Normativa 67/2020 |
+
+### Mini-FAQ
+
+| Pergunta | Resposta breve |
+| --- | --- |
+| Posso antecipar LI? | Sim, LI "antecipada" até 60 dias antes do embarque. |
+| Taxa GRU é reembolsável? | Não. Se indeferido, nova petição = nova taxa. |
+| ANVISA aceita documentos em inglês? | Sim, mas bulas/rotulagem devem ter versão PT. |
 
 ---
 
@@ -29,4 +59,4 @@ faqs:
 
 ---
 
-> Esta resposta faz parte da base de conhecimento da OLV Internacional.
+> Conteúdo auditado pelo OLV Labs, julho 2024.

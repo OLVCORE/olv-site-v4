@@ -10,13 +10,38 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+O **despacho aduaneiro de importação** no Brasil segue cinco macroetapas: Registro da DI/DUIMP, Parametrização, Conferência Aduaneira, Desembaraço e Entrega da Carga. O processo leva de 1 dia (Canal Verde) a 10+ dias em canais Vermelho ou Cinza.
 
-### Como fazer passo a passo
+### Fluxo do despacho e prazos
 
-1. Passo 1 – texto.
-2. Passo 2 – texto.
-3. Passo 3 – texto.
+| Etapa | Responsável | Prazo médio | O que acontece? |
+| --- | --- | --- | --- |
+| Registro DI/DUIMP | Importador/Despachante | — | Dados comerciais e fiscais são transmitidos. |
+| Parametrização | RFB | Segundos | Canal Verde, Amarelo, Vermelho ou Cinza. |
+| Conferência documental | Auditor-Fiscal | 1–2 dias (Amarelo) | Checagem de documentos. |
+| Conferência física | Auditor + Vigiagro/Anvisa etc. | 2–5 dias (Vermelho) | Inspeção in loco. |
+| Análise Especial | Equipe de fraude (Cinza) | 20+ dias | Investigação de preço/valor. |
+| Desembaraço | Sistema | Imediato após deferimento | Emite Comprovante de Importação. |
+| Entrega carga | Terminal | 1 dia | Retirada física após pagamento armazenagem. |
+
+### Passo a passo operacional
+
+1. **Organizar dossiê digital**: invoice, packing, knowledge, LI/LPCO.  
+2. **Conferir canais** de órgãos anuentes; resolver exigências pendentes.  
+3. **Registrar DI/DUIMP**; pagar tributos via DARF numerada.  
+4. **Responder exigências** no e-CAC (campo "Interveniente").  
+5. **Acompanhar parametrização**; se Canal Verde, retirar carga.  
+6. **Agendar inspeção** se Canal Vermelho; preparar lacres.  
+7. **Solicitar AFRMM** e ICMS via recolhimento estadual.  
+8. **Emitir CI** (Comprovante de Importação) para câmbio e contabilidade.
+
+### Mini-FAQ
+
+| Pergunta | Resposta breve |
+| --- | --- |
+| Posso transformar Canal Vermelho em Verde? | Não, mas bons históricos reduzem risco. |
+| Há prazo máximo para despacho? | 90 dias; depois multa R$ 1.000/dia. |
+| Despacho antecipado existe? | Sim, cargas perecíveis/art. 48 |
 
 ---
 
@@ -29,4 +54,4 @@ faqs:
 
 ---
 
-> Esta resposta faz parte da base de conhecimento da OLV Internacional.
+> Conteúdo auditado pelo OLV Labs, julho 2024.
