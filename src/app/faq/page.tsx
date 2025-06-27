@@ -62,14 +62,17 @@ const categoryMap: Record<string, string[]> = {
     'siscomex-li-declaracao-como-fazer',
     'despacho-aduaneiro-etapas',
     'diferenca-entre-incoterms-2020',
-    'importacao-drop-shipping-regulamentacao'
+    'importacao-drop-shipping-regulamentacao',
+    'passos-da-li-anvisa'
   ],
   'Exportação & Preço de Venda': [
     'formacao-do-preco-de-exportacao'
   ],
   'Tecnologia & Simuladores OLV': [
     'simulador-custo-importacao-como-usar',
-    'logistica-4-0-beneficios-supply-chain'
+    'logistica-4-0-beneficios-supply-chain',
+    'simulador-frete-internacional',
+    'simulador-tax-importacao'
   ],
   'Plataformas do Ecossistema OLV': [
     'stratevo-o-que-e',
