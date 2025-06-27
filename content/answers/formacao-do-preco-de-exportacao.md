@@ -74,6 +74,41 @@ Cx = custo fábrica, Li = logística interna, D = despesas, Mk = markup, Cm = co
 | Cabotagem | Transbordo portuário | US$ 28/t contêiner |
 | Rodoviário | Pedágio + SADA fronteira | R$ 0,17/t.km |
 
+### 5. Termos de pagamento e garantias
+
+| Termo | Risco vendedor | Recebimento | Instrumento de mitigação |
+| --- | --- | --- | --- |
+| Pagamento antecipado | Baixíssimo | 0–3 dias | — |
+| Carta de Crédito (LC) | Baixo | À vista/usance contra documentos | Conferir campos 46A/47A; SBLC backup |
+| Cobrança D/P, D/A | Médio | Após apresentação ou prazo acordado | Seguro de crédito, factoring |
+| Conta aberta | Alto | 30–120 dias pós-embarque | Seguro exim, forfaiting |
+
+Fluxo LC resumido: Invoice → BL/AWB → Cert. Origem/Fitossanitário → apresentação banco → pagamento sight/usance.
+
+### 6. Seguro de crédito & travas cambiais
+
+| Ferramenta | Cobertura/taxa | Fornecedor |
+| --- | --- | --- |
+| Seguro de crédito à exportação | 90–100 % valor; 0,3–0,8 % | Euler Hermes, CESCE | 
+| NDF de venda USD/BRL | Protege receita | Bancos locais |
+| Opção de venda CME | Hedge preço (grãos) | Corretoras FCM |
+
+### 7. Exigências fitossanitárias e sanitárias
+
+| Produto | Documento | Autoridade |
+| --- | --- | --- |
+| Grãos | Certificado Fitossanitário | MAPA/USDA |
+| Carnes | Certificado Sanitário Internacional | MAPA/OCI | 
+| Minérios | Certificado de Origem Mineral | DNPM |
+
+### 8. Logística de origem (pré-porto)
+
+| Etapa | Custo médio | Observação |
+| --- | --- | --- |
+| Armazenagem em silo interior | R$ 0,35/sc por mês | Cuidado com umidade |
+| Estufagem contêiner | US$ 180/box 20' | Inclui fumigação |
+| Transferência ferrovia até porto | R$ 170/t | Tempo médio 4-7 dias |
+
 ### Mini-FAQ
 
 | Pergunta | Resposta breve |
