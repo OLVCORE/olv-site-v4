@@ -1022,4 +1022,7 @@ body.theme-light .glass {
     height: 52px !important;
     width: auto !important;
   }
-} 
+}
+
+/* === Spacing overrides for Soluções page === */
+body.solucoes-page .main-content { margin-top: calc(var(--height-header) + 0.8cm) !important; } 
