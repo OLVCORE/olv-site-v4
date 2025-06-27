@@ -101,8 +101,8 @@ export default function FaqPage() {
   const grouped = groupByCategory(getAllAnswers());
 
   return (
-    <MainLayout>
-      <div className="main-content container py-10">
+    <MainLayout className="faq-page">
+      <div className="main-content container py-10 mt-[0.3cm]">
         <h1 className="text-3xl font-bold mb-6 text-accent">Perguntas Frequentes (FAQ)</h1>
         <FaqAccordion grouped={grouped} />
       </div>
