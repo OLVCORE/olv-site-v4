@@ -16,12 +16,12 @@ export default function SolucoesPage() {
   return (
     <MainLayout className="solucoes-page">
       {/* HERO DE AUTORIDADE */}
-      <section className="max-w-7xl mx-auto px-4 bg-[#141c2f] border border-[#2a3448] shadow-md rounded-xl p-8 mt-[2cm] text-gray-200 hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+      <section className="max-w-7xl mx-auto px-4 bg-[#141c2f] border border-[#2a3448] shadow-md rounded-xl p-8 mt-[3cm] text-gray-200 hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
         <div className="flex flex-row items-center justify-start gap-4 text-left">
           <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
             <Image src="/icons/solutions-icon.svg" alt="Soluções" width={32} height={32} />
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-white">
+          <h1 className="text-2xl md:text-3xl font-extrabold text-white">
             Soluções Reais para Empresas Reais
           </h1>
         </div>
