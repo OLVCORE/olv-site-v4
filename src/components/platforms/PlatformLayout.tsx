@@ -97,6 +97,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
             platformDescription={platformDescription}
             platformIntro={platformIntro}
             platformColor={platformColor}
+            isBeta={true}
           />
           <div className="my-6"><BetaVersion /></div>
           
