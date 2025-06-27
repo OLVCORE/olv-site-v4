@@ -14,6 +14,14 @@ export const metadata = {
   }
 };
 
+// Read legacy HTML at build time so its content is embedded in the bundle
+const legacyHTMLPath = path.join(process.cwd(), 'solucoes.html');
+let legacyHTML = '';
+if (fs.existsSync(legacyHTMLPath)) {
+  const raw = fs.readFileSync(legacyHTMLPath, 'utf8');
+  legacyHTML = raw.split('<main class="main-content">')[1]?.split('</main>')[0] ?? '';
+}
+
 export default function SolucoesPage() {
   return (
     <MainLayout>
@@ -596,18 +604,12 @@ export default function SolucoesPage() {
       </div>
 
       {/* Legacy full-page content preserved from original static HTML */}
-      {(() => {
-        const legacyPath = path.join(process.cwd(), 'solucoes.html');
-        if (!fs.existsSync(legacyPath)) return null;
-        const html = fs.readFileSync(legacyPath, 'utf8');
-        const slice = html.split('<main class="main-content">')[1]?.split('</main>')[0] ?? '';
-        return (
-          <section className="legacy-solutions prose max-w-none dark:prose-invert">
-            {/* eslint-disable-next-line react/no-danger */}
-            <div dangerouslySetInnerHTML={{ __html: slice }} />
-          </section>
-        );
-      })()}
+      {legacyHTML && (
+        <section className="legacy-solutions prose max-w-none dark:prose-invert">
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: legacyHTML }} />
+        </section>
+      )}
     </MainLayout>
   );
 } 
