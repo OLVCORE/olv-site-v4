@@ -6,6 +6,7 @@ import MainLayout from '../../../components/layout/MainLayout';
 import { FaqSchema } from '../../../components/SeoSchemas';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import Disclaimer from '../../../components/Disclaimer';
 
 interface AnswerFrontMatter {
   title: string;
@@ -54,6 +55,7 @@ export default function AnswerPage({ params }: { params: { slug: string } }) {
         <article className="prose prose-invert max-w-none">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </article>
+        <Disclaimer />
       </div>
       {data.mainQuestion && data.faqs ? (
         <FaqSchema mainQuestion={data.mainQuestion} faqs={data.faqs} />
