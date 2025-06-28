@@ -1059,4 +1059,14 @@ body[class*="page-"] .main-content {
     display: block;
     overflow-x: auto;
   }
+}
+
+/* =============================================================
+   FIX 2025-06-28 – Garante espaçamento do hero nas páginas com
+   classe "page-*" mesmo quando aplicada na div .app-container.
+   ============================================================= */
+@media (min-width: 769px) {
+  .app-container[class*="page-"] .main-content {
+    margin-top: calc(var(--height-header) + 0.5cm) !important;
+  }
 } 
