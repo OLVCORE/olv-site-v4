@@ -5,7 +5,7 @@ description: "Mapeamento e mitigação."
 mainQuestion: "Controle de riscos aduaneiros?"
 faqs:
   - q: "Controle de riscos aduaneiros?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Mapeie alertas Siscomex, histórico de LI e aplique matriz de risco OEA para evitar multas e atrasos no desembaraço."
 ---
 
 ## Resposta rápida

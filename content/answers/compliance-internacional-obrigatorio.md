@@ -5,7 +5,7 @@ description: "Requisitos de compliance em operações globais."
 mainQuestion: "Compliance internacional é obrigatório??"
 faqs:
   - q: "Compliance internacional é obrigatório??"
-    a: "Resposta curta em desenvolvimento."
+    a: "Compliance internacional exige monitorar sanções, práticas ESG e OEA; falhas podem bloquear cargas e gerar multas severas."
 ---
 
 ## Resposta rápida
