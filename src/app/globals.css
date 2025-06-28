@@ -1029,7 +1029,7 @@ body.theme-light .glass {
 
 /* === Universal main-content top spacing for all pages === */
 body[class*="page-"] .main-content {
-  margin-top: calc(var(--height-header) + 0.5cm) !important;
+  margin-top: calc(var(--height-header) + var(--height-ticker) + 0.8cm) !important;
 }
 
 /* === Spacing overrides for Soluções page === */
@@ -1078,9 +1078,9 @@ body[class*="page-"] .main-content {
 }
 
 @media (min-width: 769px) {
-  /* Universal desktop content offset: header + ticker + 3.5cm respiro */
+  /* Universal desktop content offset: header + ticker + 0.8cm */
   .content-wrapper > .main-content {
-    margin-top: calc(var(--height-header) + 45px + 3.5cm) !important;
+    margin-top: calc(var(--height-header) + var(--height-ticker) + 0.8cm) !important;
     padding-top: 0 !important;
   }
 }
@@ -1120,14 +1120,11 @@ body[class*="page-"] .main-content {
    Aplica regras mínimas universais e corrige apenas FAQ e Answers
    ============================================================= */
 @media (min-width: 769px) {
-  /* Regra padrão para TODO o website: conteúdo inicia após Header + 0,5 cm */
+  /* Regra padrão para TODO o website: Header + Ticker + 0,8 cm */
   .content-wrapper > .main-content {
-    margin-top: calc(var(--height-header) + 0.5cm) !important;
+    margin-top: calc(var(--height-header) + var(--height-ticker) + 0.8cm) !important;
     padding-top: 0 !important;
   }
 
-  /* Exceção – páginas FAQ e Answers: considerar também a altura do ticker */
-  .app-container.page-answer .main-content {
-    margin-top: calc(var(--height-header) + var(--height-ticker) + 0.5cm) !important;
-  }
+  /* Nenhuma exceção por enquanto; pages especiais podem adicionar suas próprias classes se precisarem */
 } 
