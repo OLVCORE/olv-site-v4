@@ -1069,6 +1069,7 @@ body[class*="page-"] .main-content {
   .app-container.faq-page .main-content,
   .app-container.page-answer .main-content {
     /* Hero a 0,8 cm abaixo do ticker em desktop (0,3 cm adicional) */
-    margin-top: 0.8cm !important;
+    margin-top: 0.5cm !important; /* distância fixa */
+    padding-top: 0 !important; /* remove py top padding */
   }
 } 
