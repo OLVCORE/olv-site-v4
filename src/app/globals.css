@@ -1069,7 +1069,7 @@ body[class*="page-"] .main-content {
   .app-container.page-answer .main-content,
   .app-container.page-faq .main-content,
   .app-container[class*="page-"] .main-content {
-    /* Espaço = cabeçalho + ticker (45px) + 24px padding */
-    margin-top: calc(var(--height-header) + 45px + 24px) !important;
+    /* Apenas ticker (45px) + 0,5 cm de respiro */
+    margin-top: calc(45px + 0.5cm) !important;
   }
 } 

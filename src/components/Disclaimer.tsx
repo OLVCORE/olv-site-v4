@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Disclaimer() {
   return (
-    <aside className="mt-8 p-4 border-l-4 border-blue-600 bg-blue-100 text-blue-900 shadow-sm hover:shadow-md transition-shadow dark:border-blue-500 dark:bg-blue-900/40 dark:text-blue-100 text-sm rounded">
+    <aside className="mt-8 p-4 border-l-4 border-blue-700 bg-blue-50 text-blue-900 shadow-sm hover:shadow-md transition-shadow rounded dark:border-blue-400 dark:bg-blue-900/50 dark:text-blue-100 text-sm">
       <strong>Aviso de Responsabilidade</strong> — Este conteúdo tem caráter educacional e ilustrativo. Não constitui
       aconselhamento jurídico, contábil, fiscal ou de investimentos. Custos, alíquotas e requisitos podem mudar sem aviso
       prévio. Antes de tomar decisões, consulte legislação vigente e profissionais habilitados. A OLV Internacional não se
