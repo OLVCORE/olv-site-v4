@@ -1086,9 +1086,7 @@ body[class*="page-"] .main-content {
 }
 
 /* === Reset previous hero spacing attempts === */
-.app-container.page-answer .main-content,
-.app-container.page-faq .main-content,
-.app-container.faq-page .main-content {
+.app-container.page-answer .main-content {
   margin-top: 0 !important;
 }
 
@@ -1129,7 +1127,6 @@ body[class*="page-"] .main-content {
   }
 
   /* Exceção – páginas FAQ e Answers: considerar também a altura do ticker */
-  .app-container.faq-page .main-content,
   .app-container.page-answer .main-content {
     margin-top: calc(var(--height-header) + var(--height-ticker) + 0.5cm) !important;
   }
