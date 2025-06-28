@@ -47,7 +47,7 @@ export default function GlobalSearch() {
           {data.results.map((item, idx) => {
             const regex = new RegExp(`(${query})`, 'gi');
             const highlight = (text: string) => text.split(regex).map((part, i) => (
-              regex.test(part) ? <mark key={i} className="bg-yellow-500/30 text-yellow-200 font-bold">{part}</mark> : part
+              regex.test(part) ? <mark key={i} className="bg-purple-600/40 text-gray-100 font-bold">{part}</mark> : part
             ));
             return (
               <li key={item.slug} className={`${idx === active ? 'bg-surface-light' : ''} px-3 py-2 hover:bg-surface-light`}>
