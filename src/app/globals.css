@@ -801,7 +801,7 @@ body.theme-light .ticker-inner a {
   }
 }
 
-.main-content {
+.content-wrapper > .main-content {
   padding-bottom: calc(var(--footer-height, 100px) + 1rem);
 }
 
@@ -1076,7 +1076,7 @@ body[class*="page-"] .main-content {
 
 @media (min-width: 769px) {
   /* Universal desktop content offset: header (64px) + ticker (~32-45px) + 0.5cm respiro */
-  .main-content {
+  .content-wrapper > .main-content {
     margin-top: calc(var(--height-header) + 45px + 0.5cm) !important;
     padding-top: 0 !important;
   }
