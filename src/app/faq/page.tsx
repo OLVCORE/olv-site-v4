@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import FaqPageClient from './FaqPageClient';
+import React from 'react';
 
 export const metadata = {
   title: 'FAQ | OLV Internacional',
@@ -12,18 +13,28 @@ export const metadata = {
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'answers');
 
-interface AnswerItem { title: string; slug: string; }
+interface AnswerItem { title: string; slug: string; answer: string; }
+
+function extractFirstParagraph(md: string) {
+  const body = md.split(/\r?\n/).filter((l) => !l.trim().startsWith('#'));
+  const idx = body.findIndex((l) => l.trim() !== '');
+  if (idx === -1) return '';
+  const end = body.slice(idx).findIndex((l) => l.trim() === '');
+  const paraLines = end === -1 ? body.slice(idx) : body.slice(idx, idx + end);
+  return paraLines.join(' ').replace(/\[(.*?)\]\([^)]*\)/g, '$1');
+}
 
 function getAllAnswers(): AnswerItem[] {
   const files = fs.readdirSync(CONTENT_DIR);
   return files.map((file) => {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
-    const { data } = matter(raw);
+    const { data, content } = matter(raw);
     return {
       title: data.title as string,
-      slug: data.slug as string,
+      slug: (data.slug as string) || file.replace(/\.md$/, ''),
+      answer: extractFirstParagraph(content),
     };
-  }) as AnswerItem[];
+  });
 }
 
 // naive categorisation by slug keywords (can be replaced by front-matter category later)
@@ -113,7 +124,35 @@ function groupByCategory(all: AnswerItem[]) {
   return grouped;
 }
 
+function buildFaqSchema(grouped: Record<string, AnswerItem[]>): string {
+  const qaList = Object.values(grouped)
+    .flat()
+    .slice(0, 30)
+    .map((a) => ({
+      '@type': 'Question',
+      name: a.title,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: a.answer,
+      },
+    }));
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: qaList,
+  });
+}
+
 export default function FaqPage() {
   const grouped = groupByCategory(getAllAnswers());
-  return <FaqPageClient grouped={grouped} />;
+  const schemaJson = buildFaqSchema(grouped);
+  return (
+    <>
+      <FaqPageClient grouped={grouped} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: schemaJson }}
+      />
+    </>
+  );
 } 
