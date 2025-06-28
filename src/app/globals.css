@@ -1127,4 +1127,14 @@ body[class*="page-"] .main-content {
   }
 
   /* Nenhuma exceção por enquanto; pages especiais podem adicionar suas próprias classes se precisarem */
+}
+
+/* =============================================================
+   FINAL OVERRIDE 2025-06-29 – garante 0,8 cm abaixo do ticker
+   ============================================================= */
+@media (min-width: 769px) {
+  .app-container .content-wrapper > .main-content {
+    margin-top: calc(var(--height-header) + var(--height-ticker) + 0.8cm) !important;
+    padding-top: 0 !important;
+  }
 } 
