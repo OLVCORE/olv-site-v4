@@ -1112,6 +1112,7 @@ body[class*="page-"] .main-content {
   /* Remove extra margin on first child inside main to keep 0.8cm spacing */
   .content-wrapper > .main-content > *:first-child {
     margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 }
 
