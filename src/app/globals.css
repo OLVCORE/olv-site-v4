@@ -1084,7 +1084,8 @@ body[class*="page-"] .main-content {
 
 /* === Reset previous hero spacing attempts === */
 .app-container.page-answer .main-content,
-.app-container.page-faq .main-content {
+.app-container.page-faq .main-content,
+.app-container.faq-page .main-content {
   margin-top: 0 !important;
 }
 
@@ -1094,8 +1095,14 @@ body[class*="page-"] .main-content {
     margin-top: calc(var(--height-header) + 50px) !important;
   }
 
+  /* Override any page-level margin rules */
+  .app-container .content-wrapper > .main-content {
+    margin-top: 0 !important;
+  }
+
   /* Universal: ensure every main content starts after header + ticker */
   .content-wrapper > .main-content {
+    margin-top: 0 !important; /* override any previous margin */
     padding-top: calc(var(--height-header) + 50px) !important;
   }
 } 
