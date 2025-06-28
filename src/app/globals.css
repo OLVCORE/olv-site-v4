@@ -1068,7 +1068,7 @@ body[class*="page-"] .main-content {
 @media (min-width: 769px) {
   .app-container.faq-page .main-content,
   .app-container.page-answer .main-content {
-    /* Hero a 0,5 cm abaixo do ticker em desktop */
-    margin-top: 0.5cm !important;
+    /* Hero a 0,8 cm abaixo do ticker em desktop (0,3 cm adicional) */
+    margin-top: 0.8cm !important;
   }
 } 
