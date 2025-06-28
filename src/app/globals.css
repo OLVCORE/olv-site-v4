@@ -1105,4 +1105,11 @@ body[class*="page-"] .main-content {
     margin-top: 0 !important; /* override any previous margin */
     padding-top: calc(var(--height-header) + 45px + 0.8cm) !important;
   }
+}
+
+@media (min-width: 769px) {
+  /* Remove extra margin on first child inside main to keep 0.8cm spacing */
+  .content-wrapper > .main-content > *:first-child {
+    margin-top: 0 !important;
+  }
 } 
