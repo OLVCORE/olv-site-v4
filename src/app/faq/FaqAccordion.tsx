@@ -14,10 +14,11 @@ interface Props {
   search?: string; // termo de busca
   startDate?: string; // filtro inicial YYYY-MM-DD
   endDate?: string; // filtro final
+  orderMap?: Record<string, number>; // ranking por popularidade (menor valor = mais popular)
   onChange?: (openCats: string[]) => void;
 }
 
-export default function FaqAccordion({ grouped, initialOpen = [], search = '', startDate, endDate, onChange }: Props) {
+export default function FaqAccordion({ grouped, initialOpen = [], search = '', startDate, endDate, orderMap, onChange }: Props) {
   const [openCats, setOpenCats] = useState<string[]>(initialOpen);
 
   // sync external change (hash/localStorage)
@@ -50,12 +51,17 @@ export default function FaqAccordion({ grouped, initialOpen = [], search = '', s
             return ts >= startMs && ts <= endMs;
           });
         }
-        // ordena por data de atualização desc (mais recentes primeiro)
-        filtered = filtered.sort((a, b) => {
-          const da = a.updated ? Date.parse(a.updated) : 0;
-          const db = b.updated ? Date.parse(b.updated) : 0;
-          return db - da;
-        });
+        // ordena
+        if (orderMap) {
+          filtered = filtered.sort((a, b) => (orderMap[a.slug] ?? 1e9) - (orderMap[b.slug] ?? 1e9));
+        } else {
+          // por data desc (recentes)
+          filtered = filtered.sort((a, b) => {
+            const da = a.updated ? Date.parse(a.updated) : 0;
+            const db = b.updated ? Date.parse(b.updated) : 0;
+            return db - da;
+          });
+        }
         if (!filtered.length) return null; // esconde categoria vazia
 
         const isOpen = openCats.includes(cat);
@@ -81,13 +87,17 @@ export default function FaqAccordion({ grouped, initialOpen = [], search = '', s
                 >
                   {filtered.map((a) => (
                     <li key={a.slug} className="flex items-center gap-2">
-                      <Link href={`/answers/${a.slug}`} className="text-[#d4af37] hover:underline" onClick={() => {
-                        fetch('/api/faq/view', {
-                          method: 'POST',
-                          headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify({ slug: a.slug }),
-                        }).catch(() => {});
-                      }}>
+                      <Link
+                        href={`/answers/${a.slug}`}
+                        className="text-[#d4af37] hover:underline"
+                        onClick={() => {
+                          fetch('/api/faq/view', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ slug: a.slug }),
+                          }).catch(() => {});
+                        }}
+                      >
                         <span
                           dangerouslySetInnerHTML={{
                             __html: search.trim()
