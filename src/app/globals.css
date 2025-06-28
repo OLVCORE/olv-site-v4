@@ -1103,6 +1103,6 @@ body[class*="page-"] .main-content {
   /* Universal: ensure every main content starts after header + ticker */
   .content-wrapper > .main-content {
     margin-top: 0 !important; /* override any previous margin */
-    padding-top: calc(var(--height-header) + 50px) !important;
+    padding-top: calc(var(--height-header) + 45px + 0.8cm) !important;
   }
 } 
