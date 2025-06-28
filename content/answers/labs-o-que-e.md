@@ -5,7 +5,7 @@ description: "Laboratório de inovação da OLV."
 mainQuestion: "O que é a plataforma LABS?"
 faqs:
   - q: "O que é a plataforma LABS?"
-    a: "Resposta curta em desenvolvimento."
+    a: "OLV LABS é nosso centro de inovação onde testamos IA, blockchain e IoT aplicados ao comércio exterior antes de escalar para todo o ecossistema."
 ---
 
 ## Resposta rápida

@@ -5,7 +5,7 @@ description: "Gestão financeira internacional."
 mainQuestion: "O que é a plataforma FINX?"
 faqs:
   - q: "O que é a plataforma FINX?"
-    a: "Resposta curta em desenvolvimento."
+    a: "OLV FINX integra câmbio, financiamento e hedge em um só lugar, permitindo travar custos em até 12 moedas com simulações de exposição em tempo real."
 ---
 
 **Versão Beta – funcionalidades em desenvolvimento. Lançamento previsto para Q4 2024. Cadastre-se na lista de espera.**

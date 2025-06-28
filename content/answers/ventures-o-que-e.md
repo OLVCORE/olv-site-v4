@@ -5,7 +5,7 @@ description: "Investimentos e novos negócios."
 mainQuestion: "O que é a plataforma VENTURES?"
 faqs:
   - q: "O que é a plataforma VENTURES?"
-    a: "Resposta curta em desenvolvimento."
+    a: "OLV VENTURES conecta investidores a scale-ups de logística e comércio exterior, oferecendo smart money e acesso a mercados internacionais."
 ---
 
 ## Resposta rápida

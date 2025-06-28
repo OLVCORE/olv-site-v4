@@ -5,7 +5,7 @@ description: "CRM e qualificação de leads."
 mainQuestion: "O que é a plataforma ENGAGE?"
 faqs:
   - q: "O que é a plataforma ENGAGE?"
-    a: "Resposta curta em desenvolvimento."
+    a: "OLV ENGAGE é o hub de relacionamento B2B que conecta importadores, exportadores e prestadores, gerando leads qualificados via conteúdo e automação de marketing."
 ---
 
 **Versão Beta – funcionalidades em desenvolvimento. Lançamento previsto para Q4 2024. Cadastre-se na lista de espera.**

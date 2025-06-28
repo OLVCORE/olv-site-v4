@@ -5,7 +5,7 @@ description: "Compliance e due diligence."
 mainQuestion: "O que é a plataforma VERITUS?"
 faqs:
   - q: "O que é a plataforma VERITUS?"
-    a: "Resposta curta em desenvolvimento."
+    a: "OLV VERITUS é a guardiã de compliance que automatiza auditorias, due diligence e monitoramento regulatório, garantindo operações em conformidade 24/7."
 ---
 
 ## Resposta rápida
