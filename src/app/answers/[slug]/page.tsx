@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import MainLayout from '../../../components/layout/MainLayout';
 import { FaqSchema } from '../../../components/SeoSchemas';
 import ReactMarkdown from 'react-markdown';
@@ -28,7 +29,11 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { data } = getAnswer(params.slug);
+  const result = getAnswer(params.slug);
+  if (!result) {
+    notFound();
+  }
+  const { data } = result;
   return {
     title: data.title,
     description: data.description,
@@ -40,16 +45,23 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 function getAnswer(slug: string) {
-  const fullPath = path.join(CONTENT_DIR, `${slug}.md`);
-  const raw = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(raw);
-  return { data: data as AnswerFrontMatter, content };
+  try {
+    const fullPath = path.join(CONTENT_DIR, `${slug}.md`);
+    const raw = fs.readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(raw);
+    const cleaned = content.replace(/^.*Placeholder.*$/gim, '').trim();
+    return { data: data as AnswerFrontMatter, content: cleaned };
+  } catch (err) {
+    return null;
+  }
 }
 
 export default function AnswerPage({ params }: { params: { slug: string } }) {
-  const { data, content } = getAnswer(params.slug);
+  const result = getAnswer(params.slug);
+  if (!result) return null;
+  const { data, content } = result;
   return (
-    <MainLayout>
+    <MainLayout className="page-answer">
       <div className="main-content container py-8">
         <h1 className="text-3xl font-bold mb-4 text-accent">{data.title}</h1>
         <article className="prose prose-invert max-w-none">

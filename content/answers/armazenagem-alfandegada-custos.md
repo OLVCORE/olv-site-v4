@@ -42,8 +42,8 @@ Terminais alfandegados (TECA, EADI, porto) cobram **armazenagem, capatazia e tax
 
 | Pergunta | Resposta |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Como negociar desconto de armazenagem? | Apresente previsão anual ≥ 500 t ou 500 TEUs; terminais costumam conceder 10–20 % de redução para contratos firmes. |
+| Quando vale transferir carga para zona secundária? | Se desembaraço levar > 5 dias ou a diária superar o custo de DTA + percurso interno; economias podem chegar a 40 %. |
 
 ---
 
