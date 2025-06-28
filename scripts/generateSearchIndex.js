@@ -34,8 +34,22 @@ files.forEach((file) => {
   }
 
   // slug computation
-  let slug = file.replace(APP_DIR, '').replace(/\\page.tsx$/, '').replace(/\\index$/, '/').replace(/\\/g, '/');
-  if (slug === '') slug = '/';
+  let slug;
+  if (file.includes(path.sep + 'content' + path.sep + 'answers')) {
+    // markdown answer → /answers/filename
+    const name = path.basename(file, ext);
+    slug = `/answers/${name}`;
+  } else {
+    slug = file
+      .replace(APP_DIR, '')
+      .replace(/\\page.tsx$/, '')
+      .replace(/\\index$/, '')
+      .replace(/\\/g, '/');
+    if (slug === '') slug = '/';
+  }
+
+  // ensure forward slashes and no drive letters
+  slug = slug.replace(/^\w:\//, '');
 
   const categoryMatch = slug.split('/').filter(Boolean)[0] || 'home';
 

@@ -32,7 +32,7 @@ export default function GlobalSearch() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-72 md:w-96">
       <input
         type="text"
         placeholder="Buscar..."
@@ -43,15 +43,15 @@ export default function GlobalSearch() {
         className="px-3 py-2 rounded bg-surface-light text-on-surface outline-none"
       />
       {data?.results?.length > 0 && (
-        <ul className="absolute z-50 mt-2 w-full bg-surface rounded shadow-lg max-h-64 overflow-auto">
+        <ul className="absolute z-50 mt-2 w-full bg-surface rounded shadow-lg max-h-72 overflow-auto">
           {data.results.map((item, idx) => {
             const regex = new RegExp(`(${query})`, 'gi');
             const highlight = (text: string) => text.split(regex).map((part, i) => (
               regex.test(part) ? <mark key={i} className="bg-accent-light text-accent font-bold">{part}</mark> : part
             ));
             return (
-              <li key={item.slug} className={idx === active ? 'bg-surface-light' : ''}>
-                <Link href={item.slug} onClick={() => setQuery('')} className="block px-3 py-2 hover:bg-surface-light">
+              <li key={item.slug} className={`${idx === active ? 'bg-surface-light' : ''} px-3 py-2 hover:bg-surface-light`}>
+                <Link href={item.slug} onClick={() => setQuery('')} className="block">
                   <div>
                     <span className="font-semibold text-accent mr-2">{item.category}</span>
                     {highlight(item.title)}
