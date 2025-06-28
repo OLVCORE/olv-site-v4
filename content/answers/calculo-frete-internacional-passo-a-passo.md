@@ -54,10 +54,11 @@ Adicionar **THC destino** e **demurrage** em fase de entrega.
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Qual a diferença entre FCL e LCL? | FCL é contêiner exclusivo; LCL consolida cargas de vários importadores e pode ter custo menor em volumes < 12 m³. |
+| Como estimar frete aéreo? | Multiplique peso taxável (maior entre kg real e volumétrico) pela tarifa/kg publicada pela companhia + securitização e ISS. |
+| Onde consultar sobretaxas vigentes? | Sites dos armadores (BAF/LSS) ou circular IATA para fuel surcharge no modal aéreo. |
 
 ---
 
