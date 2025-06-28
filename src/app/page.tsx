@@ -44,7 +44,7 @@ export default function HomePage() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <section className="section hero pt-0 pb-0 mb-0 mt-12">
+      <section className="section hero pt-0 pb-0 mb-0">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center gap-4 mb-2 bg-[#141c2f] p-5 rounded-lg border border-[#2a3448] shadow-lg">
             <div className="flex-1">

@@ -203,7 +203,7 @@ export default function EcossistemaPage() {
       </div>
       <div className="main-content">
         {/* SEÇÃO HERO ECOSSISTEMA */}
-        <section className="section mt-12">
+        <section className="section">
           <div className="container">
             <div className="platform-card">
               <h2 className="flex items-center gap-2 text-2xl md:text-3xl font-bold text-white mb-4">
