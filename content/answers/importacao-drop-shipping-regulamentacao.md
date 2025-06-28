@@ -5,7 +5,7 @@ description: "Riscos e obrigações."
 mainQuestion: "Drop Shipping e regulamentação no Brasil?"
 faqs:
   - q: "Drop Shipping e regulamentação no Brasil?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Drop-shipping é legal, mas o vendedor brasileiro segue responsável pelo desembaraço e tributos; operações até US$50 usam Remessa Conforme, acima disso enquadram-se como importação por encomenda."
 ---
 
 ## Resposta rápida

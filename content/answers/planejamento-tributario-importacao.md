@@ -5,7 +5,7 @@ description: "Estratégias para reduzir carga tributária."
 mainQuestion: "Planejamento tributário na importação?"
 faqs:
   - q: "Planejamento tributário na importação?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Mapeie NCM, simule tributos e aplique regimes como Ex-Tarifário, Drawback e RECOF para cortar 25–40 % da carga fiscal antes do embarque."
 ---
 
 ## Resposta rápida

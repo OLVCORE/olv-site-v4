@@ -5,7 +5,7 @@ description: "Melhores práticas de FX."
 mainQuestion: "Como negociar câmbio para importação?"
 faqs:
   - q: "Como negociar câmbio para importação?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Colete cotações simultâneas em 3+ DTVMs e feche quando o spread estiver < 1,5 % sobre PTAX; avalie NDF antecipado para fixar valor antes do embarque."
 ---
 
 ## Resposta rápida

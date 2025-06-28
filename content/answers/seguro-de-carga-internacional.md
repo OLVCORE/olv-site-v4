@@ -5,7 +5,7 @@ description: "Coberturas e cálculo de prêmio."
 mainQuestion: "Seguro de carga internacional?"
 faqs:
   - q: "Seguro de carga internacional?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Contrate apólice All Risks ICC A com prêmio de 0,08 – 0,25 % sobre valor segurado para cobrir perdas da origem ao destino."
 ---
 
 ## Resposta rápida

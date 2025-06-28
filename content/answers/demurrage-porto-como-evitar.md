@@ -5,7 +5,7 @@ description: "Boas práticas logísticas."
 mainQuestion: "Como evitar demurrage no porto?"
 faqs:
   - q: "Como evitar demurrage no porto?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Antecipe registro DI/DUIMP, negocie free time >10 dias no booking e use DTA para EADI se necessário; assim evita pagar demurrage de US$120–300 por dia."
 ---
 
 ## Resposta rápida

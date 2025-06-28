@@ -5,7 +5,7 @@ description: "Estimativa de custos para importação da China em 2024."
 mainQuestion: "Quanto custa importar da China?"
 faqs:
   - q: "Quanto custa importar da China?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Importar da China eleva o custo entre 75 % e 110 % sobre o valor aduaneiro, somando frete, seguro, tributos federais e ICMS estadual."
 ---
 
 ## Resposta rápida

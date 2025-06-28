@@ -5,7 +5,7 @@ description: "Táticas logísticas e aduaneiras."
 mainQuestion: "Como reduzir lead time na importação?"
 faqs:
   - q: "Como reduzir lead time na importação?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Combine DUIMP pré-deferida, rota marítima expressa e VMI na origem para cortar até 17 dias do lead-time porta-a-porta."
 ---
 
 ## Resposta rápida
