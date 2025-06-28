@@ -13,7 +13,7 @@ export const metadata = {
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'answers');
 
-interface AnswerItem { title: string; slug: string; answer: string; }
+interface AnswerItem { title: string; slug: string; answer: string; updated?: string; }
 
 function extractFirstParagraph(md: string) {
   const body = md.split(/\r?\n/).filter((l) => !l.trim().startsWith('#'));
@@ -33,6 +33,7 @@ function getAllAnswers(): AnswerItem[] {
       title: data.title as string,
       slug: (data.slug as string) || file.replace(/\.md$/, ''),
       answer: extractFirstParagraph(content),
+      updated: data.updated as string | undefined,
     };
   });
 }

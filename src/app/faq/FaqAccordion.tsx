@@ -9,8 +9,8 @@ interface Props {
   grouped: Record<string, AnswerItem[]>;
   initialOpen?: string[]; // categorias inicialmente abertas
   search?: string; // termo de busca
-  startDate?: string; // yyyy-mm-dd inclusive
-  endDate?: string;
+  startDate?: string; // filtro inicial YYYY-MM-DD
+  endDate?: string; // filtro final
   onChange?: (openCats: string[]) => void;
 }
 
@@ -37,14 +37,14 @@ export default function FaqAccordion({ grouped, initialOpen = [], search = '', s
         let filtered = search.trim()
           ? items.filter((i) => i.title.toLowerCase().includes(search.toLowerCase()))
           : items;
-        // filtra por intervalo de datas se definido
+        // filtra por intervalo de data se fornecido
         if (startDate || endDate) {
           const startMs = startDate ? Date.parse(startDate) : -Infinity;
-          const endMs = endDate ? Date.parse(endDate) + 24 * 60 * 60 * 1000 - 1 : Infinity; // inclusive day
+          const endMs = endDate ? Date.parse(endDate) + 86_399_999 : Infinity; // até fim do dia
           filtered = filtered.filter((i) => {
             if (!i.updated) return false;
-            const ms = Date.parse(i.updated);
-            return ms >= startMs && ms <= endMs;
+            const ts = Date.parse(i.updated);
+            return ts >= startMs && ts <= endMs;
           });
         }
         // ordena por data de atualização desc (mais recentes primeiro)

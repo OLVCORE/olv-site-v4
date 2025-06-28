@@ -46,68 +46,70 @@ export default function FaqPageClient({ grouped }: Props) {
     <MainLayout className="faq-page">
       <div className="main-content container py-10">
         <h1 className="text-3xl font-bold mb-6 text-accent">Perguntas Frequentes (FAQ)</h1>
-        {/* Search + Controls */}
-        <div className="mb-6 flex flex-col md:flex-row md:items-center gap-4">
-          <input
-            type="search"
-            placeholder="Buscar pergunta..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full md:w-96 px-4 py-2 rounded-md bg-[#1a2338] border border-[#2a3448] focus:border-accent focus:outline-none text-sm"
-          />
-          <div className="flex gap-2">
-            <button
-              className="text-xs px-3 py-1 rounded border border-[#2a3448] hover:bg-[#2a3448]/40"
-              onClick={expandAll}
-            >
-              Expandir tudo
-            </button>
-            <button
-              className="text-xs px-3 py-1 rounded border border-[#2a3448] hover:bg-[#2a3448]/40"
-              onClick={collapseAll}
-            >
-              Recolher tudo
-            </button>
-          </div>
-        </div>
-        {/* Date range filter */}
-        <div className="mb-6 flex flex-col md:flex-row md:items-center gap-4">
-          <input
-            type="date"
-            value={start}
-            onChange={(e) => setStart(e.target.value)}
-            className="px-3 py-1 rounded bg-[#1a2338] border border-[#2a3448] text-sm"
-          />
-          <span className="hidden md:inline">—</span>
-          <input
-            type="date"
-            value={end}
-            onChange={(e) => setEnd(e.target.value)}
-            className="px-3 py-1 rounded bg-[#1a2338] border border-[#2a3448] text-sm"
-          />
-          <div className="flex gap-2 flex-wrap">
-            {[
-              { label: '30d', days: 30 },
-              { label: '3m', days: 90 },
-              { label: '12m', days: 365 },
-            ].map((p) => (
+        {/* Controles: busca + filtros (sticky) */}
+        <div className="sticky top-0 z-10 bg-[#0f172a]/80 backdrop-blur pb-4 mb-6">
+          <div className="flex flex-col md:flex-row md:items-center gap-4">
+            <input
+              type="search"
+              placeholder="Buscar pergunta..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full md:w-96 px-4 py-2 rounded-md bg-[#1a2338] border border-[#2a3448] focus:border-accent focus:outline-none text-sm"
+            />
+            <div className="flex gap-2">
               <button
-                key={p.label}
-                className="text-xs px-2 py-0.5 border border-[#2a3448] rounded hover:bg-[#2a3448]/40"
-                onClick={() => applyPreset(p.days)}
+                className="text-xs px-3 py-1 rounded border border-[#2a3448] hover:bg-[#2a3448]/40"
+                onClick={expandAll}
               >
-                {p.label}
+                Expandir tudo
               </button>
-            ))}
-            <button
-              className="text-xs px-2 py-0.5 border border-[#2a3448] rounded hover:bg-[#2a3448]/40"
-              onClick={() => {
-                setStart('');
-                setEnd('');
-              }}
-            >
-              Limpar
-            </button>
+              <button
+                className="text-xs px-3 py-1 rounded border border-[#2a3448] hover:bg-[#2a3448]/40"
+                onClick={collapseAll}
+              >
+                Recolher tudo
+              </button>
+            </div>
+          </div>
+          {/* Date range filter */}
+          <div className="mt-4 flex flex-col md:flex-row md:items-center gap-4">
+            <input
+              type="date"
+              value={start}
+              onChange={(e) => setStart(e.target.value)}
+              className="px-3 py-1 rounded bg-[#1a2338] border border-[#2a3448] text-sm"
+            />
+            <span className="hidden md:inline">—</span>
+            <input
+              type="date"
+              value={end}
+              onChange={(e) => setEnd(e.target.value)}
+              className="px-3 py-1 rounded bg-[#1a2338] border border-[#2a3448] text-sm"
+            />
+            <div className="flex gap-2 flex-wrap">
+              {[
+                { label: '30d', days: 30 },
+                { label: '3m', days: 90 },
+                { label: '12m', days: 365 },
+              ].map((p) => (
+                <button
+                  key={p.label}
+                  className="text-xs px-2 py-0.5 border border-[#2a3448] rounded hover:bg-[#2a3448]/40"
+                  onClick={() => applyPreset(p.days)}
+                >
+                  {p.label}
+                </button>
+              ))}
+              <button
+                className="text-xs px-2 py-0.5 border border-[#2a3448] rounded hover:bg-[#2a3448]/40"
+                onClick={() => {
+                  setStart('');
+                  setEnd('');
+                }}
+              >
+                Limpar
+              </button>
+            </div>
           </div>
         </div>
         <FaqAccordion
