@@ -1,11 +1,17 @@
 ---
-title: "Passos para obter LI da ANVISA"
-slug: "passos-da-li-anvisa"
-description: "Guia prático 2024 para solicitar Licença de Importação (LI) junto à ANVISA no SISCOMEX."
-mainQuestion: "Quais são os passos para a LI da ANVISA?"
+title: Passos para obter LI da ANVISA
+slug: passos-da-li-anvisa
+description: >-
+  Guia prático 2024 para solicitar Licença de Importação (LI) junto à ANVISA no
+  SISCOMEX.
+mainQuestion: Quais são os passos para a LI da ANVISA?
 faqs:
-  - q: "Quais são os passos para a LI da ANVISA?"
-    a: "A LI vinculada à ANVISA exige cadastramento de empresa, dossiê eletrônico e deferimento pré-embarque; veja o passo a passo abaixo."
+  - q: Quais são os passos para a LI da ANVISA?
+    a: >-
+      A LI vinculada à ANVISA exige cadastramento de empresa, dossiê eletrônico
+      e deferimento pré-embarque; veja o passo a passo abaixo.
+updated: '2025-06-27'
+keywords: 'passos, obter, li, anvisa'
 ---
 
 ## Resposta rápida

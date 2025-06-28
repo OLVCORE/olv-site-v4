@@ -1,11 +1,15 @@
 ---
-title: "Cálculo de frete internacional passo a passo"
-slug: "calculo-frete-internacional-passo-a-passo"
-description: "Guia para calcular frete marítimo e aéreo."
-mainQuestion: "Cálculo de frete internacional passo a passo?"
+title: Cálculo de frete internacional passo a passo
+slug: calculo-frete-internacional-passo-a-passo
+description: Guia para calcular frete marítimo e aéreo.
+mainQuestion: Cálculo de frete internacional passo a passo?
 faqs:
-  - q: "Cálculo de frete internacional passo a passo?"
-    a: "Some tarifa base, BAF/LSS e THCs para obter o frete total; um 20' Ásia→Brasil em 2024 custa ~US$1,5k + R$1,6k de THC."
+  - q: Cálculo de frete internacional passo a passo?
+    a: >-
+      Some tarifa base, BAF/LSS e THCs para obter o frete total; um 20'
+      Ásia→Brasil em 2024 custa ~US$1,5k + R$1,6k de THC.
+updated: '2025-06-27'
+keywords: 'cálculo, frete, internacional, passo, a'
 ---
 
 ## Resposta rápida

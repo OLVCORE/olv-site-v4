@@ -1,11 +1,15 @@
 ---
-title: "Como a cotação do dólar impacta a importação"
-slug: "cotacao-dolar-impacto-importacao"
-description: "Estratégias de hedge cambial."
-mainQuestion: "Como a cotação do dólar impacta a importação?"
+title: Como a cotação do dólar impacta a importação
+slug: cotacao-dolar-impacto-importacao
+description: Estratégias de hedge cambial.
+mainQuestion: Como a cotação do dólar impacta a importação?
 faqs:
-  - q: "Como a cotação do dólar impacta a importação?"
-    a: "A cada R$ 0,10 de alta no dólar o custo CIF em reais sobe cerca de 1,5 %; proteja-se com contrato NDF ou conta em moeda estrangeira."
+  - q: Como a cotação do dólar impacta a importação?
+    a: >-
+      A cada R$ 0,10 de alta no dólar o custo CIF em reais sobe cerca de 1,5 %;
+      proteja-se com contrato NDF ou conta em moeda estrangeira.
+updated: '2025-06-27'
+keywords: 'a, cotação, dólar, impacta, importação'
 ---
 
 ## Resposta rápida

@@ -1,11 +1,16 @@
 ---
-title: "O que é a plataforma EXCELTTA"
-slug: "exceltta-o-que-e"
-description: "Visão geral de analytics avançado."
-mainQuestion: "O que é a plataforma EXCELTTA?"
+title: O que é a plataforma EXCELTTA
+slug: exceltta-o-que-e
+description: Visão geral de analytics avançado.
+mainQuestion: O que é a plataforma EXCELTTA?
 faqs:
-  - q: "O que é a plataforma EXCELTTA?"
-    a: "EXCELTTA é a plataforma de eficiência operacional que mapeia processos de comércio exterior, aplica RPA e entrega ganhos de produtividade de até 40 %."
+  - q: O que é a plataforma EXCELTTA?
+    a: >-
+      EXCELTTA é a plataforma de eficiência operacional que mapeia processos de
+      comércio exterior, aplica RPA e entrega ganhos de produtividade de até 40
+      %.
+updated: '2025-06-27'
+keywords: 'o, é, a, plataforma, exceltta'
 ---
 
 ## Resposta rápida

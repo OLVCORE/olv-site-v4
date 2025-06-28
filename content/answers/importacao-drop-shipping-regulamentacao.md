@@ -1,11 +1,16 @@
 ---
-title: "Drop Shipping e regulamentação no Brasil"
-slug: "importacao-drop-shipping-regulamentacao"
-description: "Riscos e obrigações."
-mainQuestion: "Drop Shipping e regulamentação no Brasil?"
+title: Drop Shipping e regulamentação no Brasil
+slug: importacao-drop-shipping-regulamentacao
+description: Riscos e obrigações.
+mainQuestion: Drop Shipping e regulamentação no Brasil?
 faqs:
-  - q: "Drop Shipping e regulamentação no Brasil?"
-    a: "Drop-shipping é legal, mas o vendedor brasileiro segue responsável pelo desembaraço e tributos; operações até US$50 usam Remessa Conforme, acima disso enquadram-se como importação por encomenda."
+  - q: Drop Shipping e regulamentação no Brasil?
+    a: >-
+      Drop-shipping é legal, mas o vendedor brasileiro segue responsável pelo
+      desembaraço e tributos; operações até US$50 usam Remessa Conforme, acima
+      disso enquadram-se como importação por encomenda.
+updated: '2025-06-27'
+keywords: 'drop, shipping, regulamentação, brasil'
 ---
 
 ## Resposta rápida

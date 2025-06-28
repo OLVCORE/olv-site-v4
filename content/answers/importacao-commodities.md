@@ -1,11 +1,16 @@
 ---
-title: "Importação de commodities: grãos, minérios e petróleo"
-slug: "importacao-de-commodities"
-description: "Riscos de volatilidade, logística granel e exigências sanitárias."
-mainQuestion: "Como importar commodities como soja, minério de ferro e petróleo?"
+title: 'Importação de commodities: grãos, minérios e petróleo'
+slug: importacao-de-commodities
+description: 'Riscos de volatilidade, logística granel e exigências sanitárias.'
+mainQuestion: 'Como importar commodities como soja, minério de ferro e petróleo?'
 faqs:
-  - q: "Como importar commodities como soja, minério de ferro e petróleo?"
-    a: "Para importar commodities é indispensável travar preço via hedge em bolsa, reservar logística a granel compatível (silo/tanque) e cumprir normas sanitárias ou fitossanitárias do MAPA/ANP."
+  - q: 'Como importar commodities como soja, minério de ferro e petróleo?'
+    a: >-
+      Para importar commodities é indispensável travar preço via hedge em bolsa,
+      reservar logística a granel compatível (silo/tanque) e cumprir normas
+      sanitárias ou fitossanitárias do MAPA/ANP.
+updated: '2025-06-27'
+keywords: 'importação, commodities, grãos, minérios, petróleo'
 ---
 
 ## Resposta rápida

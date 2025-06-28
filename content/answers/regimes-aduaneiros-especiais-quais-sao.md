@@ -1,11 +1,16 @@
 ---
-title: "Quais são os regimes aduaneiros especiais"
-slug: "regimes-aduaneiros-especiais-quais-sao"
-description: "Visão geral de Drawback, RECOF, Admissão Temporária e outros."
-mainQuestion: "Quais são os regimes aduaneiros especiais?"
+title: Quais são os regimes aduaneiros especiais
+slug: regimes-aduaneiros-especiais-quais-sao
+description: 'Visão geral de Drawback, RECOF, Admissão Temporária e outros.'
+mainQuestion: Quais são os regimes aduaneiros especiais?
 faqs:
-  - q: "Quais são os regimes aduaneiros especiais?"
-    a: "São regimes que suspendem ou reduzem tributos, como Drawback, Admissão Temporária, RECOF-SPED e Entreposto Industrial, usados para otimizar caixa em importações ligadas à exportação ou industrialização."
+  - q: Quais são os regimes aduaneiros especiais?
+    a: >-
+      São regimes que suspendem ou reduzem tributos, como Drawback, Admissão
+      Temporária, RECOF-SPED e Entreposto Industrial, usados para otimizar caixa
+      em importações ligadas à exportação ou industrialização.
+updated: '2025-06-27'
+keywords: 'quais, são, os, regimes, aduaneiros, especiais'
 ---
 
 ## Resposta rápida

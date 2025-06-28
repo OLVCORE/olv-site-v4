@@ -1,11 +1,15 @@
 ---
-title: "Seguro de carga internacional"
-slug: "seguro-de-carga-internacional"
-description: "Coberturas e cálculo de prêmio."
-mainQuestion: "Seguro de carga internacional?"
+title: Seguro de carga internacional
+slug: seguro-de-carga-internacional
+description: Coberturas e cálculo de prêmio.
+mainQuestion: Seguro de carga internacional?
 faqs:
-  - q: "Seguro de carga internacional?"
-    a: "Contrate apólice All Risks ICC A com prêmio de 0,08 – 0,25 % sobre valor segurado para cobrir perdas da origem ao destino."
+  - q: Seguro de carga internacional?
+    a: >-
+      Contrate apólice All Risks ICC A com prêmio de 0,08 – 0,25 % sobre valor
+      segurado para cobrir perdas da origem ao destino.
+updated: '2025-06-27'
+keywords: 'seguro, carga, internacional'
 ---
 
 ## Resposta rápida

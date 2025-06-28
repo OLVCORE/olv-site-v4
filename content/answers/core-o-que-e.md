@@ -1,11 +1,16 @@
 ---
-title: "O que é a plataforma OLV CORE"
-slug: "core-o-que-e"
-description: "Cockpit central de dados e IA."
-mainQuestion: "O que é a plataforma OLV CORE?"
+title: O que é a plataforma OLV CORE
+slug: core-o-que-e
+description: Cockpit central de dados e IA.
+mainQuestion: O que é a plataforma OLV CORE?
 faqs:
-  - q: "O que é a plataforma OLV CORE?"
-    a: "O OLV CORE é o cockpit de dados e automações que integra todas as plataformas OLV, entregando dashboards em tempo real de performance logística, cambial e comercial."
+  - q: O que é a plataforma OLV CORE?
+    a: >-
+      O OLV CORE é o cockpit de dados e automações que integra todas as
+      plataformas OLV, entregando dashboards em tempo real de performance
+      logística, cambial e comercial.
+updated: '2025-06-27'
+keywords: 'o, é, a, plataforma, olv, core'
 ---
 
 ## Resposta rápida

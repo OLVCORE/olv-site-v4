@@ -1,11 +1,16 @@
 ---
-title: "O que é a plataforma OLV ACADEMY"
-slug: "academy-o-que-e"
-description: "Capacitação e formação técnica."
-mainQuestion: "O que é a plataforma OLV ACADEMY?"
+title: O que é a plataforma OLV ACADEMY
+slug: academy-o-que-e
+description: Capacitação e formação técnica.
+mainQuestion: O que é a plataforma OLV ACADEMY?
 faqs:
-  - q: "O que é a plataforma OLV ACADEMY?"
-    a: "OLV ACADEMY oferece capacitação on-demand em comércio exterior, supply chain e data analytics, com trilhas certificadas por especialistas de mercado."
+  - q: O que é a plataforma OLV ACADEMY?
+    a: >-
+      OLV ACADEMY oferece capacitação on-demand em comércio exterior, supply
+      chain e data analytics, com trilhas certificadas por especialistas de
+      mercado.
+updated: '2025-06-27'
+keywords: 'o, é, a, plataforma, olv, academy'
 ---
 
 **Versão Beta – funcionalidades em desenvolvimento. Lançamento previsto para Q4 2024. Cadastre-se na lista de espera.**

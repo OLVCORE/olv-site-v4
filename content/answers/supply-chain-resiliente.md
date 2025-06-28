@@ -1,11 +1,18 @@
 ---
-title: "Como construir uma supply chain resiliente para exportação e importação"
-slug: "supply-chain-resiliente"
-description: "Framework OLV para antecipar rupturas, diversificar fornecedores e proteger margens."
-mainQuestion: "Quais passos práticos para tornar a cadeia de suprimentos mais resiliente?"
+title: Como construir uma supply chain resiliente para exportação e importação
+slug: supply-chain-resiliente
+description: >-
+  Framework OLV para antecipar rupturas, diversificar fornecedores e proteger
+  margens.
+mainQuestion: Quais passos práticos para tornar a cadeia de suprimentos mais resiliente?
 faqs:
-  - q: "Quais passos práticos para tornar a cadeia de suprimentos mais resiliente?"
-    a: "Mapeie riscos ponta-a-ponta, crie dual sourcing em regiões diferentes, estabeleça estoques de segurança dinâmicos e use contratos flexíveis com transportadores."
+  - q: Quais passos práticos para tornar a cadeia de suprimentos mais resiliente?
+    a: >-
+      Mapeie riscos ponta-a-ponta, crie dual sourcing em regiões diferentes,
+      estabeleça estoques de segurança dinâmicos e use contratos flexíveis com
+      transportadores.
+updated: '2025-06-27'
+keywords: 'construir, uma, supply, chain, resiliente, exportação, importação'
 ---
 
 ## Resposta rápida

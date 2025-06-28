@@ -1,11 +1,16 @@
 ---
-title: "O que é a plataforma STRATEVO"
-slug: "stratevo-o-que-e"
-description: "Visão geral da plataforma de inteligência estratégica."
-mainQuestion: "O que é a plataforma STRATEVO?"
+title: O que é a plataforma STRATEVO
+slug: stratevo-o-que-e
+description: Visão geral da plataforma de inteligência estratégica.
+mainQuestion: O que é a plataforma STRATEVO?
 faqs:
-  - q: "O que é a plataforma STRATEVO?"
-    a: "OLV STRATEVO é a torre de inteligência que cruza dados alfandegários, macroeconômicos e de competição para gerar insights estratégicos de expansão internacional."
+  - q: O que é a plataforma STRATEVO?
+    a: >-
+      OLV STRATEVO é a torre de inteligência que cruza dados alfandegários,
+      macroeconômicos e de competição para gerar insights estratégicos de
+      expansão internacional.
+updated: '2025-06-27'
+keywords: 'o, é, a, plataforma, stratevo'
 ---
 
 ## Resposta rápida

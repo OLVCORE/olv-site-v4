@@ -1,11 +1,16 @@
 ---
-title: "Diferença entre INCOTERMS 2020"
-slug: "diferenca-entre-incoterms-2020"
-description: "Principais mudanças e efeitos."
-mainQuestion: "Diferença entre INCOTERMS 2020?"
+title: Diferença entre INCOTERMS 2020
+slug: diferenca-entre-incoterms-2020
+description: Principais mudanças e efeitos.
+mainQuestion: Diferença entre INCOTERMS 2020?
 faqs:
-  - q: "Diferença entre INCOTERMS 2020?"
-    a: "Incoterms 2020 mantêm 11 termos, substituem DAT por DPU, exigem seguro ICC A no CIP e detalham responsabilidades A/B; escolha afeta custo, risco e compliance cambial."
+  - q: Diferença entre INCOTERMS 2020?
+    a: >-
+      Incoterms 2020 mantêm 11 termos, substituem DAT por DPU, exigem seguro ICC
+      A no CIP e detalham responsabilidades A/B; escolha afeta custo, risco e
+      compliance cambial.
+updated: '2025-06-27'
+keywords: 'diferença, entre, incoterms, 2020'
 ---
 
 ## Resposta rápida

@@ -1,11 +1,15 @@
 ---
-title: "O que é a plataforma VENTURES"
-slug: "ventures-o-que-e"
-description: "Investimentos e novos negócios."
-mainQuestion: "O que é a plataforma VENTURES?"
+title: O que é a plataforma VENTURES
+slug: ventures-o-que-e
+description: Investimentos e novos negócios.
+mainQuestion: O que é a plataforma VENTURES?
 faqs:
-  - q: "O que é a plataforma VENTURES?"
-    a: "OLV VENTURES conecta investidores a scale-ups de logística e comércio exterior, oferecendo smart money e acesso a mercados internacionais."
+  - q: O que é a plataforma VENTURES?
+    a: >-
+      OLV VENTURES conecta investidores a scale-ups de logística e comércio
+      exterior, oferecendo smart money e acesso a mercados internacionais.
+updated: '2025-06-27'
+keywords: 'o, é, a, plataforma, ventures'
 ---
 
 ## Resposta rápida

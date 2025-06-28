@@ -1,11 +1,19 @@
 ---
-title: "Como escolher o mercado-alvo ideal para exportação"
-slug: "escolha-mercado-alvo-exportacao"
-description: "Método OLV para priorizar países com maior potencial de compra e menor barreira para PMEs brasileiras."
-mainQuestion: "Qual a melhor forma de selecionar um mercado-alvo ao iniciar as exportações?"
+title: Como escolher o mercado-alvo ideal para exportação
+slug: escolha-mercado-alvo-exportacao
+description: >-
+  Método OLV para priorizar países com maior potencial de compra e menor
+  barreira para PMEs brasileiras.
+mainQuestion: Qual a melhor forma de selecionar um mercado-alvo ao iniciar as exportações?
 faqs:
-  - q: "Qual a melhor forma de selecionar um mercado-alvo ao iniciar as exportações?"
-    a: "Use uma matriz de atratividade que combine tamanho de mercado, crescimento e barreiras regulatórias."
+  - q: >-
+      Qual a melhor forma de selecionar um mercado-alvo ao iniciar as
+      exportações?
+    a: >-
+      Use uma matriz de atratividade que combine tamanho de mercado, crescimento
+      e barreiras regulatórias.
+updated: '2025-06-27'
+keywords: 'escolher, o, mercadoalvo, ideal, exportação'
 ---
 
 ## Resposta rápida

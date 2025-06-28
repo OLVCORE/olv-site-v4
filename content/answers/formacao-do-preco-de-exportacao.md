@@ -1,11 +1,15 @@
 ---
-title: "Exportação: o diferencial estratégico para as PMEs"
-slug: "exportacao-diferencial-pmes"
-description: "Como embarcar commodities e outros produtos com margem e segurança."
-mainQuestion: "Como transformar a exportação em vantagem competitiva para PMEs?"
+title: 'Exportação: o diferencial estratégico para as PMEs'
+slug: exportacao-diferencial-pmes
+description: Como embarcar commodities e outros produtos com margem e segurança.
+mainQuestion: Como transformar a exportação em vantagem competitiva para PMEs?
 faqs:
-  - q: "Como transformar a exportação em vantagem competitiva para PMEs?"
-    a: "Calcule preço FOB somando custos Ex Works, logística interna e margem; use hedge cambial e regimes fiscais (Reintegra) para manter competitividade."
+  - q: Como transformar a exportação em vantagem competitiva para PMEs?
+    a: >-
+      Calcule preço FOB somando custos Ex Works, logística interna e margem; use
+      hedge cambial e regimes fiscais (Reintegra) para manter competitividade.
+updated: '2025-06-27'
+keywords: 'exportação, o, diferencial, estratégico, as, pmes'
 ---
 
 ## Resposta rápida

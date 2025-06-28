@@ -1,11 +1,15 @@
 ---
-title: "Documentos necessários para exportação"
-slug: "documentos-necessarios-exportacao"
-description: "Lista e responsabilidades."
-mainQuestion: "Documentos necessários para exportação?"
+title: Documentos necessários para exportação
+slug: documentos-necessarios-exportacao
+description: Lista e responsabilidades.
+mainQuestion: Documentos necessários para exportação?
 faqs:
-  - q: "Documentos necessários para exportação?"
-    a: "Invoice, Packing List e DU-E são indispensáveis; some BL/AWB e certificados de origem ou sanitários conforme o produto/destino."
+  - q: Documentos necessários para exportação?
+    a: >-
+      Invoice, Packing List e DU-E são indispensáveis; some BL/AWB e
+      certificados de origem ou sanitários conforme o produto/destino.
+updated: '2025-06-27'
+keywords: 'documentos, necessários, exportação'
 ---
 
 ## Resposta rápida

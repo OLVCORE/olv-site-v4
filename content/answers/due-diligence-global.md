@@ -1,11 +1,16 @@
 ---
-title: "Due diligence global: evitando riscos de fornecedores internacionais"
-slug: "due-diligence-global"
-description: "Checklist KYC/KYS, sanções e critérios ESG para importadores e exportadores."
-mainQuestion: "Como realizar due diligence de fornecedores no exterior?"
+title: 'Due diligence global: evitando riscos de fornecedores internacionais'
+slug: due-diligence-global
+description: 'Checklist KYC/KYS, sanções e critérios ESG para importadores e exportadores.'
+mainQuestion: Como realizar due diligence de fornecedores no exterior?
 faqs:
-  - q: "Como realizar due diligence de fornecedores no exterior?"
-    a: "Verifique sanções, histórico financeiro, compliance ESG e capacidade produtiva antes de fechar contrato; use bancos de dados como OFAC, Dow Jones Risk e auditorias in loco."
+  - q: Como realizar due diligence de fornecedores no exterior?
+    a: >-
+      Verifique sanções, histórico financeiro, compliance ESG e capacidade
+      produtiva antes de fechar contrato; use bancos de dados como OFAC, Dow
+      Jones Risk e auditorias in loco.
+updated: '2025-06-27'
+keywords: 'due, diligence, global, evitando, riscos, fornecedores, internacionais'
 ---
 
 ## Resposta rápida

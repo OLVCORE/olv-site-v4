@@ -1,11 +1,16 @@
 ---
-title: "Importação de produtos acabados para revenda e distribuição"
-slug: "importacao-produtos-acabados"
-description: "Rotulagem, certificações e estratégias de precificação."
-mainQuestion: "Quais cuidados ao importar produtos acabados para revenda?"
+title: Importação de produtos acabados para revenda e distribuição
+slug: importacao-produtos-acabados
+description: 'Rotulagem, certificações e estratégias de precificação.'
+mainQuestion: Quais cuidados ao importar produtos acabados para revenda?
 faqs:
-  - q: "Quais cuidados ao importar produtos acabados para revenda?"
-    a: "Verifique certificações compulsórias (Inmetro, Anvisa, Anatel), calcule preço incluindo ST/DIFAL e escolha entre fulfillment 3PL ou distribuição própria conforme estratégia de marca."
+  - q: Quais cuidados ao importar produtos acabados para revenda?
+    a: >-
+      Verifique certificações compulsórias (Inmetro, Anvisa, Anatel), calcule
+      preço incluindo ST/DIFAL e escolha entre fulfillment 3PL ou distribuição
+      própria conforme estratégia de marca.
+updated: '2025-06-27'
+keywords: 'importação, produtos, acabados, revenda, distribuição'
 ---
 
 ## Resposta rápida

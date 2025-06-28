@@ -1,11 +1,22 @@
 ---
-title: "Como elaborar um plano de internacionalização para PME"
-slug: "plano-internacionalizacao-pme"
-description: "Guia prático 2024 para estruturar a entrada em mercados externos usando a metodologia OLV Stratevo."
-mainQuestion: "Como criar um plano de internacionalização eficiente para pequenas e médias empresas?"
+title: Como elaborar um plano de internacionalização para PME
+slug: plano-internacionalizacao-pme
+description: >-
+  Guia prático 2024 para estruturar a entrada em mercados externos usando a
+  metodologia OLV Stratevo.
+mainQuestion: >-
+  Como criar um plano de internacionalização eficiente para pequenas e médias
+  empresas?
 faqs:
-  - q: "Como criar um plano de internacionalização eficiente para pequenas e médias empresas?"
-    a: "O processo envolve diagnóstico interno, seleção de mercados-alvo, adaptação de produto, projeção financeira e roadmap de execução. Veja o passo a passo."
+  - q: >-
+      Como criar um plano de internacionalização eficiente para pequenas e
+      médias empresas?
+    a: >-
+      O processo envolve diagnóstico interno, seleção de mercados-alvo,
+      adaptação de produto, projeção financeira e roadmap de execução. Veja o
+      passo a passo.
+updated: '2025-06-27'
+keywords: 'elaborar, um, plano, internacionalização, pme'
 ---
 
 ## Resposta rápida

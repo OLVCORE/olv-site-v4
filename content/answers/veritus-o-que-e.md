@@ -1,11 +1,16 @@
 ---
-title: "O que é a plataforma VERITUS"
-slug: "veritus-o-que-e"
-description: "Compliance e due diligence."
-mainQuestion: "O que é a plataforma VERITUS?"
+title: O que é a plataforma VERITUS
+slug: veritus-o-que-e
+description: Compliance e due diligence.
+mainQuestion: O que é a plataforma VERITUS?
 faqs:
-  - q: "O que é a plataforma VERITUS?"
-    a: "OLV VERITUS é a guardiã de compliance que automatiza auditorias, due diligence e monitoramento regulatório, garantindo operações em conformidade 24/7."
+  - q: O que é a plataforma VERITUS?
+    a: >-
+      OLV VERITUS é a guardiã de compliance que automatiza auditorias, due
+      diligence e monitoramento regulatório, garantindo operações em
+      conformidade 24/7.
+updated: '2025-06-27'
+keywords: 'o, é, a, plataforma, veritus'
 ---
 
 ## Resposta rápida

@@ -1,11 +1,15 @@
 ---
-title: "Licenciamento ANVISA na importação"
-slug: "licenciamento-anvisa-importacao"
-description: "Produtos sujeitos e processo."
-mainQuestion: "Licenciamento ANVISA na importação?"
+title: Licenciamento ANVISA na importação
+slug: licenciamento-anvisa-importacao
+description: Produtos sujeitos e processo.
+mainQuestion: Licenciamento ANVISA na importação?
 faqs:
-  - q: "Licenciamento ANVISA na importação?"
-    a: "Alimentos, fármacos, cosméticos e correlatos precisam de anuência LI/LPCO da ANVISA; sem deferimento a carga não desembaraça."
+  - q: Licenciamento ANVISA na importação?
+    a: >-
+      Alimentos, fármacos, cosméticos e correlatos precisam de anuência LI/LPCO
+      da ANVISA; sem deferimento a carga não desembaraça.
+updated: '2025-06-27'
+keywords: 'licenciamento, anvisa, importação'
 ---
 
 ## Resposta rápida

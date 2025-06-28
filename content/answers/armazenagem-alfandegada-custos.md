@@ -1,11 +1,16 @@
 ---
-title: "Custos de armazenagem alfandegada"
-slug: "armazenagem-alfandegada-custos"
-description: "Como calcular e reduzir."
-mainQuestion: "Custos de armazenagem alfandegada?"
+title: Custos de armazenagem alfandegada
+slug: armazenagem-alfandegada-custos
+description: Como calcular e reduzir.
+mainQuestion: Custos de armazenagem alfandegada?
 faqs:
-  - q: "Custos de armazenagem alfandegada?"
-    a: "Armazenagem alfandegada cobra diária baseada em peso ou m³ após free time; negociar contrato longo e liberar DI/DUIMP rápido reduz o custo em até 35 %."
+  - q: Custos de armazenagem alfandegada?
+    a: >-
+      Armazenagem alfandegada cobra diária baseada em peso ou m³ após free time;
+      negociar contrato longo e liberar DI/DUIMP rápido reduz o custo em até 35
+      %.
+updated: '2025-06-27'
+keywords: 'custos, armazenagem, alfandegada'
 ---
 
 ## Resposta rápida

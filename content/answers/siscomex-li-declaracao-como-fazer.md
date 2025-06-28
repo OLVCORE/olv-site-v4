@@ -1,11 +1,15 @@
 ---
-title: "Como fazer LI no Siscomex"
-slug: "siscomex-li-declaracao-como-fazer"
-description: "Procedimento passo a passo."
-mainQuestion: "Como fazer LI no Siscomex?"
+title: Como fazer LI no Siscomex
+slug: siscomex-li-declaracao-como-fazer
+description: Procedimento passo a passo.
+mainQuestion: Como fazer LI no Siscomex?
 faqs:
-  - q: "Como fazer LI no Siscomex?"
-    a: "Acesse o Portal Único, preencha NCM, fabricante e anexos; sem a LI deferida (automática ou não) a DI/DUIMP não pode ser registrada."
+  - q: Como fazer LI no Siscomex?
+    a: >-
+      Acesse o Portal Único, preencha NCM, fabricante e anexos; sem a LI
+      deferida (automática ou não) a DI/DUIMP não pode ser registrada.
+updated: '2025-06-27'
+keywords: 'fazer, li, siscomex'
 ---
 
 ## Resposta rápida

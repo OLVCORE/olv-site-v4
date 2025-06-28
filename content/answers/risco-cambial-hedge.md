@@ -1,11 +1,15 @@
 ---
-title: "Gestão de risco cambial em operações de comércio exterior"
-slug: "risco-cambial-hedge"
-description: "Ferramentas de hedge (NDF, opção, ACC/ACE) e política de cobertura."
-mainQuestion: "Como proteger minha PME da volatilidade do dólar?"
+title: Gestão de risco cambial em operações de comércio exterior
+slug: risco-cambial-hedge
+description: 'Ferramentas de hedge (NDF, opção, ACC/ACE) e política de cobertura.'
+mainQuestion: Como proteger minha PME da volatilidade do dólar?
 faqs:
-  - q: "Como proteger minha PME da volatilidade do dólar?"
-    a: "Defina política de hedge com NDF ou ACC/ACE, alinhada ao ciclo de caixa, e utilize travas parciais de 70–80 % da exposição."
+  - q: Como proteger minha PME da volatilidade do dólar?
+    a: >-
+      Defina política de hedge com NDF ou ACC/ACE, alinhada ao ciclo de caixa, e
+      utilize travas parciais de 70–80 % da exposição.
+updated: '2025-06-27'
+keywords: 'gestão, risco, cambial, operações, comércio, exterior'
 ---
 
 ## Resposta rápida

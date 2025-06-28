@@ -1,11 +1,16 @@
 ---
-title: "Certificado de origem para aço"
-slug: "certificado-origem-para-aco"
-description: "Quando é exigido e como obter."
-mainQuestion: "Certificado de origem para aço?"
+title: Certificado de origem para aço
+slug: certificado-origem-para-aco
+description: Quando é exigido e como obter.
+mainQuestion: Certificado de origem para aço?
 faqs:
-  - q: "Certificado de origem para aço?"
-    a: "Sem o Certificado de Origem (Form A ou e-CO Mercosul) o aço perde a preferência tarifária e paga II de até 12 %; obtenha-o junto a entidade habilitada antes do embarque."
+  - q: Certificado de origem para aço?
+    a: >-
+      Sem o Certificado de Origem (Form A ou e-CO Mercosul) o aço perde a
+      preferência tarifária e paga II de até 12 %; obtenha-o junto a entidade
+      habilitada antes do embarque.
+updated: '2025-06-27'
+keywords: 'certificado, origem, aço'
 ---
 
 ## Resposta rápida

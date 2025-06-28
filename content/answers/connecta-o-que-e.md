@@ -1,11 +1,16 @@
 ---
-title: "O que é a plataforma CONNECTA"
-slug: "connecta-o-que-e"
-description: "Rede de fornecedores homologados."
-mainQuestion: "O que é a plataforma CONNECTA?"
+title: O que é a plataforma CONNECTA
+slug: connecta-o-que-e
+description: Rede de fornecedores homologados.
+mainQuestion: O que é a plataforma CONNECTA?
 faqs:
-  - q: "O que é a plataforma CONNECTA?"
-    a: "OLV CONNECTA é o marketplace fechado que seleciona fornecedores globais pré-auditados, reduzindo riscos e facilitando negociação com proteção contratual."
+  - q: O que é a plataforma CONNECTA?
+    a: >-
+      OLV CONNECTA é o marketplace fechado que seleciona fornecedores globais
+      pré-auditados, reduzindo riscos e facilitando negociação com proteção
+      contratual.
+updated: '2025-06-27'
+keywords: 'o, é, a, plataforma, connecta'
 ---
 
 **Versão Beta – funcionalidades em desenvolvimento. Lançamento previsto para Q4 2024. Cadastre-se na lista de espera.**

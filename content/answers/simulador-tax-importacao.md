@@ -1,11 +1,17 @@
 ---
-title: "Como usar o Simulador de Impostos de Importação OLV"
-slug: "simulador-tax-importacao"
-description: "Manual rápido para calcular II, IPI, PIS/COFINS e ICMS com o simulador tributário (versão light) da OLV."
-mainQuestion: "Como funciona o simulador de impostos de importação da OLV?"
+title: Como usar o Simulador de Impostos de Importação OLV
+slug: simulador-tax-importacao
+description: >-
+  Manual rápido para calcular II, IPI, PIS/COFINS e ICMS com o simulador
+  tributário (versão light) da OLV.
+mainQuestion: Como funciona o simulador de impostos de importação da OLV?
 faqs:
-  - q: "Como funciona o simulador de impostos de importação da OLV?"
-    a: "Com NCM, origem, estado de destino e valor FOB, o sistema calcula todos os impostos de importação e gera planilha detalhada."
+  - q: Como funciona o simulador de impostos de importação da OLV?
+    a: >-
+      Com NCM, origem, estado de destino e valor FOB, o sistema calcula todos os
+      impostos de importação e gera planilha detalhada.
+updated: '2025-06-27'
+keywords: 'usar, o, simulador, impostos, importação, olv'
 ---
 
 ## Resposta rápida

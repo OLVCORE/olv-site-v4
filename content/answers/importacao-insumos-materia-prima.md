@@ -1,11 +1,16 @@
 ---
-title: "Importação de insumos e matéria-prima"
-slug: "importacao-insumos-materia-prima"
-description: "Planejamento de demanda, regimes especiais e compliance de fornecedores."
-mainQuestion: "Como planejar a importação de insumos e matéria-prima?"
+title: Importação de insumos e matéria-prima
+slug: importacao-insumos-materia-prima
+description: 'Planejamento de demanda, regimes especiais e compliance de fornecedores.'
+mainQuestion: Como planejar a importação de insumos e matéria-prima?
 faqs:
-  - q: "Como planejar a importação de insumos e matéria-prima?"
-    a: "Integre MRP com contratos open account, use regimes especiais como Drawback ou Admissão Temporária para fluxo de caixa e audite fornecedores para garantir qualidade e compliance."
+  - q: Como planejar a importação de insumos e matéria-prima?
+    a: >-
+      Integre MRP com contratos open account, use regimes especiais como
+      Drawback ou Admissão Temporária para fluxo de caixa e audite fornecedores
+      para garantir qualidade e compliance.
+updated: '2025-06-27'
+keywords: 'importação, insumos, matériaprima'
 ---
 
 ## Resposta rápida

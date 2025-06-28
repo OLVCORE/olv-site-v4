@@ -1,11 +1,15 @@
 ---
-title: "Etapas do despacho aduaneiro"
-slug: "despacho-aduaneiro-etapas"
-description: "Fluxo completo."
-mainQuestion: "Etapas do despacho aduaneiro?"
+title: Etapas do despacho aduaneiro
+slug: despacho-aduaneiro-etapas
+description: Fluxo completo.
+mainQuestion: Etapas do despacho aduaneiro?
 faqs:
-  - q: "Etapas do despacho aduaneiro?"
-    a: "Desembarace segue DI/DUIMP, parametrização e conferência; Canal Verde libera em horas, Vermelho exige inspeção física e pode levar 5+ dias."
+  - q: Etapas do despacho aduaneiro?
+    a: >-
+      Desembarace segue DI/DUIMP, parametrização e conferência; Canal Verde
+      libera em horas, Vermelho exige inspeção física e pode levar 5+ dias.
+updated: '2025-06-27'
+keywords: 'etapas, despacho, aduaneiro'
 ---
 
 ## Resposta rápida

@@ -1,11 +1,15 @@
 ---
-title: "Otimização de estoques para importadores: reduzindo capital parado"
-slug: "otimizacao-estoques-importacao"
-description: "Como aplicar VMI, kanban e classificação ABC-XYZ em produtos importados."
-mainQuestion: "Como equilibrar estoque e lead-time de importação?"
+title: 'Otimização de estoques para importadores: reduzindo capital parado'
+slug: otimizacao-estoques-importacao
+description: 'Como aplicar VMI, kanban e classificação ABC-XYZ em produtos importados.'
+mainQuestion: Como equilibrar estoque e lead-time de importação?
 faqs:
-  - q: "Como equilibrar estoque e lead-time de importação?"
-    a: "Use forecast colaborativo, classificação ABC-XYZ e contratos VMI com fornecedores para ajustar lotes ao lead-time internacional."
+  - q: Como equilibrar estoque e lead-time de importação?
+    a: >-
+      Use forecast colaborativo, classificação ABC-XYZ e contratos VMI com
+      fornecedores para ajustar lotes ao lead-time internacional.
+updated: '2025-06-27'
+keywords: 'otimização, estoques, importadores, reduzindo, capital, parado'
 ---
 
 ## Resposta rápida

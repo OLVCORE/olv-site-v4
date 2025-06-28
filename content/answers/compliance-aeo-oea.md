@@ -1,11 +1,16 @@
 ---
-title: "Certificação OEA (AEO) no Brasil: vale a pena para PMEs?"
-slug: "compliance-oea"
-description: "Benefícios, requisitos e cronograma para obter Operador Econômico Autorizado."
-mainQuestion: "Como obter a certificação OEA e quais vantagens ela traz?"
+title: 'Certificação OEA (AEO) no Brasil: vale a pena para PMEs?'
+slug: compliance-oea
+description: 'Benefícios, requisitos e cronograma para obter Operador Econômico Autorizado.'
+mainQuestion: Como obter a certificação OEA e quais vantagens ela traz?
 faqs:
-  - q: "Como obter a certificação OEA e quais vantagens ela traz?"
-    a: "A OEA reduz inspeções físicas, acelera desembaraço e facilita acordos mútuos; exige gestão de risco, contabilidade segregada e histórico fiscal sem pendências."
+  - q: Como obter a certificação OEA e quais vantagens ela traz?
+    a: >-
+      A OEA reduz inspeções físicas, acelera desembaraço e facilita acordos
+      mútuos; exige gestão de risco, contabilidade segregada e histórico fiscal
+      sem pendências.
+updated: '2025-06-27'
+keywords: 'certificação, oea, aeo, brasil, vale, a, pena, pmes'
 ---
 
 ## Resposta rápida

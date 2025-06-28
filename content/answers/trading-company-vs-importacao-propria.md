@@ -1,11 +1,16 @@
 ---
-title: "Trading company vs importação própria"
-slug: "trading-company-vs-importacao-propria"
-description: "Prós e contras."
-mainQuestion: "Trading company vs importação própria?"
+title: Trading company vs importação própria
+slug: trading-company-vs-importacao-propria
+description: Prós e contras.
+mainQuestion: Trading company vs importação própria?
 faqs:
-  - q: "Trading company vs importação própria?"
-    a: "Trading terceiriza RADAR e riscos cobrando 2–8 % do CIF; importação própria exige habilitação mas economiza 5–12 % no custo total e dá acesso a regimes fiscais."
+  - q: Trading company vs importação própria?
+    a: >-
+      Trading terceiriza RADAR e riscos cobrando 2–8 % do CIF; importação
+      própria exige habilitação mas economiza 5–12 % no custo total e dá acesso
+      a regimes fiscais.
+updated: '2025-06-27'
+keywords: 'trading, company, vs, importação, própria'
 ---
 
 ## Resposta rápida

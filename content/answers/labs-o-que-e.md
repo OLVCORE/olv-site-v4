@@ -1,11 +1,15 @@
 ---
-title: "O que é a plataforma LABS"
-slug: "labs-o-que-e"
-description: "Laboratório de inovação da OLV."
-mainQuestion: "O que é a plataforma LABS?"
+title: O que é a plataforma LABS
+slug: labs-o-que-e
+description: Laboratório de inovação da OLV.
+mainQuestion: O que é a plataforma LABS?
 faqs:
-  - q: "O que é a plataforma LABS?"
-    a: "OLV LABS é nosso centro de inovação onde testamos IA, blockchain e IoT aplicados ao comércio exterior antes de escalar para todo o ecossistema."
+  - q: O que é a plataforma LABS?
+    a: >-
+      OLV LABS é nosso centro de inovação onde testamos IA, blockchain e IoT
+      aplicados ao comércio exterior antes de escalar para todo o ecossistema.
+updated: '2025-06-27'
+keywords: 'o, é, a, plataforma, labs'
 ---
 
 ## Resposta rápida

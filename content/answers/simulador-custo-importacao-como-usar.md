@@ -1,11 +1,16 @@
 ---
-title: "Como usar o simulador de custo de importação"
-slug: "simulador-custo-importacao-como-usar"
-description: "Passo a passo na plataforma OLV."
-mainQuestion: "Como usar o simulador de custo de importação?"
+title: Como usar o simulador de custo de importação
+slug: simulador-custo-importacao-como-usar
+description: Passo a passo na plataforma OLV.
+mainQuestion: Como usar o simulador de custo de importação?
 faqs:
-  - q: "Como usar o simulador de custo de importação?"
-    a: "Insira NCM, origem, destino, FOB e clique em Calcular; o simulador gera em 30 s o custo total com tributos, frete e AFRMM e permite exportar PDF/Excel."
+  - q: Como usar o simulador de custo de importação?
+    a: >-
+      Insira NCM, origem, destino, FOB e clique em Calcular; o simulador gera em
+      30 s o custo total com tributos, frete e AFRMM e permite exportar
+      PDF/Excel.
+updated: '2025-06-27'
+keywords: 'usar, o, simulador, custo, importação'
 ---
 
 ## Resposta rápida

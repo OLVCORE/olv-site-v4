@@ -1,11 +1,16 @@
 ---
-title: "Importação de bens de capital (BK/BIT)"
-slug: "importacao-bens-de-capital"
-description: "Benefícios fiscais, financiamento e operações turn-key."
-mainQuestion: "Quais cuidados ao importar máquinas e equipamentos?"
+title: Importação de bens de capital (BK/BIT)
+slug: importacao-bens-de-capital
+description: 'Benefícios fiscais, financiamento e operações turn-key.'
+mainQuestion: Quais cuidados ao importar máquinas e equipamentos?
 faqs:
-  - q: "Quais cuidados ao importar máquinas e equipamentos?"
-    a: "Aproveite Ex-Tarifário para reduzir imposto, financie pela linha FINAME ou PROEX e inclua instalação turn-key (posição 98.01) já no projeto de importação para evitar reclassificação fiscal."
+  - q: Quais cuidados ao importar máquinas e equipamentos?
+    a: >-
+      Aproveite Ex-Tarifário para reduzir imposto, financie pela linha FINAME ou
+      PROEX e inclua instalação turn-key (posição 98.01) já no projeto de
+      importação para evitar reclassificação fiscal.
+updated: '2025-06-27'
+keywords: 'importação, bens, capital, bkbit'
 ---
 
 ## Resposta rápida

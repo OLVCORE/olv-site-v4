@@ -1,11 +1,16 @@
 ---
-title: "Como negociar câmbio para importação"
-slug: "negociar-cambio-para-importacao"
-description: "Melhores práticas de FX."
-mainQuestion: "Como negociar câmbio para importação?"
+title: Como negociar câmbio para importação
+slug: negociar-cambio-para-importacao
+description: Melhores práticas de FX.
+mainQuestion: Como negociar câmbio para importação?
 faqs:
-  - q: "Como negociar câmbio para importação?"
-    a: "Colete cotações simultâneas em 3+ DTVMs e feche quando o spread estiver < 1,5 % sobre PTAX; avalie NDF antecipado para fixar valor antes do embarque."
+  - q: Como negociar câmbio para importação?
+    a: >-
+      Colete cotações simultâneas em 3+ DTVMs e feche quando o spread estiver <
+      1,5 % sobre PTAX; avalie NDF antecipado para fixar valor antes do
+      embarque.
+updated: '2025-06-27'
+keywords: 'negociar, câmbio, importação'
 ---
 
 ## Resposta rápida

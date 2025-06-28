@@ -1,11 +1,18 @@
 ---
-title: "3PL ou 4PL? Como escolher o parceiro logístico ideal"
-slug: "comparativo-3pl-4pl"
-description: "Avalie controle, custo total e escalabilidade antes de decidir entre operador 3PL e orquestrador 4PL."
-mainQuestion: "Qual a diferença entre 3PL e 4PL e qual é melhor para minha PME?"
+title: 3PL ou 4PL? Como escolher o parceiro logístico ideal
+slug: comparativo-3pl-4pl
+description: >-
+  Avalie controle, custo total e escalabilidade antes de decidir entre operador
+  3PL e orquestrador 4PL.
+mainQuestion: Qual a diferença entre 3PL e 4PL e qual é melhor para minha PME?
 faqs:
-  - q: "Qual a diferença entre 3PL e 4PL e qual é melhor para minha PME?"
-    a: "3PL executa armazenagem e transporte; 4PL gerencia toda a cadeia com múltiplos 3PLs e KPIs unificados — ideal quando se busca escala global sem investir em estrutura própria."
+  - q: Qual a diferença entre 3PL e 4PL e qual é melhor para minha PME?
+    a: >-
+      3PL executa armazenagem e transporte; 4PL gerencia toda a cadeia com
+      múltiplos 3PLs e KPIs unificados — ideal quando se busca escala global sem
+      investir em estrutura própria.
+updated: '2025-06-27'
+keywords: '3pl, ou, 4pl, escolher, o, parceiro, logístico, ideal'
 ---
 
 ## Resposta rápida

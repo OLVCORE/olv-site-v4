@@ -1,11 +1,16 @@
 ---
-title: "Como funciona o ex-tarifário"
-slug: "como-funciona-ex-tarifario"
-description: "Processo de solicitação de redução de II para máquinas e equipamentos."
-mainQuestion: "Como funciona o ex-tarifário?"
+title: Como funciona o ex-tarifário
+slug: como-funciona-ex-tarifario
+description: Processo de solicitação de redução de II para máquinas e equipamentos.
+mainQuestion: Como funciona o ex-tarifário?
 faqs:
-  - q: "Como funciona o ex-tarifário?"
-    a: "O Ex-Tarifário reduz a alíquota de II para 0 %-2 % em BK/BIT sem similar nacional; o pedido é feito no Portal Siscomex, passa por consulta ABIMAQ/ABINEE e é aprovado por Resolução Gecex."
+  - q: Como funciona o ex-tarifário?
+    a: >-
+      O Ex-Tarifário reduz a alíquota de II para 0 %-2 % em BK/BIT sem similar
+      nacional; o pedido é feito no Portal Siscomex, passa por consulta
+      ABIMAQ/ABINEE e é aprovado por Resolução Gecex.
+updated: '2025-06-27'
+keywords: 'funciona, o, extarifário'
 ---
 
 ## Resposta rápida

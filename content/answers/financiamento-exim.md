@@ -1,11 +1,15 @@
 ---
-title: "Linhas de financiamento EXIM para PMEs"
-slug: "financiamento-exim"
-description: "ACC, ACE, PROEX e BNDES Exim explicados passo a passo."
-mainQuestion: "Quais opções de financiamento para exportar e importar existem no Brasil?"
+title: Linhas de financiamento EXIM para PMEs
+slug: financiamento-exim
+description: 'ACC, ACE, PROEX e BNDES Exim explicados passo a passo.'
+mainQuestion: Quais opções de financiamento para exportar e importar existem no Brasil?
 faqs:
-  - q: "Quais opções de financiamento para exportar e importar existem no Brasil?"
-    a: "ACC/ACE antecipam receita de exportação; PROEX Equalização e BNDES Exim financiam produção e capital de giro para operações externas."
+  - q: Quais opções de financiamento para exportar e importar existem no Brasil?
+    a: >-
+      ACC/ACE antecipam receita de exportação; PROEX Equalização e BNDES Exim
+      financiam produção e capital de giro para operações externas.
+updated: '2025-06-27'
+keywords: 'linhas, financiamento, exim, pmes'
 ---
 
 ## Resposta rápida

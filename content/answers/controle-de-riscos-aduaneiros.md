@@ -1,11 +1,15 @@
 ---
-title: "Controle de riscos aduaneiros"
-slug: "controle-de-riscos-aduaneiros"
-description: "Mapeamento e mitigação."
-mainQuestion: "Controle de riscos aduaneiros?"
+title: Controle de riscos aduaneiros
+slug: controle-de-riscos-aduaneiros
+description: Mapeamento e mitigação.
+mainQuestion: Controle de riscos aduaneiros?
 faqs:
-  - q: "Controle de riscos aduaneiros?"
-    a: "Mapeie alertas Siscomex, histórico de LI e aplique matriz de risco OEA para evitar multas e atrasos no desembaraço."
+  - q: Controle de riscos aduaneiros?
+    a: >-
+      Mapeie alertas Siscomex, histórico de LI e aplique matriz de risco OEA
+      para evitar multas e atrasos no desembaraço.
+updated: '2025-06-27'
+keywords: 'controle, riscos, aduaneiros'
 ---
 
 ## Resposta rápida

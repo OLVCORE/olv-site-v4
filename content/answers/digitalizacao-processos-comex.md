@@ -1,11 +1,17 @@
 ---
-title: "Digitalização de processos Comex: do paperless ao RPA"
-slug: "digitalizacao-processos-comex"
-description: "Como automatizar LI/DI, classificação fiscal e documentos de embarque usando tecnologia."
-mainQuestion: "Quais passos para digitalizar 100 % das rotinas de comércio exterior?"
+title: 'Digitalização de processos Comex: do paperless ao RPA'
+slug: digitalizacao-processos-comex
+description: >-
+  Como automatizar LI/DI, classificação fiscal e documentos de embarque usando
+  tecnologia.
+mainQuestion: Quais passos para digitalizar 100 % das rotinas de comércio exterior?
 faqs:
-  - q: "Quais passos para digitalizar 100 % das rotinas de comércio exterior?"
-    a: "Mapeie fluxos, adote sistemas OEA-ready com APIs (Siscomex DUIMP, SARA) e aplique RPA para tarefas repetitivas como upload de XML."
+  - q: Quais passos para digitalizar 100 % das rotinas de comércio exterior?
+    a: >-
+      Mapeie fluxos, adote sistemas OEA-ready com APIs (Siscomex DUIMP, SARA) e
+      aplique RPA para tarefas repetitivas como upload de XML.
+updated: '2025-06-27'
+keywords: 'digitalização, processos, comex, paperless, ao, rpa'
 ---
 
 ## Resposta rápida

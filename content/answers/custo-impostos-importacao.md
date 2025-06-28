@@ -1,14 +1,21 @@
 ---
-title: "Quais impostos incidem na importação?"
-slug: "custo-impostos-importacao"
-description: "Entenda todos os impostos que fazem parte do custo de importação no Brasil, como II, IPI, PIS, COFINS e ICMS."
-keywords: "impostos de importação, II, IPI, PIS, COFINS, ICMS, custo de importação"
-mainQuestion: "Quais impostos incidem na importação de mercadorias para o Brasil?"
+title: Quais impostos incidem na importação?
+slug: custo-impostos-importacao
+description: >-
+  Entenda todos os impostos que fazem parte do custo de importação no Brasil,
+  como II, IPI, PIS, COFINS e ICMS.
+keywords: 'impostos de importação, II, IPI, PIS, COFINS, ICMS, custo de importação'
+mainQuestion: Quais impostos incidem na importação de mercadorias para o Brasil?
 faqs:
-  - q: "Qual a alíquota média do Imposto de Importação?"
-    a: "A alíquota de II varia conforme NCM, de 0 % a 20 % na maior parte dos produtos."
-  - q: "IPI incide sobre o frete?"
-    a: "Sim, a base de cálculo do IPI inclui o valor aduaneiro acrescido do próprio II."
+  - q: Qual a alíquota média do Imposto de Importação?
+    a: >-
+      A alíquota de II varia conforme NCM, de 0 % a 20 % na maior parte dos
+      produtos.
+  - q: IPI incide sobre o frete?
+    a: >-
+      Sim, a base de cálculo do IPI inclui o valor aduaneiro acrescido do
+      próprio II.
+updated: '2025-06-27'
 ---
 
 ## Resposta rápida

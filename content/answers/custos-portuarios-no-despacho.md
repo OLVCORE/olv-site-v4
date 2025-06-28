@@ -1,11 +1,17 @@
 ---
-title: "Custos portuários no despacho aduaneiro"
-slug: "custos-portuarios-no-despacho"
-description: "Tabela de custos e como prever."
-mainQuestion: "Custos portuários no despacho aduaneiro?"
+title: Custos portuários no despacho aduaneiro
+slug: custos-portuarios-no-despacho
+description: Tabela de custos e como prever.
+mainQuestion: Custos portuários no despacho aduaneiro?
 faqs:
-  - q: "Custos portuários no despacho aduaneiro?"
-    a: "Os custos variam por modal: no Porto de Santos chegam a US$ 650 – 980 por contêiner, em aeroporto (TECA GRU) cerca de R$ 1 450 por AWB e na fronteira rodoviária ~R$ 1 000; inclua capatazia, armazenagem, scanner, Siscomex e taxas locais."
+  - q: Custos portuários no despacho aduaneiro?
+    a: >-
+      Os custos variam por modal: no Porto de Santos chegam a US$ 650 – 980 por
+      contêiner, em aeroporto (TECA GRU) cerca de R$ 1 450 por AWB e na
+      fronteira rodoviária ~R$ 1 000; inclua capatazia, armazenagem, scanner,
+      Siscomex e taxas locais.
+updated: '2025-06-27'
+keywords: 'custos, portuários, despacho, aduaneiro'
 ---
 
 ## Resposta rápida

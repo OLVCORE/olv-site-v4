@@ -1,11 +1,18 @@
 ---
-title: "Como usar o Simulador de Frete Internacional OLV"
-slug: "simulador-frete-internacional"
-description: "Guia de uso do simulador de frete internacional (versão light) da plataforma OLV para importação e exportação."
-mainQuestion: "Como funciona o simulador de frete internacional da OLV?"
+title: Como usar o Simulador de Frete Internacional OLV
+slug: simulador-frete-internacional
+description: >-
+  Guia de uso do simulador de frete internacional (versão light) da plataforma
+  OLV para importação e exportação.
+mainQuestion: Como funciona o simulador de frete internacional da OLV?
 faqs:
-  - q: "Como funciona o simulador de frete internacional da OLV?"
-    a: "Basta informar origem, destino, tipo de carga e peso/volume; o sistema devolve faixas de frete em tempo real com base em cotações de armadores e tabelas locais."
+  - q: Como funciona o simulador de frete internacional da OLV?
+    a: >-
+      Basta informar origem, destino, tipo de carga e peso/volume; o sistema
+      devolve faixas de frete em tempo real com base em cotações de armadores e
+      tabelas locais.
+updated: '2025-06-27'
+keywords: 'usar, o, simulador, frete, internacional, olv'
 ---
 
 ## Resposta rápida
