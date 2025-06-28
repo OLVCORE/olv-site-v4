@@ -4,7 +4,7 @@ import { remove as removeDiacritics } from 'diacritics';
 import index from '../../../../public/search-index.json';
 
 const fuse = new Fuse(index as any[], {
-  keys: ['title', 'category', 'searchText'],
+  keys: ['title', 'category', 'searchText', 'section'],
   threshold: 0.3,
 });
 

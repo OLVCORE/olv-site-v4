@@ -51,13 +51,16 @@ files.forEach((file) => {
   // ensure forward slashes and no drive letters
   slug = slug.replace(/^\w:\//, '');
 
-  const categoryMatch = slug.split('/').filter(Boolean)[0] || 'home';
+  const categoryMatch = slug.split('/').filter(Boolean)[0] || '';
+  const section = (categoryMatch || 'home')
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
 
   const excerpt = fullText.split(/\n|\r/).find((line) => line.trim().length > 40) || fullText.slice(0, 120);
 
   const searchText = removeDiacritics(fullText).toLowerCase();
 
-  entries.push({ title, slug, category: categoryMatch, excerpt: excerpt.trim(), searchText });
+  entries.push({ title, slug, category: categoryMatch || 'home', section, excerpt: excerpt.trim(), searchText });
 });
 
 fs.writeFileSync(OUT_PATH, JSON.stringify(entries, null, 2));
