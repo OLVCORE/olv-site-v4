@@ -11,6 +11,8 @@ interface Props {
 export default function FaqPageClient({ grouped }: Props) {
   const [search, setSearch] = useState('');
   const [openCats, setOpenCats] = useState<string[]>([]);
+  const [start, setStart] = useState(''); // yyyy-mm-dd
+  const [end, setEnd] = useState('');
 
   // init from hash/localStorage
   useEffect(() => {
@@ -31,6 +33,14 @@ export default function FaqPageClient({ grouped }: Props) {
 
   const expandAll = () => handleChange(Object.keys(grouped));
   const collapseAll = () => handleChange([]);
+
+  // helper to set preset range
+  const applyPreset = (days: number) => {
+    const today = new Date();
+    const from = new Date(today.getTime() - days * 24 * 60 * 60 * 1000);
+    setStart(from.toISOString().slice(0, 10));
+    setEnd(today.toISOString().slice(0, 10));
+  };
 
   return (
     <MainLayout className="faq-page">
@@ -60,10 +70,52 @@ export default function FaqPageClient({ grouped }: Props) {
             </button>
           </div>
         </div>
+        {/* Date range filter */}
+        <div className="mb-6 flex flex-col md:flex-row md:items-center gap-4">
+          <input
+            type="date"
+            value={start}
+            onChange={(e) => setStart(e.target.value)}
+            className="px-3 py-1 rounded bg-[#1a2338] border border-[#2a3448] text-sm"
+          />
+          <span className="hidden md:inline">—</span>
+          <input
+            type="date"
+            value={end}
+            onChange={(e) => setEnd(e.target.value)}
+            className="px-3 py-1 rounded bg-[#1a2338] border border-[#2a3448] text-sm"
+          />
+          <div className="flex gap-2 flex-wrap">
+            {[
+              { label: '30d', days: 30 },
+              { label: '3m', days: 90 },
+              { label: '12m', days: 365 },
+            ].map((p) => (
+              <button
+                key={p.label}
+                className="text-xs px-2 py-0.5 border border-[#2a3448] rounded hover:bg-[#2a3448]/40"
+                onClick={() => applyPreset(p.days)}
+              >
+                {p.label}
+              </button>
+            ))}
+            <button
+              className="text-xs px-2 py-0.5 border border-[#2a3448] rounded hover:bg-[#2a3448]/40"
+              onClick={() => {
+                setStart('');
+                setEnd('');
+              }}
+            >
+              Limpar
+            </button>
+          </div>
+        </div>
         <FaqAccordion
           grouped={grouped}
           initialOpen={openCats}
           search={search}
+          startDate={start}
+          endDate={end}
           onChange={handleChange}
         />
       </div>

@@ -9,10 +9,12 @@ interface Props {
   grouped: Record<string, AnswerItem[]>;
   initialOpen?: string[]; // categorias inicialmente abertas
   search?: string; // termo de busca
+  startDate?: string; // yyyy-mm-dd inclusive
+  endDate?: string;
   onChange?: (openCats: string[]) => void;
 }
 
-export default function FaqAccordion({ grouped, initialOpen = [], search = '', onChange }: Props) {
+export default function FaqAccordion({ grouped, initialOpen = [], search = '', startDate, endDate, onChange }: Props) {
   const [openCats, setOpenCats] = useState<string[]>(initialOpen);
 
   // sync external change (hash/localStorage)
@@ -35,6 +37,16 @@ export default function FaqAccordion({ grouped, initialOpen = [], search = '', o
         let filtered = search.trim()
           ? items.filter((i) => i.title.toLowerCase().includes(search.toLowerCase()))
           : items;
+        // filtra por intervalo de datas se definido
+        if (startDate || endDate) {
+          const startMs = startDate ? Date.parse(startDate) : -Infinity;
+          const endMs = endDate ? Date.parse(endDate) + 24 * 60 * 60 * 1000 - 1 : Infinity; // inclusive day
+          filtered = filtered.filter((i) => {
+            if (!i.updated) return false;
+            const ms = Date.parse(i.updated);
+            return ms >= startMs && ms <= endMs;
+          });
+        }
         // ordena por data de atualização desc (mais recentes primeiro)
         filtered = filtered.sort((a, b) => {
           const da = a.updated ? Date.parse(a.updated) : 0;
@@ -58,10 +70,7 @@ export default function FaqAccordion({ grouped, initialOpen = [], search = '', o
               <ul className="px-6 py-3 space-y-2">
                 {filtered.map((a) => (
                   <li key={a.slug} className="flex items-center gap-2">
-                    <Link
-                      href={`/answers/${a.slug}`}
-                      className="text-[#d4af37] hover:underline"
-                    >
+                    <Link href={`/answers/${a.slug}`} className="text-[#d4af37] hover:underline">
                       <span
                         dangerouslySetInnerHTML={{
                           __html: search.trim()
