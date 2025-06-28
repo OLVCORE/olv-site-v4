@@ -5,7 +5,7 @@ description: "Como embarcar commodities e outros produtos com margem e seguranç
 mainQuestion: "Como transformar a exportação em vantagem competitiva para PMEs?"
 faqs:
   - q: "Como transformar a exportação em vantagem competitiva para PMEs?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Calcule preço FOB somando custos Ex Works, logística interna e margem; use hedge cambial e regimes fiscais (Reintegra) para manter competitividade."
 ---
 
 ## Resposta rápida

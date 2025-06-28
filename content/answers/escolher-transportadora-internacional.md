@@ -5,7 +5,7 @@ description: "Critérios para selecionar forwarders."
 mainQuestion: "Como escolher transportadora internacional?"
 faqs:
   - q: "Como escolher transportadora internacional?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Use RFI com critérios de custo, transit time, cobertura, tecnologia e histórico de sinistros para escolher o forwarder ideal."
 ---
 
 ## Resposta rápida

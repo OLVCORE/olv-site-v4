@@ -5,7 +5,7 @@ description: "Tecnologias e ganhos de eficiência."
 mainQuestion: "Logística 4.0 e benefícios na supply chain?"
 faqs:
   - q: "Logística 4.0 e benefícios na supply chain?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Logística 4.0 usa IoT, IA e automação para dar visibilidade ponta-a-ponta e cortar custos; cases mostram −18 % rupturas e −12 % lead-time."
 ---
 
 ## Resposta rápida

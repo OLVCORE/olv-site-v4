@@ -5,7 +5,7 @@ description: "Lista e responsabilidades."
 mainQuestion: "Documentos necessários para exportação?"
 faqs:
   - q: "Documentos necessários para exportação?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Invoice, Packing List e DU-E são indispensáveis; some BL/AWB e certificados de origem ou sanitários conforme o produto/destino."
 ---
 
 ## Resposta rápida
