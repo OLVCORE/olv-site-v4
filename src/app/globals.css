@@ -1080,4 +1080,22 @@ body[class*="page-"] .main-content {
     margin-top: calc(var(--height-header) + 45px + 3.5cm) !important;
     padding-top: 0 !important;
   }
+}
+
+/* === Reset previous hero spacing attempts === */
+.app-container.page-answer .main-content,
+.app-container.page-faq .main-content {
+  margin-top: 0 !important;
+}
+
+/* Helper class: explicit hero offset for custom sections */
+@media (min-width: 769px) {
+  .page-hero-offset {
+    margin-top: calc(var(--height-header) + 50px) !important;
+  }
+
+  /* Universal: ensure every main content starts after header + ticker */
+  .content-wrapper > .main-content {
+    padding-top: calc(var(--height-header) + 50px) !important;
+  }
 } 
