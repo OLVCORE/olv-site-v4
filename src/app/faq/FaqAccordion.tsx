@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export interface AnswerItem { title: string; slug: string; updated?: string; }
 
@@ -66,28 +69,49 @@ export default function FaqAccordion({ grouped, initialOpen = [], search = '', s
               <span>{cat}</span>
               <span>{isOpen ? '−' : '+'}</span>
             </button>
-            {isOpen && (
-              <ul className="px-6 py-3 space-y-2">
-                {filtered.map((a) => (
-                  <li key={a.slug} className="flex items-center gap-2">
-                    <Link href={`/answers/${a.slug}`} className="text-[#d4af37] hover:underline">
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: search.trim()
-                            ? a.title.replace(new RegExp(`(${search})`, 'ig'), '<mark>$1</mark>')
-                            : a.title,
-                        }}
-                      />
-                    </Link>
-                    {a.updated && (
-                      <span className="text-xs text-gray-400 border border-[#2a3448] px-1.5 py-0.5 rounded">
-                        Atualizado {new Date(a.updated).toLocaleDateString('pt-BR', { month: '2-digit', year: '2-digit' })}
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.ul
+                  key="list"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                  className="px-6 py-3 space-y-2 overflow-hidden"
+                >
+                  {filtered.map((a) => (
+                    <li key={a.slug} className="flex items-center gap-2">
+                      <Link href={`/answers/${a.slug}`} className="text-[#d4af37] hover:underline" onClick={() => {
+                        fetch('/api/faq/view', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({ slug: a.slug }),
+                        }).catch(() => {});
+                      }}>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: search.trim()
+                              ? a.title.replace(new RegExp(`(${search})`, 'ig'), '<mark>$1</mark>')
+                              : a.title,
+                          }}
+                        />
+                      </Link>
+                      {a.updated && (
+                        <Tippy content={`Atualizado em ${new Date(a.updated).toLocaleDateString('pt-BR')}`}>
+                          <span className="text-xs text-gray-400 border border-[#2a3448] px-1.5 py-0.5 rounded cursor-help">
+                            Atualizado{' '}
+                            {new Date(a.updated).toLocaleDateString('pt-BR', {
+                              month: '2-digit',
+                              year: '2-digit',
+                            })}
+                          </span>
+                        </Tippy>
+                      )}
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
           </div>
         );
       })}
