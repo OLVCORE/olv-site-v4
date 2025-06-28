@@ -8,6 +8,7 @@ import WhatsAppButton from '../layout/WhatsAppButton';
 import Ticker from './Ticker';
 import { usePathname } from 'next/navigation';
 import BetaVersion from './BetaVersion';
+import SearchHighlighter from '../SearchHighlighter';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -105,6 +106,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         <main className={`main-content ${isPageLoaded ? 'fade-in' : ''} min-h-screen pb-36`}>
           {children}
         </main>
+        
+        {/* highlight search term inside page */}
+        <SearchHighlighter />
         
         {/* Reduzindo o espaçamento antes do footer para evitar muito espaço */}
         <div className="h-12"></div>

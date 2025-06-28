@@ -22,6 +22,7 @@ export default function GlobalSearch() {
       if (data?.results) setActive((prev) => Math.max(prev - 1, 0));
     } else if (e.key === 'Enter') {
       if (data?.results && data.results[active]) {
+        sessionStorage.setItem('lastSearchTerm', query);
         router.push(data.results[active].slug);
         setQuery('');
       } else if (query.trim().length > 0) {
@@ -51,7 +52,7 @@ export default function GlobalSearch() {
             ));
             return (
               <li key={item.slug} className={`${idx === active ? 'bg-surface-light' : ''} px-3 py-2 hover:bg-surface-light`}>
-                <Link href={item.slug} onClick={() => setQuery('')} className="block">
+                <Link href={item.slug} onClick={() => { sessionStorage.setItem('lastSearchTerm', query); setQuery(''); }} className="block">
                   <div>
                     <span className="font-semibold text-accent mr-2">{item.section}</span>
                     {highlight(item.title)}
