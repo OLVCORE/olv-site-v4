@@ -28,9 +28,14 @@ files.forEach((file) => {
     const withoutJSX = raw
       .replace(/<[^>]+>/g, ' ') // remove tags
       .replace(/\{[^}]+}/g, ' ') // remove expressions
-      .replace(/\/\*[\s\S]*?\*\//g, ' ') // remove comments
+      .replace(/\/\*[\s\S]*?\*\//g, ' ') // remove block comments
       .replace(/\/\/.*$/gm, ' '); // remove line comments
-    fullText = withoutJSX;
+    // remove typical code-only lines (imports, exports, const declarations with require)
+    const cleanedLines = withoutJSX
+      .split(/\n|\r/)
+      .filter((ln) => !/^\s*(import|export\s.+from|const\s+\w+\s*=\s*require)/.test(ln))
+      .join(' ');
+    fullText = cleanedLines;
   }
 
   // slug computation
