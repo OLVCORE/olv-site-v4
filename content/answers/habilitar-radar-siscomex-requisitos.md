@@ -5,7 +5,7 @@ description: "Passo a passo e documentos para Radar."
 mainQuestion: "Como habilitar Radar Siscomex?"
 faqs:
   - q: "Como habilitar Radar Siscomex?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Solicite habilitação Radar no e-CAC; Expresso (≤ US$150k), Limitado (≤ US$1 mi) ou Ilimitado; sem ela DI/DUIMP não pode ser registrada."
 ---
 
 ## Resposta rápida

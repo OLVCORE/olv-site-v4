@@ -5,7 +5,7 @@ description: "Critérios e consulta."
 mainQuestion: "Classificação fiscal do NCM?"
 faqs:
   - q: "Classificação fiscal do NCM?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Atribua o NCM aplicando as RGIs 1-6; a posição correta define tributos, exigências sanitárias e evita multa de 1 % do valor aduaneiro."
 ---
 
 ## Resposta rápida

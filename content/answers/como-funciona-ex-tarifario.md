@@ -5,7 +5,7 @@ description: "Processo de solicitação de redução de II para máquinas e equi
 mainQuestion: "Como funciona o ex-tarifário?"
 faqs:
   - q: "Como funciona o ex-tarifário?"
-    a: "Resposta curta em desenvolvimento."
+    a: "O Ex-Tarifário reduz a alíquota de II para 0 %-2 % em BK/BIT sem similar nacional; o pedido é feito no Portal Siscomex, passa por consulta ABIMAQ/ABINEE e é aprovado por Resolução Gecex."
 ---
 
 ## Resposta rápida

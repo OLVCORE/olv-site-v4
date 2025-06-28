@@ -5,7 +5,7 @@ description: "Fluxo completo."
 mainQuestion: "Etapas do despacho aduaneiro?"
 faqs:
   - q: "Etapas do despacho aduaneiro?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Desembarace segue DI/DUIMP, parametrização e conferência; Canal Verde libera em horas, Vermelho exige inspeção física e pode levar 5+ dias."
 ---
 
 ## Resposta rápida

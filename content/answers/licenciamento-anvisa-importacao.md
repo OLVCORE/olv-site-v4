@@ -5,7 +5,7 @@ description: "Produtos sujeitos e processo."
 mainQuestion: "Licenciamento ANVISA na importação?"
 faqs:
   - q: "Licenciamento ANVISA na importação?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Alimentos, fármacos, cosméticos e correlatos precisam de anuência LI/LPCO da ANVISA; sem deferimento a carga não desembaraça."
 ---
 
 ## Resposta rápida

@@ -5,7 +5,7 @@ description: "Economia tributária."
 mainQuestion: "Benefícios do Drawback Suspensão?"
 faqs:
   - q: "Benefícios do Drawback Suspensão?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Drawback Suspensão permite importar insumos com tributos suspensos (II, IPI, PIS/COFINS, AFRMM) quando vinculados a futura exportação, gerando economia de até 40 % do FOB."
 ---
 
 ## Resposta rápida

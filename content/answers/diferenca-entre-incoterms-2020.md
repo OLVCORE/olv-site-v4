@@ -5,7 +5,7 @@ description: "Principais mudanças e efeitos."
 mainQuestion: "Diferença entre INCOTERMS 2020?"
 faqs:
   - q: "Diferença entre INCOTERMS 2020?"
-    a: "Resposta curta em desenvolvimento."
+    a: "Incoterms 2020 mantêm 11 termos, substituem DAT por DPU, exigem seguro ICC A no CIP e detalham responsabilidades A/B; escolha afeta custo, risco e compliance cambial."
 ---
 
 ## Resposta rápida
