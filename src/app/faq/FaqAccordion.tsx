@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export interface AnswerItem { title: string; slug: string; }
+export interface AnswerItem { title: string; slug: string; updated?: string; }
 
 interface Props {
   grouped: Record<string, AnswerItem[]>;
@@ -32,9 +32,15 @@ export default function FaqAccordion({ grouped, initialOpen = [], search = '', o
     <div className="space-y-4">
       {Object.entries(grouped).map(([cat, items]) => {
         // filtra itens pelo termo de busca
-        const filtered = search.trim()
+        let filtered = search.trim()
           ? items.filter((i) => i.title.toLowerCase().includes(search.toLowerCase()))
           : items;
+        // ordena por updated desc se existir
+        filtered = filtered.sort((a, b) => {
+          const da = a.updated ? Date.parse(a.updated) : 0;
+          const db = b.updated ? Date.parse(b.updated) : 0;
+          return db - da;
+        });
         if (!filtered.length) return null; // esconde categoria vazia
 
         const isOpen = openCats.includes(cat);
@@ -51,10 +57,15 @@ export default function FaqAccordion({ grouped, initialOpen = [], search = '', o
             {isOpen && (
               <ul className="px-6 py-3 space-y-2">
                 {filtered.map((a) => (
-                  <li key={a.slug}>
+                  <li key={a.slug} className="flex items-center gap-2">
                     <Link href={`/answers/${a.slug}`} className="text-[#d4af37] hover:underline">
                       {a.title}
                     </Link>
+                    {a.updated && (
+                      <span className="text-xs text-gray-400 border border-[#2a3448] px-1.5 py-0.5 rounded">
+                        Atualizado {new Date(a.updated).toLocaleDateString('pt-BR', { month: '2-digit', year: '2-digit' })}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
