@@ -1072,4 +1072,12 @@ body[class*="page-"] .main-content {
     margin-top: 0.5cm !important; /* distância fixa */
     padding-top: 0 !important; /* remove py top padding */
   }
+}
+
+@media (min-width: 769px) {
+  /* Universal desktop content offset: header (64px) + ticker (~32-45px) + 0.5cm respiro */
+  .main-content {
+    margin-top: calc(var(--height-header) + 45px + 0.5cm) !important;
+    padding-top: 0 !important;
+  }
 } 
