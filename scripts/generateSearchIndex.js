@@ -40,11 +40,11 @@ files.forEach((file) => {
     const name = path.basename(file, ext);
     slug = `/answers/${name}`;
   } else {
-    slug = file
-      .replace(APP_DIR, '')
-      .replace(/\\page.tsx$/, '')
-      .replace(/\\index$/, '')
-      .replace(/\\/g, '/');
+    slug = file.replace(APP_DIR, '');
+    // normalize slashes
+    slug = slug.replace(/\\/g, '/');
+    // strip trailing /page.tsx or /index
+    slug = slug.replace(/\/page\.tsx$/, '').replace(/\/index$/, '');
     if (slug === '') slug = '/';
   }
 

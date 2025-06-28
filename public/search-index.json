@@ -457,7 +457,7 @@
   },
   {
     "title": "OLV Internacional – Consultoria em Comércio Exterior, Logística Internacional e Supply Chain",
-    "slug": "Projects/olv-site-v4/src/app/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../components/layout/MainLayout';",
@@ -465,7 +465,7 @@
   },
   {
     "title": "ACADEMY - OLV Internacional | Capacitação em Comércio Internacional",
-    "slug": "Projects/olv-site-v4/src/app/academy/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/academy",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import Icon from '../../components/icons/Icon';",
@@ -473,7 +473,7 @@
   },
   {
     "title": "beta-feedback",
-    "slug": "Projects/olv-site-v4/src/app/beta-feedback/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/beta-feedback",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "const [submitted, setSubmitted] = useState(false);",
@@ -481,7 +481,7 @@
   },
   {
     "title": "Blog | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/blog/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/blog",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../components/layout/MainLayout';",
@@ -489,7 +489,7 @@
   },
   {
     "title": "CONNECTA - OLV Internacional | Conectando Negócios Globais",
-    "slug": "Projects/olv-site-v4/src/app/connecta/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/connecta",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import SolutionFlow from '../../components/SolutionFlow';",
@@ -497,7 +497,7 @@
   },
   {
     "title": "Contato | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/contato/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/contato",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../components/layout/MainLayout';",
@@ -505,7 +505,7 @@
   },
   {
     "title": "OLV CORE - Cockpit de Gestão 360° | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/core/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/core",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
@@ -513,7 +513,7 @@
   },
   {
     "title": "Ecossistema | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/ecossistema/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/ecossistema",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../components/layout/MainLayout';",
@@ -521,7 +521,7 @@
   },
   {
     "title": "ENGAGE - OLV Internacional | Engajamento e Relacionamento com Clientes",
-    "slug": "Projects/olv-site-v4/src/app/engage/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/engage",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import Icon from '../../components/icons/Icon';",
@@ -529,7 +529,7 @@
   },
   {
     "title": "EXCELTTA - OLV Internacional | Excelência na Gestão de Processos",
-    "slug": "Projects/olv-site-v4/src/app/exceltta/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/exceltta",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import PlatformLayout from '../../components/platforms/PlatformLayout';",
@@ -537,7 +537,7 @@
   },
   {
     "title": "FAQ | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/faq/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/faq",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import FaqPageClient from './FaqPageClient';",
@@ -545,7 +545,7 @@
   },
   {
     "title": "FINX - OLV Internacional | Soluções Financeiras para Comércio Internacional",
-    "slug": "Projects/olv-site-v4/src/app/finx/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/finx",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));",
@@ -553,7 +553,7 @@
   },
   {
     "title": "LABS - OLV Internacional | Centro de Inovação em Comércio Internacional",
-    "slug": "Projects/olv-site-v4/src/app/labs/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/labs",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));",
@@ -561,7 +561,7 @@
   },
   {
     "title": "login",
-    "slug": "Projects/olv-site-v4/src/app/login/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/login",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import SocialButton from '@/components/auth/SocialButton';",
@@ -569,7 +569,7 @@
   },
   {
     "title": "Política | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/politica/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/politica",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../components/layout/MainLayout';",
@@ -577,7 +577,7 @@
   },
   {
     "title": "Radar 360 | OLV Internacional - Dados, Inteligência e Simuladores",
-    "slug": "Projects/olv-site-v4/src/app/radar360/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/radar360",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../components/layout/MainLayout';",
@@ -585,7 +585,7 @@
   },
   {
     "title": "search",
-    "slug": "Projects/olv-site-v4/src/app/search/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/search",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import useSWRInfinite from 'swr/infinite';",
@@ -593,7 +593,7 @@
   },
   {
     "title": "Mapa do Site | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/sitemap/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/sitemap",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import Link from 'next/link';\r\n\r\nexport const metadata =  ,\r\n};\r\n\r\nexport default function SitemapPage()  ,\r\n       ,",
@@ -601,7 +601,7 @@
   },
   {
     "title": "Sobre | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/sobre/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/sobre",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import Icon from '@/components/icons/Icon';",
@@ -609,7 +609,7 @@
   },
   {
     "title": "Soluções em Comércio Exterior e Logística Internacional | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/solucoes/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/solucoes",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../components/layout/MainLayout';",
@@ -617,7 +617,7 @@
   },
   {
     "title": "STRATEVO - OLV Internacional | Inteligência para Decidir. Estratégia para Crescer.",
-    "slug": "Projects/olv-site-v4/src/app/stratevo/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/stratevo",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import Icon from '../../components/icons/Icon';",
@@ -625,7 +625,7 @@
   },
   {
     "title": "Termos de Uso | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/termos/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/termos",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../components/layout/MainLayout';",
@@ -633,7 +633,7 @@
   },
   {
     "title": "teste",
-    "slug": "Projects/olv-site-v4/src/app/teste/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/teste",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "export default function TestePage()",
@@ -641,7 +641,7 @@
   },
   {
     "title": "VENTURES - OLV Internacional | Investimentos Estratégicos em Comércio Internacional",
-    "slug": "Projects/olv-site-v4/src/app/ventures/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/ventures",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));",
@@ -649,7 +649,7 @@
   },
   {
     "title": "VERITUS - OLV Internacional | Compliance e Conformidade Internacional",
-    "slug": "Projects/olv-site-v4/src/app/veritus/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/veritus",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "const PlatformLayout = dynamic(() => import('../../components/platforms/PlatformLayout'));",
@@ -657,7 +657,7 @@
   },
   {
     "title": "[slug]",
-    "slug": "Projects/olv-site-v4/src/app/answers/[slug]/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/answers/[slug]",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../../components/layout/MainLayout';",
@@ -665,7 +665,7 @@
   },
   {
     "title": "Simulador Cambial | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/simuladores/cambio/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/simuladores/cambio",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import SimLayout from '../../../components/simulators/SimLayout';",
@@ -673,7 +673,7 @@
   },
   {
     "title": "Conversor Peso x Volume (Cubagem) | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/simuladores/cubagem/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/simuladores/cubagem",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../../components/layout/MainLayout';",
@@ -681,7 +681,7 @@
   },
   {
     "title": "Simulador de Custos de Exportação | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/simuladores/exportacao/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/simuladores/exportacao",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../../components/layout/MainLayout';",
@@ -689,7 +689,7 @@
   },
   {
     "title": "frete-full",
-    "slug": "Projects/olv-site-v4/src/app/simuladores/frete-full/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/simuladores/frete-full",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import DisclaimerAlert from '@/components/DisclaimerAlert';",
@@ -697,7 +697,7 @@
   },
   {
     "title": "Calculadora de Fretes – Versão Light",
-    "slug": "Projects/olv-site-v4/src/app/simuladores/frete-light/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/simuladores/frete-light",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import FreightCalculatorLight from '../../../components/simulators/FreightCalculatorLight';",
@@ -705,7 +705,7 @@
   },
   {
     "title": "Simulador de Custos de Importação | OLV Internacional",
-    "slug": "Projects/olv-site-v4/src/app/simuladores/importacao/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/simuladores/importacao",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import MainLayout from '../../../components/layout/MainLayout';",
@@ -713,7 +713,7 @@
   },
   {
     "title": "load-stuffing",
-    "slug": "Projects/olv-site-v4/src/app/simuladores/load-stuffing/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/simuladores/load-stuffing",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import VolumesTable from \"@/components/simulators/VolumesTable\";",
@@ -721,7 +721,7 @@
   },
   {
     "title": "Simulador Tributário – Versão Light",
-    "slug": "Projects/olv-site-v4/src/app/simuladores/tributario-light/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/simuladores/tributario-light",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import TaxSimulatorLight from '../../../components/simulators/TaxSimulatorLight';",
@@ -729,7 +729,7 @@
   },
   {
     "title": "CNPJ inválido",
-    "slug": "Projects/olv-site-v4/src/app/solucoes/importacao-exclusiva/page.tsx",
+    "slug": "Projects/olv-site-v4/src/app/solucoes/importacao-exclusiva",
     "category": "Projects",
     "section": "Projects",
     "excerpt": "import   from '@/components/ui/textarea';",
