@@ -46,7 +46,7 @@ Customs Team-->>3PL Ops: DI protocolado
 
 ### Modelo comercial
 
-1. **Retainer + variável**: fee fixo R$ 7 k/mês + 1,2 % do CIF.  
+1. **Retainer + variável**: fee fixo a partir de R$ 7 k/mês + até 1,2 % do CIF.  
 2. **Performance pack**: desconto 15 % se KPI de savings < meta.
 
 ### Onboarding em 4 semanas

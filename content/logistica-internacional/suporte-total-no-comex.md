@@ -50,8 +50,8 @@ ControlTower-->|ETA|Client
 
 | Faixa TEU/ano | Retainer mensal | % sobre savings |
 | --- | --- | --- |
-| 50–200 | R$ 12 k | 20 % |
-| 201–500 | R$ 22 k | 18 % |
+| 50–200 | a partir de R$ 12 k | 20 % |
+| 201–500 | a partir de R$ 22 k | 18 % |
 | 500+ | on demand | 15 % |
 
 ---

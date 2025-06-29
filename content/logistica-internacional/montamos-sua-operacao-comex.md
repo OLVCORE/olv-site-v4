@@ -43,7 +43,7 @@ Implantamos uma **célula COMEX in-house** completa – processos, pessoas e sis
 
 ### Modelo de cobrança
 
-• Setup único R$ 35 k (pode ser 3x).  
+• Setup único a partir de R$ 35 k (pode ser parcelado em 3x).  
 • Fee mensal a partir de R$ 9,5 k (inclui 2 FTE e licenças).  
 • Bônus de performance: 10 % dos savings no 1º ano.
 

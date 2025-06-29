@@ -29,9 +29,9 @@ Precisando de "força-tarefa" para destravar licenças, mitigar multas ou reduzi
 
 | Plano | Tempo de resposta | Tarifação |
 | --- | --- | --- |
-| Start | 4 h | R$ 390/h | 
-| Pro | 2 h | R$ 490/h | 
-| Critical | 1 h | R$ 650/h + hotline 24/7 |
+| Start | 4 h | a partir de R$ 390/h | 
+| Pro | 2 h | a partir de R$ 490/h | 
+| Critical | 1 h | a partir de R$ 650/h + hotline 24/7 |
 
 ### Casos típicos resolvidos
 
