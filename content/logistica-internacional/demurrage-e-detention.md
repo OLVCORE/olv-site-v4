@@ -16,8 +16,45 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+**Demurrage** e **detention** são taxas cobradas pela armadora quando o contêiner excede o **free time** contratado:  
+• **Demurrage** – contêiner parado **dentro** do terminal/porto.  
+• **Detention** – contêiner parado **fora** do terminal (pátio do importador).  
+Evitar essas taxas exige planejamento de desembaraço, agendamento de transporte e negociação de prazos.
 
 ---
 
-> Placeholder gerado, será preenchido na próxima etapa. 
+### 1. Cálculo das diárias
+
+| Dia excedente | Demurrage (USD) | Detention (USD) |
+| --- | --- | --- |
+| 1–5 | 125 | 110 |
+| 6–10 | 185 | 160 |
+| 11+ | 250 | 220 |
+
+*Exemplo 40' DRY Ásia → BR. Tarifas variam por armador.*
+
+### 2. Estratégias para reduzir custos
+
+1. **Negociar free time ampliado** (14–21 dias) durante a cotação.  
+2. **Utilizar armazém EADI** para remover contêiner e parar demurrage.  
+3. Contratar **desova imediata** e devolver a caixa vazia em 24 h.
+
+### 3. Procedimento de extensão (COD)
+
+Caso o desembaraço atrase, é possível solicitar **COD – Change Of Destination** ou **transferência de BL** para evitar novas diárias, porém há taxa (~USD 300).
+
+### 4. Multas relacionadas
+
+• **Port Storage** – tarifa do terminal, diferente da demurrage armador.  
+• **Overstay** – aplica-se a contêiner reefers conectados além do free time de energia.
+
+---
+
+## Perguntas frequentes adicionais
+
+1. **Detention incide em contêiner LCL?** Não; LCL usa desembaraço por palete, não há devolução de equipamento.
+2. **Há demurrage em cargas a granel?** Não, mas existe "port charge" do terminal silo.
+
+---
+
+> Última revisão: Julho 2025. 
