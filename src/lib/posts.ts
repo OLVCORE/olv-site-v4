@@ -39,4 +39,22 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     return null;
   }
   return data as Post;
+}
+
+export async function getPostsByCategory(category: string, limit = 10, page = 1): Promise<Post[]> {
+  if (!supabase) return [];
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+  const { data, error } = await supabase
+    .from('posts')
+    .select('*')
+    .eq('status', 'published')
+    .eq('category', category)
+    .order('published_at', { ascending: false })
+    .range(from, to);
+  if (error) {
+    console.error('getPostsByCategory error', error.message);
+    return [];
+  }
+  return (data ?? []) as Post[];
 } 

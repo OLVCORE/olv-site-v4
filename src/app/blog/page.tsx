@@ -32,17 +32,7 @@ export default async function BlogPage() {
 
   const list = posts.length ? posts : fallback;
 
-  const categories = [
-    'Estratégia Internacional',
-    'Business Intelligence',
-    'Importação',
-    'Exportação',
-    'Compliance',
-    'Logística',
-    'Finanças',
-    'Supply Chain',
-    'Gestão',
-  ];
+  const { CATEGORIES: categories } = await import('@/lib/blogConfig');
 
   return (
     <MainLayout>
@@ -178,7 +168,7 @@ export default async function BlogPage() {
                   {categories.map((category, index) => (
                     <li key={index}>
                       <Link
-                        href={`/blog/categoria/${category.toLowerCase().replace(/\s+/g, '-')}`}
+                        href={`/blog/categoria/${encodeURIComponent(category)}`}
                         className="flex items-center justify-between text-gray-700 dark:text-gray-300 hover:text-accent"
                       >
                         <span>{category}</span>
