@@ -11,7 +11,8 @@ export const metadata = {
   alternates: { canonical: 'https://olvinternacional.com.br/faq' },
 };
 
-const CONTENT_DIR = path.join(process.cwd(), 'content', 'answers');
+// Base content directory that contains subfolders like `answers/` and new intent-based folders
+const BASE_CONTENT_DIR = path.join(process.cwd(), 'content');
 
 interface AnswerItem { title: string; slug: string; answer: string; updated?: string; }
 
@@ -24,11 +25,24 @@ function extractFirstParagraph(md: string) {
   return paraLines.join(' ').replace(/\[(.*?)\]\([^)]*\)/g, '$1');
 }
 
+// Recursively walk through all markdown files under `content/`
+function walkMd(dir: string): string[] {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const files: string[] = [];
+  for (const ent of entries) {
+    const full = path.join(dir, ent.name);
+    if (ent.isDirectory()) files.push(...walkMd(full));
+    else if (ent.isFile() && ent.name.endsWith('.md')) files.push(full);
+  }
+  return files;
+}
+
 function getAllAnswers(): AnswerItem[] {
-  const files = fs.readdirSync(CONTENT_DIR);
-  return files.map((file) => {
-    const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
+  const mdPaths = walkMd(BASE_CONTENT_DIR);
+  return mdPaths.map((fullPath) => {
+    const raw = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(raw);
+    const file = path.basename(fullPath);
     return {
       title: data.title as string,
       slug: (data.slug as string) || file.replace(/\.md$/, ''),
@@ -78,8 +92,15 @@ const categoryMap: Record<string, string[]> = {
     'passos-da-li-anvisa'
   ],
   'Exportação & Preço de Venda': [
-    'formacao-do-preco-de-exportacao',
-    'exportacao-diferencial-pmes'
+    'exportacao-diferencial-pmes',
+    'como-exportar-legalmente',
+    'planeje-sua-exportacao',
+    'exportacao-para-iniciantes',
+    'passo-a-passo-da-exportacao',
+    'exportacao-legalizada-e-facil',
+    'exportar-com-lucro-real',
+    'documentacao-de-comex',
+    'exportar-alimentos-do-brasil'
   ],
   'Tecnologia & Simuladores OLV': [
     'simulador-custo-importacao-como-usar',
