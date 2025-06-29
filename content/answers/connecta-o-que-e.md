@@ -53,10 +53,6 @@ Funciona como **one-stop shop**: o usuário cria RFQ, recebe cotações em 48 h,
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
-| --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
 | Pergunta | Resposta breve |
 | --- | --- |
 | Quantos fornecedores estão na base hoje? | Mais de 1 200 fabricantes homologados em 32 países. |

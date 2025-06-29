@@ -50,10 +50,11 @@ Para escolher uma **transportadora internacional (freight forwarder)** avalie: c
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Como auditar índice de sinistros do forwarder? | Solicite relatórios TT Club ou histórico de sinistros dos últimos 12 meses. |
+| Transportadora precisa ser OEA? | Não obrigatório, mas status OEA reduz inspeções e atrasos. |
+| Existe SLA mínimo para tracking em tempo real? | Inclua no contrato penalidade para falhas de atualização superiores a 2 horas. |
 
 ---
 

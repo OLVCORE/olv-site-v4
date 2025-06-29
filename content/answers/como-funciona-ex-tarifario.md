@@ -50,14 +50,13 @@ Importação CIF US$ 2 000 000 → **Economia II = US$ 280 000**
 | Posso incluir acessórios juntos? | Sim, desde que indispensáveis ao funcionamento do BK/BIT e listados na descrição. |
 | Se surgir produção nacional depois? | A Gecex pode revogar o Ex-Tarifário mediante comprovação de similar nacional. |
 
----
-
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Quem não precisa de Ex-Tarifário? | Bens com produção nacional equivalente atestada pela ABIMAQ/ABINEE. |
+| Posso combinar Ex-Tarifário com Drawback? | Sim, benefícios são cumulativos se cumprir requisitos de cada regime. |
+| Quanto tempo entre protocolo e publicação? | Em média 60–90 dias, variando pela complexidade da análise técnica. |
 
 ---
 

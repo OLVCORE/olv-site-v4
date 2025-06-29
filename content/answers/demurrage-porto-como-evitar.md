@@ -46,10 +46,11 @@ keywords: 'evitar, demurrage, porto'
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Free time considera finais de semana? | Sim, a contagem é em dias corridos salvo cláusula específica no BL. |
+| Posso contratar seguro para demurrage? | Existe pólice específica que cobre até o limite diário acordado; comum em commodities. |
+| O que ocorre se o contêiner é retido pela Receita? | A demurrage continua até a devolução; negocie extensão de free time ou DTA para EADI. |
 
 ---
 

@@ -52,10 +52,6 @@ Ex.: VA US$ 100 000, TEC 12 %, Mercosul 0 % → **Economia US$ 12 000**.
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
-| --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
 | Pergunta | Resposta breve |
 | --- | --- |
 | Quem pode emitir o Certificado? | Entidades habilitadas pela ALADI (ex.: FIESP, CCPIT) no país exportador. |

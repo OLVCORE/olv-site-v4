@@ -49,10 +49,11 @@ Ao optar por **importar via trading company** você terceiriza o CNPJ importador
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Quem arca com antidumping em operação via trading? | A trading é responsável, mas normalmente repassa o custo ao importador no contrato. |
+| Posso obter Drawback operando com trading? | Raro, pois o benefício fica no CNPJ exportador; importação própria é mais viável. |
+| É possível migrar de trading para própria sem parar operações? | Sim, prepare RADAR paralelo e faça transição gradativa por produto ou país. |
 
 ---
 

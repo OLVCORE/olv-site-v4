@@ -47,10 +47,11 @@ keywords: 'logística, 40, benefícios, supply, chain'
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Como medir maturidade 4.0 da empresa? | Use modelo SCOR+ adaptado para Logística 4.0 em cinco níveis. |
+| WMS legado pode integrar com IoT? | Sim, via API/EDI; soluções iPaaS reduzem custo de integração. |
+| Existem incentivos governamentais para IoT? | BNDES Finame e Lei de Informática permitem financiamento de hardware e software 4.0. |
 
 ---
 
