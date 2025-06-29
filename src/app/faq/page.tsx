@@ -171,6 +171,14 @@ const categoryMap: Record<string, string[]> = {
     'exportar-etanol-de-cana',
     'exportar-milho-do-brasil',
   ],
+  'Incompany – COMEX': [
+    'logistica-3pl-para-exportacao',
+    'montamos-sua-operacao-comex',
+    'suporte-total-no-comex',
+    'especialistas-em-comex',
+    'comex-para-empresas-pme',
+    'logistica-internacional',
+  ],
 };
 
 function groupByCategory(all: AnswerItem[]) {
