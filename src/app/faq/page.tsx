@@ -78,6 +78,10 @@ const categoryMap: Record<string, string[]> = {
     'consolidador-carga-lcl',
     'shipping-instructions-si',
     'demurrage-e-detention',
+    'booking-e-cut-off-logistica-internacional',
+    'inspecao-pre-embarque-pi',
+    'fumigacao-granel-exportacao',
+    'project-cargo-oog',
   ],
   'Tributos & Regimes Aduaneiros': [
     'regimes-aduaneiros-especiais-quais-sao',
