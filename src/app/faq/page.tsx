@@ -142,7 +142,13 @@ const categoryMap: Record<string, string[]> = {
     'importacao-sem-burocracia',
     'importar-com-seguranca',
     'consultoria-para-radar-siscomex',
-    'regularize-sua-empresa-comex'
+    'regularize-sua-empresa-comex',
+    'planejamento-tributario-comex',
+    'desembaraco-aduaneiro-rapido',
+    'importar-com-reducao-fiscal',
+    'reducao-de-custos-de-importacao',
+    'importacao-para-revenda',
+    'consultoria-importacao'
   ],
 };
 
