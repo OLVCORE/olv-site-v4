@@ -4,10 +4,12 @@ import MainLayout from '../../components/layout/MainLayout';
 
 export const metadata = {
   title: 'Blog | OLV Internacional',
-  description: 'Conteúdo especializado sobre comércio exterior, estratégia, operações internacionais e soluções para PMEs.',
-  keywords: 'blog de comércio exterior, notícias de importação e exportação, dicas de logística internacional, análises de mercado global',
+  description:
+    'Conteúdo especializado sobre comércio exterior, estratégia, operações internacionais e soluções para PMEs.',
+  keywords:
+    'blog de comércio exterior, notícias de importação e exportação, dicas de logística internacional, análises de mercado global',
   alternates: {
-    canonical: 'https://olvinternacional.com.br/blog'
+    canonical: 'https://olvinternacional.com.br/blog',
   },
 };
 
@@ -16,62 +18,70 @@ export default function BlogPage() {
     {
       id: 1,
       title: 'Como as PMEs podem acessar o mercado internacional com segurança',
-      excerpt: 'Descubra as estratégias e ferramentas essenciais para que pequenas e médias empresas possam iniciar suas operações internacionais com menor risco e maior retorno.',
+      excerpt:
+        'Descubra as estratégias e ferramentas essenciais para que pequenas e médias empresas possam iniciar suas operações internacionais com menor risco e maior retorno.',
       image: '/images/blog/pme-internacional.jpg',
       author: 'Equipe OLV',
       date: '10 Jan 2023',
       category: 'Estratégia Internacional',
-      slug: 'pmes-mercado-internacional'
+      slug: 'pmes-mercado-internacional',
     },
     {
       id: 2,
-      title: 'Inteligência de dados: o combustível para decisões de negócios globais',
-      excerpt: 'A análise de dados se tornou fundamental para empresas que operam internacionalmente. Veja como utilizar dados para obter vantagem competitiva e mitigar riscos.',
+      title:
+        'Inteligência de dados: o combustível para decisões de negócios globais',
+      excerpt:
+        'A análise de dados se tornou fundamental para empresas que operam internacionalmente. Veja como utilizar dados para obter vantagem competitiva e mitigar riscos.',
       image: '/images/blog/inteligencia-dados.jpg',
       author: 'Equipe OLV',
       date: '24 Fev 2023',
       category: 'Business Intelligence',
-      slug: 'inteligencia-dados-negocios-globais'
+      slug: 'inteligencia-dados-negocios-globais',
     },
     {
       id: 3,
       title: 'Importação sem mistérios: guia completo para novos importadores',
-      excerpt: 'Um passo a passo detalhado para empresas que desejam iniciar suas operações de importação, desde a pesquisa de fornecedores até o desembaraço aduaneiro.',
+      excerpt:
+        'Um passo a passo detalhado para empresas que desejam iniciar suas operações de importação, desde a pesquisa de fornecedores até o desembaraço aduaneiro.',
       image: '/images/blog/importacao-guia.jpg',
       author: 'Equipe OLV',
       date: '17 Mar 2023',
       category: 'Importação',
-      slug: 'guia-completo-importacao'
+      slug: 'guia-completo-importacao',
     },
     {
       id: 4,
-      title: 'Compliance internacional: protegendo sua empresa em operações globais',
-      excerpt: 'Entenda como implementar práticas de compliance eficazes para garantir a segurança jurídica, fiscal e operacional em transações internacionais.',
+      title:
+        'Compliance internacional: protegendo sua empresa em operações globais',
+      excerpt:
+        'Entenda como implementar práticas de compliance eficazes para garantir a segurança jurídica, fiscal e operacional em transações internacionais.',
       image: '/images/blog/compliance-internacional.jpg',
       author: 'Equipe OLV',
       date: '05 Abr 2023',
       category: 'Compliance',
-      slug: 'compliance-operacoes-globais'
+      slug: 'compliance-operacoes-globais',
     },
     {
       id: 5,
       title: 'Logística 4.0: o futuro do transporte internacional de cargas',
-      excerpt: 'Novas tecnologias estão transformando a logística internacional. Conheça as inovações que estão reduzindo custos e aumentando a eficiência nas operações.',
+      excerpt:
+        'Novas tecnologias estão transformando a logística internacional. Conheça as inovações que estão reduzindo custos e aumentando a eficiência nas operações.',
       image: '/images/blog/logistica-4-0.jpg',
       author: 'Equipe OLV',
       date: '22 Mai 2023',
       category: 'Logística',
-      slug: 'logistica-4-0-transporte-internacional'
+      slug: 'logistica-4-0-transporte-internacional',
     },
     {
       id: 6,
       title: 'Estratégias de financiamento para operações de comércio exterior',
-      excerpt: 'Descubra as diferentes opções de financiamento disponíveis para empresas que atuam no comércio internacional e como escolher a mais adequada.',
+      excerpt:
+        'Descubra as diferentes opções de financiamento disponíveis para empresas que atuam no comércio internacional e como escolher a mais adequada.',
       image: '/images/blog/financiamento-comex.jpg',
       author: 'Equipe OLV',
       date: '14 Jun 2023',
       category: 'Finanças',
-      slug: 'financiamento-comercio-exterior'
+      slug: 'financiamento-comercio-exterior',
     },
   ];
 
@@ -84,7 +94,7 @@ export default function BlogPage() {
     'Logística',
     'Finanças',
     'Supply Chain',
-    'Gestão'
+    'Gestão',
   ];
 
   return (
@@ -98,17 +108,30 @@ export default function BlogPage() {
                 <span className="text-accent">📚</span> Blog OLV Internacional
               </h2>
               <p className="text-lg text-gray-300 mb-6">
-                Conteúdo especializado sobre comércio exterior, operações internacionais, estratégia e soluções para PMEs no mercado global.
+                Conteúdo especializado sobre comércio exterior, operações
+                internacionais, estratégia e soluções para PMEs no mercado
+                global.
               </p>
               <div className="relative">
-                <input 
-                  type="text" 
-                  placeholder="Buscar no blog..." 
+                <input
+                  type="text"
+                  placeholder="Buscar no blog..."
                   className="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-blue-500"
                 />
                 <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
                   </svg>
                 </button>
               </div>
@@ -126,7 +149,10 @@ export default function BlogPage() {
                 </h2>
                 <div className="grid gap-8">
                   {posts.map((post) => (
-                    <article key={post.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <article
+                      key={post.id}
+                      className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                    >
                       <div className="md:flex">
                         <div className="md:w-1/3 relative h-48 md:h-auto">
                           <div className="w-full h-full bg-gray-300 dark:bg-gray-700">
@@ -146,7 +172,10 @@ export default function BlogPage() {
                             </span>
                           </div>
                           <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                            <Link href={`/blog/${post.slug}`} className="hover:text-accent dark:hover:text-accent">
+                            <Link
+                              href={`/blog/${post.slug}`}
+                              className="hover:text-accent dark:hover:text-accent"
+                            >
                               {post.title}
                             </Link>
                           </h3>
@@ -157,7 +186,7 @@ export default function BlogPage() {
                             <span className="text-sm text-gray-600 dark:text-gray-400">
                               Por {post.author}
                             </span>
-                            <Link 
+                            <Link
                               href={`/blog/${post.slug}`}
                               className="text-accent font-medium hover:underline"
                             >
@@ -169,7 +198,7 @@ export default function BlogPage() {
                     </article>
                   ))}
                 </div>
-                
+
                 {/* Paginação */}
                 <div className="mt-8 flex justify-center">
                   <nav className="flex items-center gap-1">
@@ -177,8 +206,12 @@ export default function BlogPage() {
                       Anterior
                     </button>
                     <button className="px-3 py-1 btn btn-primary">1</button>
-                    <button className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-700 dark:text-gray-300">2</button>
-                    <button className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-700 dark:text-gray-300">3</button>
+                    <button className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-700 dark:text-gray-300">
+                      2
+                    </button>
+                    <button className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-700 dark:text-gray-300">
+                      3
+                    </button>
                     <button className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-700 dark:text-gray-300">
                       Próxima
                     </button>
@@ -186,7 +219,7 @@ export default function BlogPage() {
                 </div>
               </section>
             </div>
-            
+
             {/* SIDEBAR */}
             <div className="w-full lg:w-1/3">
               {/* Categorias */}
@@ -197,7 +230,7 @@ export default function BlogPage() {
                 <ul className="space-y-2">
                   {categories.map((category, index) => (
                     <li key={index}>
-                      <Link 
+                      <Link
                         href={`/blog/categoria/${category.toLowerCase().replace(/\s+/g, '-')}`}
                         className="flex items-center justify-between text-gray-700 dark:text-gray-300 hover:text-accent"
                       >
@@ -210,7 +243,7 @@ export default function BlogPage() {
                   ))}
                 </ul>
               </div>
-              
+
               {/* Posts Populares */}
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-8">
                 <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
@@ -224,7 +257,7 @@ export default function BlogPage() {
                       </div>
                       <div>
                         <h4 className="text-sm font-medium text-gray-900 dark:text-white">
-                          <Link 
+                          <Link
                             href={`/blog/${post.slug}`}
                             className="hover:text-accent"
                           >
@@ -239,22 +272,23 @@ export default function BlogPage() {
                   ))}
                 </ul>
               </div>
-              
+
               {/* Newsletter */}
               <div className="bg-primary text-on-primary p-6 rounded-lg shadow-md">
                 <h3 className="text-lg font-bold mb-2">
                   Inscreva-se na nossa Newsletter
                 </h3>
                 <p className="mb-4 text-on-primary/80">
-                  Receba conteúdo exclusivo sobre comércio exterior e negócios internacionais.
+                  Receba conteúdo exclusivo sobre comércio exterior e negócios
+                  internacionais.
                 </p>
                 <form className="space-y-3">
-                  <input 
-                    type="email" 
-                    placeholder="Seu melhor e-mail" 
+                  <input
+                    type="email"
+                    placeholder="Seu melhor e-mail"
                     className="w-full px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   />
-                  <button 
+                  <button
                     type="submit"
                     className="w-full px-4 py-2 btn btn-primary font-bold"
                   >
@@ -265,7 +299,7 @@ export default function BlogPage() {
             </div>
           </div>
         </div>
-        
+
         {/* CTA FINAL */}
         <section className="section">
           <div className="container">
@@ -274,10 +308,11 @@ export default function BlogPage() {
                 Busca conteúdo específico para sua empresa?
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-                Nossos especialistas podem desenvolver análises e conteúdos customizados para o seu setor e desafios específicos.
+                Nossos especialistas podem desenvolver análises e conteúdos
+                customizados para o seu setor e desafios específicos.
               </p>
-              <Link 
-                href="/contato" 
+              <Link
+                href="https://api.olvinternacional.com.br/contato"
                 className="btn btn-primary font-bold py-3 px-6"
               >
                 Solicitar Consultoria de Conteúdo
