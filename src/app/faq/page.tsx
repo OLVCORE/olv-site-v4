@@ -100,7 +100,12 @@ const categoryMap: Record<string, string[]> = {
     'exportacao-legalizada-e-facil',
     'exportar-com-lucro-real',
     'documentacao-de-comex',
-    'exportar-alimentos-do-brasil'
+    'exportar-alimentos-do-brasil',
+    'financiamento-exim-para-exportacao',
+    'compliance-export-control-usa-eu',
+    'cadeia-fria-exportacao-pereciveis',
+    'termos-de-pagamento-exterior',
+    'marketing-internacional-pmes'
   ],
   'Tecnologia & Simuladores OLV': [
     'simulador-custo-importacao-como-usar',
