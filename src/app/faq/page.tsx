@@ -150,18 +150,29 @@ const categoryMap: Record<string, string[]> = {
     'importacao-para-revenda',
     'consultoria-importacao'
   ],
+  'Exportação de Produtos': [
+    'exportar-soja-do-brasil',
+    'exportar-cafe-especial',
+    'exportar-acucar-do-brasil',
+    'exportar-carne-bovina-halal',
+    'exportar-madeira-processada',
+    'exportar-etanol-de-cana'
+  ],
 };
 
 function groupByCategory(all: AnswerItem[]) {
-  const grouped: Record<string, AnswerItem[]> = {};
+  const raw: Record<string, AnswerItem[]> = {};
   Object.entries(categoryMap).forEach(([cat, slugs]) => {
-    grouped[cat] = all.filter((a) => slugs.includes(a.slug));
+    const items = all.filter((a) => slugs.includes(a.slug));
+    // sort items alphabetically by title
+    raw[cat] = items.sort((a, b) => a.title.localeCompare(b.title, 'pt-BR'));
   });
-  // add uncategorised
+  // uncategorised
   const used = new Set(Object.values(categoryMap).flat());
   const misc = all.filter((a) => !used.has(a.slug));
-  if (misc.length) grouped['Outros'] = misc;
-  return grouped;
+  if (misc.length) raw['Outros'] = misc.sort((a, b) => a.title.localeCompare(b.title, 'pt-BR'));
+  // return object with alphabetical category keys
+  return Object.fromEntries(Object.keys(raw).sort((a, b) => a.localeCompare(b, 'pt-BR')).map((k) => [k, raw[k]]));
 }
 
 function buildFaqSchema(grouped: Record<string, AnswerItem[]>): string {
