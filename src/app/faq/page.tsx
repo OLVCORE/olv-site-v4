@@ -136,7 +136,14 @@ const categoryMap: Record<string, string[]> = {
     'compliance-oea',
     'otimizacao-estoques-importacao',
     'digitalizacao-processos-comex'
-  ]
+  ],
+  'Consultoria Importação': [
+    'abra-sua-importadora',
+    'importacao-sem-burocracia',
+    'importar-com-seguranca',
+    'consultoria-para-radar-siscomex',
+    'regularize-sua-empresa-comex'
+  ],
 };
 
 function groupByCategory(all: AnswerItem[]) {
