@@ -33,6 +33,32 @@ Para exportar soja do Brasil: (1) garanta **qualidade mínima 13 % umidade** e �
 3. **Estufagem direta** navio graneleiro (shiploader 2.000 t/h).  
 4. **Draft survey** + amostragem SGS.
 
+### 2.1 Classes de navio e capacidade
+
+| Classe | DWT típica | Calado (m) | Capacidade útil (t) | Portos BR usuais | Observações |
+| --- | --- | --- | --- | --- | --- |
+| Handysize | 25–40 kt | 9–11 | 25 000–38 000 | São Francisco do Sul, Vitória | Lotes spot, menor draft |
+| Supramax / Ultramax | 50–64 kt | 12–13 | 48 000–63 000 | Itaqui, Paranaguá | Grãos e farelo |
+| Panamax | 65–80 kt | 13–14 | 60 000–75 000 | Santos, Itaqui | Principal rota Ásia |
+| Kamsarmax | 80–85 kt | 14–15 | 75 000–82 000 | Itaqui (PDM), Barcarena | Alta taxa de carregamento |
+| Post-Panamax | 90–115 kt | 15–16 | 85 000–110 000 | Ponta da Madeira | Picos de safra, afretamento spot |
+
+### 2.2 Processo de carregamento & taxas
+
+* Shiploader correia → chute telescópico; trimming exigido para ≤ 2 % desnível.
+* **Taxa média**: Panamax 12 kt/dia; Kamsarmax 14 kt/dia.
+* **Draft survey** obrigatório antes/depois para emissão de Weight Certificate SGS.
+
+### 2.3 Alternativa contêinerizada
+
+| Equipamento | Capacidade granel (t) | Observações |
+| --- | --- | --- |
+| Bulk-liner 20' | 25 | Requer linerbag + escotilha superior |
+| Bulk-liner 40' | 28 | Pouco usado — risco de peso bruto exceder VGM |
+| Big-bag 1 t 20' | 22 | Facilita descarga sem silo |
+
+Essas opções são usadas para lotes premium, destinos com infraestrutura limitada ou carga de retorno (back-haul).
+
 ### 3. Documentação obrigatória
 
 | Documento | Emissor | Validade |

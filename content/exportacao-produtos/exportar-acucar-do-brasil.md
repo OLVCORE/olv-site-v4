@@ -42,14 +42,30 @@ Preço final = **Cotação bolsa** +/− **Prêmio local (POL 4/75)** − **Desp
 
 ### 3. Logística de embarque
 
-1. **Modal granel**: navios Handysize/Panamax até 60 kt; taxa de carregamento 8 kt/dia.
-2. **Modal contêiner**: bulk‐liner em 20' – capacidade 25 t; flexitank não aplicável.
-3. **Estufagem**: via shiploader ou tremonha móvel; fumigação com fosfina 72 h.
+#### 3.1 Classes de navio e capacidade
 
-| Equipamento | Qtde sacarias 50&nbsp;kg | Peso líquido (t) |
-| --- | --- | --- |
-| Contêiner 20' Dry | 500 | 25 |
-| Contêiner 40' Dry | 1.000 | 50 |
+| Classe | DWT típica | Calado (m) | Capacidade útil (t) | Portos BR usuais | Observações |
+| --- | --- | --- | --- | --- | --- |
+| Handymax | 40–50 kt | 10–12 | 38 000–48 000 | Maceió, Recife | Comércio regional Caribe/África |
+| Supramax | 50–64 kt | 12–13 | 48 000–63 000 | Maceió, Paranaguá | Açúcar ensacado ou granel |
+| Panamax | 65–80 kt | 13–14 | 60 000–75 000 | Santos, Itaqui | Granel VHP temporada safra |
+| Kamsarmax | 80–85 kt | 14–15 | 75 000–82 000 | Itaqui, Barcarena | Alta eficiência shiploader |
+
+#### 3.2 Processo de carregamento & taxas
+
+* Carregamento granel via **shiploader de 3.000 t/h** ou correia móvel + telha giratória.
+* Taxa Spot: Panamax 10–12 kt/dia; Handymax 6 kt/dia.
+* Trimagem com espalhador; proibição de chapas metálicas soltas (spar tight).
+
+#### 3.3 Alternativa contêinerizada
+
+| Equipamento | Configuração | Peso líquido (t) | Destinos típicos |
+| --- | --- | --- | --- |
+| Bulk-liner 20' | Linerbag | 25 | Oriente Médio, Caribe |
+| Big-bag 1 t 20' | 20 big-bags | 20 | África Ocidental |
+| Sacaria 50 kg 20' | 500 sacos | 25 | África subsaariana |
+
+Essa modalidade cobre lotes < 12 kt ou portos sem elevador graneleiro.
 
 ### 4. Documentação obrigatória
 
