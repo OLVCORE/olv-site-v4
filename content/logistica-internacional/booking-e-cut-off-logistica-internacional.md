@@ -3,8 +3,8 @@ title: Booking e Cut-off – prazos críticos na exportação
 slug: booking-e-cut-off-logistica-internacional
 description: Entenda o fluxo de booking, cut-off documental e físico e como evitar rollover de carga.
 mainQuestion: O que é cut-off e como gerenciar prazos de booking na logística internacional?
-keywords: "booking, cut-off, VGM, deadline, porto, exportação"
-updated: "2025-07-02"
+keywords: 'booking, cut-off, VGM, deadline, porto, exportação'
+updated: '2025-07-02'
 faqs:
   - q: Qual diferença entre cut-off documental e físico?
     a: >-
@@ -23,27 +23,27 @@ Perder qualquer cut-off gera **roll-over** e custos extras (amendment, storage, 
 
 ### 1. Linha do tempo típica (exportação FCL)
 
-| D-n | Ação | Responsável |
-| --- | --- | --- |
-| D-14 | Solicitar cotação & efetuar **booking** | Freight forwarder |
-| D-7  | Emitir **Shipping Instructions** | Exportador |
-| D-2  | **Cut-off documental** (SI, draft BL) | Exportador → Armadora |
-| D-1  | **Gate-in** / **cut-off físico** (VGM, inspeção gate) | Transportador |
-| D     | ETD navio | Armadora |
+| D-n  | Ação                                                  | Responsável           |
+| ---- | ----------------------------------------------------- | --------------------- |
+| D-14 | Solicitar cotação & efetuar **booking**               | Freight forwarder     |
+| D-7  | Emitir **Shipping Instructions**                      | Exportador            |
+| D-2  | **Cut-off documental** (SI, draft BL)                 | Exportador → Armadora |
+| D-1  | **Gate-in** / **cut-off físico** (VGM, inspeção gate) | Transportador         |
+| D    | ETD navio                                             | Armadora              |
 
 ### 2. Tipos de cut-off
 
-1. **Doc cut** – prazo para SI, certificados (fumigação, fitossanitário) e VGM.  
-2. **Cargo cut / gate-in** – último horário para entrada física do contêiner.  
+1. **Doc cut** – prazo para SI, certificados (fumigação, fitossanitário) e VGM.
+2. **Cargo cut / gate-in** – último horário para entrada física do contêiner.
 3. **CY cut** – fechamento do pátio (empilhadeira) antes de movimentação para píer.
 
 ### 3. Penalidades por atraso
 
-| Falha | Consequência | Custo médio |
-| --- | --- | --- |
-| Perder doc cut | BL em viagem seguinte; **roll-over fee** | USD 150–250 |
-| Perder gate-in | Trucking reentrega + **storage** | BRL 1.000+/dia |
-| VGM fora do prazo | Gate bloqueado + **fine terminal** | BRL 500–800 |
+| Falha             | Consequência                             | Custo médio    |
+| ----------------- | ---------------------------------------- | -------------- |
+| Perder doc cut    | BL em viagem seguinte; **roll-over fee** | USD 150–250    |
+| Perder gate-in    | Trucking reentrega + **storage**         | BRL 1.000+/dia |
+| VGM fora do prazo | Gate bloqueado + **fine terminal**       | BRL 500–800    |
 
 ### 4. Boas práticas para cumprir prazos
 
@@ -65,9 +65,9 @@ Perder qualquer cut-off gera **roll-over** e custos extras (amendment, storage, 
 
 ## Perguntas frequentes adicionais
 
-1. **Posso estender cut-off?** Em casos de força maior, armadoras concedem até +24h mediante fee.  
+1. **Posso estender cut-off?** Em casos de força maior, armadoras concedem até +24h mediante fee.
 2. **Cut-off de LCL é o mesmo?** Geralmente doc cut D-3 e entrega carga D-4 (antecipado).
 
 ---
 
-> Última revisão: Julho 2025. 
+> Última revisão: Julho 2025.

@@ -3,8 +3,8 @@ title: Demurrage e Detention – como evitar custos extras
 slug: demurrage-e-detention
 description: Entenda a diferença entre demurrage e detention, prazos free time e estratégias de redução de custos.
 mainQuestion: O que são demurrage e detention e como evitá-los na logística internacional?
-keywords: "demurrage, detention, free time, porto, contêiner"
-updated: "2025-07-02"
+keywords: 'demurrage, detention, free time, porto, contêiner'
+updated: '2025-07-02'
 faqs:
   - q: Demurrage incide no porto de origem?
     a: >-
@@ -26,17 +26,17 @@ Evitar essas taxas exige planejamento de desembaraço, agendamento de transporte
 ### 1. Cálculo das diárias
 
 | Dia excedente | Demurrage (USD) | Detention (USD) |
-| --- | --- | --- |
-| 1–5 | 125 | 110 |
-| 6–10 | 185 | 160 |
-| 11+ | 250 | 220 |
+| ------------- | --------------- | --------------- |
+| 1–5           | 125             | 110             |
+| 6–10          | 185             | 160             |
+| 11+           | 250             | 220             |
 
-*Exemplo 40' DRY Ásia → BR. Tarifas variam por armador.*
+_Exemplo 40' DRY Ásia → BR. Tarifas variam por armador._
 
 ### 2. Estratégias para reduzir custos
 
-1. **Negociar free time ampliado** (14–21 dias) durante a cotação.  
-2. **Utilizar armazém EADI** para remover contêiner e parar demurrage.  
+1. **Negociar free time ampliado** (14–21 dias) durante a cotação.
+2. **Utilizar armazém EADI** para remover contêiner e parar demurrage.
 3. Contratar **desova imediata** e devolver a caixa vazia em 24 h.
 
 ### 3. Procedimento de extensão (COD)
@@ -57,4 +57,4 @@ Caso o desembaraço atrase, é possível solicitar **COD – Change Of Destinati
 
 ---
 
-> Última revisão: Julho 2025. 
+> Última revisão: Julho 2025.

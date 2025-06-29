@@ -3,8 +3,8 @@ title: Consolidador de carga LCL – como funciona
 slug: consolidador-carga-lcl
 description: Explicação do papel do consolidador em embarques LCL, vantagens, custos e documentação.
 mainQuestion: O que faz um consolidador de carga LCL e como escolher um bom parceiro?
-keywords: "consolidador, LCL, carga fracionada, NVOCC, groupage"
-updated: "2025-07-02"
+keywords: 'consolidador, LCL, carga fracionada, NVOCC, groupage'
+updated: '2025-07-02'
 faqs:
   - q: Qual é o ganho de compartilhar contêiner (groupage)?
     a: >-
@@ -30,11 +30,11 @@ O **consolidador LCL** (Less-than-Container Load) agrupa cargas de diferentes em
 
 ### 2. Vantagens-chave
 
-| Benefício | Detalhe |
-| --- | --- |
-| Economia | Frete "pró-rata" por W/M (tonelada ou m³) em vez de contêiner completo |
-| Frequência | Saídas semanais para hubs principais (Santos → Antuérpia, Xangai, Miami) |
-| Flexibilidade | Permite split em múltiplos destinos via transbordo |
+| Benefício     | Detalhe                                                                  |
+| ------------- | ------------------------------------------------------------------------ |
+| Economia      | Frete "pró-rata" por W/M (tonelada ou m³) em vez de contêiner completo   |
+| Frequência    | Saídas semanais para hubs principais (Santos → Antuérpia, Xangai, Miami) |
+| Flexibilidade | Permite split em múltiplos destinos via transbordo                       |
 
 ### 3. Como calcular o custo LCL
 
@@ -59,4 +59,4 @@ Total = (W/M * tarifa básica) + WHC (Warehouse Handling Charge) + BAF + THC + B
 
 ---
 
-> Última revisão: Julho 2025. 
+> Última revisão: Julho 2025.

@@ -3,8 +3,8 @@ title: Fumigação de grãos para exportação – normas e procedimentos
 slug: fumigacao-granel-exportacao
 description: Entenda quando e como fumigar grãos (fosfina/AlP) antes do embarque e obter o certificado fitossanitário.
 mainQuestion: Como realizar a fumigação de grãos para exportação de acordo com as normas internacionais?
-keywords: "fumigação, fosfina, exportação grãos, tratamento quarentenário, certificado fitossanitário"
-updated: "2025-07-02"
+keywords: 'fumigação, fosfina, exportação grãos, tratamento quarentenário, certificado fitossanitário'
+updated: '2025-07-02'
 faqs:
   - q: Posso fumigar dentro do porão do navio?
     a: >-
@@ -22,11 +22,11 @@ Exportações de soja, milho e outros grãos só embarcam após **fumigação co
 
 ### 1. Norma e dosagem recomendada
 
-| Destino | Norma | Dosagem (g AlP/m³) | Tempo de exposição |
-| --- | --- | --- | --- |
-| China | GB/T 17913-2022 | 3 | ≥ 120 h |
-| UE | Dir. 2000/29/EC | 2,5 | ≥ 96 h |
-| Egito | FAO/IPPC ISPM 20 | 3 | ≥ 120 h |
+| Destino | Norma            | Dosagem (g AlP/m³) | Tempo de exposição |
+| ------- | ---------------- | ------------------ | ------------------ |
+| China   | GB/T 17913-2022  | 3                  | ≥ 120 h            |
+| UE      | Dir. 2000/29/EC  | 2,5                | ≥ 96 h             |
+| Egito   | FAO/IPPC ISPM 20 | 3                  | ≥ 120 h            |
 
 ### 2. Fluxo operacional
 
@@ -47,19 +47,19 @@ Permitida em navios graneleiros com sistema de recirculação; exige plano aprov
 
 ### 5. Custos & prazos Brasil (ref. Santos 2025)
 
-| Capacidade | Custo (USD) | Lead-time total |
-| --- | --- | --- |
-| Contêiner 20' | 85 | 5 dias |
-| Contêiner 40' | 110 | 5 dias |
-| Navio Panamax 60 000 t | 18 000 | 7 dias |
+| Capacidade             | Custo (USD) | Lead-time total |
+| ---------------------- | ----------- | --------------- |
+| Contêiner 20'          | 85          | 5 dias          |
+| Contêiner 40'          | 110         | 5 dias          |
+| Navio Panamax 60 000 t | 18 000      | 7 dias          |
 
 ---
 
 ## Perguntas frequentes adicionais
 
-1. **Fumigação anula certificado orgânico?** Não, desde que se use CO₂ ou fosfina sob MRL aprovado.  
+1. **Fumigação anula certificado orgânico?** Não, desde que se use CO₂ ou fosfina sob MRL aprovado.
 2. **Posso embarcar sem certificado?** Armadoras e Receita bloqueiam BL se falta o documento.
 
 ---
 
-> Última revisão: Julho 2025. 
+> Última revisão: Julho 2025.

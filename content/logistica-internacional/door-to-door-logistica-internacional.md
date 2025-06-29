@@ -3,11 +3,11 @@ title: Logística internacional Door-to-Door
 slug: door-to-door-logistica-internacional
 description: Conceito, etapas e vantagens do serviço Door-to-Door em operações de comércio exterior.
 mainQuestion: O que é e como funciona o Door-to-Door na logística internacional?
-keywords: "door to door, logística internacional, entregas, custos"
-updated: "2025-07-02"
+keywords: 'door to door, logística internacional, entregas, custos'
+updated: '2025-07-02'
 faqs:
   - q: Inclui desembaraço aduaneiro?
-    a: "Sim, o provedor assume desembaraço tanto na origem quanto no destino."
+    a: 'Sim, o provedor assume desembaraço tanto na origem quanto no destino.'
 ---
 
 ## Resposta rápida
@@ -18,13 +18,13 @@ O serviço **Door-to-Door** cobre **todas as etapas** do fluxo internacional –
 
 ### 1. Escopo Door-to-Door
 
-| Etapa | Responsável | Documento gerado |
-| --- | --- | --- |
-| Coleta FTL/LTL (origem) | Provedor D2D | CTe / Conhecimento doméstico |
-| Desembaraço exportação | Despachante do provedor | DU-E & CE Mercante |
-| Frete internacional | Armador / Cia. aérea | BL / AWB | 
-| Desembaraço importação | Broker do provedor | DI / DUIMP |
-| Entrega final (last-mile) | Transportador parceiro | CTe destino |
+| Etapa                     | Responsável             | Documento gerado             |
+| ------------------------- | ----------------------- | ---------------------------- |
+| Coleta FTL/LTL (origem)   | Provedor D2D            | CTe / Conhecimento doméstico |
+| Desembaraço exportação    | Despachante do provedor | DU-E & CE Mercante           |
+| Frete internacional       | Armador / Cia. aérea    | BL / AWB                     |
+| Desembaraço importação    | Broker do provedor      | DI / DUIMP                   |
+| Entrega final (last-mile) | Transportador parceiro  | CTe destino                  |
 
 ### 2. Modelos contratuais
 
@@ -59,4 +59,4 @@ O serviço **Door-to-Door** cobre **todas as etapas** do fluxo internacional –
 
 ---
 
-> Última revisão: Julho 2025. 
+> Última revisão: Julho 2025.
