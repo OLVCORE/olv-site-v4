@@ -14,8 +14,9 @@ export const metadata = {
   },
 };
 
-export default async function BlogPage() {
-  const posts = await getAllPosts(12);
+export default async function BlogPage({ searchParams }: { searchParams: { limit?: string } }) {
+  const limit = parseInt(searchParams.limit || '12');
+  const posts = await getAllPosts(limit);
 
   // fallback demo posts if empty
   const fallback = [
@@ -133,6 +134,20 @@ export default async function BlogPage() {
                         </div>
                       </div>
                     </article>
+                  ))}
+                </div>
+
+                {/* Selector de quantidade */}
+                <div className="mt-6 flex gap-2 items-center">
+                  <span>Mostrar:</span>
+                  {[5, 10, 15, 20].map((v) => (
+                    <Link
+                      key={v}
+                      href={`/blog?limit=${v}`}
+                      className={`px-3 py-1 rounded ${limit === v ? 'bg-accent text-white' : 'bg-gray-700'}`}
+                    >
+                      {v}
+                    </Link>
                   ))}
                 </div>
 
