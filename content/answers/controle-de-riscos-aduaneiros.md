@@ -49,10 +49,11 @@ O **risco aduaneiro** envolve classificações incorretas, valores subfaturados,
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Há software para monitorar alertas Siscomex? | Sim, módulo OLV Core Radar envia alertas em tempo real por webhook. |
+| Canal vermelho recorrente aumenta custo? | Sim, eleva armazenagem e pode gerar demurrage; cada dia extra custa em média US$ 180 por contêiner. |
+| Como comprovar valor aduaneiro correto? | Mantenha transfer price study e backups de métodos de valoração 2-6 do Acordo GATT. |
 
 ---
 

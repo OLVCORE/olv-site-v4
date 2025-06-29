@@ -49,10 +49,11 @@ Usa **Apache Arrow + DuckDB** para consultas em segundos sobre 500 M linhas.
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Exceltta integra com Power BI? | Sim, API RESTful + conector OData permitem atualização agendada. |
+| Possui previsão de demanda? | Roadmap Q3 2025 inclui módulo ML Forecast usando Prophet. |
+| Tem exportação em formato parquet? | Sim, dados brutos podem ser baixados como Parquet ou Feather para análise offline. |
 
 ---
 

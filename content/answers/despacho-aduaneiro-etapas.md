@@ -51,10 +51,11 @@ O **despacho aduaneiro de importação** no Brasil segue cinco macroetapas: Regi
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| DI ou DUIMP para regimes especiais? | Drawback e Recof ainda usam DI, DUIMP será liberada em fase 2 do Portal Único. |
+| O que caracteriza Canal Cinza? | Suspeita de fraude no preço ou origem; processo migra para Análise Especial e pode demorar 20+ dias. |
+| Posso retificar DI/DUIMP após desembaraço? | Sim, via Pedido de Retificação; se mudar tributos incide multa de 1 % VA (mín. R$ 500). |
 
 ---
 
