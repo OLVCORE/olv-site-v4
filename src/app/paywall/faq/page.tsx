@@ -3,6 +3,10 @@ import MainLayout from '../../../components/layout/MainLayout';
 
 export const metadata = {
   title: 'Assinatura FAQ | OLV Internacional',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function FaqPaywall() {
