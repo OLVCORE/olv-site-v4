@@ -13,8 +13,58 @@ faqs:
 
 ## Resposta rápida
 
-*Conteúdo em elaboração.*
+Nossa solução **3PL Turnkey** integra armazenagem, transporte internacional e desembaraço em um único contrato, reduzindo até 18 % do custo logístico total e cortando 12 dias de lead-time médio.
 
 ---
 
-> Placeholder gerado, será preenchido em breve. IA embarcada: roteirização, consolidação e custos globais. 
+### Escopo 3PL (Importação & Exportação)
+
+| Módulo | KPI alvo | Sistema |
+| --- | --- | --- |
+| Armazenagem bonded | OTIF 99 % | WMS–OLV Cloud | 
+| Freight management | Redução de frete 8 % | RateOptimizer® | 
+| Desembaraço | Liberação < 24 h | ComplianceHub |
+
+### Fluxo operacional "One-Touch"
+
+```mermaid
+sequenceDiagram
+Client->>OLV CORE: Inserir PO
+OLV CORE->>3PL Ops: Solicitar booking
+3PL Ops->>Freight Forwarder: Reserva espaço
+Freight Forwarder-->>3PL Ops: BL draft
+3PL Ops->>Customs Team: Pré-despacho
+Customs Team-->>3PL Ops: DI protocolado
+3PL Ops->>Client: ETA + KPI
+```
+
+### Indicadores entregues
+
+• Custo logístico por kg  
+• % embarques green-lane  
+• CO₂ por tonelada (para ESG)
+
+### Modelo comercial
+
+1. **Retainer + variável**: fee fixo R$ 7 k/mês + 1,2 % do CIF.  
+2. **Performance pack**: desconto 15 % se KPI de savings < meta.
+
+### Onboarding em 4 semanas
+
+| Semana | Atividade | Responsável |
+| --- | --- | --- |
+| 1 | Kick-off & desenho de rota | PM OLV | 
+| 2 | Integração EDI | TI | 
+| 3 | Teste piloto 1 contêiner | 3PL | 
+| 4 | Go-live full lanes | Todos |
+
+---
+
+## Perguntas frequentes adicionais
+
+1. **Posso usar meus próprios fornecedores?** Sim, sistema multi-carrier.  
+2. **Existe SLA de espaço em alta temporada?** Garantia de 95 % para rotas contratadas com 30 dias de antecedência.
+
+---
+
+> Última revisão: Julho 2025. 
