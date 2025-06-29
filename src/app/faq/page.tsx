@@ -74,6 +74,10 @@ const categoryMap: Record<string, string[]> = {
     'logistica-4-0-beneficios-supply-chain',
     'controle-de-riscos-aduaneiros',
     'door-to-door-logistica-internacional',
+    'freight-forwarder-3pl-4pl',
+    'consolidador-carga-lcl',
+    'shipping-instructions-si',
+    'demurrage-e-detention',
   ],
   'Tributos & Regimes Aduaneiros': [
     'regimes-aduaneiros-especiais-quais-sao',
