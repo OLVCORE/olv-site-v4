@@ -57,6 +57,11 @@ Funciona como **one-stop shop**: o usuário cria RFQ, recebe cotações em 48 h,
 | --- | --- |
 | Exemplo 1 | Placeholder |
 | Exemplo 2 | Placeholder |
+| Pergunta | Resposta breve |
+| --- | --- |
+| Quantos fornecedores estão na base hoje? | Mais de 1 200 fabricantes homologados em 32 países. |
+| A plataforma suporta contratos FOB e CIF? | Sim, calcula custos totais em ambos os Incoterms, incluindo seguro e frete. |
+| Há integração com simuladores? | A RFQ mostra custo landed cost integrado ao simulador de impostos OLV. |
 
 ---
 

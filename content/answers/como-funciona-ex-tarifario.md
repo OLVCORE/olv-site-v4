@@ -46,6 +46,9 @@ Importação CIF US$ 2 000 000 → **Economia II = US$ 280 000**
 | Vale para peças de reposição? | Não, apenas máquinas completas BK/BIT. |
 | Pode prorrogar? | Sim, 6 meses antes do vencimento. |
 | ICMS é afetado? | Não, apenas II; IPI, PIS/COFINS mantêm-se. |
+| Quanto custa protocolar o pedido? | A taxa Siscomex é de R$ 115 por solicitação, além de eventuais honorários de consultoria. |
+| Posso incluir acessórios juntos? | Sim, desde que indispensáveis ao funcionamento do BK/BIT e listados na descrição. |
+| Se surgir produção nacional depois? | A Gecex pode revogar o Ex-Tarifário mediante comprovação de similar nacional. |
 
 ---
 

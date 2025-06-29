@@ -56,6 +56,11 @@ Ex.: VA US$ 100 000, TEC 12 %, Mercosul 0 % → **Economia US$ 12 000**.
 | --- | --- |
 | Exemplo 1 | Placeholder |
 | Exemplo 2 | Placeholder |
+| Pergunta | Resposta breve |
+| --- | --- |
+| Quem pode emitir o Certificado? | Entidades habilitadas pela ALADI (ex.: FIESP, CCPIT) no país exportador. |
+| Preciso apresentar original na DI/DUIMP? | Sim, digitalizado em PDF; o físico pode ser exigido na conferência documental. |
+| Qual tolerância de valor agregado? | Aço Mercosul exige VA regional ≥ 60 %; fora do bloco segue regra específica do acordo. |
 
 ---
 
