@@ -72,7 +72,8 @@ const categoryMap: Record<string, string[]> = {
     'seguro-de-carga-internacional',
     'demurrage-porto-como-evitar',
     'logistica-4-0-beneficios-supply-chain',
-    'controle-de-riscos-aduaneiros'
+    'controle-de-riscos-aduaneiros',
+    'door-to-door-logistica-internacional',
   ],
   'Tributos & Regimes Aduaneiros': [
     'regimes-aduaneiros-especiais-quais-sao',
@@ -156,7 +157,8 @@ const categoryMap: Record<string, string[]> = {
     'exportar-acucar-do-brasil',
     'exportar-carne-bovina-halal',
     'exportar-madeira-processada',
-    'exportar-etanol-de-cana'
+    'exportar-etanol-de-cana',
+    'exportar-milho-do-brasil',
   ],
 };
 

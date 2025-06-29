@@ -54,7 +54,6 @@ export default function GlobalSearch() {
               <li key={item.slug} className={`${idx === active ? 'bg-surface-light' : ''} px-3 py-2 hover:bg-surface-light`}>
                 <Link href={item.slug} onClick={() => { sessionStorage.setItem('lastSearchTerm', query); setQuery(''); }} className="block">
                   <div>
-                    <span className="font-semibold text-accent mr-2">{item.section}</span>
                     {highlight(item.title)}
                   </div>
                   {item.excerpt && (
