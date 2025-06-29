@@ -12,7 +12,7 @@ import { XMLParser } from 'fast-xml-parser';
  *  SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, OPENAI_API_KEY
  */
 const supabaseUrl = process.env.SUPABASE_URL as string;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY as string;
+const supabaseKey = (process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SERVICE_ROLE_KEY) as string;
 const openaiKey = process.env.OPENAI_API_KEY as string;
 
 if (!supabaseUrl || !supabaseKey || !openaiKey) {
