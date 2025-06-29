@@ -69,7 +69,7 @@ Internacionalizar não precisa ser arriscado – com nosso programa **PME COMEX 
 
 ### Próximo passo
 
-Solicite o programa PME COMEX Ready: [Contato](https://olvinternacional.com.br/contato).
+Solicite o programa PME COMEX Ready: [Contato](https://api.olvinternacional.com.br/contato).
 
 ---
 

@@ -75,7 +75,7 @@ Customs Team-->>3PL Ops: DI protocolado
 
 ### Próximo passo
 
-Precisa de uma proposta personalizada? [Fale com nossos consultores](https://olvinternacional.com.br/contato) ou teste o [Simulador de Custo de Importação](/simuladores/importacao).
+Precisa de uma proposta personalizada? [Fale com nossos consultores](https://api.olvinternacional.com.br/contato) ou teste o [Simulador de Custo de Importação](/simuladores/importacao).
 
 ---
 

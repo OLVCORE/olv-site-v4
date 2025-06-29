@@ -71,7 +71,7 @@ ControlTower-->|ETA|Client
 
 ### Próximo passo
 
-Agende uma call de 15 min: [Contato](https://olvinternacional.com.br/contato).
+Agende uma call de 15 min: [Contato](https://api.olvinternacional.com.br/contato).
 
 ---
 

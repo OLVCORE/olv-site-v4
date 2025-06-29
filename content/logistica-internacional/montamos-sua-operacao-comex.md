@@ -64,7 +64,7 @@ Implantamos uma **célula COMEX in-house** completa – processos, pessoas e sis
 
 ### Próximo passo
 
-Solicite um diagnóstico sem custo: [contato](https://olvinternacional.com.br/contato) ou experimente nosso [Simulador de Custo de Importação](/simuladores/importacao).
+Solicite um diagnóstico sem custo: [contato](https://api.olvinternacional.com.br/contato) ou experimente nosso [Simulador de Custo de Importação](/simuladores/importacao).
 
 ---
 

@@ -68,7 +68,7 @@ Aplicamos a **Metodologia OLV 4D** – Design ▸ Deploy ▸ Drive ▸ Deliver �
 
 ### Próximo passo
 
-Agende um blueprint logístico: [Contato](https://olvinternacional.com.br/contato).
+Agende um blueprint logístico: [Contato](https://api.olvinternacional.com.br/contato).
 
 ---
 
