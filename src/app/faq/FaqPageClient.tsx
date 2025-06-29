@@ -13,6 +13,8 @@ export default function FaqPageClient({ grouped }: Props) {
   const [openCats, setOpenCats] = useState<string[]>([]);
   const [start, setStart] = useState(''); // yyyy-mm-dd
   const [end, setEnd] = useState('');
+  const [sort, setSort] = useState<'recent' | 'popular'>('recent');
+  const [orderMap, setOrderMap] = useState<Record<string, number> | undefined>();
 
   // init from hash/localStorage
   useEffect(() => {
@@ -42,6 +44,30 @@ export default function FaqPageClient({ grouped }: Props) {
     setEnd(today.toISOString().slice(0, 10));
   };
 
+  // fetch popular when sort or date range changes
+  useEffect(() => {
+    if (sort !== 'popular') {
+      setOrderMap(undefined);
+      return;
+    }
+    // compute days range (default 30)
+    let days = 30;
+    if (start) {
+      const startMs = Date.parse(start);
+      days = Math.max(1, Math.round((Date.now() - startMs) / (24 * 60 * 60 * 1000)));
+    }
+    fetch(`/api/faq/hot?days=${days}&limit=100`)
+      .then((r) => r.json())
+      .then((json) => {
+        const map: Record<string, number> = {};
+        json.items?.forEach((item: any, idx: number) => {
+          map[item.slug] = idx;
+        });
+        setOrderMap(map);
+      })
+      .catch(() => {});
+  }, [sort, start, end]);
+
   return (
     <MainLayout className="faq-page">
       <div className="main-content container py-10">
@@ -68,6 +94,19 @@ export default function FaqPageClient({ grouped }: Props) {
                 onClick={collapseAll}
               >
                 Recolher tudo
+              </button>
+              {/* sort buttons */}
+              <button
+                className={`text-xs px-3 py-1 rounded border border-[#2a3448] hover:bg-[#2a3448]/40 ${sort==='recent' ? 'bg-[#2a3448]/40' : ''}`}
+                onClick={() => setSort('recent')}
+              >
+                Recentes
+              </button>
+              <button
+                className={`text-xs px-3 py-1 rounded border border-[#2a3448] hover:bg-[#2a3448]/40 ${sort==='popular' ? 'bg-[#2a3448]/40' : ''}`}
+                onClick={() => setSort('popular')}
+              >
+                Populares
               </button>
             </div>
           </div>
@@ -118,6 +157,7 @@ export default function FaqPageClient({ grouped }: Props) {
           search={search}
           startDate={start}
           endDate={end}
+          orderMap={orderMap}
           onChange={handleChange}
         />
       </div>
