@@ -18,14 +18,37 @@ interface AnswerFrontMatter {
   faqs?: { q: string; a: string }[];
 }
 
-const CONTENT_DIR = path.join(process.cwd(), 'content', 'answers');
+// Base dir containing all markdown subfolders
+const BASE_CONTENT_DIR = path.join(process.cwd(), 'content');
+
+// Recursively collect markdown file paths
+function walkMd(dir: string): string[] {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const files: string[] = [];
+  for (const ent of entries) {
+    const full = path.join(dir, ent.name);
+    if (ent.isDirectory()) files.push(...walkMd(full));
+    else if (ent.isFile() && ent.name.endsWith('.md')) files.push(full);
+  }
+  return files;
+}
+
+// Build an in-memory index <slug, fullPath> to speed lookup during build
+const mdIndex: Record<string, string> = (() => {
+  const idx: Record<string, string> = {};
+  walkMd(BASE_CONTENT_DIR).forEach((p) => {
+    try {
+      const raw = fs.readFileSync(p, 'utf8');
+      const { data } = matter(raw);
+      const fmSlug = (data.slug as string | undefined) || path.basename(p).replace(/\.md$/, '');
+      idx[fmSlug] = p;
+    } catch (_) {}
+  });
+  return idx;
+})();
 
 export async function generateStaticParams() {
-  const files = fs.readdirSync(CONTENT_DIR);
-  return files.map((file) => {
-    const slug = file.replace(/\.mdx?$/, '');
-    return { slug };
-  });
+  return Object.keys(mdIndex).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -46,12 +69,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 function getAnswer(slug: string) {
   try {
-    const fullPath = path.join(CONTENT_DIR, `${slug}.md`);
+    const fullPath = mdIndex[slug];
+    if (!fullPath) return null;
     const raw = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(raw);
     const cleaned = content.replace(/^.*Placeholder.*$/gim, '').trim();
     return { data: data as AnswerFrontMatter, content: cleaned };
-  } catch (err) {
+  } catch {
     return null;
   }
 }

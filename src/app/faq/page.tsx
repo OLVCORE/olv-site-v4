@@ -91,7 +91,7 @@ const categoryMap: Record<string, string[]> = {
     'importacao-drop-shipping-regulamentacao',
     'passos-da-li-anvisa'
   ],
-  'Exportação & Preço de Venda': [
+  'Consultoria Exportação': [
     'exportacao-diferencial-pmes',
     'como-exportar-legalmente',
     'planeje-sua-exportacao',
