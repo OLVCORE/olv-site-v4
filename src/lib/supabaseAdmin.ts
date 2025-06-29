@@ -4,7 +4,10 @@ import { createClient } from '@supabase/supabase-js';
 // This prevents build-time crashes on Vercel Preview/CI when secrets are absent.
 
 const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const key =
+  process.env.SUPABASE_SERVICE_ROLE_KEY ||
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  process.env.SERVICE_ROLE_KEY;
 
 let supabase: any = null;
 
@@ -15,4 +18,4 @@ if (url && key) {
 export default supabase;
 export { supabase };
 
-// Observação: rotas que dependem dele devem tratar supabase === null como modo degradado. 
+// Observação: rotas que dependem dele devem tratar supabase === null como modo degradado.
