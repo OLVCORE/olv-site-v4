@@ -82,6 +82,9 @@ const categoryMap: Record<string, string[]> = {
     'inspecao-pre-embarque-pi',
     'fumigacao-granel-exportacao',
     'project-cargo-oog',
+    'vgm-verificacao-massa-bruta',
+    'free-time-e-storage-portuario',
+    'bonded-warehouse-logistica',
   ],
   'Tributos & Regimes Aduaneiros': [
     'regimes-aduaneiros-especiais-quais-sao',
