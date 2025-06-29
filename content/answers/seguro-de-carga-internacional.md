@@ -53,10 +53,11 @@ Prêmio = 0,15 % × 57 200 = **US$ 85,80**
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| O seguro cobre armazéns na origem e destino? | Sim, cláusula "warehouse to warehouse" cobre da saída até a entrega final. |
+| Qual o limite máximo por apólice? | Depende da seguradora; apólices anuais costumam cobrir até US$ 10 mi por embarque, acima disso exige resseguro facultativo. |
+| Posso pagar prêmio por embarque avulso? | Sim, basta solicitar certificado individual, mas a taxa é 10–20 % maior que em apólice anual. |
 
 ---
 

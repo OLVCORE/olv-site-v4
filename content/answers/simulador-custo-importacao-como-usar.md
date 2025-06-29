@@ -56,10 +56,11 @@ PDF gerado em 3 páginas com memória de cálculo.
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| O simulador atualiza câmbio automaticamente? | Sim, usa PTAX de fechamento diária ou TRM caso selecione COP. |
+| Posso exportar os cálculos em JSON via API? | Sim, endpoint `/api/report-download?format=json` requer token Premium. |
+| Aceita NCM de 10 dígitos? | Aceita 8 ou 10 dígitos; se 10, aplica alíquota do destaque, senão usa 8 dígitos TEC. |
 
 ---
 

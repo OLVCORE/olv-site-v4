@@ -54,10 +54,11 @@ Economia = **US$ 158 250**.
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Suspensão cobre AFRMM do frete de exportação? | Não, o benefício alcança apenas tributos na importação e compra interna dos insumos. |
+| Posso prorrogar o Ato Concessório? | Sim, uma única prorrogação de até 1 ano deve ser solicitada antes do vencimento. |
+| O que acontece se não exportar o total previsto? | Tributos suspensos viram exigíveis com multa de mora e juros SELIC + multa 75 %. |
 
 ---
 

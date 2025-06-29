@@ -56,10 +56,11 @@ Produtos de **alimentos, cosméticos, saneantes, medicamentos e dispositivos mé
 
 ### FAQ relacionado
 
-| Pergunta | Resposta |
+| Pergunta | Resposta breve |
 | --- | --- |
-| Exemplo 1 | Placeholder |
-| Exemplo 2 | Placeholder |
+| Deferimento da LPCO tem validade? | Sim, geralmente 60 dias para vincular na DI; após isso precisa revalidar. |
+| Produtos Grau de Risco I precisam de LI? | Podem usar LPCO "via rápida", sem LI, desde que atendam requisitos da RDC 208/2018. |
+| ANVISA pode bloquear carga em Canal Verde? | Sim, se a anuência estiver pendente ou indeferida, a DI fica suspensa até regularização. |
 
 ---
 
