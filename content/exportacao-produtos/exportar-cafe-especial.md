@@ -63,4 +63,22 @@ Para exportar café especial: (1) alcançar **score ≥ 80 SCAA**, (2) obter **c
 * MAPA – Instrução Normativa 8/2023 Café  
 * ICO – Statistics 2024
 
-> Conteúdo auditado OLV Labs, Julho 2025. 
+> Conteúdo auditado OLV Labs, Julho 2025.
+
+### 5. Logística de contêiner e volumes
+
+| Equipamento | Nº sacas de 60&nbsp;kg | Peso líquido (t) |
+| --- | --- | --- |
+| Contêiner 20' Dry | 320 | 19,2 |
+| Contêiner 40' Dry | 640 | 38,4 |
+
+*Em casos premium, utiliza-se linerbags a vácuo para reduzir risco de umidade; isso reduz a capacidade em ~2 %.*
+
+### 6. Cadastro e certificações do exportador
+
+1. **CECAF – Cadastro Exportadores de Café** (MAPA/SDA).
+2. **CEP – Certificado de Produto** emitido pela BSCA.
+3. Registro CNPJ com **NCM 0901.21** ou 0901.22 autorizado.
+4. **RADAR exportação** ativo no Siscomex.
+
+--- 
