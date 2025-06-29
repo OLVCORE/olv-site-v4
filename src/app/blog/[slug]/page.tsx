@@ -57,11 +57,11 @@ export default async function BlogPostPage({ params }: Params) {
         <div className="prose dark:prose-invert max-w-none">
           <ReactMarkdown rehypePlugins={[remarkGfm]}>{post.content_mdx}</ReactMarkdown>
         </div>
-        {post.source_name && (
+        {(post as any).source_name && (
           <p className="mt-6 text-sm text-gray-400">
             Fonte:&nbsp;
-            <a href={post.source_url ?? '#'} target="_blank" rel="noopener noreferrer" className="underline hover:text-accent">
-              {post.source_name}
+            <a href={(post as any).source_url ?? '#'} target="_blank" rel="noopener noreferrer" className="underline hover:text-accent">
+              {(post as any).source_name}
             </a>
           </p>
         )}
