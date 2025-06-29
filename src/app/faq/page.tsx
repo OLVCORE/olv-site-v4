@@ -171,7 +171,7 @@ const categoryMap: Record<string, string[]> = {
     'exportar-etanol-de-cana',
     'exportar-milho-do-brasil',
   ],
-  'Incompany – COMEX': [
+  'Consultoria COMEX In-Company': [
     'logistica-3pl-para-exportacao',
     'montamos-sua-operacao-comex',
     'suporte-total-no-comex',

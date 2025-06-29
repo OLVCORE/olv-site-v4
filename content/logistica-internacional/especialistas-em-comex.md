@@ -5,6 +5,7 @@ description: Equipe multidisciplinar de consultores e analistas disponível sob 
 mainQuestion: Quando contratar especialistas em COMEX on-demand da OLV?
 keywords: "especialistas comex, consultoria sob demanda, despacho aduaneiro, logística internacional"
 updated: "2025-07-02"
+category: "Consultoria COMEX In-Company"
 faqs:
   - q: Posso contratar por projeto?
     a: "Sim, modelos por hora, sprint ou assinatura mensal."

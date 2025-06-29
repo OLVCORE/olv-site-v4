@@ -5,6 +5,7 @@ description: Entenda o serviço 4PL da OLV que cobre planejamento, execução e 
 mainQuestion: O que está incluído no suporte total COMEX 4PL?
 keywords: "4PL, gestão supply chain, torre de controle, visibilidade, OLV Logistics"
 updated: "2025-07-02"
+category: "Consultoria COMEX In-Company"
 faqs:
   - q: Há SLA de visibilidade em tempo real?
     a: "Sim, dashboards e alertas integrados ao OLV CORE, com latência < 5 min."
