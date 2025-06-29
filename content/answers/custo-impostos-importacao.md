@@ -61,4 +61,4 @@ Só mediante ex-tarifário ou regimes especiais.
 ---
 
 Precisa de ajuda para estruturar seu projeto de importação?  
-[Entre em contato](https://olvinternacional.com.br/contato) ou fale no WhatsApp. 
+[Entre em contato](https://api.olvinternacional.com.br/contato) ou fale no WhatsApp.
