@@ -24,12 +24,13 @@ export default function LanguageSwitcher({ className = '' }: { className?: strin
   return (
     <select
       aria-label="Selecionar idioma"
-      className={`language-switcher bg-transparent text-sm focus:outline-none ${className}`}
+      className={`nav-item bg-transparent px-2 py-1 text-sm focus:outline-none border border-current rounded ${className}`}
+      style={{ minWidth: 60 }}
       value={locale}
       onChange={handleChange}
     >
       {locales.map((loc) => (
-        <option key={loc} value={loc} className="text-black dark:text-white">
+        <option key={loc} value={loc}>
           {labels[loc] ?? loc.toUpperCase()}
         </option>
       ))}
