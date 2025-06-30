@@ -4,44 +4,47 @@ import Image from 'next/image';
 import MainLayout from '../../components/layout/MainLayout';
 
 export const metadata = {
-  title: 'Soluções | OLV Internacional',
-  description: 'Conheça as soluções de consultoria em comércio exterior e gestão empresarial da OLV Internacional.'
+  title: 'Soluções em Comércio Exterior e Logística Internacional | OLV Internacional',
+  description: 'Consultoria integrada em exportação, importação, logística 3PL/4PL, compliance e tecnologia para PMEs. Reduza custos e riscos com especialistas em Comex.',
+  keywords: 'consultoria em exportação, consultoria em importação, logística internacional, 3PL, 4PL, planejamento tributário comex, redução de custos de importação, gestão de supply chain integrado, compliance em comércio exterior, tecnologia aplicada ao comex',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/solucoes'
+  }
 };
 
 export default function SolucoesPage() {
   return (
-    <MainLayout>
-      {/* Hero Section */}
-      <div className="bg-[#141c2f] text-white py-10">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-2/3">
-              <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">Nossas Soluções Consultivas</h1>
-              <p className="text-lg max-w-3xl text-gray-300">
-                Oferecemos serviços especializados para otimizar seus processos de comércio exterior, 
-                logística internacional e gestão empresarial. Transformamos desafios em oportunidades 
-                através de soluções inovadoras e personalizadas para sua empresa.
-              </p>
-            </div>
-            <div className="md:w-1/3 flex justify-center mt-6 md:mt-0">
-              <div className="relative w-48 h-48 bg-[#0a0f1d] p-5 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
-                <Image 
-                  src="/icons/solutions-icon.svg" 
-                  alt="Soluções" 
-                  width={100} 
-                  height={100}
-                  className="opacity-90"
-                />
-              </div>
-            </div>
+    <MainLayout className="solucoes-page">
+      {/* HERO DE AUTORIDADE */}
+      <section className="max-w-7xl mx-auto px-4 bg-[#141c2f] border border-[#2a3448] shadow-md rounded-xl p-8 text-gray-200 hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+        <div className="flex flex-row items-center justify-start gap-4 text-left">
+          <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#d4af37] flex items-center justify-center">
+            <Image src="/icons/solutions-icon.svg" alt="Soluções" width={32} height={32} />
           </div>
+          <h1 className="text-2xl md:text-3xl font-extrabold text-white">
+            Soluções Reais para Empresas Reais
+          </h1>
         </div>
+        <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-6">
+          Nossa missão não é oferecer consultoria genérica. É entregar operações completas, seguras, validadas em campo, e com foco total em resultado.  
+          Da inteligência à execução. Da importação à monetização.
+        </p>
+      </section>
+
+      {/* SLIM CTA BANNER – substitui grid de cards */}
+      <div className="animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 py-1 md:py-[6px] text-sm md:text-base leading-snug text-gray-200 dark:text-gray-200 shadow-md max-w-6xl mx-auto px-4 my-[0.5cm] home-alert">
+        <p className="text-center">
+          ⚠️ Importar junto com seus concorrentes destrói sua margem.
+          <Link href="/solucoes/importacao-exclusiva" className="font-semibold underline text-[#d4af37] hover:text-yellow-300 ml-1">
+            Descubra como dominar sua própria rota de importação →
+          </Link>
+        </p>
       </div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         {/* Introdução */}
-        <div className="bg-[#141c2f] rounded-lg p-6 mb-8 shadow-md border border-[#2a3448]">
+        <div className="bg-[#141c2f] rounded-lg p-6 mb-8 mt-[0.5cm] shadow-md border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
           <h2 className="text-2xl font-bold text-white mb-4">Nossa Expertise</h2>
           <p className="text-gray-300 mb-3">
             Bem-vindo ao portfólio de Soluções da OLV Internacional. Aqui você encontrará nossos serviços 
@@ -57,7 +60,7 @@ export default function SolucoesPage() {
         </div>
 
         {/* Cards de Soluções */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 mb-12">
           {/* Card 1 - Consultoria Estratégica em Comex */}
           <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
             <div className="p-4">
@@ -84,7 +87,7 @@ export default function SolucoesPage() {
                   <span className="text-xs text-gray-300">Planejamento estratégico internacional</span>
                 </li>
               </ul>
-              <Link href="/solucoes/exportacao" className="inline-block text-[#d4af37] hover:underline text-sm">
+              <Link href="/contato" className="inline-block text-[#d4af37] hover:underline text-sm">
                 Saiba mais →
               </Link>
             </div>
@@ -116,7 +119,7 @@ export default function SolucoesPage() {
                   <span className="text-xs text-gray-300">Gestão documental e análise de parametrização</span>
                 </li>
               </ul>
-              <Link href="/solucoes/importacao" className="inline-block text-[#d4af37] hover:underline text-sm">
+              <Link href="/contato" className="inline-block text-[#d4af37] hover:underline text-sm">
                 Saiba mais →
               </Link>
             </div>
@@ -148,7 +151,7 @@ export default function SolucoesPage() {
                   <span className="text-xs text-gray-300">Controle de inventário e planejamento de demanda</span>
                 </li>
               </ul>
-              <Link href="/solucoes/logistica" className="inline-block text-[#d4af37] hover:underline text-sm">
+              <Link href="/contato" className="inline-block text-[#d4af37] hover:underline text-sm">
                 Saiba mais →
               </Link>
             </div>
@@ -180,7 +183,7 @@ export default function SolucoesPage() {
                   <span className="text-xs text-gray-300">Soluções tecnológicas para rastreabilidade global</span>
                 </li>
               </ul>
-              <Link href="/solucoes/compliance" className="inline-block text-[#d4af37] hover:underline text-sm">
+              <Link href="/contato" className="inline-block text-[#d4af37] hover:underline text-sm">
                 Saiba mais →
               </Link>
             </div>
@@ -212,10 +215,17 @@ export default function SolucoesPage() {
                   <span className="text-xs text-gray-300">Estruturação de controles e processos normativos</span>
                 </li>
               </ul>
-              <Link href="/solucoes/treinamento" className="inline-block text-[#d4af37] hover:underline text-sm">
+              <Link href="/contato" className="inline-block text-[#d4af37] hover:underline text-sm">
                 Saiba mais →
               </Link>
             </div>
+          </div>
+
+          {/* CTA Filler Card - Transformação Internacional */}
+          <div className="glass p-6 rounded-xl shadow-gold flex flex-col items-center text-center gap-4 hover:shadow-2xl transition-all duration-300">
+            <h3 className="text-xl font-bold text-gray-100 leading-tight">Pronto para Transformar seu Negócio Internacional?</h3>
+            <p className="text-sm text-gray-300 max-w-xs">Fale com nossos consultores hoje mesmo e descubra como nossa estratégia e força tática podem impulsionar sua empresa no comércio internacional.</p>
+            <Link href="/contato" className="btn btn-primary text-sm px-5 py-2">Solicite uma Consultoria</Link>
           </div>
         </div>
 
@@ -547,18 +557,6 @@ export default function SolucoesPage() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-[#141c2f] rounded-lg shadow-xl p-6 text-white text-center mb-8 border border-[#2a3448] hover:border-[#d4af37] transition-all duration-300">
-          <h2 className="text-2xl font-bold mb-3">Pronto para Transformar seu Negócio Internacional?</h2>
-          <p className="mb-4 max-w-3xl mx-auto text-gray-300">
-            Fale com nossos consultores hoje mesmo e descubra como podemos ajudar sua empresa
-            a alcançar novos patamares no comércio internacional.
-          </p>
-          <Link href="/contato" className="inline-block bg-[#0a0f1d] text-[#d4af37] font-semibold py-2 px-6 rounded-lg border border-[#d4af37] hover:bg-[#d4af37] hover:text-[#0a0f1d] transition-colors">
-            Solicite uma Consultoria
-          </Link>
         </div>
       </div>
     </MainLayout>

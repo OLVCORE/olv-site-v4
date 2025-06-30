@@ -6,7 +6,7 @@
      nas páginas principais (index, ecossistema, etc.).
    - NOVA CLASSE: .ecossistema-cards-grid (para o grid de plataformas).
    - TODO o CSS de cards-notícias (blog) foi "movido" para #blog-cards .cards-grid.
-   - Alterações marcadas com /* === AQUI FOI ALTERADO === */
+   - Alterações marcadas com === AQUI FOI ALTERADO ===
    ======================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
@@ -89,6 +89,18 @@ body {
 /* ==== Desktop refinements 2025-06-12 ==== */
 @media (min-width: 769px) {
   /* altura fixada diretamente no header-wrapper */
+  .tippy-box[data-theme~='olv'] {
+    background-color: var(--bg-secondary);
+    color: var(--txt);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+    font-size: 0.9rem;
+    white-space: normal;
+  }
+
+  .tippy-box[data-theme~='olv'][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: var(--bg-secondary);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -169,10 +181,10 @@ img {
 ===========================================*/
 .sidebar {
   position: fixed;
-  top: 0;
+  top: var(--height-header);
   left: 0;
   width: var(--sidebar-collapsed-width);
-  height: 100vh;
+  height: calc(100vh - var(--height-header));
   background-color: var(--bg-sidebar);
   box-shadow: var(--shadow-dark);
   display: flex;
@@ -240,8 +252,7 @@ body.theme-light .sidebar-icon {
 .sidebar-text {
   font-size: 1rem;
   white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  /* stays visible only on hover via ::after rule */
 }
 
 .sidebar:hover .sidebar-text {
@@ -986,6 +997,7 @@ body.theme-light .section-icon {
   border-radius: var(--radius);
   box-shadow: var(--shadow-dark);
   padding: 1.5rem;
+  margin-bottom: 1.5rem; /* espaçamento consistente entre cards */
   transition: transform 0.2s ease;
 }
 
@@ -1137,11 +1149,13 @@ body.theme-light .moon-icon {
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   z-index: 1900;
+  pointer-events: none;
 }
 
 .footer-reveal.reveal {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .footer-container {
@@ -1889,6 +1903,9 @@ body.theme-dark .sidebar-item.active .sidebar-icon {
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
   animation: tooltipGlow 2s ease-in-out infinite;
   z-index: 2500;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 @keyframes tooltipGlow {
@@ -2077,13 +2094,137 @@ body.theme-light .nav-menu .nav-item:hover {
   }
 }
 
-/* ---------- Ajuste de logo para telas pequenas ---------- */
-.header-logo-circle {
-  width: 70px !important;
-  height: 70px !important;
+/* ========================================== */
+/*  LOGO PADRÃO OLV / PLATAFORMAS            */
+/* ========================================== */
+.logo-olv-padrao {
+  width: 84px; /* 2.2 cm @96dpi */
+  height: 84px;
+  border-radius: 50%;
+  border: 1.5px solid #FFD700; /* slim gold border */
+  overflow: hidden;
+  position: relative; /* ensures <Image fill /> respects wrapper */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.header-logo-img {
-  object-fit: contain;
-  transform: none;
+.logo-olv-padrao:hover {
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.9);
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .logo-olv-padrao {
+    width: 66px; /* escala proporcional */
+    height: 66px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-olv-padrao {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* ========================================== */
+/*  PLATAFORM HEADER                         */
+/* ========================================== */
+.platform-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0; /* breathing room */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --platform-header-height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --platform-header-height: 55px;
+  }
+}
+
+/* ========================================== */
+/*  PLATFORM HERO CARD                       */
+/* ========================================== */
+.platform-hero {
+  background-color: #0a0f1d;
+  border: 1px solid var(--accent);
+}
+
+/* === PATCH OLV 2024-06-15 – correção navegação mobile === */
+@media (max-width: 768px) {
+  /* Esconde barra lateral fixa; será mostrada apenas com .mobile-open */
+  .sidebar {
+    display: none !important;
+    transform: translateX(-100%) !important;
+  }
+  .sidebar.mobile-open {
+    display: block !important;
+    transform: translateX(0) !important;
+  }
+
+  /* Header sempre no topo */
+  .header-wrapper {
+    top: 0 !important;
+  }
+  /* Ticker imediatamente abaixo do header */
+  .ticker {
+    top: var(--height-header) !important;
+  }
+  /* Conteúdo começa após ticker */
+  .main-content {
+    margin-left: 0 !important;
+    margin-top: calc(var(--height-header) + 45px) !important;
+  }
+}
+
+/* === OLV MOBILE OVERRIDES – FINAL WINS ALL === */
+@media (max-width: 768px) {
+  /* Oculta sidebar até ser acionada */
+  .sidebar {
+    display: none !important;
+    transform: translateX(-100%) !important;
+  }
+  .sidebar.mobile-open {
+    display: block !important;
+    transform: translateX(0) !important;
+  }
+
+  /* Overlay menu principal inativo → invisível */
+  .nav-menu-mobile {
+    display: none !important;
+    pointer-events: none !important;
+  }
+  .nav-menu-mobile.show {
+    display: flex !important;
+    pointer-events: auto !important;
+  }
+
+  /* Header & ticker posicionados corretamente */
+  .header-wrapper {
+    top: 0 !important;
+    left: 0 !important;
+  }
+  .ticker {
+    top: var(--height-header) !important;
+    left: 0 !important;
+  }
+  .main-content {
+    margin-left: 0 !important;
+    margin-top: calc(var(--height-header) + 45px) !important;
+  }
+
+  /* Botões flutuantes no topo do stack */
+  .mobile-nav-toggle,
+  .mobile-sidebar-toggle,
+  .whatsapp-button {
+    z-index: 2600 !important;
+  }
 }

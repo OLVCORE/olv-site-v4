@@ -6,11 +6,9 @@ import Footer from './Footer/index';
 import Sidebar from './Sidebar/index';
 import WhatsAppButton from '../layout/WhatsAppButton';
 import Ticker from './Ticker';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import ThemeSwitch from './ThemeSwitch';
 import BetaVersion from './BetaVersion';
-import QuickLinks from './QuickLinks';
+import SearchHighlighter from '../SearchHighlighter';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -39,13 +37,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   ].includes(pathname);
 
   useEffect(() => {
-    // Set theme from localStorage or default to dark
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.body.classList.add(`theme-${savedTheme}`);
+    // Detect current body class (for SPA navigations) before applying default
+    const bodyHasLight = document.body.classList.contains('theme-light');
+    const bodyHasDark = document.body.classList.contains('theme-dark');
+
+    if (bodyHasLight || bodyHasDark) {
+      setTheme(bodyHasLight ? 'light' : 'dark');
     } else {
-      document.body.classList.add('theme-dark');
+      const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+      const initial = savedTheme ?? 'dark';
+      setTheme(initial);
+      document.body.classList.add(`theme-${initial}`);
     }
 
     // Show footer after 500ms
@@ -93,7 +95,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({
 
   return (
     <div className={`app-container ${className} ${isPageLoaded ? 'loaded' : ''}`}>
-      <ThemeSwitch />
       <Sidebar />
       <div className="content-wrapper">
         <Header theme={theme} toggleTheme={toggleTheme} />
@@ -102,14 +103,12 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         {/* Beta Version Box - only on platform pages and below ticker */}
         {isPlatformPage || isCurrentPagePlatform ? <BetaVersion /> : null}
         
-        {/* Mobile Quick Links Navigation */}
-        <div className="mobile-navigation">
-          <QuickLinks />
-        </div>
-        
         <main className={`main-content ${isPageLoaded ? 'fade-in' : ''} min-h-screen pb-36`}>
           {children}
         </main>
+        
+        {/* highlight search term inside page */}
+        <SearchHighlighter />
         
         {/* Reduzindo o espaçamento antes do footer para evitar muito espaço */}
         <div className="h-12"></div>

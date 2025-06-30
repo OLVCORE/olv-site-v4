@@ -12,6 +12,27 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow'
+          }
+        ]
+      }
+    ];
+  },
+  experimental: {
+    optimizeCss: true
+  },
+  images: {
+    minimumCacheTTL: 60 * 60 * 24 * 7 // 7 days
+  },
 };
 
-module.exports = nextConfig; 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true' });
+
+module.exports = withBundleAnalyzer(nextConfig); 

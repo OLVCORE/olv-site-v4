@@ -1,21 +1,21 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import Sidebar from '../layout/Sidebar';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import Ticker from '../layout/Ticker';
 import WhatsAppButton from '../layout/WhatsAppButton';
-import SpecialistButton from '../layout/SpecialistButton';
+import PlatformHero from './PlatformHero';
 import { usePathname } from 'next/navigation';
+import BetaVersion from '../layout/BetaVersion';
 
 interface PlatformLayoutProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   platformName: string;
   platformLogo: string;
   platformDescription: string;
+  platformIntro?: string;
   platformColor?: string;
 }
 
@@ -24,6 +24,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
   platformName,
   platformLogo,
   platformDescription,
+  platformIntro,
   platformColor = '#0a2463', // Default color - dark blue
 }) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -86,41 +87,38 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
         
         {/* Ticker */}
         <Ticker />
-        
-        {/* Platform Header - Centralizado */}
-        <header className="platform-header" style={{ backgroundColor: platformColor }}>
-          <div className="container mx-auto py-8 px-4 flex flex-col items-center text-center">
-            <div className="mb-4">
-              {/* Logo em círculo com hover effect - reduced size */}
-              <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                <Image
-                  src={platformLogo}
-                  alt={`${platformName} Logo`}
-                  fill
-                  style={{objectFit: 'cover'}}
-                />
-              </div>
-              <h1 className="text-3xl font-bold text-white">{platformName}</h1>
-            </div>
-            <p className="text-lg text-white max-w-3xl">{platformDescription}</p>
-          </div>
-        </header>
 
         {/* Main Content with Platform Styling */}
-        <main className="container mx-auto py-8 px-4">
+        <main className="container mx-auto py-8 px-4 pb-24 lg:pb-12">
+          {/* Hero card */}
+          <PlatformHero
+            platformName={platformName}
+            platformLogo={platformLogo}
+            platformDescription={platformDescription}
+            platformIntro={platformIntro}
+            platformColor={platformColor}
+            isBeta={true}
+          />
+          <div className="my-6"><BetaVersion /></div>
+          
           {/* Apply global platform styling */}
           <style jsx global>{`
             /* Card styling with platform-specific colors */
             .platform-card {
-              background-color: var(--card-bg);
+              background-color: var(--color-surface-light);
               border-radius: 0.75rem;
               padding: 1.75rem;
-              transition: all 0.3s ease;
+              transition: box-shadow 0.3s ease, transform 0.3s ease;
               box-shadow: var(--card-shadow);
               margin-bottom: 1.5rem;
-              border-left: 3px solid var(--${platformKey}-color, var(--accent));
+              border: 1px solid var(--card-border);
               position: relative;
               overflow: hidden;
+              color: var(--color-on-surface);
+            }
+            
+            body.theme-light .platform-card {
+              background-color: var(--color-surface);
             }
             
             .platform-card::before {
@@ -137,7 +135,7 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
             }
             
             .platform-card:hover {
-              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+              box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
               transform: translateY(-3px);
             }
             
@@ -213,7 +211,6 @@ const PlatformLayout: React.FC<PlatformLayoutProps> = ({
       
       {/* Floating buttons */}
       <WhatsAppButton position="bottom-right" />
-      <SpecialistButton position="bottom-right" />
       
       {/* Beta Version Box */}
       <div className="beta-box">

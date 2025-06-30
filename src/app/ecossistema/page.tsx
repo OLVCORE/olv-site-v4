@@ -2,10 +2,15 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MainLayout from '../../components/layout/MainLayout';
+import Icon from '../../components/icons/Icon';
 
 export const metadata = {
   title: 'Ecossistema | OLV Internacional',
-  description: 'O Ecossistema OLV Corp integra estratégia, operação e resultado, capacitando PMEs com acesso global.'
+  description: 'O Ecossistema OLV Corp integra estratégia, operação e resultado, capacitando PMEs com acesso global.',
+  keywords: 'ecossistema de comércio exterior, plataformas de comex integradas, soluções globais, transformação digital',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/ecossistema'
+  },
 };
 
 export default function EcossistemaPage() {
@@ -59,7 +64,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV CONNECTA',
+      nome: 'CONNECTA',
       descricao: 'Plataforma de Conexão com Fornecedores, Fabricantes e Soluções Globais',
       imagem: '/images/connecta-logo.jpeg',
       link: '/connecta',
@@ -76,7 +81,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV ENGAGE',
+      nome: 'ENGAGE',
       descricao: 'Plataforma de relacionamento e qualificação de leads que automatiza todo o funil de vendas para PMEs. Utiliza IA e STRATEVO para classificar oportunidades.',
       imagem: '/images/engage-logo.jpeg',
       link: '/engage',
@@ -93,7 +98,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV CORE',
+      nome: 'CORE PANNEL',
       descricao: 'Centro de Controle Operacional e Estratégico do Ecossistema',
       imagem: '/images/core-logo.jpeg',
       link: '/core',
@@ -109,7 +114,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV FINX',
+      nome: 'FINX',
       descricao: 'Plataforma de Gestão Financeira, Simuladores e Planejamento Econômico Empresarial',
       imagem: '/images/finx-logo.jpeg',
       link: '/finx',
@@ -126,9 +131,9 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV ACADEMY',
+      nome: 'VECTOR',
       descricao: 'Plataforma de Educação, Treinamento e Capacitação Empresarial',
-      imagem: '/images/academy-logo.jpeg',
+      imagem: '/images/vector-logo.jpeg',
       link: '/academy',
       beneficios: [
         'Cursos online e presenciais.',
@@ -142,7 +147,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV VERITUS',
+      nome: 'VERITUS',
       descricao: 'Plataforma de Compliance, Due Diligence, Auditoria e Riscos Empresariais',
       imagem: '/images/veritus-logo.jpeg',
       link: '/veritus',
@@ -158,7 +163,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV LABS',
+      nome: 'LABS',
       descricao: 'Plataforma de Inovação, Tecnologia, IA, Desenvolvimento e Transformação Digital',
       imagem: '/images/labs-logo.jpeg',
       link: '/labs',
@@ -173,7 +178,7 @@ export default function EcossistemaPage() {
       ]
     },
     {
-      nome: 'OLV VENTURES',
+      nome: 'VENTURES',
       descricao: 'Plataforma de Aceleração, Investimento e Venture Builder',
       imagem: '/images/ventures-logo.jpeg',
       link: '/ventures',
@@ -192,20 +197,25 @@ export default function EcossistemaPage() {
 
   return (
     <MainLayout>
+      {/* Beta banner */}
+      <div className="animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 px-4 py-2 text-center text-sm leading-snug text-on-surface dark:text-yellow-100 mb-6">
+        🚧 Todas as ferramentas do Ecossistema estão em fase BETA – grandes lançamentos a caminho!
+      </div>
       <div className="main-content">
         {/* SEÇÃO HERO ECOSSISTEMA */}
         <section className="section">
           <div className="container">
-            <div className="bg-gray-800 dark:bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div className="platform-card">
               <h2 className="flex items-center gap-2 text-2xl md:text-3xl font-bold text-white mb-4">
-                <span className="text-blue-400">🌐</span> Ecossistema OLV Corp: Transformação para PMEs
+                <Icon src="/icons/ecosystem-icon.svg" alt="Ecossistema" size="sm" className="text-accent" />
+                Nosso Ecossistema: Transformação para PMEs
               </h2>
               <p className="text-lg text-gray-300 mb-6">
                 Conheça nosso ecossistema integrado de plataformas tecnológicas e soluções estratégicas. Uma arquitetura robusta e interconectada projetada para transformar pequenas e médias empresas em organizações de alto desempenho no mercado global.
               </p>
               <Link 
                 href="/contato" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg inline-block transition-colors"
+                className="btn btn-primary font-bold py-3 px-6 inline-block w-auto"
               >
                 Conecte-se Conosco
               </Link>
@@ -216,28 +226,29 @@ export default function EcossistemaPage() {
         {/* O QUE É O ECOSSISTEMA */}
         <section className="section" id="o-que-e-ecossistema">
           <div className="container">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-                🌐⚙️📊🚀 O Que É o Ecossistema OLV Corp?
+            <div className="platform-card">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
+                <Icon src="/icons/ecosystem-icon.svg" alt="Ecossistema" size="sm" className="text-accent" />
+                O Que É o Nosso Ecossistema?
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 O <strong>Ecossistema OLV Corp</strong> é um conjunto completo de plataformas digitais e serviços estratégicos interconectados, criado especificamente para que pequenas e médias empresas possam competir globalmente com a mesma força e inteligência das grandes corporações.
               </p>
               <ul className="space-y-2 ml-6 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Cada plataforma do ecossistema foi desenvolvida para atender uma necessidade específica dos negócios, mas funciona de forma integrada com as demais.</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Nossas plataformas proporcionam <strong>acesso a dados, tecnologia, mercados globais, governança e crescimento sustentável</strong> sem a necessidade de grandes investimentos em infraestrutura interna.</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Ao invés de contratar pessoas, você contrata resultados. Ao invés de montar estrutura, você acessa inteligência, experiência e rede estratégica.</span>
@@ -250,9 +261,10 @@ export default function EcossistemaPage() {
         {/* DNA DO ECOSSISTEMA */}
         <section className="section" id="dna-ecossistema">
           <div className="container">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-                🌍 O DNA do Ecossistema OLV Corp
+            <div className="platform-card">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+                <Icon src="/icons/dna.svg" alt="DNA" size="sm" className="text-accent" />
+                O DNA do Nosso Ecossistema
               </h2>
 
               <div className="mb-6">
@@ -279,15 +291,53 @@ export default function EcossistemaPage() {
           </div>
         </section>
 
+        {/* TRANSFORME SUA EMPRESA */}
+        <section className="section" id="transforme-empresa">
+          <div className="container">
+            <div className="glass p-8 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300 flex flex-col lg:flex-row gap-8">
+              {/* Texto principal */}
+              <div className="flex-1">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                  Transforme Sua Empresa com o Nosso Ecossistema
+                </h2>
+                <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-prose">
+                  Nosso ecossistema revolucionário não entrega apenas soluções. <strong>Ele converte empresas comuns em negócios de alta performance</strong>, com a eficiência e o profissionalismo de uma multinacional. Conectamos sua PME a tecnologia, conhecimento e oportunidades para crescer de forma sustentável e segura.
+                </p>
+                <Link href="/contato" className="btn btn-primary px-6 py-3 font-semibold w-max">
+                  Fale com um Especialista
+                </Link>
+              </div>
+
+              {/* Lista de benefícios */}
+              <div className="flex-1">
+                <h3 className="font-semibold text-gray-800 dark:text-white mb-4">O que o Ecossistema Entrega:</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+                  <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="sm" className="text-accent mr-3 mt-0.5" />Alta performance: operações que viram máquinas de resultados.</li>
+                  <li className="flex items-start"><Icon src="/icons/analytics.svg" alt="Tecnologia e dados" size="sm" className="text-accent mr-3 mt-0.5" />Tecnologia + inteligência de dados para decisões assertivas.</li>
+                  <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="sm" className="text-accent mr-3 mt-0.5" />Operação estilo multinacional: processos, governança e escala global.</li>
+                  <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Segurança e compliance" size="sm" className="text-accent mr-3 mt-0.5" />Segurança e compliance: blindagem jurídica, fiscal e operacional.</li>
+                  <li className="flex items-start"><Icon src="/icons/link.svg" alt="Acesso global" size="sm" className="text-accent mr-3 mt-0.5" />Acesso global: fornecedores, clientes e parceiros internacionais.</li>
+                  <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Planejamento financeiro" size="sm" className="text-accent mr-3 mt-0.5" />Planejamento financeiro profissional para crescer com saúde.</li>
+                  <li className="flex items-start"><Icon src="/icons/dna.svg" alt="Inovação" size="sm" className="text-accent mr-3 mt-0.5" />Inovação aplicada: automações, IA e soluções sob medida.</li>
+                  <li className="flex items-start"><Icon src="/icons/target.svg" alt="Expansão de mercado" size="sm" className="text-accent mr-3 mt-0.5" />Expansão de mercado: licitações, novos canais e receitas.</li>
+                  <li className="flex items-start"><Icon src="/icons/training-icon.svg" alt="Pessoas e cultura" size="sm" className="text-accent mr-3 mt-0.5" />Desenvolvimento de pessoas e cultura: liderança preparada.</li>
+                  <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Resultados" size="sm" className="text-accent mr-3 mt-0.5" />Resultados tangíveis: crescimento acelerado e riscos mitigados.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* PLATAFORMAS DO ECOSSISTEMA */}
         <section className="section" id="plataformas-detalhes">
           <div className="container">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900 dark:text-white">
-              🔗 As Plataformas do Ecossistema e Como se Interligam
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900 dark:text-white flex items-center gap-2">
+              <Icon src="/icons/link.svg" alt="Interligação" size="sm" className="text-accent" />
+              As Plataformas do Ecossistema e Como se Interligam
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {plataformas.map((plataforma, index) => (
-                <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                <div key={index} className="glass rounded-2xl shadow-gold overflow-hidden border border-[#2a3448] hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 max-w-[300px]">
                   <div className="p-4 flex justify-center bg-gray-100 dark:bg-gray-700">
                     <div className="relative w-40 h-40">
                       <Image 
@@ -301,14 +351,20 @@ export default function EcossistemaPage() {
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{plataforma.nome}</h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
-                      <strong className="text-blue-600 dark:text-blue-400">💡 O que é:</strong> {plataforma.descricao}
+                      <span className="text-accent inline-flex items-center gap-1">
+                        <Icon src="/icons/analytics.svg" alt="O que é" size="xs" />
+                        O que é:
+                      </span>{' '}{plataforma.descricao}
                     </p>
                     
-                    <h4 className="font-bold text-gray-800 dark:text-white mb-2">🔥 Benefícios:</h4>
+                    <h4 className="font-bold text-gray-800 dark:text-white mb-2 inline-flex items-center gap-1">
+                      <Icon src="/icons/rocket.svg" alt="Benefícios" size="xs" className="text-accent" />
+                      Benefícios:
+                    </h4>
                     <ul className="mb-4 space-y-1 text-gray-700 dark:text-gray-300">
                       {plataforma.beneficios.map((beneficio, i) => (
                         <li key={i} className="flex items-start">
-                          <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           <span>{beneficio}</span>
@@ -316,11 +372,14 @@ export default function EcossistemaPage() {
                       ))}
                     </ul>
                     
-                    <h4 className="font-bold text-gray-800 dark:text-white mb-2">🔗 Como se interliga:</h4>
+                    <h4 className="font-bold text-gray-800 dark:text-white mb-2 inline-flex items-center gap-1">
+                      <Icon src="/icons/link.svg" alt="Integração" size="xs" className="text-accent" />
+                      Como se interliga:
+                    </h4>
                     <ul className="mb-6 space-y-1 text-gray-700 dark:text-gray-300">
                       {plataforma.integracoes.map((integracao, i) => (
                         <li key={i} className="flex items-start">
-                          <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           <span>{integracao}</span>
@@ -331,7 +390,7 @@ export default function EcossistemaPage() {
                     <div className="flex justify-end">
                       <Link
                         href={plataforma.link}
-                        className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-colors"
+                        className="btn btn-primary py-2 px-4"
                       >
                         Saiba Mais
                       </Link>
@@ -343,140 +402,71 @@ export default function EcossistemaPage() {
           </div>
         </section>
 
-        {/* O QUE O ECOSSISTEMA ENTREGA */}
-        <section className="section" id="o-que-entrega">
-          <div className="container">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-                💎 O Que o Ecossistema Entrega para Sua Empresa?
-              </h2>
-              <ul className="space-y-2 ml-6 mb-6 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span><strong>Transforma empresas sem gestão em empresas de alta performance.</strong></span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Oferece <strong>tecnologia de ponta, inteligência aplicada, governança e segurança.</strong></span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Abre as portas para que qualquer PME opere <strong>como uma multinacional.</strong></span>
-                </li>
-              </ul>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 dark:text-gray-300">
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">📊</span>
-                    <span>Gestão baseada em dados.</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">⚖️</span>
-                    <span>Compliance e due diligence.</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">💰</span>
-                    <span>Planejamento financeiro profissional.</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">🌐</span>
-                    <span>Acesso global a fornecedores, clientes e mercados.</span>
-                  </li>
-                </ul>
-                
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">🚀</span>
-                    <span>Desenvolvimento tecnológico e inovação aplicada.</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">🏛️</span>
-                    <span>Participação em licitações e expansão do mercado.</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-blue-500 mr-2">👥</span>
-                    <span>Formação executiva contínua e desenvolvimento de cultura empresarial.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* POR QUE DIFERENTE */}
-        <section className="section" id="por-que-diferente">
+        <section className="section mt-6" id="por-que-diferente">
           <div className="container">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-                🤔 Por Que o Ecossistema OLV Corp É Diferente?
+            <div className="glass p-6 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
+                <Icon src="/icons/solutions-icon.svg" alt="Essencial" size="sm" className="text-accent" />
+                Por que o Nosso Ecossistema é Essencial para sua PME?
               </h2>
-              <ul className="space-y-2 ml-6 text-gray-700 dark:text-gray-300">
-                <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">🔗</span>
-                  <strong>Tudo está conectado.</strong>
-                </li>
-                <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">🧠</span>
-                  <strong>Inteligência aplicada em todos os níveis.</strong>
-                </li>
-                <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">💡</span>
-                  <strong>Entrega gestão, não só software.</strong>
-                </li>
-                <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">🚀</span>
-                  <strong>Não vende ferramentas. Entrega transformação.</strong>
-                </li>
-                <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">📈</span>
-                  <strong>É o braço direito do empresário moderno.</strong>
-                </li>
+
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                Nosso ecossistema vai muito além de entregar soluções: <strong>ele eleva empresas comuns à alta performance</strong>, com a mesma eficiência de uma multinacional, unindo ferramentas, conhecimento e oportunidades de crescimento sustentável.
+              </p>
+
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+                <li className="flex items-start"><Icon src="/icons/rocket.svg" alt="Alta performance" size="sm" className="text-accent mr-3 mt-0.5" />Alta performance: operações que viram máquinas de resultados.</li>
+                <li className="flex items-start"><Icon src="/icons/analytics.svg" alt="Tecnologia e dados" size="sm" className="text-accent mr-3 mt-0.5" />Tecnologia + inteligência de dados para decisões assertivas.</li>
+                <li className="flex items-start"><Icon src="/icons/ecosystem-icon.svg" alt="Multinacional" size="sm" className="text-accent mr-3 mt-0.5" />Operação estilo multinacional: processos, governança e escala global.</li>
+                <li className="flex items-start"><Icon src="/icons/compliance-icon.svg" alt="Segurança e compliance" size="sm" className="text-accent mr-3 mt-0.5" />Segurança e compliance: blindagem jurídica, fiscal e operacional.</li>
+                <li className="flex items-start"><Icon src="/icons/link.svg" alt="Acesso global" size="sm" className="text-accent mr-3 mt-0.5" />Acesso global: fornecedores, clientes e parceiros internacionais.</li>
+                <li className="flex items-start"><Icon src="/icons/currency-exchange.svg" alt="Planejamento financeiro" size="sm" className="text-accent mr-3 mt-0.5" />Planejamento financeiro profissional para crescer com saúde.</li>
+                <li className="flex items-start"><Icon src="/icons/dna.svg" alt="Inovação" size="sm" className="text-accent mr-3 mt-0.5" />Inovação aplicada: automações, IA e soluções sob medida.</li>
+                <li className="flex items-start"><Icon src="/icons/target.svg" alt="Expansão de mercado" size="sm" className="text-accent mr-3 mt-0.5" />Expansão de mercado: licitações, novos canais e receitas.</li>
+                <li className="flex items-start"><Icon src="/icons/training-icon.svg" alt="Pessoas e cultura" size="sm" className="text-accent mr-3 mt-0.5" />Desenvolvimento de pessoas e cultura: liderança preparada.</li>
+                <li className="flex items-start"><Icon src="/icons/chart-bar.svg" alt="Resultados" size="sm" className="text-accent mr-3 mt-0.5" />Resultados tangíveis: crescimento acelerado e riscos mitigados.</li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* FRASE DE IMPACTO */}
+        {/* COMPROMISSO */}
         <section className="section" id="frase-impacto">
           <div className="container">
-            <div className="bg-blue-700 dark:bg-blue-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl font-bold mb-4 text-white">Acredite!</h2>
-              <blockquote className="text-xl italic font-medium text-white">
-                "O Ecossistema OLV Corp não é um software. É a transformação que sua empresa precisa para sair do caos e entrar no mundo da gestão, da escala e da prosperidade."
-              </blockquote>
+            <div className="glass p-6 rounded-2xl shadow-gold hover:shadow-2xl transition-all duration-300 text-gray-100">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Nosso Compromisso com o Futuro da Sua Empresa</h2>
+              <p className="text-lg leading-relaxed text-gray-200">
+                Imagine sua PME competindo lado a lado com grandes players globais, operando com tecnologia de ponta, governança impecável e uma equipe altamente preparada. <strong>Esse é o futuro que construímos ao seu lado</strong>: derrubamos barreiras de crescimento e adicionamos valor real em cada área estratégica do seu negócio.
+              </p>
             </div>
           </div>
         </section>
 
         {/* CTA FINAL */}
         <section className="section">
-          <div className="container text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-              Pronto para Ação?
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Integre-se ao nosso ecossistema e transforme seu negócio com nossas soluções.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link 
-                href="/contato" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg inline-block transition-colors"
-              >
-                Fale com um Especialista
-              </Link>
-              <Link 
-                href="#plataformas-detalhes" 
-                className="bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 font-bold py-3 px-6 rounded-lg inline-block transition-colors border border-blue-600 dark:border-blue-400"
-              >
-                Conheça Nossas Plataformas
-              </Link>
+          <div className="container">
+            <div className="glass p-6 rounded-2xl shadow-gold flex flex-col items-center text-center gap-4 hover:shadow-2xl transition-all duration-300">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-100">
+                Pronto para Ação?
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-6">
+                Integre-se ao nosso ecossistema e transforme seu negócio com nossas soluções.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link 
+                  href="/contato" 
+                  className="btn btn-primary font-bold py-3 px-6"
+                >
+                  Fale com um Especialista
+                </Link>
+                <Link 
+                  href="#plataformas-detalhes" 
+                  className="btn btn-primary py-2 px-4"
+                >
+                  Conheça Nossas Plataformas
+                </Link>
+              </div>
             </div>
           </div>
         </section>

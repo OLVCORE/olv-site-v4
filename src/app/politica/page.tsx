@@ -131,14 +131,14 @@ export default function PoliticaPage() {
             </article>
 
             {/* CTA para contato */}
-            <div className="bg-blue-700 p-6 rounded-lg text-center">
+            <div className="bg-primary text-on-primary p-6 rounded-lg text-center">
               <h2 className="text-2xl font-bold mb-4 text-white">Dúvidas sobre nossa política?</h2>
               <p className="text-white mb-6">
                 Se você tiver qualquer dúvida sobre como tratamos seus dados pessoais ou quiser exercer seus direitos, entre em contato conosco.
               </p>
               <Link
                 href="/contato"
-                className="inline-block bg-white text-blue-700 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors"
+                className="btn btn-primary font-bold py-3 px-8"
               >
                 Fale Conosco
               </Link>

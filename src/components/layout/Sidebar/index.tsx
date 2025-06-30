@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Tippy from '@tippyjs/react';
+import { FaLayerGroup } from 'react-icons/fa';
 
 const platforms = [
   { 
@@ -19,49 +21,49 @@ const platforms = [
     tooltip: 'Análise de Visão para Tomada de Decisão'
   },
   { 
-    name: 'OLV CONNECTA', 
+    name: 'CONNECTA', 
     icon: '/icons/connecta.svg', 
     href: '/connecta',
     tooltip: 'Conexões Seguras com Fornecedores Homologados'
   },
   { 
-    name: 'OLV ENGAGE', 
+    name: 'ENGAGE', 
     icon: '/icons/engage.svg', 
     href: '/engage',
     tooltip: 'CRM e qualificação de leads inteligente'
   },
   { 
-    name: 'OLV VERITUS', 
+    name: 'VERITUS', 
     icon: '/icons/veritus.svg', 
     href: '/veritus',
     tooltip: 'Compliance, Due Diligence e Governança'
   },
   { 
-    name: 'OLV FINX', 
+    name: 'FINX', 
     icon: '/icons/finx.svg', 
     href: '/finx',
     tooltip: 'Gestão Financeira e Otimização de Fluxo de Caixa'
   },
   { 
-    name: 'OLV ACADEMY', 
+    name: 'VECTOR', 
     icon: '/icons/academy.svg', 
     href: '/academy',
     tooltip: 'Educação Corporativa e Desenvolvimento de Talentos'
   },
   { 
-    name: 'OLV LABS', 
+    name: 'LABS', 
     icon: '/icons/labs.svg', 
     href: '/labs',
     tooltip: 'Inovação, Pesquisa e Desenvolvimento com IA'
   },
   { 
-    name: 'OLV VENTURES', 
+    name: 'VENTURES', 
     icon: '/icons/ventures.svg', 
     href: '/ventures',
     tooltip: 'Venture Builder e Aceleração de Startups'
   },
   { 
-    name: 'OLV CORE', 
+    name: 'CORE PANNEL', 
     icon: '/icons/core.svg', 
     href: '/core',
     tooltip: 'Cockpit de Gestão 360° e Business Intelligence'
@@ -69,51 +71,40 @@ const platforms = [
 ];
 
 const Sidebar: React.FC = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  const handleMouseEnter = () => {
-    setIsExpanded(true);
-  };
+  const handleMouseEnter = () => {};
 
-  const handleMouseLeave = () => {
-    setIsExpanded(false);
-    setActiveTooltip(null);
-  };
-  
-  const handleItemMouseEnter = (platformName: string) => {
-    setActiveTooltip(platformName);
-  };
-  
-  const handleItemMouseLeave = () => {
-    setActiveTooltip(null);
-  };
+  const handleMouseLeave = () => {};
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add('sidebar-open');
+      document.body.classList.remove('nav-open');
+    } else {
+      document.body.classList.remove('sidebar-open');
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       {/* Mobile Toggle Button - Only visible on mobile */}
       <button 
-        className="mobile-sidebar-toggle"
+        className="mobile-sidebar-toggle flex flex-col items-center justify-center gap-0.5"
         onClick={toggleMobileMenu}
-        aria-label="Toggle Platforms Menu"
+        aria-label="Apps"
       >
-        <Image 
-          src="/icons/platforms.svg" 
-          alt="Platforms" 
-          width={24} 
-          height={24}
-        />
-        <span>Plataformas</span>
+        <FaLayerGroup size={24} />
+        <span className="toggle-label">Apps</span>
       </button>
 
       <aside 
-        className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''}`}
+        className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''} lg:fixed lg:top-[var(--height-header)] lg:left-0 lg:h-[calc(100vh-var(--height-header))] lg:overflow-y-auto lg:overflow-x-visible lg:z-[2000]`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -133,7 +124,8 @@ const Sidebar: React.FC = () => {
             {platforms.map((platform) => {
               const isActive = pathname === platform.href;
               return (
-                <li key={platform.name} className="relative" onMouseEnter={() => handleItemMouseEnter(platform.name)} onMouseLeave={handleItemMouseLeave}>
+                <li key={platform.name}>
+                  <Tippy content={platform.tooltip} theme="olv" placement="right" offset={[0,0]}>  
                   <Link 
                     href={platform.href} 
                     className={`sidebar-item ${isActive ? 'active' : ''}`}
@@ -148,17 +140,7 @@ const Sidebar: React.FC = () => {
                     />
                     <span className="sidebar-text">{platform.name}</span>
                   </Link>
-                  {activeTooltip === platform.name && (
-                    <div className="sidebar-tooltip" style={{
-                      opacity: 1,
-                      visibility: 'visible',
-                      boxShadow: '0 0 15px rgba(212, 175, 55, 0.7)',
-                      border: '2px solid #d4af37',
-                      animation: 'tooltipGlow 2s infinite'
-                    }}>
-                      {platform.tooltip}
-                    </div>
-                  )}
+                  </Tippy>
                 </li>
               );
             })}

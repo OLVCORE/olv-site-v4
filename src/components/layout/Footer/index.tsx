@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       
-      if (position + windowHeight > documentHeight - 100) {
+      if (position + windowHeight >= documentHeight - windowHeight * 0.5) {
         setShowFooter(true);
       }
       else {
@@ -38,27 +38,27 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Coluna 1 - Sobre */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-blue-400">OLV Internacional</h3>
+            <h3 className="text-xl font-bold mb-4 text-accent">OLV Internacional</h3>
             <p className="text-sm mb-4 text-gray-300">
               Há mais de 35 anos integrando estratégia, operação e resultado para empresas que querem operar globalmente com segurança e alta performance.
             </p>
             <div className="social-icons flex gap-4 mt-4">
-              <a href="https://www.instagram.com/olvinternacional/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="https://www.instagram.com/olvinternacional/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/instagram-original.svg" alt="Instagram" width={20} height={20} />
               </a>
-              <a href="https://www.linkedin.com/company/26251289/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="https://www.linkedin.com/company/26251289/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/linkedin-original.svg" alt="LinkedIn" width={20} height={20} />
               </a>
-              <a href="https://www.facebook.com/olvinternacional/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="https://www.facebook.com/olvinternacional/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/facebook-original.svg" alt="Facebook" width={20} height={20} />
               </a>
-              <a href="https://twitter.com/olvinternacional" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="https://twitter.com/olvinternacional" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/twitter-original.svg" alt="X" width={20} height={20} />
               </a>
-              <a href="https://www.youtube.com/@olvinternacional" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="https://www.youtube.com/@olvinternacional" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/youtube-original.svg" alt="YouTube" width={20} height={20} />
               </a>
-              <a href="mailto:atendimento@olvinternacional.com.br" className="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a href="mailto:atendimento@olvinternacional.com.br" className="bg-gray-800 p-2 rounded-full hover:opacity-90 transition-colors">
                 <Image src="/icons/email-original.svg" alt="E-mail" width={20} height={20} />
               </a>
             </div>
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
 
           {/* Coluna 2 - Links Rápidos */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-blue-400">Links Rápidos</h3>
+            <h3 className="text-xl font-bold mb-4 text-accent">Links Rápidos</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/solucoes" className="text-gray-300 hover:text-white transition-colors">Soluções</Link>
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
 
           {/* Coluna 3 - Plataformas */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-blue-400">Nossas Plataformas</h3>
+            <h3 className="text-xl font-bold mb-4 text-accent">Nossas Plataformas</h3>
             <ul className="space-y-2">
               <li className="relative group">
                 <Link 
@@ -224,12 +224,12 @@ const Footer: React.FC = () => {
 
           {/* Coluna 4 - Contato */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-blue-400">Contato</h3>
+            <h3 className="text-xl font-bold mb-4 text-accent">Contato</h3>
             
             <div className="grid gap-4">
               {/* Endereço */}
               <div className="flex">
-                <FaMapMarkerAlt className="text-blue-400 mt-1 mr-3 flex-shrink-0" size={18} />
+                <FaMapMarkerAlt className="text-accent mt-1 mr-3 flex-shrink-0" size={18} />
                 <div>
                   <p className="text-sm text-white font-semibold mb-1">Endereço:</p>
                   <p className="text-sm text-gray-300">
@@ -242,34 +242,34 @@ const Footer: React.FC = () => {
               
               {/* Telefone */}
               <div className="flex">
-                <FaPhone className="text-blue-400 mt-1 mr-3 flex-shrink-0" size={16} />
+                <FaPhone className="text-accent mt-1 mr-3 flex-shrink-0" size={16} />
                 <div>
                   <p className="text-sm text-white font-semibold mb-1">Telefone:</p>
                   <div className="flex items-center">
                     <p className="text-sm text-gray-300">+55 11 2675 1446</p>
-                    <FaWhatsapp className="ml-2 text-blue-400" size={14} />
+                    <FaWhatsapp className="ml-2 text-accent" size={14} />
                   </div>
                 </div>
               </div>
               
               {/* Email - Consultas */}
               <div className="flex">
-                <FaEnvelope className="text-blue-400 mt-1 mr-3 flex-shrink-0" size={16} />
+                <FaEnvelope className="text-accent mt-1 mr-3 flex-shrink-0" size={16} />
                 <p className="text-sm text-white">
-                  <span className="font-semibold">Consultas e Projetos:</span> 
-                  <a href="mailto:atendimento@olvinternacional.com.br" className="ml-1 text-gray-300 hover:text-white transition-colors">
-                    atendimento@olvinternacional.com.br
+                  <span className="font-semibold">Projetos:</span> 
+                  <a href="mailto:comercial@olvinternacional.com.br" className="ml-1 text-gray-300 hover:text-white transition-colors">
+                    comercial@olvinternacional.com.br
                   </a>
                 </p>
               </div>
               
               {/* Email - Vendas */}
               <div className="flex">
-                <FaEnvelope className="text-blue-400 mt-1 mr-3 flex-shrink-0" size={16} />
+                <FaEnvelope className="text-accent mt-1 mr-3 flex-shrink-0" size={16} />
                 <p className="text-sm text-white">
-                  <span className="font-semibold">Vendas:</span> 
-                  <a href="mailto:comercial@olvinternacional.com.br" className="ml-1 text-gray-300 hover:text-white transition-colors">
-                    comercial@olvinternacional.com.br
+                  <span className="font-semibold">Atendimento:</span> 
+                  <a href="mailto:atendimento@olvinternacional.com.br" className="ml-1 text-gray-300 hover:text-white transition-colors">
+                    atendimento@olvinternacional.com.br
                   </a>
                 </p>
               </div>

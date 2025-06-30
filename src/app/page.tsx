@@ -1,6 +1,16 @@
 import MainLayout from '../components/layout/MainLayout';
 import Image from 'next/image';
 import Link from 'next/link';
+import RadarHub from '../components/home/RadarHub';
+
+export const metadata = {
+  title: 'OLV Internacional – Consultoria em Comércio Exterior, Logística Internacional e Supply Chain',
+  description: 'Integramos estratégia, operação e resultado para PMEs que desejam importar, exportar ou expandir globalmente. Reduza custos, riscos e burocracia com especialistas em Comex.',
+  keywords: 'consultoria em exportação, consultoria em importação, logística internacional, especialistas em comex, reduzir custos de importação, planejamento de exportação, radar siscomex, supply chain global',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/'
+  }
+};
 
 export default function HomePage() {
   // Os pilares de atuação da OLV Internacional
@@ -34,7 +44,7 @@ export default function HomePage() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <section className="section hero pt-0 pb-0 mb-0 mt-12">
+      <section className="section hero pt-0 pb-0 mb-0">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center gap-4 mb-2 bg-[#141c2f] p-5 rounded-lg border border-[#2a3448] shadow-lg">
             <div className="flex-1">
@@ -68,6 +78,21 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Slim CTA banner – agora ocupa toda a largura da viewport */}
+          <div className="my-10 animate-gold-pulse bg-yellow-200/10 border-y border-yellow-400 px-4 py-1 md:py-[6px] text-sm md:text-base leading-snug text-gray-200 dark:text-gray-200 shadow-md home-alert">
+            <p className="text-center max-w-6xl mx-auto">
+              ⚠️ Importar junto com seus concorrentes destrói sua margem.
+              <Link href="/solucoes/importacao-exclusiva" className="font-semibold underline text-[#d4af37] hover:text-yellow-300 ml-1">
+                Descubra como dominar sua própria rota de importação →
+              </Link>
+            </p>
+          </div>
+
+          {/* Radar 360 Hub – Simuladores & Calculadoras */}
+          <div className="my-8">
+            <RadarHub />
+          </div>
+
           {/* Pilares de Atuação em mini-cards */}
           <div className="mb-2">
             <h3 className="text-2xl font-semibold mb-2 text-[#d4af37]">Pilares da Nossa Atuação</h3>
@@ -75,7 +100,7 @@ export default function HomePage() {
               {keyPoints.map((point, index) => (
                 <div 
                   key={index}
-                  className="bg-[#141c2f] p-3 rounded-lg border border-[#2a3448] shadow-md hover:border-[#d4af37] hover:shadow-lg transition-all duration-300"
+                  className="bg-[#141c2f] p-3 rounded-lg border border-[#2a3448] shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]"
                 >
                   <div className="flex items-start mb-1">
                     <Image src={point.icon} alt={point.title} width={20} height={20} className="mt-1 mr-2 flex-shrink-0" />
@@ -100,7 +125,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {/* Card 1 - Consultoria Estratégica em Comex */}
-            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]">
               <div className="p-4">
                 <div className="w-14 h-14 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center mb-3">
                   <Image src="/icons/strategy.svg" alt="Ícone de Estratégia" width={28} height={28} />
@@ -130,7 +155,7 @@ export default function HomePage() {
             </div>
 
             {/* Card 2 - Soluções Operacionais para Exportação e Importação */}
-            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]">
               <div className="p-4">
                 <div className="w-14 h-14 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center mb-3">
                   <Image src="/icons/operations.svg" alt="Ícone de Operações" width={28} height={28} />
@@ -160,7 +185,7 @@ export default function HomePage() {
             </div>
 
             {/* Card 3 - Gestão de Supply Chain Integrado */}
-            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]">
               <div className="p-4">
                 <div className="w-14 h-14 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center mb-3">
                   <Image src="/icons/supply-chain.svg" alt="Ícone Supply Chain" width={28} height={28} />
@@ -190,7 +215,7 @@ export default function HomePage() {
             </div>
             
             {/* Card 4 - Tecnologia Aplicada à Competitividade */}
-            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]">
               <div className="p-4">
                 <div className="w-14 h-14 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center mb-3">
                   <Image src="/icons/tech.svg" alt="Ícone de Tecnologia" width={28} height={28} />
@@ -220,7 +245,7 @@ export default function HomePage() {
             </div>
             
             {/* Card 5 - Compliance e Governança */}
-            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl hover:border-[#d4af37] hover:shadow-2xl transition-all duration-300">
+            <div className="bg-[#141c2f] rounded-xl border border-[#2a3448] overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-[0_0_0_2px_var(--color-accent)]">
               <div className="p-4">
                 <div className="w-14 h-14 rounded-full bg-[#0a0f1d] border-2 border-[#d4af37] flex items-center justify-center mb-3">
                   <Image src="/icons/compliance-icon.svg" alt="Ícone de Compliance" width={28} height={28} />
@@ -247,6 +272,13 @@ export default function HomePage() {
                 </ul>
                 <Link href="/solucoes" className="mt-2 inline-block text-[#d4af37] hover:underline text-sm">Ver mais soluções →</Link>
               </div>
+            </div>
+
+            {/* CTA Filler Card - Integração Estratégica */}
+            <div className="glass p-6 rounded-xl shadow-gold flex flex-col items-center text-center gap-4 hover:shadow-2xl transition-all duration-300">
+              <h3 className="text-xl font-bold text-gray-100 leading-tight">Integre Estratégia, Tecnologia e Pessoas</h3>
+              <p className="text-sm text-gray-300 max-w-xs">Unimos inteligência de dados, automação e visão humana para acelerar o seu crescimento global com segurança e performance.</p>
+              <Link href="/solucoes" className="btn btn-primary text-sm px-5 py-2">Explorar Soluções</Link>
             </div>
           </div>
         </div>
