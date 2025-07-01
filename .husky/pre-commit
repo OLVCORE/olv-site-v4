@@ -1,0 +1,27 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Block committed files in .next or node_modules or larger than 90MB
+MAX_SIZE=$((90*1024*1024))
+violations="$(
+  git diff --cached --name-only -z | while IFS= read -r -d '' file; do
+    # skip if not a regular file (deleted etc.)
+    [ -f "$file" ] || continue
+    case "$file" in
+      .next/*|node_modules/*)
+        echo "$file (disallowed path)";;
+    esac
+    size=$(stat -c%s "$file" 2>/dev/null || echo 0)
+    if [ "$size" -gt "$MAX_SIZE" ]; then
+      echo "$file ($(du -h "$file" | cut -f1)) exceeds size limit";
+    fi
+  done
+)"
+
+if [ -n "$violations" ]; then
+  echo "\n🚫 Commit aborted. The following files are disallowed:\n$violations" >&2
+  exit 1
+fi
+
+npm run lint:fix
+npm run type-check 
