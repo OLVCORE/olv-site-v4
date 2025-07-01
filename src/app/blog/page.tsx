@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import MainLayout from '../../components/layout/MainLayout';
 import { getAllPosts } from '@/lib/posts';
+import { CATEGORIES } from '@/lib/blogConfig';
 
 export const metadata = {
   title: 'Blog | OLV Internacional',
@@ -13,6 +14,16 @@ export const metadata = {
     canonical: 'https://olvinternacional.com.br/blog',
   },
 };
+
+async function getCategoryCounts() {
+  try {
+    const res = await fetch('/api/posts/categories', { cache: 'no-store' });
+    if (!res.ok) return {};
+    return await res.json();
+  } catch {
+    return {};
+  }
+}
 
 export default async function BlogPage({ searchParams }: { searchParams: { limit?: string } }) {
   const limit = parseInt(searchParams.limit || '12');
@@ -33,7 +44,8 @@ export default async function BlogPage({ searchParams }: { searchParams: { limit
 
   const list = posts.length ? posts : fallback;
 
-  const { CATEGORIES: categories } = await import('@/lib/blogConfig');
+  const categories = CATEGORIES;
+  const categoryCounts = await getCategoryCounts();
 
   return (
     <MainLayout>
@@ -188,7 +200,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { limit
                       >
                         <span>{category}</span>
                         <span className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                          {Math.floor(Math.random() * 10) + 1}
+                          {categoryCounts[category] || 0}
                         </span>
                       </Link>
                     </li>
