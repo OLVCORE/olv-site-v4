@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import UserMenu from '../UserMenu';
@@ -56,11 +55,11 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
     <>
       {/* Header */}
       <header className="header-wrapper">
-        <div className="header-inner">
+        <div className="header-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
           {/* Logo + Slogan */}
-          <div className="header-brand" style={{ gap: '30px' }}>
-            <Link href="/" className="header-logo-link" title="OLV Internacional">
-              <div className="logo-olv-padrao">
+          <div className="header-brand" style={{ display: 'flex', alignItems: 'center', minWidth: 0, flexShrink: 0, flexBasis: 'auto', gap: '1.5rem' }}>
+            <Link href="/" className="header-logo-link" title="OLV Internacional" style={{ display: 'block', minWidth: 0 }}>
+              <div className="logo-olv-padrao" style={{ aspectRatio: '1/1', minWidth: 50, minHeight: 50, maxWidth: 88, maxHeight: 88, width: '84px', height: '84px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <OptimizedImage 
                   src="/images/olv-logo.jpeg" 
                   alt="OLV Internacional" 
@@ -69,17 +68,18 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                   className="header-logo-img"
                   priority={true}
                   quality={90}
+                  style={{ objectFit: 'cover', width: '100%', height: '100%', borderRadius: '50%' }}
                 />
               </div>
             </Link>
-            <div className="header-slogan" style={{ marginLeft: '0.5rem' }}>
+            <div className="header-slogan" style={{ marginLeft: '0.5rem', whiteSpace: 'normal', wordBreak: 'break-word', fontSize: '1rem', minWidth: 0, flexShrink: 1, lineHeight: 1.3 }}>
               Integramos Estratégia,<br />
               Operação e Resultado
             </div>
           </div>
 
           {/* Menu Principal - Visible only on desktop */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6" style={{ flex: 1, minWidth: 0, justifyContent: 'flex-end' }}>
             {/* Buscar (desktop only) */}
             <div className="desktop-only">
               <GlobalSearch />

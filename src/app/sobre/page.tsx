@@ -16,13 +16,26 @@ export const metadata = {
 export default function Sobre() {
   return (
     <MainLayout>
-      <div className="main-content">
+      <div className="main-content" style={{ marginTop: 'calc(var(--height-header) + 45px + 0.08cm)' }}>
         {/* SEÇÃO HERO */}
         <section className="section hero">
-          <div className="container">
-            <div className="section-heading">
-              <h1 className="hero-title">Sobre a OLV Internacional</h1>
-              <p className="text-center max-w-4xl mx-auto text-base md:text-xl lg:text-2xl font-medium text-on-surface/90">
+          <div className="container flex justify-center">
+            <div
+              className="glass-card-gold max-w-5xl w-full mx-auto px-8 py-10 mb-10 flex flex-col items-center text-center"
+              style={{
+                background: 'rgba(20, 22, 34, 0.72)',
+                border: '2px solid #FFD700',
+                borderRadius: '1.5rem',
+                boxShadow: '0 2px 24px 0 rgba(212,175,55,0.15)',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                transition: 'box-shadow 0.3s',
+              }}
+              onMouseOver={e => (e.currentTarget.style.boxShadow = '0 0 32px 0 #FFD700, 0 2px 24px 0 rgba(212,175,55,0.25)')}
+              onMouseOut={e => (e.currentTarget.style.boxShadow = '0 2px 24px 0 rgba(212,175,55,0.15)')}
+            >
+              <h1 className="hero-title mb-4">Sobre a OLV Internacional</h1>
+              <p className="max-w-3xl mx-auto text-base md:text-xl lg:text-2xl font-medium text-on-surface/90">
                 Integramos Estratégia, Operação e Resultado para empresas que desejam expandir seus negócios globalmente.
               </p>
             </div>
