@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
 import UserMenu from '../UserMenu';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
@@ -17,6 +18,7 @@ const GlobalSearch = dynamic(() => import('../../GlobalSearch'), { ssr: false })
 const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   const [navOpen, setNavOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const pathname = usePathname();
   
   const isActive = (path: string) => {
     const current = (pathname ?? '') as string;

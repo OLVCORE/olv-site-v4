@@ -1,8 +1,5 @@
 'use client';
-import { useLocale } from 'next-intl';
-import { useRouter, usePathname } from '@/i18n/navigation';
 import React from 'react';
-import { locales } from '@/i18n';
 
 const labels: Record<string, string> = {
   pt: 'PT',
@@ -12,28 +9,10 @@ const labels: Record<string, string> = {
 };
 
 export default function LanguageSwitcher({ className = '' }: { className?: string }) {
-  const locale = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLocale = e.target.value;
-    router.replace(pathname, { locale: newLocale });
-  };
-
+  // Temporarily disabled - will be reimplemented later
   return (
-    <select
-      aria-label="Selecionar idioma"
-      className={`nav-item bg-transparent px-2 py-1 text-sm focus:outline-none border border-current rounded ${className}`}
-      style={{ minWidth: 60 }}
-      value={locale}
-      onChange={handleChange}
-    >
-      {locales.map((loc) => (
-        <option key={loc} value={loc}>
-          {labels[loc] ?? loc.toUpperCase()}
-        </option>
-      ))}
-    </select>
+    <div className={`nav-item bg-transparent px-2 py-1 text-sm ${className}`}>
+      PT
+    </div>
   );
 } 

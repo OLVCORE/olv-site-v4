@@ -3,7 +3,7 @@ import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import 'tippy.js/dist/tippy.css';
 import { SITE_URL } from '@/lib/siteConfig';
-import { getLocale } from 'next-intl/server';
+// Internationalization temporarily disabled
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -56,9 +56,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getLocale();
+  // Internationalization temporarily disabled
   return (
-    <html lang={locale === 'pt' ? 'pt-BR' : locale} suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <meta name="keywords" content={keywordsList} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

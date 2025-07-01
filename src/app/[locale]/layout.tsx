@@ -1,4 +1,3 @@
-import { NextIntlClientProvider } from 'next-intl';
 import { ReactNode } from 'react';
 
 export default async function LocaleLayout({
@@ -8,16 +7,6 @@ export default async function LocaleLayout({
   children: ReactNode;
   params: { locale: string };
 }) {
-  let messages: Record<string, unknown> = {};
-  try {
-    messages = (await import(`../../../messages/${locale}.json`)).default;
-  } catch (_err) {
-    // keep empty messages if file missing
-  }
-
-  return (
-    <NextIntlClientProvider locale={locale} messages={messages as any}>
-      {children}
-    </NextIntlClientProvider>
-  );
+  // Internationalization temporarily disabled
+  return <>{children}</>;
 } 

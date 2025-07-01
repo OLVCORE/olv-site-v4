@@ -11,13 +11,13 @@ export type PackageKind =
   | "bulk";
 
 const KINDS: { id: PackageKind; label: string; icon: string }[] = [
-  { id: "box", label: "Caixa", icon: "/public/icons/box.svg" },
-  { id: "bigbag", label: "Big-Bag", icon: "/public/icons/bigbag.svg" },
-  { id: "sack", label: "Saco", icon: "/public/icons/sack.svg" },
-  { id: "barrel", label: "Barril", icon: "/public/icons/barrel.svg" },
-  { id: "roll", label: "Rolo", icon: "/public/icons/roll.svg" },
-  { id: "pipes", label: "Tubos", icon: "/public/icons/pipes.svg" },
-  { id: "bulk", label: "Granel", icon: "/public/icons/bulk.svg" },
+  { id: "box", label: "Caixa", icon: "/icons/warehouse.svg" },
+  { id: "bigbag", label: "Big-Bag", icon: "/icons/warehouse.svg" },
+  { id: "sack", label: "Saco", icon: "/icons/warehouse.svg" },
+  { id: "barrel", label: "Barril", icon: "/icons/warehouse.svg" },
+  { id: "roll", label: "Rolo", icon: "/icons/warehouse.svg" },
+  { id: "pipes", label: "Tubos", icon: "/icons/warehouse.svg" },
+  { id: "bulk", label: "Granel", icon: "/icons/warehouse.svg" },
 ];
 
 export default function PackageTypeSelector({
