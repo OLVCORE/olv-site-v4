@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import UserMenu from '../UserMenu';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import OptimizedImage from '../../OptimizedImage';
 
 interface HeaderProps {
   theme: 'light' | 'dark';
@@ -60,13 +61,14 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
           <div className="header-brand" style={{ gap: '30px' }}>
             <Link href="/" className="header-logo-link" title="OLV Internacional">
               <div className="logo-olv-padrao">
-                <Image 
+                <OptimizedImage 
                   src="/images/olv-logo.jpeg" 
                   alt="OLV Internacional" 
                   width={84} 
                   height={84} 
                   className="header-logo-img"
-                  priority
+                  priority={true}
+                  quality={90}
                 />
               </div>
             </Link>

@@ -3,6 +3,7 @@ import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import 'tippy.js/dist/tippy.css';
 import { SITE_URL } from '@/lib/siteConfig';
+import { LocalBusinessSchema, OrganizationSchema } from '@/components/SeoSchema';
 // Internationalization temporarily disabled
 
 const inter = Inter({ subsets: ["latin"] });
@@ -118,6 +119,12 @@ export default async function RootLayout({
             })
           }}
         />
+
+        {/* LocalBusiness Schema */}
+        <LocalBusinessSchema />
+
+        {/* Organization Schema */}
+        <OrganizationSchema />
 
         {/* Schema para FAQ - Aumenta as chances de featured snippets */}
         <script

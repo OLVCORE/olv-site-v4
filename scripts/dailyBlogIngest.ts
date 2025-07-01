@@ -113,28 +113,91 @@ async function upsertPost({ title, excerpt, content, category, cover }: { title:
   );
 }
 
+async function logIngest({ source, rss_title, parsing_status, parsing_error, exec_time_ms, status, message, stderr }: any) {
+  await supabase.from('ingest_logs').insert([
+    {
+      created_at: new Date().toISOString(),
+      source,
+      rss_title,
+      parsing_status,
+      parsing_error,
+      exec_time_ms,
+      status,
+      message,
+      stderr: stderr || null,
+    },
+  ]);
+}
+
 async function run() {
   for (const src of SOURCES) {
     console.log('Fetching:', src.url);
     try {
+      const t0 = Date.now();
       const items = await fetchRssFeed(src.url);
       const latest = items.slice(0, 2); // max 2 per category per run
       for (const item of latest) {
-        // check duplicate by link hash
-        const { data: existing } = await supabase
-          .from('posts')
-          .select('slug')
-          .eq('slug', slugify(item.title, { lower: true, strict: true }))
-          .maybeSingle();
-        if (existing) continue;
-
-        const mdx = await generatePostContent(item.title, item.description ?? item.title);
-        const excerpt = mdx.split('\n').find((l) => l.trim().length > 40)?.slice(0, 160) ?? '';
-        await upsertPost({ title: item.title, excerpt, content: mdx, category: src.category, cover: null });
-        console.log('Inserted:', item.title);
+        const start = Date.now();
+        let parsing_status = 'ok';
+        let parsing_error = null;
+        let mdx = '';
+        try {
+          mdx = await generatePostContent(item.title, item.description ?? item.title);
+        } catch (err: any) {
+          parsing_status = 'error';
+          parsing_error = err.message;
+        }
+        const exec_time_ms = Date.now() - start;
+        try {
+          if (parsing_status === 'ok') {
+            const excerpt = mdx.split('\n').find((l) => l.trim().length > 40)?.slice(0, 160) ?? '';
+            await upsertPost({ title: item.title, excerpt, content: mdx, category: src.category, cover: null });
+          }
+          await logIngest({
+            source: src.url,
+            rss_title: item.title,
+            parsing_status,
+            parsing_error,
+            exec_time_ms,
+            status: parsing_status === 'ok' ? 'sucesso' : 'erro',
+            message: parsing_status === 'ok' ? 'Artigo processado' : 'Erro ao processar artigo',
+            stderr: null,
+          });
+        } catch (err: any) {
+          await logIngest({
+            source: src.url,
+            rss_title: item.title,
+            parsing_status,
+            parsing_error: parsing_error || err.message,
+            exec_time_ms,
+            status: 'erro',
+            message: 'Erro ao inserir artigo',
+            stderr: err.message,
+          });
+        }
       }
-    } catch (err) {
-      console.error('Error processing source', src.url, err);
+      const exec_time_ms = Date.now() - t0;
+      await logIngest({
+        source: src.url,
+        rss_title: null,
+        parsing_status: 'batch',
+        parsing_error: null,
+        exec_time_ms,
+        status: 'batch',
+        message: 'Batch finalizado',
+        stderr: null,
+      });
+    } catch (err: any) {
+      await logIngest({
+        source: src.url,
+        rss_title: null,
+        parsing_status: 'fatal',
+        parsing_error: err.message,
+        exec_time_ms: 0,
+        status: 'fatal',
+        message: 'Erro fatal no batch',
+        stderr: err.message,
+      });
     }
   }
   console.log('Ingest finished');
