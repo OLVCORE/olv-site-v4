@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -122,7 +124,6 @@ export function AnimatedButton({
         )}
       </AnimatePresence>
       
-      {/* Ripple effect */}
       {isPressed && (
         <motion.div
           initial={{ scale: 0, opacity: 0.5 }}
