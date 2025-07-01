@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -34,7 +36,6 @@ export default function OptimizedImage({
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  // Fallback para imagem quebrada
   if (hasError) {
     return (
       <div 
@@ -69,7 +70,6 @@ export default function OptimizedImage({
         {...props}
       />
       
-      {/* Skeleton loading */}
       {isLoading && (
         <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse rounded" />
       )}
