@@ -31,8 +31,6 @@ export default function Sobre() {
                 WebkitBackdropFilter: 'blur(8px)',
                 transition: 'box-shadow 0.3s',
               }}
-              onMouseOver={e => (e.currentTarget.style.boxShadow = '0 0 32px 0 #FFD700, 0 2px 24px 0 rgba(212,175,55,0.25)')}
-              onMouseOut={e => (e.currentTarget.style.boxShadow = '0 2px 24px 0 rgba(212,175,55,0.15)')}
             >
               <h1 className="hero-title mb-4">Sobre a OLV Internacional</h1>
               <p className="max-w-3xl mx-auto text-base md:text-xl lg:text-2xl font-medium text-on-surface/90">

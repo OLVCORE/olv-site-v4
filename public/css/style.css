@@ -2228,3 +2228,16 @@ body.theme-light .nav-menu .nav-item:hover {
     z-index: 2600 !important;
   }
 }
+
+.glass-card-gold {
+  background: rgba(20, 22, 34, 0.72);
+  border: 2px solid #FFD700;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 24px 0 rgba(212,175,55,0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: box-shadow 0.3s;
+}
+.glass-card-gold:hover {
+  box-shadow: 0 0 32px 0 #FFD700, 0 2px 24px 0 rgba(212,175,55,0.25);
+}
