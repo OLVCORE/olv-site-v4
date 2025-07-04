@@ -31,29 +31,61 @@ interface Source {
   category: string;
 }
 
-// Simple RSS list per category (can be expanded)
+// Fontes RSS expandidas para 42 feeds conforme recomendação
 const SOURCES: Source[] = [
-  {
-    url: 'https://www.porttechnology.org/feed/',
-    category: 'Logística',
-  },
-  {
-    url: 'https://www.joc.com/rss',
-    category: 'Logística',
-  },
-  {
-    url: 'https://www.globalcompliancepanel.com/rss',
-    category: 'Compliance',
-  },
-  {
-    url: 'https://www.trade.gov/rss.xml',
-    category: 'Exportação',
-  },
-  {
-    url: 'https://www.reuters.com/rssCommoditiesNews',
-    category: 'Finanças',
-  },
-  // add more feeds per category
+  // Comércio Exterior e Logística Internacional
+  { url: 'https://www.comexstat.mdic.gov.br/feed/', category: 'Comércio Exterior' },
+  { url: 'https://www.gov.br/receitafederal/pt-br/assuntos/noticias/feed', category: 'Comércio Exterior' },
+  { url: 'https://www.gov.br/mdic/pt-br/assuntos/noticias/feed', category: 'Comércio Exterior' },
+  { url: 'https://www.gov.br/antaq/pt-br/assuntos/noticias/feed', category: 'Logística' },
+  { url: 'https://www.gov.br/anvisa/pt-br/assuntos/noticias/feed', category: 'Compliance' },
+  { url: 'https://portosenavios.com.br/feed/', category: 'Logística' },
+  { url: 'https://www.porttechnology.org/feed/', category: 'Logística' },
+  { url: 'https://www.worldmaritimenews.com/feed/', category: 'Logística' },
+  { url: 'https://www.tradewindsnews.com/rss', category: 'Logística' },
+  { url: 'https://www.hellenicshippingnews.com/feed/', category: 'Logística' },
+  { url: 'https://www.joc.com/rss', category: 'Logística' },
+  { url: 'https://www.seatrade-maritime.com/rss', category: 'Logística' },
+  
+  // Finanças, Câmbio e Economia Internacional
+  { url: 'https://www.bcb.gov.br/novosnoticias/rss/noticias.xml', category: 'Finanças' },
+  { url: 'https://valor.globo.com/rss/feed/feed.xml', category: 'Finanças' },
+  { url: 'https://www.bloomberg.com/feed/podcast/etf-report.xml', category: 'Finanças' },
+  { url: 'https://www.investing.com/rss/news_301.rss', category: 'Finanças' },
+  { url: 'https://economia.estadao.com.br/rss.xml', category: 'Finanças' },
+  { url: 'https://www.reuters.com/rssCommoditiesNews', category: 'Finanças' },
+  
+  // Exportação Agrícola, Indústria e Setores Específicos
+  { url: 'https://www.agrolink.com.br/rss/exportacao.xml', category: 'Exportação' },
+  { url: 'https://g1.globo.com/rss/g1/economia/agronegocio/', category: 'Exportação' },
+  { url: 'https://www.abag.com.br/rss/noticias.xml', category: 'Exportação' },
+  { url: 'https://www.abimaq.org.br/rss/noticias.xml', category: 'Exportação' },
+  { url: 'https://www.cnabrasil.org.br/rss/agroexportacao.xml', category: 'Exportação' },
+  
+  // Inovação, Tecnologia e Supply Chain
+  { url: 'https://scm.mit.edu/feed/', category: 'Supply Chain' },
+  { url: 'https://www.supplychaindive.com/rss/', category: 'Supply Chain' },
+  { url: 'https://www.logisticsmgmt.com/rss/', category: 'Supply Chain' },
+  { url: 'https://www.freightwaves.com/rss', category: 'Supply Chain' },
+  { url: 'https://www.inboundlogistics.com/rss/', category: 'Supply Chain' },
+  { url: 'https://theloadstar.com/feed/', category: 'Supply Chain' },
+  { url: 'https://www.ttnews.com/rss', category: 'Supply Chain' },
+  { url: 'https://www.smartindustry.com/rss/', category: 'Supply Chain' },
+  
+  // Compliance, Exportação Legal e Operações Internacionais
+  { url: 'https://www.tradecompliance.com/rss', category: 'Compliance' },
+  { url: 'https://www.wto.org/english/news_e/rss_e/rss_e.xml', category: 'Compliance' },
+  { url: 'https://www.export.gov/rss', category: 'Compliance' },
+  { url: 'https://www.customstoday.com/rss', category: 'Compliance' },
+  { url: 'https://www.trade.gov/rss.xml', category: 'Compliance' },
+  { url: 'https://www.globalcompliancepanel.com/rss', category: 'Compliance' },
+  
+  // Agências e Órgãos Oficiais Internacionais
+  { url: 'https://www.oecd.org/trade/rss.xml', category: 'Internacional' },
+  { url: 'https://unctad.org/rss.xml', category: 'Internacional' },
+  { url: 'https://iccwbo.org/rss/', category: 'Internacional' },
+  { url: 'https://data.worldbank.org/rss', category: 'Internacional' },
+  { url: 'https://www.imf.org/rss', category: 'Internacional' }
 ];
 
 const xmlParser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '' });
@@ -71,6 +103,22 @@ async function fetchRssFeed(url: string) {
   }));
 }
 
+// Categorias expandidas conforme recomendação
+const CATEGORIES = [
+  'Estratégia Internacional',
+  'Business Intelligence', 
+  'Importação',
+  'Exportação',
+  'Compliance',
+  'Logística',
+  'Finanças',
+  'Supply Chain',
+  'Gestão',
+  'Internacional',
+  'PMEs',
+  'Outros'
+];
+
 async function generatePostContent(title: string, sourceText: string) {
   const prompt = {
     model: 'gpt-4o-mini',
@@ -78,7 +126,7 @@ async function generatePostContent(title: string, sourceText: string) {
       {
         role: 'system',
         content:
-          'Você é um redator especializado em comércio exterior. Resuma a notícia abaixo em português num formato de artigo MDX de 400-600 palavras, incluindo subtítulos, lista de pontos-chave e call-to-action final para consultoria.\nUse markdown comum (##, ###, -, **). Não inclua imagens.',
+          'Você é um redator especializado em comércio exterior. Resuma a notícia abaixo em português num formato de artigo MDX de 400-600 palavras, incluindo subtítulos, lista de pontos-chave e call-to-action final para consultoria.\nUse markdown comum (##, ###, -, **). Não inclua imagens.\n\nCategorize automaticamente o conteúdo em uma das seguintes categorias: Estratégia Internacional, Business Intelligence, Importação, Exportação, Compliance, Logística, Finanças, Supply Chain, Gestão, Internacional, PMEs, Outros.',
       },
       {
         role: 'user',

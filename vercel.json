@@ -1,1 +1,1 @@
-{"version":2,"builds":[{"src":"package.json","use":"@vercel/next"}],"routes":[{"src":"/(.*)","dest":"/$1"}],"crons":[{"path":"/api/cron/blog-ingest","schedule":"0 8 * * *"}]}
+{"version":2,"builds":[{"src":"package.json","use":"@vercel/next"}],"routes":[{"src":"/(.*)","dest":"/$1"}],"crons":[{"path":"/api/cron/blog-ingest","schedule":"0 8,13,19 * * *"}]}
