@@ -147,7 +147,7 @@ async function upsertPost({ title, excerpt, content, category, cover }: { title:
     category,
     cover_url: cover,
   });
-  await supabase.from('posts').upsert(
+  const { data, error } = await supabase.from('posts').upsert(
     {
       slug,
       title,
@@ -159,6 +159,11 @@ async function upsertPost({ title, excerpt, content, category, cover }: { title:
     },
     { onConflict: 'slug' },
   );
+  if (error) {
+    console.error('ERRO ao inserir post no Supabase:', error.message);
+  } else {
+    console.log('Post inserido/atualizado no Supabase:', data);
+  }
 }
 
 async function logIngest({ source, rss_title, parsing_status, parsing_error, exec_time_ms, status, message, stderr }: any) {
