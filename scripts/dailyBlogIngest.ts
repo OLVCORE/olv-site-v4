@@ -178,11 +178,13 @@ async function logIngest({ source, rss_title, parsing_status, parsing_error, exe
 }
 
 async function run() {
+  console.log('==== INÍCIO DA INGESTÃO BLINDADA ====');
   for (const src of SOURCES) {
     console.log('Fetching:', src.url);
     try {
       const t0 = Date.now();
       const items = await fetchRssFeed(src.url);
+      console.log(`[${src.url}] Itens encontrados:`, items.length);
       const latest = items.slice(0, 2); // max 2 per category per run
       for (const item of latest) {
         const start = Date.now();
@@ -190,16 +192,20 @@ async function run() {
         let parsing_error = null;
         let mdx = '';
         try {
+          console.log(`[${src.url}] Processando título:`, item.title);
           mdx = await generatePostContent(item.title, item.description ?? item.title);
+          console.log(`[${src.url}] OpenAI resposta recebida para:`, item.title, 'Tamanho:', mdx.length);
         } catch (err: any) {
           parsing_status = 'error';
           parsing_error = err.message;
+          console.error(`[${src.url}] Erro OpenAI:`, err.message);
         }
         const exec_time_ms = Date.now() - start;
         try {
           if (parsing_status === 'ok') {
             const excerpt = mdx.split('\n').find((l) => l.trim().length > 40)?.slice(0, 160) ?? '';
             await upsertPost({ title: item.title, excerpt, content: mdx, category: src.category, cover: null });
+            console.log(`[${src.url}] Inserido no Supabase:`, item.title);
           }
           await logIngest({
             source: src.url,
@@ -212,6 +218,7 @@ async function run() {
             stderr: null,
           });
         } catch (err: any) {
+          console.error(`[${src.url}] Erro ao inserir no Supabase:`, err.message);
           await logIngest({
             source: src.url,
             rss_title: item.title,
@@ -236,6 +243,7 @@ async function run() {
         stderr: null,
       });
     } catch (err: any) {
+      console.error(`[${src.url}] Erro fatal no batch:`, err.message);
       await logIngest({
         source: src.url,
         rss_title: null,
@@ -248,7 +256,7 @@ async function run() {
       });
     }
   }
-  console.log('Ingest finished');
+  console.log('==== FIM DA INGESTÃO BLINDADA ====');
 }
 
 // Controle: trigger de ingestão automática para teste seguro (não altera lógica nem dados)
