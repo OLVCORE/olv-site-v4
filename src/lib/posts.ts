@@ -15,10 +15,12 @@ export async function getAllPosts(limit = 12): Promise<Post[]> {
   if (!supabase) return [];
   const { data, error } = await supabase
     .from('posts')
-    .select('*')
+    .select('*', { head: false })
     .eq('status', 'published')
     .order('published_at', { ascending: false })
-    .limit(limit);
+    .limit(limit)
+    .abortSignal(undefined)
+    ;
   if (error) {
     console.error('getAllPosts error', error.message);
     return [];
