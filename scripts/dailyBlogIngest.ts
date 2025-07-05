@@ -118,6 +118,25 @@ const CATEGORIES = [
   'Outros'
 ];
 
+// Função para obter imagem padrão OLV por categoria
+function getDefaultImageForCategory(category: string) {
+  const map: Record<string, string> = {
+    'Estratégia Internacional': '/images/blog/default-internacional.png',
+    'Business Intelligence': '/images/blog/default-bi.png',
+    'Importação': '/images/blog/default-importacao.png',
+    'Exportação': '/images/blog/default-exportacao.png',
+    'Compliance': '/images/blog/default-compliance.png',
+    'Logística': '/images/blog/default-logistica.png',
+    'Finanças': '/images/blog/default-financas.png',
+    'Supply Chain': '/images/blog/default-supplychain.png',
+    'Gestão': '/images/blog/default-gestao.png',
+    'Internacional': '/images/blog/default-internacional.png',
+    'PMEs': '/images/blog/default-pmes.png',
+    'Outros': '/images/blog/default-outros.png',
+  };
+  return map[category] || '/images/blog/default-news.svg';
+}
+
 // NOVA FUNÇÃO BLINDADA
 async function generatePostContent(
   title: string,
@@ -170,7 +189,12 @@ Imagem: ${cover || 'não informada'}
   const completion = await openai.chat.completions.create(prompt as any);
   const response = completion.choices[0].message?.content ?? '';
   try {
-    return JSON.parse(response);
+    const json = JSON.parse(response);
+    // Se a imagem não for uma URL, substitui pela imagem padrão OLV da categoria
+    if (!json.imagem || !json.imagem.startsWith('http')) {
+      json.imagem = getDefaultImageForCategory(json.categoria);
+    }
+    return json;
   } catch (e) {
     console.error('Erro ao fazer parse do JSON do OpenAI:', response);
     return null;
