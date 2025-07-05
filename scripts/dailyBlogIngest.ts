@@ -266,4 +266,8 @@ async function run() {
 // Controle: trigger de ingestão automática para teste seguro (não altera lógica nem dados)
 // Último teste: 
 
+<<<<<<< HEAD
 run();
+=======
+run();
+>>>>>>> 13f3b5c88490487351095ba5afc4434cd4bd8167
