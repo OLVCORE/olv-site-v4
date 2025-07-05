@@ -103,7 +103,6 @@ async function fetchRssFeed(url: string) {
   }));
 }
 
-// Categorias expandidas conforme recomendação
 const CATEGORIES = [
   'Estratégia Internacional',
   'Business Intelligence',
@@ -119,24 +118,63 @@ const CATEGORIES = [
   'Outros'
 ];
 
-async function generatePostContent(title: string, sourceText: string) {
+// NOVA FUNÇÃO BLINDADA
+async function generatePostContent(
+  title: string,
+  sourceText: string,
+  link: string,
+  pubDate: string,
+  cover: string | null
+) {
   const prompt = {
     model: 'gpt-4o-mini',
     messages: [
       {
         role: 'system',
-        content:
-          'Você é um redator especializado em comércio exterior. Resuma a notícia abaixo em português num formato de artigo MDX de 400-600 palavras, incluindo subtítulos, lista de pontos-chave e call-to-action final para consultoria.\nUse markdown comum (##, ###, -, **). Não inclua imagens.\n\nCategorize automaticamente o conteúdo em uma das seguintes categorias: Estratégia Internacional, Business Intelligence, Importação, Exportação, Compliance, Logística, Finanças, Supply Chain, Gestão, Internacional, PMEs, Outros.',
+        content: `
+Você é um editor-chefe de um blog institucional premium focado em comércio exterior, negócios internacionais e PMEs brasileiras. Sua missão é transformar notícias de fontes oficiais em cards editoriais de alta qualidade para o Blog OLV Internacional.
+
+Regras obrigatórias:
+- Reescreva o TÍTULO em português (PT-BR), de forma editorial, clara, atrativa e profissional. Não traduza literalmente: adapte para o público brasileiro, com foco em PMEs e contexto nacional.
+- Gere um RESUMO (lead) de até 500 caracteres, em até duas frases, objetivo, técnico e que estimule o clique.
+- Classifique a matéria em uma das categorias: Estratégia Internacional, Business Intelligence, Importação, Exportação, Compliance, Logística, Finanças, Supply Chain, Gestão, Internacional, PMEs, Outros.
+- Se houver imagem destacada (Open Graph ou similar), use-a; caso contrário, indique "imagem padrão OLV + categoria".
+- Informe a DATA da matéria original (ou de ingestão, se indisponível).
+- Inclua o link da FONTE ORIGINAL.
+- O conteúdo deve ser claro, sem clickbait, sem erros gramaticais, e com tom consultivo premium.
+
+Formato de resposta obrigatório (JSON):
+{
+  "titulo": "...",
+  "resumo": "...",
+  "categoria": "...",
+  "imagem": "...",
+  "data": "...",
+  "fonte": "..."
+}
+      `.trim()
       },
       {
         role: 'user',
-        content: sourceText,
-      },
+        content: `
+Título original: ${title}
+Conteúdo original: ${sourceText}
+Link: ${link}
+Data: ${pubDate}
+Imagem: ${cover || 'não informada'}
+        `.trim()
+      }
     ],
     temperature: 0.4,
   };
   const completion = await openai.chat.completions.create(prompt as any);
-  return completion.choices[0].message?.content ?? '';
+  const response = completion.choices[0].message?.content ?? '';
+  try {
+    return JSON.parse(response);
+  } catch (e) {
+    console.error('Erro ao fazer parse do JSON do OpenAI:', response);
+    return null;
+  }
 }
 
 // AJUSTE BLINDADO: log detalhado do resultado do upsert
@@ -194,11 +232,17 @@ async function run() {
         const start = Date.now();
         let parsing_status = 'ok';
         let parsing_error = null;
-        let mdx = '';
+        let mdx = null;
         try {
           console.log(`[${src.url}] Processando título:`, item.title);
-          mdx = await generatePostContent(item.title, item.description ?? item.title);
-          console.log(`[${src.url}] OpenAI resposta recebida para:`, item.title, 'Tamanho:', mdx.length);
+          mdx = await generatePostContent(
+            item.title,
+            item.description ?? item.title,
+            item.link,
+            item.pubDate,
+            null
+          );
+          console.log(`[${src.url}] OpenAI resposta recebida para:`, item.title, 'Tamanho:', mdx ? JSON.stringify(mdx).length : 0);
         } catch (err: any) {
           parsing_status = 'error';
           parsing_error = err.message;
@@ -206,10 +250,15 @@ async function run() {
         }
         const exec_time_ms = Date.now() - start;
         try {
-          if (parsing_status === 'ok') {
-            const excerpt = mdx.split('\n').find((l) => l.trim().length > 40)?.slice(0, 160) ?? '';
-            await upsertPost({ title: item.title, excerpt, content: mdx, category: src.category, cover: null });
-            console.log(`[${src.url}] Inserido no Supabase:`, item.title);
+          if (parsing_status === 'ok' && mdx) {
+            await upsertPost({
+              title: mdx.titulo,
+              excerpt: mdx.resumo,
+              content: mdx.resumo, // ou mdx.conteudo se quiser o texto completo
+              category: mdx.categoria,
+              cover: mdx.imagem,
+            });
+            console.log(`[${src.url}] Inserido no Supabase:`, mdx.titulo);
           }
           await logIngest({
             source: src.url,
@@ -243,28 +292,28 @@ async function run() {
         parsing_error: null,
         exec_time_ms,
         status: 'batch',
-        message: 'Batch finalizado',
+        message: 'Batch processado',
         stderr: null,
       });
     } catch (err: any) {
-      console.error(`[${src.url}] Erro fatal no batch:`, err.message);
+      console.error(`[${src.url}] Erro geral:`, err.message);
       await logIngest({
         source: src.url,
         rss_title: null,
         parsing_status: 'fatal',
         parsing_error: err.message,
         exec_time_ms: 0,
-        status: 'fatal',
-        message: 'Erro fatal no batch',
+        status: 'erro',
+        message: 'Erro geral no batch',
         stderr: err.message,
       });
     }
   }
-  console.log('==== FIM DA INGESTÃO BLINDADA ====');
 }
 
-// Controle: trigger de ingestão automática para teste seguro (não altera lógica nem dados)
-// Último teste: 
-
-
-run();
+if (require.main === module) {
+  run().then(() => {
+    console.log('Ingestão finalizada.');
+    process.exit(0);
+  });
+}
