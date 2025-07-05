@@ -46,7 +46,7 @@ const SOURCES: Source[] = [
   { url: 'https://www.hellenicshippingnews.com/feed/', category: 'Logística' },
   { url: 'https://www.joc.com/rss', category: 'Logística' },
   { url: 'https://www.seatrade-maritime.com/rss', category: 'Logística' },
-  
+
   // Finanças, Câmbio e Economia Internacional
   { url: 'https://www.bcb.gov.br/novosnoticias/rss/noticias.xml', category: 'Finanças' },
   { url: 'https://valor.globo.com/rss/feed/feed.xml', category: 'Finanças' },
@@ -54,14 +54,14 @@ const SOURCES: Source[] = [
   { url: 'https://www.investing.com/rss/news_301.rss', category: 'Finanças' },
   { url: 'https://economia.estadao.com.br/rss.xml', category: 'Finanças' },
   { url: 'https://www.reuters.com/rssCommoditiesNews', category: 'Finanças' },
-  
+
   // Exportação Agrícola, Indústria e Setores Específicos
   { url: 'https://www.agrolink.com.br/rss/exportacao.xml', category: 'Exportação' },
   { url: 'https://g1.globo.com/rss/g1/economia/agronegocio/', category: 'Exportação' },
   { url: 'https://www.abag.com.br/rss/noticias.xml', category: 'Exportação' },
   { url: 'https://www.abimaq.org.br/rss/noticias.xml', category: 'Exportação' },
   { url: 'https://www.cnabrasil.org.br/rss/agroexportacao.xml', category: 'Exportação' },
-  
+
   // Inovação, Tecnologia e Supply Chain
   { url: 'https://scm.mit.edu/feed/', category: 'Supply Chain' },
   { url: 'https://www.supplychaindive.com/rss/', category: 'Supply Chain' },
@@ -71,7 +71,7 @@ const SOURCES: Source[] = [
   { url: 'https://theloadstar.com/feed/', category: 'Supply Chain' },
   { url: 'https://www.ttnews.com/rss', category: 'Supply Chain' },
   { url: 'https://www.smartindustry.com/rss/', category: 'Supply Chain' },
-  
+
   // Compliance, Exportação Legal e Operações Internacionais
   { url: 'https://www.tradecompliance.com/rss', category: 'Compliance' },
   { url: 'https://www.wto.org/english/news_e/rss_e/rss_e.xml', category: 'Compliance' },
@@ -79,7 +79,7 @@ const SOURCES: Source[] = [
   { url: 'https://www.customstoday.com/rss', category: 'Compliance' },
   { url: 'https://www.trade.gov/rss.xml', category: 'Compliance' },
   { url: 'https://www.globalcompliancepanel.com/rss', category: 'Compliance' },
-  
+
   // Agências e Órgãos Oficiais Internacionais
   { url: 'https://www.oecd.org/trade/rss.xml', category: 'Internacional' },
   { url: 'https://unctad.org/rss.xml', category: 'Internacional' },
@@ -106,7 +106,7 @@ async function fetchRssFeed(url: string) {
 // Categorias expandidas conforme recomendação
 const CATEGORIES = [
   'Estratégia Internacional',
-  'Business Intelligence', 
+  'Business Intelligence',
   'Importação',
   'Exportação',
   'Compliance',
@@ -139,6 +139,7 @@ async function generatePostContent(title: string, sourceText: string) {
   return completion.choices[0].message?.content ?? '';
 }
 
+// AJUSTE BLINDADO: log detalhado do resultado do upsert
 async function upsertPost({ title, excerpt, content, category, cover }: { title: string; excerpt: string; content: string; category: string; cover: string | null }) {
   const slug = slugify(title, { lower: true, strict: true });
   const frontMatter = matter.stringify(content, {
@@ -159,11 +160,9 @@ async function upsertPost({ title, excerpt, content, category, cover }: { title:
     },
     { onConflict: 'slug' },
   );
-  if (error) {
-    console.error('ERRO ao inserir post no Supabase:', error.message);
-  } else {
-    console.log('Post inserido/atualizado no Supabase:', data);
-  }
+  // LOG DETALHADO
+  console.log('Supabase upsert data:', data);
+  console.log('Supabase upsert error:', error);
 }
 
 async function logIngest({ source, rss_title, parsing_status, parsing_error, exec_time_ms, status, message, stderr }: any) {
@@ -267,4 +266,4 @@ async function run() {
 // Controle: trigger de ingestão automática para teste seguro (não altera lógica nem dados)
 // Último teste: 
 
-run(); 
+run();
