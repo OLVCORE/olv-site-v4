@@ -251,4 +251,7 @@ async function run() {
   console.log('Ingest finished');
 }
 
+// Controle: trigger de ingestão automática para teste seguro (não altera lógica nem dados)
+// Último teste: 
+
 run(); 
