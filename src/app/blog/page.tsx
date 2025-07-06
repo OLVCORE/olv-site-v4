@@ -1,9 +1,19 @@
-"use client";
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import MainLayout from '../../components/layout/MainLayout';
 import { getAllPosts } from '@/lib/posts';
 import { CATEGORIES } from '@/lib/blogConfig';
+
+export const metadata = {
+  title: 'Blog | OLV Internacional',
+  description:
+    'Conteúdo especializado sobre comércio exterior, estratégia, operações internacionais e soluções para PMEs.',
+  keywords:
+    'blog de comércio exterior, notícias de importação e exportação, dicas de logística internacional, análises de mercado global',
+  alternates: {
+    canonical: 'https://olvinternacional.com.br/blog',
+  },
+};
 
 // Função utilitária para imagem padrão OLV por categoria
 function getImageUrl(post: { cover_url?: string, category?: string }) {
@@ -27,11 +37,9 @@ function getImageUrl(post: { cover_url?: string, category?: string }) {
   return map[post.category || 'Outros'] || '/images/blog/default-news.svg';
 }
 
-export default function BlogPage({ searchParams }: { searchParams: { limit?: string } }) {
+export default async function BlogPage({ searchParams }: { searchParams: { limit?: string } }) {
   const limit = parseInt(searchParams?.limit || '12');
-  const [search, setSearch] = useState('');
-  const [showAutocomplete, setShowAutocomplete] = useState(false);
-  const posts = getAllPosts(limit);
+  const posts = await getAllPosts(limit);
 
   // fallback demo posts if empty
   const fallback = [
@@ -48,37 +56,11 @@ export default function BlogPage({ searchParams }: { searchParams: { limit?: str
 
   const list = posts && posts.length ? posts : fallback;
 
-  // Busca funcional
-  const filteredPosts = useMemo(() => {
-    if (!search) return list;
-    return list.filter(post =>
-      (post.title || '').toLowerCase().includes(search.toLowerCase()) ||
-      (post.excerpt || '').toLowerCase().includes(search.toLowerCase())
-    );
-  }, [search, list]);
-
-  // Autocomplete: sugestões de títulos únicos
-  const suggestions = useMemo(() => {
-    if (!search) return [];
-    const lower = search.toLowerCase();
-    return list
-      .filter(post =>
-        (post.title || '').toLowerCase().includes(lower) ||
-        (post.excerpt || '').toLowerCase().includes(lower)
-      )
-      .map(post => post.title)
-      .filter((title, idx, arr) => arr.indexOf(title) === idx)
-      .slice(0, 5);
-  }, [search, list]);
-
   // Contador de categorias
-  const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
-    list.forEach(post => {
-      counts[post.category] = (counts[post.category] || 0) + 1;
-    });
-    return counts;
-  }, [list]);
+  const categoryCounts: Record<string, number> = {};
+  list.forEach(post => {
+    categoryCounts[post.category] = (categoryCounts[post.category] || 0) + 1;
+  });
 
   return (
     <MainLayout>
@@ -98,33 +80,10 @@ export default function BlogPage({ searchParams }: { searchParams: { limit?: str
               <div className="relative">
                 <input
                   type="text"
-                  value={search}
-                  onChange={e => {
-                    setSearch(e.target.value);
-                    setShowAutocomplete(true);
-                  }}
-                  onFocus={() => setShowAutocomplete(true)}
-                  onBlur={() => setTimeout(() => setShowAutocomplete(false), 150)}
                   placeholder="Buscar no blog..."
                   className="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-blue-500"
                   autoComplete="off"
                 />
-                {showAutocomplete && suggestions.length > 0 && (
-                  <ul className="absolute z-10 left-0 right-0 mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded shadow-lg max-h-48 overflow-y-auto">
-                    {suggestions.map((title, idx) => (
-                      <li
-                        key={idx}
-                        className="px-4 py-2 cursor-pointer hover:bg-accent hover:text-white"
-                        onMouseDown={() => {
-                          setSearch(title);
-                          setShowAutocomplete(false);
-                        }}
-                      >
-                        {title}
-                      </li>
-                    ))}
-                  </ul>
-                )}
                 <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +114,7 @@ export default function BlogPage({ searchParams }: { searchParams: { limit?: str
                   Artigos Recentes
                 </h2>
                 <div className="grid gap-8">
-                  {filteredPosts.map((post) => (
+                  {list.map((post) => (
                     <article
                       key={post.slug}
                       className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
