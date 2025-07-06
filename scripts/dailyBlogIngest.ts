@@ -238,7 +238,7 @@ async function upsertPost({ title, excerpt, content, category, cover }: { title:
     title,
     excerpt,
     category,
-    cover_url: cover,
+    cover_url: cover || getDefaultImageForCategory(category),
   });
   const { data, error } = await supabase.from('posts').upsert(
     {
@@ -247,7 +247,7 @@ async function upsertPost({ title, excerpt, content, category, cover }: { title:
       excerpt,
       content_mdx: frontMatter,
       category,
-      cover_url: cover,
+      cover_url: cover || getDefaultImageForCategory(category),
       status: 'published',
     },
     { onConflict: 'slug' },
