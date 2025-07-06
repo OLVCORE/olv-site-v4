@@ -1,3 +1,4 @@
+import axios from 'axios';
 // @ts-nocheck
 
 import 'dotenv/config';
@@ -9,7 +10,7 @@ import { XMLParser } from 'fast-xml-parser';
 
 /**
  * ENV required:
- *  SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, OPENAI_API_KEY
+ *  SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, OPENAI_API_KEY, UNSPLASH_ACCESS_KEY
  */
 const supabaseUrl = process.env.SUPABASE_URL as string;
 const supabaseKey = (process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SERVICE_ROLE_KEY) as string;
@@ -29,6 +30,34 @@ const openai = new OpenAI({ apiKey: openaiKey });
 interface Source {
   url: string;
   category: string;
+}
+
+// Função para extrair imagem do item RSS
+function extractImageFromRssItem(item: any): string | null {
+  if (item['media:content']?.url) return item['media:content'].url;
+  if (item.enclosure?.url) return item.enclosure.url;
+  if (item.image?.url) return item.image.url;
+  if (item.description) {
+    const match = item.description.match(/<img[^>]+src="([^">]+)"/i);
+    if (match) return match[1];
+    const ogMatch = item.description.match(/property="og:image" content="([^">]+)"/i);
+    if (ogMatch) return ogMatch[1];
+  }
+  return null;
+}
+
+// Busca imagem gratuita no Unsplash por categoria/título
+async function fetchUnsplashImage(query: string): Promise<string | null> {
+  try {
+    const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+    if (!accessKey) return null;
+    const url = `https://api.unsplash.com/photos/random?query=${encodeURIComponent(query)}&orientation=landscape&client_id=${accessKey}`;
+    const res = await axios.get(url);
+    return res.data?.urls?.regular || null;
+  } catch (e) {
+    console.error('Erro ao buscar imagem no Unsplash:', e.message);
+    return null;
+  }
 }
 
 // Fontes RSS expandidas para 42 feeds conforme recomendação
@@ -100,6 +129,7 @@ async function fetchRssFeed(url: string) {
     link: it.link,
     pubDate: it.pubDate,
     description: it.description ?? '',
+    // Adicione outros campos se necessário
   }));
 }
 
@@ -258,13 +288,21 @@ async function run() {
         let parsing_error = null;
         let mdx = null;
         try {
-          console.log(`[${src.url}] Processando título:`, item.title);
+          // 1. Tenta extrair imagem real do feed
+          let cover = extractImageFromRssItem(item);
+
+          // 2. Se não houver, busca no Unsplash pela categoria ou título
+          if (!cover) {
+            cover = await fetchUnsplashImage(src.category || item.title);
+          }
+
+          // 3. Passa a melhor imagem para o OpenAI (que pode usar ou não)
           mdx = await generatePostContent(
             item.title,
             item.description ?? item.title,
             item.link,
             item.pubDate,
-            null
+            cover
           );
           console.log(`[${src.url}] OpenAI resposta recebida para:`, item.title, 'Tamanho:', mdx ? JSON.stringify(mdx).length : 0);
         } catch (err: any) {
