@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import MainLayout from '../../components/layout/MainLayout';
 import { getAllPosts } from '@/lib/posts';
@@ -15,32 +15,19 @@ export const metadata = {
   },
 };
 
-// Função utilitária para imagem padrão OLV por categoria
-function getImageUrl(post: { cover_url?: string, category?: string }) {
-  if (post.cover_url && post.cover_url.startsWith('http')) {
-    return post.cover_url;
+async function getCategoryCounts() {
+  try {
+    const res = await fetch('/api/posts/categories', { cache: 'no-store' });
+    if (!res.ok) return {};
+    return await res.json();
+  } catch {
+    return {};
   }
-  const map: Record<string, string> = {
-    'Estratégia Internacional': '/images/blog/default-internacional.png',
-    'Business Intelligence': '/images/blog/default-bi.png',
-    'Importação': '/images/blog/default-importacao.png',
-    'Exportação': '/images/blog/default-exportacao.png',
-    'Compliance': '/images/blog/default-compliance.png',
-    'Logística': '/images/blog/default-logistica.png',
-    'Finanças': '/images/blog/default-financas.png',
-    'Supply Chain': '/images/blog/default-supplychain.png',
-    'Gestão': '/images/blog/default-gestao.png',
-    'Internacional': '/images/blog/default-internacional.png',
-    'PMEs': '/images/blog/default-pmes.png',
-    'Outros': '/images/blog/default-outros.png',
-  };
-  return map[post.category || 'Outros'] || '/images/blog/default-news.svg';
 }
 
-export default function BlogPage({ searchParams }: { searchParams: { limit?: string } }) {
-  const limit = parseInt(searchParams?.limit || '12');
-  const [search, setSearch] = useState('');
-  const posts = getAllPosts(limit); // Supondo que getAllPosts retorna um array síncrono. Se for async, useEffect/useState.
+export default async function BlogPage({ searchParams }: { searchParams: { limit?: string } }) {
+  const limit = parseInt(searchParams.limit || '12');
+  const posts = await getAllPosts(limit);
 
   // fallback demo posts if empty
   const fallback = [
@@ -55,25 +42,10 @@ export default function BlogPage({ searchParams }: { searchParams: { limit?: str
     },
   ];
 
-  const list = posts && posts.length ? posts : fallback;
+  const list = posts.length ? posts : fallback;
 
-  // Busca funcional
-  const filteredPosts = useMemo(() => {
-    if (!search) return list;
-    return list.filter(post =>
-      (post.title || '').toLowerCase().includes(search.toLowerCase()) ||
-      (post.excerpt || '').toLowerCase().includes(search.toLowerCase())
-    );
-  }, [search, list]);
-
-  // Contador de categorias
-  const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
-    list.forEach(post => {
-      counts[post.category] = (counts[post.category] || 0) + 1;
-    });
-    return counts;
-  }, [list]);
+  const categories = CATEGORIES;
+  const categoryCounts = await getCategoryCounts();
 
   return (
     <MainLayout>
@@ -93,8 +65,6 @@ export default function BlogPage({ searchParams }: { searchParams: { limit?: str
               <div className="relative">
                 <input
                   type="text"
-                  value={search}
-                  onChange={e => setSearch(e.target.value)}
                   placeholder="Buscar no blog..."
                   className="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-blue-500"
                 />
@@ -128,28 +98,26 @@ export default function BlogPage({ searchParams }: { searchParams: { limit?: str
                   Artigos Recentes
                 </h2>
                 <div className="grid gap-8">
-                  {filteredPosts.map((post) => (
+                  {list.map((post) => (
                     <article
                       key={post.slug}
                       className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
                     >
                       <div className="md:flex">
                         <div className="md:w-1/3 relative h-48 md:h-auto">
-                          <img
-                            src={getImageUrl(post)}
-                            alt={post.title}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 8 }}
-                          />
+                          <div className="w-full h-full bg-gray-300 dark:bg-gray-700">
+                            {/* Placeholder para imagem (em produção usaria Image do Next.js) */}
+                            <div className="absolute inset-0 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                              <span>{post.cover_url || '/images/blog/default-news.svg'}</span>
+                            </div>
+                          </div>
                         </div>
                         <div className="p-6 md:w-2/3">
                           <div className="flex flex-wrap gap-2 mb-3">
-                            <span
-                              className="text-xs font-medium px-2.5 py-0.5 rounded"
-                              style={{ color: '#1e40af', background: '#e0e7ff' }}
-                            >
+                            <span className="text-xs font-medium bg-accent-light text-accent px-2.5 py-0.5 rounded">
                               {post.category}
                             </span>
-                            <span className="text-xs" style={{ color: '#1e40af' }}>
+                            <span className="text-xs text-gray-500 dark:text-gray-400">
                               {new Date(post.published_at).toLocaleDateString('pt-BR')}
                             </span>
                           </div>
@@ -224,30 +192,98 @@ export default function BlogPage({ searchParams }: { searchParams: { limit?: str
                   Categorias
                 </h3>
                 <ul className="space-y-2">
-                  {CATEGORIES.map((category, index) => (
+                  {categories.map((category, index) => (
                     <li key={index}>
                       <Link
                         href={`/blog/categoria/${encodeURIComponent(category)}`}
                         className="flex items-center justify-between text-gray-700 dark:text-gray-300 hover:text-accent"
                       >
                         <span>{category}</span>
-                        <span className="ml-2 text-xs text-gray-500">{categoryCounts[category] || 0}</span>
+                        <span className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                          {categoryCounts[category] || 0}
+                        </span>
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Posts Populares (mantido como está, pode ser ajustado conforme necessidade) */}
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              {/* Posts Populares */}
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-8">
                 <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
                   Posts Populares
                 </h3>
-                {/* Implemente lógica de populares se desejar */}
+                <ul className="space-y-4">
+                  {list.slice(0, 3).map((post) => (
+                    <li key={post.slug} className="flex gap-3">
+                      <div className="w-16 h-16 flex-shrink-0 bg-gray-200 dark:bg-gray-700 rounded">
+                        {/* Placeholder para imagem miniatura */}
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-medium text-gray-900 dark:text-white">
+                          <Link
+                            href={`/blog/${post.slug}`}
+                            className="hover:text-accent"
+                          >
+                            {post.title}
+                          </Link>
+                        </h4>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                          {new Date(post.published_at).toLocaleDateString('pt-BR')}
+                        </span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Newsletter */}
+              <div className="bg-primary text-on-primary p-6 rounded-lg shadow-md">
+                <h3 className="text-lg font-bold mb-2">
+                  Inscreva-se na nossa Newsletter
+                </h3>
+                <p className="mb-4 text-on-primary/80">
+                  Receba conteúdo exclusivo sobre comércio exterior e negócios
+                  internacionais.
+                </p>
+                <form className="space-y-3">
+                  <input
+                    type="email"
+                    placeholder="Seu melhor e-mail"
+                    className="w-full px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  />
+                  <button
+                    type="submit"
+                    className="w-full px-4 py-2 btn btn-primary font-bold"
+                  >
+                    Inscrever-se
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
+
+        {/* CTA FINAL */}
+        <section className="section">
+          <div className="container">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow text-center">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                Busca conteúdo específico para sua empresa?
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+                Nossos especialistas podem desenvolver análises e conteúdos
+                customizados para o seu setor e desafios específicos.
+              </p>
+              <Link
+                href="https://api.olvinternacional.com.br/contato"
+                className="btn btn-primary font-bold py-3 px-6"
+              >
+                Solicitar Consultoria de Conteúdo
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
     </MainLayout>
   );
