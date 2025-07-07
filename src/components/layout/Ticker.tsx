@@ -1,27 +1,45 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const Ticker: React.FC = () => {
-  return (
+  const [headlines, setHeadlines] = useState<{ title: string; excerpt: string }[]>([]);
+
+  useEffect(() => {
+    // Buscar notícias do dia via API (ajuste o endpoint conforme necessário)
+    fetch('/api/posts?today=1')
+      .then(res => res.json())
+      .then(data => {
+        // Supondo que data seja um array de posts com campos title e excerpt
+        setHeadlines(data.map((post: any) => ({
+          title: post.title,
+          excerpt: post.excerpt || '',
+        })));
+      });
+  }, []);
+
+  if (headlines.length === 0) return (
     <div className="ticker">
       <div className="ticker-inner">
         <p>
-          <span><Link href="/radar360">Radar 360 Ativo</Link> – </span>
-          <span>
-            <Link href="https://www.bcb.gov.br/estatisticas/mercadoabertodiario" target="_blank">
-              Câmbio em Tempo Real
-            </Link> – 
-          </span>
-          <span><Link href="/solucoes">Consultoria Premium em Logística</Link> – </span>
-          <span>
-            <Link href="https://comexstat.mdic.gov.br/" target="_blank">
-              Últimas do Blog OLV Internacional
-            </Link> – 
-          </span>
-          <span><Link href="/contato">Fale com um Especialista Agora Mesmo</Link></span>
+          <span>Últimas do Blog OLV Internacional – </span>
         </p>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="ticker">
+      <div className="ticker-inner">
+        {headlines.map((news, idx) => (
+          <span key={idx}>
+            <Link href="/blog">
+              {news.excerpt ? `${news.excerpt.slice(0, 60)}...` : news.title}
+            </Link>
+            {idx < headlines.length - 1 && " – "}
+          </span>
+        ))}
       </div>
     </div>
   );
