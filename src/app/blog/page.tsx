@@ -117,7 +117,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
                             <h3 className="blog-title text-xl font-bold mb-2">
                               <Link
                                 href={`/blog/${post.slug}`}
-                                className="hover:text-accent dark:hover:text-accent"
+                                className="text-white dark:text-white hover:text-accent"
                               >
                                 {post.title}
                               </Link>
@@ -156,25 +156,6 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
 
               {/* SIDEBAR */}
               <div className="w-full lg:w-1/3">
-                {/* Categorias */}
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-8">
-                  <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
-                    Categorias
-                  </h3>
-                  <ul className="space-y-2">
-                    {CATEGORIES.map((category, index) => (
-                      <li key={index}>
-                        <Link
-                          href={`/blog?category=${encodeURIComponent(category)}`}
-                          className="text-gray-700 dark:text-gray-300 hover:text-accent"
-                        >
-                          {category} <span className="text-xs text-gray-400">{(categoryCounts && categoryCounts[category]) || 0}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
                 {/* Posts Populares */}
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
                   <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
