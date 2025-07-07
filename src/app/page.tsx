@@ -2,7 +2,7 @@ import MainLayout from '../components/layout/MainLayout';
 import Image from 'next/image';
 import Link from 'next/link';
 import RadarHub from '../components/home/RadarHub';
-import OptimizedImage from '../components/OptimizedImage';
+import HomeImage from '../components/home/HomeImage';
 import { AnimatedCard, FadeIn } from '../components/MicroInteractions';
 
 export const metadata = {
@@ -68,7 +68,7 @@ export default function HomePage() {
             </div>
             <div className="flex-shrink-0 md:w-1/3">
               <div className="bg-[#0a0f1d] p-4 rounded-lg border border-[#2a3448] shadow-md">
-                <OptimizedImage 
+                <HomeImage 
                   src="/images/olv-internacional-banner.webp" 
                   alt="OLV Internacional – Banner Hero" 
                   width={460} 
@@ -106,7 +106,7 @@ export default function HomePage() {
                     className="bg-[#141c2f] p-3 rounded-lg border border-[#2a3448] shadow-md hover:border-[#d4af37] hover:shadow-lg transition-all duration-300"
                   >
                     <div className="flex items-start mb-1">
-                      <OptimizedImage src={point.icon} alt={point.title} width={20} height={20} className="mt-1 mr-2 flex-shrink-0" />
+                      <HomeImage src={point.icon} alt={point.title} width={20} height={20} className="mt-1 mr-2 flex-shrink-0" />
                       <h4 className="text-gray-200 font-semibold">{point.title}</h4>
                     </div>
                     <p className="text-gray-400 text-sm pl-7">{point.description}</p>
