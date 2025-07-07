@@ -51,6 +51,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
     const offset = (page - 1) * POSTS_PER_PAGE;
     posts = await getAllPosts(1000); // Busca todos para simular paginação simples
     categoryCounts = await getCategoryCounts();
+    categoryCounts = categoryCounts || {};
     console.log('[SSR BLOG] posts:', posts);
     console.log('[SSR BLOG] categoryCounts:', categoryCounts);
     const fallback = [
@@ -169,7 +170,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
                           href={`/blog?category=${encodeURIComponent(category)}`}
                           className="text-gray-700 dark:text-gray-300 hover:text-accent"
                         >
-                          {category} <span className="text-xs text-gray-400">{categoryCounts[category] || 0}</span>
+                          {category} <span className="text-xs text-gray-400">{(categoryCounts && categoryCounts[category]) || 0}</span>
                         </Link>
                       </li>
                     ))}
