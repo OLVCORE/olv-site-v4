@@ -39,35 +39,35 @@ export default async function BlogPostPage({ params }: Params) {
 
   return (
     <MainLayout>
-      <article className="container max-w-3xl mx-auto bg-white dark:bg-gray-900 rounded-xl shadow-lg px-4 md:px-10 py-8 mt-8 mb-12">
-        <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-center text-gray-900 dark:text-white leading-tight drop-shadow-sm">
+      <article className="container max-w-3xl mx-auto bg-[#0a2540] border-2 border-[#FFD700] rounded-xl shadow-lg px-2 md:px-10 py-6 mt-6 mb-10">
+        <h1 className="text-2xl md:text-4xl font-bold mb-4 text-center" style={{ color: '#FFD700', lineHeight: '1.15' }}>
           {post.title}
         </h1>
-        <div className="text-sm text-gray-500 dark:text-gray-400 mb-6 text-center">
+        <div className="text-sm text-gray-200 mb-6 text-center">
           {new Date(post.published_at).toLocaleDateString('pt-BR')} • {post.author}
         </div>
         {post.cover_url && (
           <div className="flex justify-center mb-8">
-            <div className="overflow-hidden rounded-2xl shadow-md max-w-[420px] w-full aspect-[7/5] bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+            <div className="overflow-hidden rounded-2xl shadow-md max-w-[420px] w-full aspect-[7/5] bg-gray-900 border border-[#FFD700] flex items-center justify-center transition-transform duration-300 hover:scale-105">
               <img
                 src={post.cover_url}
                 alt={post.title}
-                className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                className="object-cover w-full h-full"
                 style={{ display: 'block' }}
               />
             </div>
           </div>
         )}
-        <div className="prose dark:prose-invert max-w-none text-lg md:text-xl leading-relaxed mx-auto">
+        <div className="prose dark:prose-invert max-w-none text-base md:text-lg leading-relaxed mx-auto text-white">
           <ReactMarkdown rehypePlugins={[remarkGfm]}>{post.content_mdx}</ReactMarkdown>
         </div>
         {post.source_name && post.source_url && (
-          <p className="mt-8 text-sm text-center text-gray-400">
-            Fonte: <a href={post.source_url} target="_blank" rel="noopener noreferrer" className="underline hover:text-accent font-semibold">{post.source_name}</a>
+          <p className="mt-8 text-sm text-center text-[#FFD700]">
+            Fonte: <a href={post.source_url} target="_blank" rel="noopener noreferrer" className="underline hover:text-accent font-semibold text-[#FFD700]">{post.source_name}</a>
           </p>
         )}
-        <hr className="my-10 border-gray-300 dark:border-gray-700" />
-        <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Artigos relacionados</h3>
+        <hr className="my-10 border-[#FFD700]" />
+        <h3 className="text-xl font-semibold mb-4 text-white">Artigos relacionados</h3>
         {/* @ts-ignore async ok */}
         <RelatedPosts category={post.category} slug={post.slug} />
       </article>
