@@ -33,12 +33,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Run Lighthouse CI
+      - name: Run Lighthouse CI (sem upload de artefato)
         uses: treosh/lighthouse-ci-action@v10
         with:
           configPath: '.lighthouserc.json'
-          uploadArtifacts: true
+          uploadArtifacts: false
           temporaryPublicStorage: true
-          artifactName: 'lighthouse-results-${{ github.run_number }}'
 
 # Operação Blindada: workflow revisado, robusto e definitivo para Lighthouse CI
