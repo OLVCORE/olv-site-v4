@@ -4,6 +4,7 @@ import MainLayout from '../../components/layout/MainLayout';
 import { getAllPosts, getCategoryCounts } from '@/lib/posts';
 import { CATEGORIES } from '@/lib/blogConfig';
 import dynamic from 'next/dynamic';
+import BlogImage from '../../components/blog/BlogImage';
 
 // SEO SACRAMENTADO - igual às outras páginas
 export const metadata = {
@@ -105,14 +106,11 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
                       >
                         <div className="md:flex flex-col md:flex-row">
                           <div className="w-full md:w-1/3 relative h-48 md:h-auto">
-                            <img
+                            <BlogImage
                               src={getImageUrl(post)}
                               alt={post.title}
-                              className="block"
-                              onError={e => {
-                                e.currentTarget.onerror = null;
-                                e.currentTarget.src = '/images/blog/default-news.svg';
-                              }}
+                              className="block w-full h-full object-cover"
+                              fallbackSrc="/images/blog/default-news.svg"
                             />
                           </div>
                           <div className="p-6 md:w-2/3 flex flex-col justify-center">

@@ -39,8 +39,8 @@ export async function GET(request: NextRequest) {
 
   // Executa a ingestão
   try {
-    const { exec } = require('child_process');
-    const { promisify } = require('util');
+    const { exec } = await import('child_process');
+    const { promisify } = await import('util');
     const execAsync = promisify(exec);
 
     const { stdout, stderr } = await execAsync('npx tsx scripts/dailyBlogIngest.ts');
