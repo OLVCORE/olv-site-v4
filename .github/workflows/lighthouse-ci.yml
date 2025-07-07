@@ -30,4 +30,4 @@ jobs:
           configPath: '.lighthouserc.json'
           uploadArtifacts: true
           temporaryPublicStorage: true
-          artifactName: 'lighthouse_results'
+          artifactName: 'lighthouse-results'
