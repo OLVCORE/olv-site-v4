@@ -47,22 +47,19 @@ export default async function BlogPostPage({ params }: Params) {
           {new Date(post.published_at).toLocaleDateString('pt-BR')} • {post.author}
         </div>
         {post.cover_url && (
-          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={post.cover_url}
             alt={post.title}
-            className="w-full h-auto rounded-lg mb-6"
+            className="mx-auto rounded-lg mb-6"
+            style={{ maxWidth: '350px', width: '100%', height: 'auto', display: 'block' }}
           />
         )}
         <div className="prose dark:prose-invert max-w-none">
           <ReactMarkdown rehypePlugins={[remarkGfm]}>{post.content_mdx}</ReactMarkdown>
         </div>
-        {(post as any).source_name && (
+        {post.source_name && post.source_url && (
           <p className="mt-6 text-sm text-gray-400">
-            Fonte:&nbsp;
-            <a href={(post as any).source_url ?? '#'} target="_blank" rel="noopener noreferrer" className="underline hover:text-accent">
-              {(post as any).source_name}
-            </a>
+            Fonte: <a href={post.source_url} target="_blank" rel="noopener noreferrer" className="underline hover:text-accent">clique aqui</a>
           </p>
         )}
 

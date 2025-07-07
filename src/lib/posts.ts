@@ -9,6 +9,8 @@ export interface Post {
   cover_url: string | null;
   author: string | null;
   published_at: string;
+  source_name?: string | null;
+  source_url?: string | null;
 }
 
 export async function getAllPosts(limit = 12): Promise<Post[]> {

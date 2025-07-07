@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import MainLayout from '../../components/layout/MainLayout';
 import { getAllPosts, getCategoryCounts } from '@/lib/posts';
-import { CATEGORIES } from '@/lib/blogConfig';
 import dynamic from 'next/dynamic';
 import BlogImage from '../../components/blog/BlogImage';
+import { CATEGORIES } from '@/lib/blogConfig';
 
 // SEO SACRAMENTADO - igual às outras páginas
 export const metadata = {
@@ -156,6 +156,27 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
 
               {/* SIDEBAR */}
               <div className="w-full lg:w-1/3">
+                {/* Categorias */}
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-8">
+                  <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+                    Categorias
+                  </h3>
+                  <ul className="space-y-2">
+                    {CATEGORIES.map((category, index) => (
+                      <li key={index}>
+                        <Link
+                          href={`/blog?category=${encodeURIComponent(category)}`}
+                          className="flex items-center justify-between text-gray-700 dark:text-gray-300 hover:text-accent"
+                        >
+                          <span>{category}</span>
+                          <span className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                            {(categoryCounts && categoryCounts[category]) || 0}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 {/* Posts Populares */}
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
                   <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
