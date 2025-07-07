@@ -44,12 +44,15 @@ const BlogSearch = dynamic(() => import('../../components/blog/BlogSearch'), {
 });
 
 export default async function BlogPage({ searchParams }: { searchParams: { page?: string } }) {
+  let posts, categoryCounts;
   try {
     const POSTS_PER_PAGE = 10;
     const page = parseInt(searchParams?.page || '1');
     const offset = (page - 1) * POSTS_PER_PAGE;
-    const posts = await getAllPosts(1000); // Busca todos para simular paginação simples
-    const categoryCounts = await getCategoryCounts();
+    posts = await getAllPosts(1000); // Busca todos para simular paginação simples
+    categoryCounts = await getCategoryCounts();
+    console.log('[SSR BLOG] posts:', posts);
+    console.log('[SSR BLOG] categoryCounts:', categoryCounts);
     const fallback = [
       {
         slug: 'demo-post',
@@ -187,6 +190,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
       </MainLayout>
     );
   } catch (err) {
+    console.error('[SSR BLOG ERROR]', err, { posts, categoryCounts });
     // Fallback seguro: nunca quebra o SSR
     return (
       <MainLayout>
