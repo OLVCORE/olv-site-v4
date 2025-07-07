@@ -45,9 +45,9 @@ const Ticker: React.FC = () => {
     </div>
   );
 
-  // Calcular duração da animação baseada no número de notícias e dispositivo
-  const baseDuration = isMobile ? 60 : 30; // Mobile mais lento
-  const animationDuration = Math.max(baseDuration, headlines.length * (isMobile ? 6 : 3)); // 6s por notícia no mobile
+  // Calcular duração da animação: mobile 35% mais lento, desktop 10% mais rápido
+  const baseDuration = isMobile ? 81 : 27; // 60 * 1.35 = 81s mobile, 30 * 0.9 = 27s desktop
+  const animationDuration = Math.max(baseDuration, headlines.length * (isMobile ? 8 : 2.7)); // 8s por notícia no mobile, 2.7s no desktop
 
   return (
     <div className="ticker" style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}>
@@ -61,7 +61,15 @@ const Ticker: React.FC = () => {
       >
         {headlines.map((news, idx) => (
           <span key={idx} style={{ marginRight: isMobile ? 48 : 32, display: 'inline-block' }}>
-            <Link href={`/blog/${news.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link 
+              href={`/blog/${news.slug}`} 
+              style={{ 
+                textDecoration: 'none', 
+                color: 'inherit',
+                cursor: 'pointer',
+                display: 'inline-block'
+              }}
+            >
               {news.excerpt ? `${news.excerpt.slice(0, isMobile ? 60 : 80)}...` : news.title.slice(0, isMobile ? 60 : 80)}
             </Link>
             {idx < headlines.length - 1 && " – "}
@@ -75,6 +83,10 @@ const Ticker: React.FC = () => {
         }
         .ticker-inner:hover {
           animation-play-state: paused;
+        }
+        .ticker-inner a {
+          pointer-events: auto !important;
+          cursor: pointer !important;
         }
       `}</style>
     </div>

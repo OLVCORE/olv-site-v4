@@ -1148,37 +1148,39 @@ body[class*="page-"] .main-content {
 
 /* Blog Cards - Operação Blindada */
 .blog-card {
-  background: #f3f4f6;
-  color: #1e40af;
+  background: #ffffff;
+  color: #0a2540;
   border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(30,64,175,0.08);
+  box-shadow: 0 2px 8px rgba(10,37,64,0.08);
   overflow: hidden;
   transition: box-shadow 0.2s;
+  border: 2px solid #FFD700;
 }
 .blog-card .blog-title {
-  color: #1e40af;
+  color: #0a2540;
   font-weight: 700;
   word-break: break-word;
   overflow-wrap: break-word;
   white-space: normal;
 }
 .blog-card .blog-excerpt {
-  color: #1e40af;
+  color: #0a2540;
   font-size: 1rem;
   word-break: break-word;
   overflow-wrap: break-word;
   white-space: normal;
 }
 .blog-card .blog-meta {
-  color: #1e40af;
+  color: #0a2540;
   font-size: 0.95rem;
 }
 body.dark .blog-card, body.theme-dark .blog-card {
-  background: #1e293b;
+  background: #0a2540;
   color: #fff;
+  border: 2px solid #FFD700;
 }
 body.dark .blog-card .blog-title, body.theme-dark .blog-card .blog-title {
-  color: #fff;
+  color: #FFD700;
 }
 body.dark .blog-card .blog-excerpt, body.theme-dark .blog-card .blog-excerpt {
   color: #fff;
