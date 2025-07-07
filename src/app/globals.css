@@ -53,6 +53,12 @@
 
   /* Altura fixa da barra de ticker (desktop) */
   --height-ticker: 45px;
+
+  --olv-card-bg: #f8fafc;
+  --olv-card-text: #0a2540;
+  --olv-card-meta: #0a2540cc;
+  --olv-card-heading: #0a2540;
+  --olv-card-img-bg: #e5e7eb;
 }
 
 @media (prefers-color-scheme: light) {
@@ -1191,4 +1197,12 @@ body.dark .blog-card .blog-meta, body.theme-dark .blog-card .blog-meta {
     width: 100%;
     border-radius: 0.75rem 0.75rem 0 0;
   }
+}
+
+.dark {
+  --olv-card-bg: #0a2540;
+  --olv-card-text: #fff;
+  --olv-card-meta: #e5e7ebcc;
+  --olv-card-heading: #fff;
+  --olv-card-img-bg: #111827;
 } 
