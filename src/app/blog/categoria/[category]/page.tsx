@@ -36,8 +36,6 @@ export default async function CategoryPage({ params, searchParams }: Params) {
   const limit = parseInt(searchParams.limit || '10');
   const page = parseInt(searchParams.page || '1');
   const posts = await getPostsByCategory(decoded, limit, page);
-  const categories = CATEGORIES;
-  const categoryCounts = await getCategoryCounts();
 
   return (
     <MainLayout>
@@ -57,27 +55,6 @@ export default async function CategoryPage({ params, searchParams }: Params) {
               </span>
             </article>
           ))}
-        </div>
-        {/* Sidebar de categorias com contagem dinâmica */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-8 mt-8">
-          <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
-            Categorias
-          </h3>
-          <ul className="space-y-2">
-            {categories.map((category, index) => (
-              <li key={index}>
-                <Link
-                  href={`/blog/categoria/${encodeURIComponent(category)}`}
-                  className="flex items-center justify-between text-gray-700 dark:text-gray-300 hover:text-accent"
-                >
-                  <span>{category}</span>
-                  <span className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                    {categoryCounts[category] || 0}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
         {/* Selector */}
         <div className="mt-8 flex gap-2 items-center">

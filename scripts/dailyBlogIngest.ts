@@ -5,8 +5,8 @@ import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 import OpenAI from 'openai';
 import slugify from 'slugify';
-import matter from 'gray-matter';
 import { XMLParser } from 'fast-xml-parser';
+import * as cheerio from 'cheerio';
 
 /**
  * ENV required:
@@ -46,16 +46,69 @@ function extractImageFromRssItem(item: any): string | null {
   return null;
 }
 
-// Busca imagem gratuita no Unsplash por categoria/título
-async function fetchUnsplashImage(query: string): Promise<string | null> {
+// Função para buscar imagem segura no Unsplash por categoria
+async function fetchUnsplashImageByCategory(category: string): Promise<string | null> {
   try {
     const accessKey = process.env.UNSPLASH_ACCESS_KEY;
     if (!accessKey) return null;
+    // Termos seguros e futuristas por categoria
+    const safeTerms: Record<string, string> = {
+      'Estratégia Internacional': 'global strategy, world map, business, modern, abstract, future',
+      'Business Intelligence': 'data analytics, dashboard, technology, modern, abstract, future',
+      'Importação': 'container ship, cargo, logistics, modern, abstract, future',
+      'Exportação': 'export, shipping, logistics, modern, abstract, future',
+      'Compliance': 'compliance, law, contract, modern, abstract, future',
+      'Logística': 'logistics, warehouse, transport, modern, abstract, future',
+      'Finanças': 'finance, fintech, money, modern, abstract, future',
+      'Supply Chain': 'supply chain, network, logistics, modern, abstract, future',
+      'Gestão': 'management, leadership, business, modern, abstract, future',
+      'Internacional': 'international, globe, world, modern, abstract, future',
+      'PMEs': 'small business, entrepreneur, modern, abstract, future',
+      'Outros': 'business, technology, modern, abstract, future',
+    };
+    const query = safeTerms[category] || safeTerms['Outros'];
     const url = `https://api.unsplash.com/photos/random?query=${encodeURIComponent(query)}&orientation=landscape&client_id=${accessKey}`;
     const res = await axios.get(url);
-    return res.data?.urls?.regular || null;
+    // Filtro extra: não aceitar imagens com pessoas, marcas, ou conteúdo sensível
+    const img = res.data?.urls?.regular || null;
+    const desc = (res.data?.description || '').toLowerCase();
+    const altDesc = (res.data?.alt_description || '').toLowerCase();
+    if (
+      img &&
+      !desc.includes('person') &&
+      !desc.includes('people') &&
+      !desc.includes('face') &&
+      !desc.includes('brand') &&
+      !desc.includes('logo') &&
+      !altDesc.includes('person') &&
+      !altDesc.includes('people') &&
+      !altDesc.includes('face') &&
+      !altDesc.includes('brand') &&
+      !altDesc.includes('logo')
+    ) {
+      return img;
+    }
+    return null;
   } catch (e) {
     console.error('Erro ao buscar imagem no Unsplash:', e.message);
+    return null;
+  }
+}
+
+// Função para buscar imagem principal da página da fonte
+async function fetchMainImageFromSourcePage(url: string): Promise<string | null> {
+  try {
+    const { data: html } = await axios.get(url, { timeout: 10000 });
+    const $ = cheerio.load(html);
+    // 1. Tenta pegar og:image
+    const ogImage = $('meta[property="og:image"]').attr('content');
+    if (ogImage && ogImage.startsWith('http')) return ogImage;
+    // 2. Tenta pegar primeira imagem relevante
+    const mainImg = $('img').first().attr('src');
+    if (mainImg && mainImg.startsWith('http')) return mainImg;
+    return null;
+  } catch (e) {
+    console.error('Erro ao buscar imagem da página da fonte:', url, e.message);
     return null;
   }
 }
@@ -186,22 +239,25 @@ Você é um editor-chefe de um blog institucional premium focado em comércio ex
 Regras obrigatórias:
 - Reescreva o TÍTULO em português (PT-BR), de forma editorial, clara, atrativa e profissional. Não traduza literalmente: adapte para o público brasileiro, com foco em PMEs e contexto nacional.
 - Gere um RESUMO (lead) de até 500 caracteres, em até duas frases, objetivo, técnico e que estimule o clique.
+- Traduza/adapte e reescreva o CONTEÚDO COMPLETO da matéria, em português, de forma clara, consultiva, sofisticada e fiel ao original, sem copiar trechos literais. Estruture o texto em até 10 parágrafos coesos, mantendo tabelas, listas e destaques, se houver. Se a matéria for menor, traga tudo; se for maior, faça um resumo editorial mantendo o sentido e a qualidade. Nunca inclua prefixos YAML, JSON ou metadados, apenas o texto limpo e bem formatado.
 - Classifique a matéria em uma das categorias: Estratégia Internacional, Business Intelligence, Importação, Exportação, Compliance, Logística, Finanças, Supply Chain, Gestão, Internacional, PMEs, Outros.
 - Se houver imagem destacada (Open Graph ou similar), use-a; caso contrário, indique "imagem padrão OLV + categoria".
 - Informe a DATA da matéria original (ou de ingestão, se indisponível).
-- Inclua o link da FONTE ORIGINAL.
-- O conteúdo deve ser claro, sem clickbait, sem erros gramaticais, e com tom consultivo premium.
+- Inclua o NOME da FONTE (ex: Reuters, ComexStat) e o LINK da FONTE ORIGINAL.
+- O conteúdo deve ser claro, sem clickbait, sem erros gramaticais, e com tom consultivo premium, elegante e objetivo.
 
 Formato de resposta obrigatório (JSON):
 {
   "titulo": "...",
   "resumo": "...",
+  "conteudo": "...",
   "categoria": "...",
   "imagem": "...",
   "data": "...",
-  "fonte": "..."
+  "fonte_nome": "...",
+  "fonte_url": "..."
 }
-      `.trim()
+        `.trim()
       },
       {
         role: 'user',
@@ -232,22 +288,19 @@ Imagem: ${cover || 'não informada'}
 }
 
 // AJUSTE BLINDADO: log detalhado do resultado do upsert
-async function upsertPost({ title, excerpt, content, category, cover }: { title: string; excerpt: string; content: string; category: string; cover: string | null }) {
+async function upsertPost({ title, excerpt, content, category, cover, source_name, source_url }: { title: string; excerpt: string; content: string; category: string; cover: string | null; source_name: string | null; source_url: string | null }) {
   const slug = slugify(title, { lower: true, strict: true });
-  const frontMatter = matter.stringify(content, {
-    title,
-    excerpt,
-    category,
-    cover_url: cover || getDefaultImageForCategory(category),
-  });
+  // Salvar apenas o texto limpo no content_mdx, sem YAML/JSON
   const { data, error } = await supabase.from('posts').upsert(
     {
       slug,
       title,
       excerpt,
-      content_mdx: frontMatter,
+      content_mdx: content,
       category,
       cover_url: cover || getDefaultImageForCategory(category),
+      source_name,
+      source_url,
       status: 'published',
     },
     { onConflict: 'slug' },
@@ -290,13 +343,20 @@ async function run() {
         try {
           // 1. Tenta extrair imagem real do feed
           let cover = extractImageFromRssItem(item);
-
-          // 2. Se não houver, busca no Unsplash pela categoria ou título
+          // 2. Se não houver, busca imagem principal da página da fonte
+          if (!cover && item.link) {
+            cover = await fetchMainImageFromSourcePage(item.link);
+          }
+          // 3. Se ainda não houver, busca no Unsplash pela categoria (futurista, moderna, elegante)
           if (!cover) {
-            cover = await fetchUnsplashImage(src.category || item.title);
+            cover = await fetchUnsplashImageByCategory(src.category || item.category || 'Outros');
+          }
+          // 4. Se ainda não houver, usa imagem padrão OLV
+          if (!cover) {
+            cover = getDefaultImageForCategory(src.category || item.title);
           }
 
-          // 3. Passa a melhor imagem para o OpenAI (que pode usar ou não)
+          // 5. Passa a melhor imagem para o OpenAI (que pode usar ou não)
           mdx = await generatePostContent(
             item.title,
             item.description ?? item.title,
@@ -316,9 +376,11 @@ async function run() {
             await upsertPost({
               title: mdx.titulo,
               excerpt: mdx.resumo,
-              content: mdx.resumo, // ou mdx.conteudo se quiser o texto completo
+              content: mdx.conteudo, // conteúdo completo traduzido/adaptado
               category: mdx.categoria,
               cover: mdx.imagem,
+              source_name: mdx.fonte_nome || null,
+              source_url: mdx.fonte_url || null,
             });
             console.log(`[${src.url}] Inserido no Supabase:`, mdx.titulo);
           }

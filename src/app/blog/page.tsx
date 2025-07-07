@@ -117,7 +117,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
                             <h3 className="blog-title text-xl font-bold mb-2">
                               <Link
                                 href={`/blog/${post.slug}`}
-                                className="text-white dark:text-white hover:text-accent"
+                                className="text-white dark:text-white hover:text-accent underline"
                               >
                                 {post.title}
                               </Link>
