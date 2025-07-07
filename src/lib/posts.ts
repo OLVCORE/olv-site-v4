@@ -59,4 +59,8 @@ export async function getPostsByCategory(category: string, limit = 10, page = 1)
     return [];
   }
   return (data ?? []) as Post[];
+}
+
+export async function getCategoryCounts() {
+  // ... implementação existente ...
 } 

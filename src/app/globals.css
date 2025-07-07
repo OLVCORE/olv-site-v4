@@ -1138,4 +1138,57 @@ body[class*="page-"] .main-content {
     margin-top: calc(var(--height-header) + var(--height-ticker) + 0.8cm) !important;
     padding-top: 0 !important;
   }
+}
+
+/* Blog Cards - Operação Blindada */
+.blog-card {
+  background: #f3f4f6;
+  color: #1e40af;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(30,64,175,0.08);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.blog-card .blog-title {
+  color: #1e40af;
+  font-weight: 700;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.blog-card .blog-excerpt {
+  color: #1e40af;
+  font-size: 1rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.blog-card .blog-meta {
+  color: #1e40af;
+  font-size: 0.95rem;
+}
+body.dark .blog-card, body.theme-dark .blog-card {
+  background: #1e293b;
+  color: #fff;
+}
+body.dark .blog-card .blog-title, body.theme-dark .blog-card .blog-title {
+  color: #fff;
+}
+body.dark .blog-card .blog-excerpt, body.theme-dark .blog-card .blog-excerpt {
+  color: #fff;
+}
+body.dark .blog-card .blog-meta, body.theme-dark .blog-card .blog-meta {
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .blog-card {
+    padding: 1rem 0.5rem;
+  }
+  .blog-card img {
+    min-height: 140px;
+    max-height: 220px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 0.75rem 0.75rem 0 0;
+  }
 } 

@@ -97,18 +97,13 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
                     {paginated.map((post) => (
                       <article
                         key={post.slug}
-                        className="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
-                        style={{
-                          background: 'var(--card-bg)',
-                          color: 'var(--card-text)',
-                        }}
+                        className="blog-card shadow-md overflow-hidden hover:shadow-lg transition-shadow"
                       >
                         <div className="md:flex flex-col md:flex-row">
                           <div className="w-full md:w-1/3 relative h-48 md:h-auto">
                             <img
                               src={getImageUrl(post)}
                               alt={post.title}
-                              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 8, minHeight: 180 }}
                               className="block"
                               onError={e => {
                                 e.currentTarget.onerror = null;
@@ -117,15 +112,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
                             />
                           </div>
                           <div className="p-6 md:w-2/3 flex flex-col justify-center">
-                            <h3
-                              className="text-xl font-bold mb-2"
-                              style={{
-                                color: 'var(--card-title)',
-                                wordBreak: 'break-word',
-                                overflowWrap: 'break-word',
-                                whiteSpace: 'normal',
-                              }}
-                            >
+                            <h3 className="blog-title text-xl font-bold mb-2">
                               <Link
                                 href={`/blog/${post.slug}`}
                                 className="hover:text-accent dark:hover:text-accent"
@@ -133,20 +120,9 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
                                 {post.title}
                               </Link>
                             </h3>
-                            <p
-                              className="mb-4"
-                              style={{
-                                color: 'var(--card-text)',
-                                fontSize: '1rem',
-                                wordBreak: 'break-word',
-                                overflowWrap: 'break-word',
-                                whiteSpace: 'normal',
-                              }}
-                            >
-                              {post.excerpt}
-                            </p>
+                            <p className="blog-excerpt mb-4">{post.excerpt}</p>
                             <div className="flex items-center justify-between">
-                              <span className="text-sm" style={{ color: 'var(--card-meta)' }}>
+                              <span className="blog-meta text-sm">
                                 {new Date(post.published_at).toLocaleDateString('pt-BR')} • {post.author}
                               </span>
                               <Link
@@ -208,24 +184,6 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
             </div>
           </div>
         </div>
-        <style jsx global>{`
-          :root {
-            --card-bg: #f3f4f6;
-            --card-title: #1e40af;
-            --card-text: #1e40af;
-            --card-meta: #1e40af;
-          }
-          body.dark :root, body.theme-dark :root {
-            --card-bg: #1e293b;
-            --card-title: #fff;
-            --card-text: #fff;
-            --card-meta: #fff;
-          }
-          .dark .rounded-lg, body.theme-dark .rounded-lg {
-            background: var(--card-bg) !important;
-            color: var(--card-text) !important;
-          }
-        `}</style>
       </MainLayout>
     );
   } catch (err) {
