@@ -54,7 +54,7 @@
   /* Altura fixa da barra de ticker (desktop) */
   --height-ticker: 45px;
 
-  --olv-card-bg: #f8fafc;
+  --olv-card-bg: var(--color-surface);
   --olv-card-text: #0a2540;
   --olv-card-meta: #0a2540cc;
   --olv-card-heading: #0a2540;
@@ -1205,4 +1205,22 @@ body.dark .blog-card .blog-meta, body.theme-dark .blog-card .blog-meta {
   --olv-card-meta: #e5e7ebcc;
   --olv-card-heading: #fff;
   --olv-card-img-bg: #111827;
+}
+
+/* Tema escuro com fundo azul escuro */
+body.theme-dark {
+  --olv-card-bg: #0a2540;
+  --olv-card-text: #fff;
+  --olv-card-meta: #e5e7ebcc;
+  --olv-card-heading: #fff;
+  --olv-card-img-bg: #111827;
+}
+
+/* Tema claro com texto azul escuro */
+body.theme-light {
+  --olv-card-bg: #ffffff;
+  --olv-card-text: #0a2540;
+  --olv-card-meta: #0a2540cc;
+  --olv-card-heading: #0a2540;
+  --olv-card-img-bg: #e5e7eb;
 } 

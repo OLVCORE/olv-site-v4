@@ -102,7 +102,7 @@ async function RelatedPosts({ category, slug }: { category: string | null; slug:
     <ul className="space-y-2">
       {filtered.map((p) => (
         <li key={p.slug}>
-          <Link href={`/blog/${p.slug}`} className="hover:text-accent underline">
+          <Link href={`/blog/${p.slug}`} className="hover:text-accent underline" style={{ color: 'var(--olv-card-text)' }}>
             {p.title}
           </Link>
         </li>

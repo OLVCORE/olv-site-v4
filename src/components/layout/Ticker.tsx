@@ -5,19 +5,34 @@ import Link from 'next/link';
 
 const Ticker: React.FC = () => {
   const [headlines, setHeadlines] = useState<{ title: string; excerpt: string; slug: string }[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Buscar notícias do dia via API (ajuste o endpoint conforme necessário)
+    // Detectar se é mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    // Buscar todas as notícias do dia via API
     fetch('/api/posts?today=1')
       .then(res => res.json())
       .then(data => {
-        // Supondo que data seja um array de posts com campos title, excerpt e slug
-        setHeadlines(data.map((post: any) => ({
-          title: post.title,
-          excerpt: post.excerpt || '',
-          slug: post.slug,
-        })));
+        if (Array.isArray(data)) {
+          setHeadlines(data.map((post: any) => ({
+            title: post.title,
+            excerpt: post.excerpt || '',
+            slug: post.slug,
+          })));
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao buscar notícias:', error);
       });
+
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   if (headlines.length === 0) return (
@@ -30,13 +45,24 @@ const Ticker: React.FC = () => {
     </div>
   );
 
+  // Calcular duração da animação baseada no número de notícias e dispositivo
+  const baseDuration = isMobile ? 60 : 30; // Mobile mais lento
+  const animationDuration = Math.max(baseDuration, headlines.length * (isMobile ? 6 : 3)); // 6s por notícia no mobile
+
   return (
     <div className="ticker" style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}>
-      <div className="ticker-inner" style={{ display: 'inline-block', animation: 'ticker-scroll 30s linear infinite' }}>
+      <div 
+        className="ticker-inner" 
+        style={{ 
+          display: 'inline-block', 
+          animation: `ticker-scroll ${animationDuration}s linear infinite`,
+          whiteSpace: 'nowrap'
+        }}
+      >
         {headlines.map((news, idx) => (
-          <span key={idx} style={{ marginRight: 32 }}>
-            <Link href={`/blog/${news.slug}`}>
-              {news.excerpt ? `${news.excerpt.slice(0, 60)}...` : news.title}
+          <span key={idx} style={{ marginRight: isMobile ? 48 : 32, display: 'inline-block' }}>
+            <Link href={`/blog/${news.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              {news.excerpt ? `${news.excerpt.slice(0, isMobile ? 60 : 80)}...` : news.title.slice(0, isMobile ? 60 : 80)}
             </Link>
             {idx < headlines.length - 1 && " – "}
           </span>
@@ -46,6 +72,9 @@ const Ticker: React.FC = () => {
         @keyframes ticker-scroll {
           0% { transform: translateX(100%); }
           100% { transform: translateX(-100%); }
+        }
+        .ticker-inner:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </div>
