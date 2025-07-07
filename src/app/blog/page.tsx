@@ -90,7 +90,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
             </div>
           </section>
 
-          <div className="container">
+          <div className="container max-w-4xl mx-auto px-2 md:px-0">
             <div className="flex flex-col lg:flex-row gap-8">
               {/* CONTEÚDO PRINCIPAL */}
               <div className="w-full lg:w-2/3">
@@ -139,13 +139,14 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
                       </article>
                     ))}
                   </div>
-                  {/* Paginação simples */}
-                  <div className="mt-8 flex justify-center gap-2">
+                  {/* Paginação responsiva aprimorada */}
+                  <div className="mt-8 flex flex-wrap justify-center gap-2 md:gap-3 pagination-blog">
                     {Array.from({ length: totalPages }, (_, i) => (
                       <Link
                         key={i}
                         href={`/blog?page=${i + 1}`}
-                        className={`px-3 py-1 rounded ${page === i + 1 ? 'bg-accent text-white' : 'bg-gray-700 text-white'}`}
+                        className={`px-4 py-2 rounded-full border text-base font-semibold transition-colors duration-150 ${page === i + 1 ? 'bg-accent text-white border-accent shadow-md' : 'bg-gray-800 text-white border-gray-700 hover:bg-accent hover:text-white'}`}
+                        style={{ minWidth: 40, textAlign: 'center' }}
                       >
                         {i + 1}
                       </Link>

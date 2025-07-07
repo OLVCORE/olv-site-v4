@@ -1225,4 +1225,33 @@ body.theme-light {
   --olv-card-meta: #0a2540cc;
   --olv-card-heading: #0a2540;
   --olv-card-img-bg: #e5e7eb;
+}
+
+/* Blog container institucional */
+.pagination-blog {
+  margin-bottom: 2rem;
+}
+@media (max-width: 600px) {
+  .pagination-blog a {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    min-width: 36px;
+  }
+}
+
+/* Container institucional para o blog */
+.blog-main-content, .container.max-w-4xl {
+  max-width: 100vw;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 768px) {
+  .blog-main-content, .container.max-w-4xl {
+    max-width: 900px;
+    padding-left: 0;
+    padding-right: 0;
+  }
 } 
