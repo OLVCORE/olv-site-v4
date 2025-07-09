@@ -441,6 +441,4 @@ if (require.main === module) {
     console.log('Ingestão finalizada.');
     process.exit(0);
   });
-}#   t r i g g e r 
- 
- 
+}
