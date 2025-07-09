@@ -64,5 +64,19 @@ export async function getPostsByCategory(category: string, limit = 10, page = 1)
 }
 
 export async function getCategoryCounts() {
-  // ... implementação existente ...
+  if (!supabase) return {};
+  const { data, error } = await supabase
+    .from('posts')
+    .select('category')
+    .eq('status', 'published');
+  if (error) {
+    console.error('getCategoryCounts error', error.message);
+    return {};
+  }
+  const counts: Record<string, number> = {};
+  (data ?? []).forEach((post: { category: string | null }) => {
+    const cat = post.category || 'Outros';
+    counts[cat] = (counts[cat] || 0) + 1;
+  });
+  return counts;
 } 

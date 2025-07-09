@@ -1,7 +1,5 @@
 #!/usr/bin/env tsx
-import { execSync } from 'child_process';
 import fs from 'fs';
-import path from 'path';
 
 const REQUIRED_NODE = '20.';
 const REQUIRED_DEPS = [

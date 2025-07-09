@@ -79,6 +79,10 @@ export default async function RootLayout({
         <meta name="geo.region" content="BR" />
         <meta name="geo.placename" content="São Paulo" />
 
+        {/* LGPD GoAdopt */}
+        <meta name="adopt-website-id" content="1d3503e5-6e70-4135-906f-6c9840d27875" />
+        <script src="//tag.goadopt.io/injector.js?website_code=1d3503e5-6e70-4135-906f-6c9840d27875" className="adopt-injector"></script>
+
         {/* Open Graph para compartilhamento em redes sociais */}
         <meta property="og:title" content={metadata.title.default} />
         <meta property="og:description" content={metadata.description} />

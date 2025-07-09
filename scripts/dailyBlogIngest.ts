@@ -1,3 +1,4 @@
+// Operação Blindada: trigger institucional para disparo do workflow de ingestão automatizada
 import axios from 'axios';
 // @ts-nocheck
 
@@ -440,4 +441,6 @@ if (require.main === module) {
     console.log('Ingestão finalizada.');
     process.exit(0);
   });
-}
+}#   t r i g g e r 
+ 
+ 

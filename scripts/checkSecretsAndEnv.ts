@@ -12,7 +12,7 @@ import axios from 'axios';
 
 const REQUIRED_VARS = [
   'SUPABASE_URL',
-  'SUPABASE_SERVICE_ROLE',
+  'SUPABASE_SERVICE_ROLE_KEY',
   'NEXT_PUBLIC_SUPABASE_URL',
   'NEXT_PUBLIC_SUPABASE_ANON_KEY',
   'OPENAI_API_KEY',
@@ -53,7 +53,7 @@ function logAndMaybeAlert() {
 
 async function testSupabase() {
   const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) return;
   try {
     const supabase = createClient(url, key);
@@ -109,7 +109,7 @@ async function sendTelegramAlert(msg: string) {
 async function main() {
   console.log('==== CHECKUP UNIVERSAL DE SECRETS E AMBIENTE OLV (Operação Blindada) ====');
   checkVar('SUPABASE_URL', true);
-  checkVar('SUPABASE_SERVICE_ROLE');
+  checkVar('SUPABASE_SERVICE_ROLE_KEY');
   checkVar('NEXT_PUBLIC_SUPABASE_URL', true);
   checkVar('NEXT_PUBLIC_SUPABASE_ANON_KEY');
   checkVar('OPENAI_API_KEY');

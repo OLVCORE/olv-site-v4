@@ -124,8 +124,15 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
                             </h3>
                             <p className="blog-excerpt mb-4">{post.excerpt}</p>
                             <div className="flex items-center justify-between">
-                              <span className="blog-meta text-sm">
-                                {new Date(post.published_at).toLocaleDateString('pt-BR')} • {post.author}
+                              <span className="blog-meta text-sm flex items-center gap-2">
+                                {new Date(post.published_at).toLocaleDateString('pt-BR')}
+                                {/* Badge de categoria */}
+                                {post.category && (
+                                  <span className="ml-2 px-2 py-0.5 rounded-full bg-accent text-white text-xs font-semibold">
+                                    {post.category}
+                                  </span>
+                                )}
+                                • {post.author}
                               </span>
                               <Link
                                 href={`/blog/${post.slug}`}

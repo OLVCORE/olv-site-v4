@@ -5,14 +5,14 @@ import Link from 'next/link';
 
 function resumirNoticia(title: string, excerpt: string): string {
   // Remove prefixos duplicados e corta em 60 caracteres
-  let cleanTitle = title.replace(/^#+\s*/, '').replace(/^[\-–—\s]+/, '').trim();
+  const cleanTitle = title.replace(/^#+\s*/, '').replace(/^[\-–—\s]+/, '').trim();
   let cleanExcerpt = excerpt.replace(/^#+\s*/, '').replace(/^[\-–—\s]+/, '').trim();
   // Se o excerpt começa igual ao título, remove
   if (cleanExcerpt.startsWith(cleanTitle)) {
     cleanExcerpt = cleanExcerpt.slice(cleanTitle.length).trim();
   }
   // Pega só o primeiro trecho/frase curta
-  let snippet = cleanExcerpt.split(/[.!?\n]/)[0].trim();
+  const snippet = cleanExcerpt.split(/[.!?\n]/)[0].trim();
   let base = cleanTitle;
   if (snippet && snippet.length > 10 && !cleanTitle.includes(snippet)) {
     base += ': ' + snippet;
