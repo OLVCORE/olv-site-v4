@@ -6,6 +6,8 @@
 
 # Trigger workflow - FORÇAR INGESTÃO AUTOMÁTICA - 08/01/2025
 
+# Trigger workflow - INGESTÃO FORÇADA - 08/01/2025 15:30
+
 name: Deploy and Daily Ingest (Universal Blindado)
 
 on:
