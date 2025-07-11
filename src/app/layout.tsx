@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import CookieConsent from "@/components/CookieConsent";
+// import CookieConsent from "@/components/CookieConsent"; // Removido
 import 'tippy.js/dist/tippy.css';
 import { SITE_URL } from '@/lib/siteConfig';
 import { LocalBusinessSchema, OrganizationSchema } from '@/components/SeoSchema';
@@ -169,7 +169,7 @@ export default async function RootLayout({
       </head>
       <body className={`${inter.className} theme-dark`}>
         {children}
-        <CookieConsent />
+        {/* <CookieConsent /> */}
       </body>
     </html>
   );
