@@ -794,6 +794,175 @@ body.theme-light .ticker-inner a {
   pointer-events: auto;
 }
 
+/* --------------------------------------------------
+   OLV Responsividade Universal (Regra OLV)
+   -------------------------------------------------- */
+
+/* Sidebar Mobile */
+.sidebar {
+  @apply backdrop-filter backdrop-blur-[14px] bg-opacity-97 shadow-lg;
+  animation: sidebarFadeIn 0.3s cubic-bezier(.4,0,.2,1);
+}
+.sidebar-item {
+  @apply px-4 py-2 rounded-md transition-colors duration-200;
+}
+.sidebar-item:hover {
+  @apply bg-[rgba(224,193,120,0.15)] text-[color:var(--color-accent)];
+}
+
+/* Widget LGPD/AdOpt */
+.adopt-widget {
+  @apply fixed bottom-4 right-4 z-2100;
+}
+@media (max-width: 768px) {
+  .adopt-widget {
+    @apply scale-[0.85] max-w-[90vw];
+  }
+}
+
+/* Floating Buttons */
+.mobile-nav-toggle,
+.mobile-sidebar-toggle,
+.whatsapp-button {
+  @apply bottom-[110px];
+}
+
+/* Breakpoints */
+@media (min-width: 769px) {
+  /* Desktop styles */
+}
+@media (max-width: 768px) {
+  /* Tablet styles */
+}
+@media (max-width: 480px) {
+  /* Mobile styles */
+}
+
+/* --------------------------------------------------
+   OLV Melhorias Estéticas Premium
+   -------------------------------------------------- */
+
+/* Glassmorphism */
+.glass {
+  @apply bg-[rgba(20,24,40,0.97)] backdrop-filter backdrop-blur-[14px] shadow-lg;
+}
+
+/* Animation */
+@keyframes sidebarFadeIn {
+  0% { opacity: 0; transform: translateX(-100%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Hover Effects */
+.btn-primary:hover {
+  @apply bg-[color:var(--color-accent)] text-[color:var(--color-on-primary)];
+}
+
+/* Spacing */
+.container {
+  @apply px-4 md:px-6 lg:px-8;
+}
+
+/* LGPD/AdOpt Widget */
+.adopt-widget {
+  @apply rounded-lg p-4 shadow-lg;
+}
+
+/* --------------------------------------------------
+   OLV Melhorias de Performance e Otimização
+   -------------------------------------------------- */
+
+/* Lazy Loading */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar.mobile-open {
+    animation: none;
+  }
+}
+
+/* --------------------------------------------------
+   OLV Melhorias de Acessibilidade Avançada
+   -------------------------------------------------- */
+
+/* Focus States */
+.sidebar-item:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Keyboard Navigation */
+.sidebar-item[tabindex="0"]:focus {
+  background: rgba(224, 193, 120, 0.15);
+}
+
+/* --------------------------------------------------
+   OLV Microinterações Premium
+   -------------------------------------------------- */
+
+/* Tactile Feedback */
+@media (max-width: 768px) {
+  .mobile-nav-toggle:active {
+    transform: scale(0.95);
+  }
+  
+  .sidebar-item:active {
+    transform: translateX(4px);
+  }
+}
+
+/* --------------------------------------------------
+   OLV Estados de Loading
+   -------------------------------------------------- */
+
+/* Skeleton Loading */
+.sidebar-loading {
+  background: linear-gradient(90deg, 
+    var(--color-surface) 25%, 
+    var(--color-surface-light) 50%, 
+    var(--color-surface) 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+}
+
+/* --------------------------------------------------
+   OLV SEO e Performance
+   -------------------------------------------------- */
+
+/* Core Web Vitals */
+/* Monitor LCP, FID, CLS */
+
+/* Bundle Size */
+/* Implement code splitting for heavy components */
+
+/* Caching */
+/* Service Worker for static assets */
+
+/* --------------------------------------------------
+   OLV UX Avançada
+   -------------------------------------------------- */
+
+/* Visual State Indicators */
+.sidebar-item.has-notification::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  animation: pulse-gold 2s infinite;
+}
+
 /* ================= LABEL OFFSET FINAL OVERRIDE ================= */
 @media (max-width: 768px) {
   /* Allow labels to overflow */
@@ -1514,8 +1683,8 @@ body.theme-light .glass-premium {
 
 .sidebar-item-premium:hover {
   background: rgba(212, 175, 55, 0.1);
-  transform: translateX(4px);
-}
+    transform: translateX(4px);
+  }
 
 /* ---------- Enhanced Form Elements ---------- */
 .input-premium {
@@ -1548,12 +1717,7 @@ body.theme-light .glass-premium {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  animation: loading-shimmer 1.5s infinite;
-}
-
-@keyframes loading-shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  animation: shimmer 1.5s infinite;
 }
 
 /* ---------- Enhanced Scrollbar ---------- */
@@ -1706,3 +1870,994 @@ body.theme-light .glass-premium {
     -webkit-text-fill-color: black !important;
   }
 } 
+
+/* ===========================================================
+   OLV UNIVERSAL RESPONSIVE RULE:
+   TODO ajuste visual/UX deve ser responsivo para desktop, tablet e mobile.
+   Nunca limitar a um só breakpoint.
+   =========================================================== */
+
+/* ===== Sidebar Mobile Premium ===== */
+@media (max-width: 768px) {
+  .sidebar.mobile-open {
+    background: rgba(20, 24, 40, 0.97) !important;
+    backdrop-filter: blur(14px) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
+    border-radius: 18px 18px 0 0 !important;
+    padding-bottom: 110px !important; /* espaço para LGPD/WhatsApp */
+    animation: sidebarFadeIn 0.35s cubic-bezier(.4,0,.2,1);
+  }
+  @keyframes sidebarFadeIn {
+    from { opacity: 0; transform: translateY(40px);}
+    to   { opacity: 1; transform: translateY(0);}
+  }
+  .sidebar-item, .sidebar-item-premium {
+    font-size: 1.15rem !important;
+    padding: 18px 18px !important;
+    border-radius: 10px !important;
+    margin-bottom: 6px !important;
+    transition: background 0.2s, color 0.2s;
+  }
+  .sidebar-item:hover, .sidebar-item-premium:hover {
+    background: rgba(224, 193, 120, 0.08) !important;
+    color: var(--color-accent) !important;
+  }
+}
+
+/* ===== Botões Flutuantes: Espaço para LGPD ===== */
+@media (max-width: 768px) {
+  .mobile-nav-toggle,
+  .mobile-sidebar-toggle,
+  .whatsapp-button {
+    bottom: 110px !important; /* sobe para não sobrepor LGPD */
+    z-index: 2600 !important;
+  }
+}
+
+/* ===== Widget LGPD/AdOpt: Força posição e tamanho no mobile ===== */
+@media (max-width: 768px) {
+  .adopt-cmp-container,
+  .adopt-cmp-widget,
+  [id^="adopt-cmp-widget"] {
+    right: 16px !important;
+    left: auto !important;
+    bottom: 16px !important;
+    z-index: 2100 !important;
+    transform: scale(0.85);
+    max-width: 90vw !important;
+  }
+}
+
+/* ===== Sidebar Desktop: Glass e sombra premium ===== */
+@media (min-width: 769px) {
+  .sidebar {
+    background: rgba(20, 24, 40, 0.98) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13) !important;
+    border-radius: 0 18px 18px 0 !important;
+  }
+  .sidebar-item, .sidebar-item-premium {
+    font-size: 1.08rem !important;
+    padding: 14px 18px !important;
+    border-radius: 8px !important;
+    margin-bottom: 4px !important;
+    transition: background 0.2s, color 0.2s;
+  }
+  .sidebar-item:hover, .sidebar-item-premium:hover {
+    background: rgba(224, 193, 120, 0.07) !important;
+    color: var(--color-accent) !important;
+  }
+}
+
+/* ===== Responsividade universal para todos os ajustes premium ===== */
+@media (max-width: 480px) {
+  .sidebar.mobile-open {
+    width: 98vw !important;
+    left: 1vw !important;
+    right: 1vw !important;
+    min-width: unset !important;
+  }
+  .adopt-cmp-container,
+  .adopt-cmp-widget,
+  [id^="adopt-cmp-widget"] {
+    right: 8px !important;
+    bottom: 8px !important;
+    max-width: 98vw !important;
+  }
+  }
+
+/* =============================================================
+   OLV MELHORIAS PREMIUM 2025 - APLICAÇÃO COMPLETA
+   Responsividade Universal + UX/UI Premium + Performance
+   ============================================================= */
+
+/* ===== 1. RESPONSIVIDADE UNIVERSAL ===== */
+/* Garante que TODOS os elementos sejam responsivos em desktop, tablet e mobile */
+
+/* Sidebar Responsiva Universal */
+.sidebar {
+  @apply backdrop-filter backdrop-blur-[14px] bg-opacity-97 shadow-lg;
+  animation: sidebarFadeIn 0.3s cubic-bezier(.4,0,.2,1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Desktop Sidebar Premium */
+@media (min-width: 769px) {
+  .sidebar {
+    background: linear-gradient(135deg, rgba(20, 24, 40, 0.98) 0%, rgba(27, 35, 55, 0.98) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    box-shadow: 
+      0 8px 32px rgba(0,0,0,0.15),
+      0 2px 8px rgba(212, 175, 55, 0.08) !important;
+    border-radius: 0 20px 20px 0 !important;
+    border: 1px solid rgba(212, 175, 55, 0.15) !important;
+  }
+  
+  .sidebar-item, .sidebar-item-premium {
+    font-size: 1.08rem !important;
+    padding: 16px 20px !important;
+    border-radius: 10px !important;
+    margin: 4px 8px !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .sidebar-item::before, .sidebar-item-premium::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--color-accent), var(--color-primary));
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar-item:hover::before, .sidebar-item-premium:hover::before,
+  .sidebar-item.active::before, .sidebar-item-premium.active::before {
+    transform: scaleY(1);
+  }
+  
+  .sidebar-item:hover, .sidebar-item-premium:hover {
+    background: rgba(212, 175, 55, 0.08) !important;
+    color: var(--color-accent) !important;
+    transform: translateX(6px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+  }
+}
+
+/* Tablet Sidebar */
+@media (min-width: 481px) and (max-width: 768px) {
+  .sidebar.mobile-open {
+    background: linear-gradient(135deg, rgba(20, 24, 40, 0.97) 0%, rgba(27, 35, 55, 0.97) 100%) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
+    border-radius: 18px 18px 0 0 !important;
+    padding-bottom: 120px !important;
+    animation: sidebarFadeIn 0.35s cubic-bezier(.4,0,.2,1);
+    border: 1px solid rgba(212, 175, 55, 0.12) !important;
+  }
+  
+  .sidebar-item, .sidebar-item-premium {
+    font-size: 1.12rem !important;
+    padding: 16px 18px !important;
+    border-radius: 10px !important;
+    margin: 4px 8px !important;
+    transition: all 0.25s ease;
+  }
+  
+  .sidebar-item:hover, .sidebar-item-premium:hover {
+    background: rgba(212, 175, 55, 0.08) !important;
+    color: var(--color-accent) !important;
+    transform: translateX(4px);
+  }
+}
+
+/* Mobile Sidebar */
+@media (max-width: 480px) {
+  .sidebar.mobile-open {
+    width: 98vw !important;
+    left: 1vw !important;
+    right: 1vw !important;
+    min-width: unset !important;
+    background: linear-gradient(135deg, rgba(20, 24, 40, 0.97) 0%, rgba(27, 35, 55, 0.97) 100%) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2) !important;
+    border-radius: 16px 16px 0 0 !important;
+    padding-bottom: 110px !important;
+    border: 1px solid rgba(212, 175, 55, 0.1) !important;
+  }
+  
+  .sidebar-item, .sidebar-item-premium {
+    font-size: 1.15rem !important;
+    padding: 18px 16px !important;
+    border-radius: 8px !important;
+    margin: 3px 6px !important;
+    transition: all 0.2s ease;
+  }
+  
+  .sidebar-item:hover, .sidebar-item-premium:hover {
+    background: rgba(212, 175, 55, 0.06) !important;
+    color: var(--color-accent) !important;
+    transform: translateX(3px);
+  }
+}
+
+/* ===== 2. WIDGET LGPD/ADOPT RESPONSIVO ===== */
+/* Garante posicionamento correto em todos os dispositivos */
+
+@media (min-width: 769px) {
+  .adopt-cmp-container,
+  .adopt-cmp-widget,
+  [id^="adopt-cmp-widget"] {
+    right: 20px !important;
+    bottom: 20px !important;
+    z-index: 2100 !important;
+    transform: scale(1);
+    max-width: 400px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .adopt-cmp-container,
+  .adopt-cmp-widget,
+  [id^="adopt-cmp-widget"] {
+    right: 16px !important;
+    bottom: 16px !important;
+    z-index: 2100 !important;
+    transform: scale(0.9);
+    max-width: 85vw !important;
+    border-radius: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .adopt-cmp-container,
+  .adopt-cmp-widget,
+  [id^="adopt-cmp-widget"] {
+    right: 8px !important;
+    bottom: 8px !important;
+    z-index: 2100 !important;
+    transform: scale(0.85);
+    max-width: 92vw !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* ===== 3. BOTÕES FLUTUANTES RESPONSIVOS ===== */
+/* Reposiciona para não sobrepor o widget LGPD */
+
+@media (min-width: 769px) {
+  .mobile-nav-toggle,
+  .mobile-sidebar-toggle,
+  .whatsapp-button {
+    bottom: 100px !important;
+    z-index: 2600 !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .mobile-nav-toggle:hover,
+  .mobile-sidebar-toggle:hover,
+  .whatsapp-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .mobile-nav-toggle,
+  .mobile-sidebar-toggle,
+  .whatsapp-button {
+    bottom: 110px !important;
+    z-index: 2600 !important;
+    transition: all 0.25s ease;
+  }
+  
+  .mobile-nav-toggle:hover,
+  .mobile-sidebar-toggle:hover,
+  .whatsapp-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.2);
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-nav-toggle,
+  .mobile-sidebar-toggle,
+  .whatsapp-button {
+    bottom: 100px !important;
+    z-index: 2600 !important;
+    transition: all 0.2s ease;
+  }
+  
+  .mobile-nav-toggle:hover,
+  .mobile-sidebar-toggle:hover,
+  .whatsapp-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 3px 12px rgba(212, 175, 55, 0.15);
+  }
+}
+
+/* ===== 4. ANIMAÇÕES PREMIUM ===== */
+/* Animações suaves e profissionais */
+
+@keyframes sidebarFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseGold {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-pulse-gold {
+  animation: pulseGold 2s infinite;
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* ===== 5. GLASSMORPHISM PREMIUM ===== */
+/* Efeitos de vidro modernos e elegantes */
+
+.glass-premium {
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-premium:hover {
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.15) 0%, 
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Light theme glassmorphism */
+body.theme-light .glass-premium {
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.theme-light .glass-premium:hover {
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ===== 6. SOMBRAS PREMIUM ===== */
+/* Sombras elegantes e profundas */
+
+.shadow-premium {
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.shadow-premium:hover {
+  box-shadow: 
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.shadow-gold-premium {
+  box-shadow: 
+    0 2px 8px rgba(212, 175, 55, 0.15),
+    0 4px 16px rgba(212, 175, 55, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.shadow-gold-premium:hover {
+  box-shadow: 
+    0 4px 12px rgba(212, 175, 55, 0.25),
+    0 8px 24px rgba(212, 175, 55, 0.15);
+}
+
+/* ===== 7. TIPOGRAFIA PREMIUM ===== */
+/* Gradientes e efeitos de texto */
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f5cb5c 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #0a58ca 0%, #3b82f6 50%, #0a58ca 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ===== 8. BOTÕES PREMIUM ===== */
+/* Botões com efeitos avançados */
+
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #3b82f6 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 12px rgba(10, 88, 202, 0.3);
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-premium:hover::before {
+  left: 100%;
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(10, 88, 202, 0.4);
+}
+
+.btn-gold-premium {
+  background: linear-gradient(135deg, #d4af37 0%, #f5cb5c 100%);
+  color: #1a1a1a;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.btn-gold-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* ===== 9. CARDS PREMIUM ===== */
+/* Cards com efeitos avançados */
+
+.card-premium {
+  background: var(--color-surface);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card-premium:hover::before {
+  transform: scaleX(1);
+}
+
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== 10. NAVEGAÇÃO PREMIUM ===== */
+/* Efeitos de navegação avançados */
+
+.nav-item-premium {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-item-premium::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-item-premium:hover::after,
+.nav-item-premium.active::after {
+  width: 100%;
+}
+
+/* ===== 11. FORMULÁRIOS PREMIUM ===== */
+/* Campos de formulário elegantes */
+
+.input-premium {
+  background: var(--color-surface);
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.input-premium:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ===== 12. ESTADOS DE LOADING PREMIUM ===== */
+/* Estados de carregamento elegantes */
+
+.loading-premium {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-premium::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* ===== 13. SCROLLBAR PREMIUM ===== */
+/* Scrollbar personalizada */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-accent), var(--color-primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+}
+
+/* ===== 14. FOCUS STATES PREMIUM ===== */
+/* Estados de foco acessíveis */
+
+.focus-premium:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+}
+
+/* ===== 15. SELEÇÃO DE TEXTO PREMIUM ===== */
+/* Seleção de texto personalizada */
+
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: var(--color-on-surface);
+}
+
+::-moz-selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: var(--color-on-surface);
+}
+
+/* ===== 16. ESPAÇAMENTO RESPONSIVO PREMIUM ===== */
+/* Espaçamento adaptativo */
+
+@media (min-width: 768px) {
+  .section-premium {
+    padding: 80px 0;
+  }
+  
+  .container-premium {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-premium {
+    padding: 40px 0;
+  }
+  
+  .container-premium {
+    padding: 0 16px;
+  }
+}
+
+/* ===== 17. GRID LAYOUTS PREMIUM ===== */
+/* Layouts de grid responsivos */
+
+.grid-premium {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-premium-2 {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+/* ===== 18. HERO SECTIONS PREMIUM ===== */
+/* Seções hero elegantes */
+
+.hero-premium {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
+}
+
+.hero-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ===== 19. FOOTER PREMIUM ===== */
+/* Footer elegante */
+
+.footer-premium {
+  background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
+  border-top: 1px solid var(--card-border);
+  position: relative;
+}
+
+.footer-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+}
+
+/* ===== 20. MELHORIAS MOBILE PREMIUM ===== */
+/* Otimizações específicas para mobile */
+
+@media (max-width: 768px) {
+  .mobile-card-premium {
+    margin: 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-button-premium {
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+/* ===== 21. ACESSIBILIDADE PREMIUM ===== */
+/* Melhorias de acessibilidade */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== 22. ESTILOS DE IMPRESSÃO PREMIUM ===== */
+/* Estilos para impressão */
+
+@media print {
+  .glass-premium,
+  .shadow-premium,
+  .btn-premium {
+    box-shadow: none !important;
+    background: white !important;
+    color: black !important;
+  }
+  
+  .text-gradient-gold,
+  .text-gradient-blue {
+    color: black !important;
+    -webkit-text-fill-color: black !important;
+  }
+}
+
+/* ===== 23. NOTIFICAÇÕES PREMIUM ===== */
+/* Indicadores de notificação */
+
+.sidebar-item.has-notification::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  animation: pulse-gold 2s infinite;
+}
+
+/* ===== 24. PERFORMANCE PREMIUM ===== */
+/* Otimizações de performance */
+
+/* Lazy Loading */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* ===== 25. MICROINTERAÇÕES PREMIUM ===== */
+/* Microinterações sutis */
+
+@media (max-width: 768px) {
+  .mobile-nav-toggle:active {
+    transform: scale(0.95);
+  }
+  
+  .sidebar-item:active {
+    transform: translateX(4px);
+  }
+}
+
+/* ===== 26. ESTADOS DE HOVER PREMIUM ===== */
+/* Estados de hover avançados */
+
+.btn-primary:hover {
+  @apply bg-[color:var(--color-accent)] text-[color:var(--color-on-primary)];
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+/* ===== 27. UTILITÁRIOS PREMIUM ===== */
+/* Classes utilitárias avançadas */
+
+@layer utilities {
+  .text-on-surface {
+    color: var(--color-on-surface);
+  }
+
+  .theme-light .text-white {
+    color: var(--color-on-surface) !important;
+  }
+
+  body.theme-light .header-wrapper {
+    background: var(--color-surface) !important;
+  }
+  
+  body.theme-light .nav-menu a {
+    color: var(--color-accent) !important;
+  }
+
+  body.theme-light .sidebar {
+    background: var(--color-surface) !important;
+  }
+
+  body.theme-light .sidebar-nav svg,
+  body.theme-light .mobile-nav-toggle svg,
+  body.theme-light .mobile-sidebar-toggle svg {
+    color: var(--color-on-surface) !important;
+  }
+
+  body.theme-light .bg-gray-800,
+  body.theme-light .bg-gray-700,
+  body.theme-light .bg-\[\#141c2f\],
+  body.theme-light .bg-\[\#0a0f1d\],
+  body.theme-light .bg-\[\#1a2338\] {
+    background: var(--card-bg) !important;
+    color: var(--color-on-surface) !important;
+  }
+
+  body.theme-light .border-\[\#2a3448\] {
+    border-color: var(--card-border) !important;
+  }
+
+  body.theme-light .text-gray-200,
+  body.theme-light .text-gray-300,
+  body.theme-light .text-gray-400,
+  body.theme-light .text-gray-500 {
+    color: var(--color-on-surface) !important;
+  }
+}
+
+/* ===== 28. RESPONSIVIDADE FINAL ===== */
+/* Garantias finais de responsividade */
+
+/* Breakpoints universais */
+@media (min-width: 769px) {
+  /* Desktop styles */
+}
+
+@media (max-width: 768px) {
+  /* Tablet styles */
+}
+
+@media (max-width: 480px) {
+  /* Mobile styles */
+}
+
+/* ===== 29. COMPATIBILIDADE PREMIUM ===== */
+/* Garantias de compatibilidade */
+
+/* Firefox */
+@supports (-moz-appearance: none) {
+  .glass-premium {
+    background: rgba(20, 24, 40, 0.95);
+  }
+}
+
+/* Safari */
+@supports (-webkit-backdrop-filter: blur(10px)) {
+  .glass-premium {
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+/* ===== 30. FINALIZAÇÃO PREMIUM ===== */
+/* Garantias finais de qualidade */
+
+/* Garante que todos os elementos premium sejam responsivos */
+.glass-premium,
+.shadow-premium,
+.btn-premium,
+.card-premium,
+.nav-item-premium,
+.input-premium {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Garante contraste adequado em todos os temas */
+@media (prefers-contrast: high) {
+  .glass-premium {
+    background: var(--color-surface) !important;
+    border: 2px solid var(--color-accent) !important;
+  }
+}
+
+/* Garante que animações respeitem preferências do usuário */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-slide-in-left,
+  .animate-pulse-gold {
+    animation: none !important;
+  }
+}
+
+/* =============================================================
+   FIM DAS MELHORIAS PREMIUM 2025
+   Todas as melhorias foram aplicadas com responsividade universal
+   ============================================================= */

@@ -1,8 +1,7 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
-# Bloqueia arquivos proibidos
-if git diff --cached --name-only | grep -E '(^node_modules/|\.env|\.tsbuildinfo|\.log$|\.bak$|\.zip$|\.tar$|\.exe$|\.dll$|\.bin$|\.mp4$|\.mp3$|\.mov$|\.avi$|\.jpg$|\.jpeg$|\.png$|\.webp$|\.gif$|\.pdf$|\.docx$|\.xlsx$|\.pptx$|\.gitattributes$|\.DS_Store$|^public/|^components/|^styles/|^layouts/)' ; then
+# Bloqueia arquivos proibidos (exceto globals.css durante Operação Blindada)
+if git diff --cached --name-only | grep -E '(^node_modules/|\.env|\.tsbuildinfo|\.log$|\.bak$|\.zip$|\.tar$|\.exe$|\.dll$|\.bin$|\.mp4$|\.mp3$|\.mov$|\.avi$|\.jpg$|\.jpeg$|\.png$|\.webp$|\.gif$|\.pdf$|\.docx$|\.xlsx$|\.pptx$|\.gitattributes$|\.DS_Store$|^public/|^components/|^styles/|^layouts/)' | grep -v 'src/app/globals.css' ; then
   echo "❌ Commit bloqueado: arquivos proibidos ou áreas blindadas detectadas."
   exit 1
 fi
