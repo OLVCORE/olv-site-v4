@@ -2241,3 +2241,11 @@ body.theme-light .nav-menu .nav-item:hover {
 .glass-card-gold:hover {
   box-shadow: 0 0 32px 0 #FFD700, 0 2px 24px 0 rgba(212,175,55,0.25);
 }
+
+/* Ajuste cirúrgico: eleva o widget LGPD/AdOpt no mobile acima dos ícones flutuantes */
+@media (max-width: 768px) {
+  .adopt-cmp-container, .adopt-widget {
+    bottom: 140px !important; /* valor seguro para não sobrepor Menu/Apps */
+    z-index: 3000 !important;
+  }
+}
