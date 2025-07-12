@@ -123,8 +123,7 @@ async function main() {
   logAndMaybeAlert();
   if (errors.length === 0) {
     console.log('[SUCESSO] Ambiente validado e pronto para ingestão/deploy.');
-  por favor acione o commit e push, por favor
-}
+  }
 }
 
 main();
