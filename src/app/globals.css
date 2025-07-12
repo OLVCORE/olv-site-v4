@@ -1976,7 +1976,8 @@ body.theme-light .glass-premium {
 
 /* Sidebar Responsiva Universal */
 .sidebar {
-  @apply backdrop-filter backdrop-blur-[14px] bg-opacity-97 shadow-lg;
+  @apply backdrop-filter backdrop-blur-[14px] shadow-lg;
+  background-color: rgba(20, 24, 40, 0.97);
   animation: sidebarFadeIn 0.3s cubic-bezier(.4,0,.2,1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
