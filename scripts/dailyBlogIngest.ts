@@ -222,6 +222,28 @@ function getDefaultImageForCategory(category: string) {
 }
 
 // NOVA FUNÇÃO BLINDADA
+// Função de retry para lidar com rate limiting
+async function retryWithBackoff<T>(
+  fn: () => Promise<T>,
+  maxRetries: number = 3,
+  baseDelay: number = 2000
+): Promise<T> {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (error: any) {
+      if (error.message?.includes('429') && attempt < maxRetries) {
+        const delay = baseDelay * Math.pow(2, attempt - 1); // Backoff exponencial
+        console.log(`Rate limit atingido, tentativa ${attempt}/${maxRetries}. Aguardando ${delay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+        continue;
+      }
+      throw error;
+    }
+  }
+  throw new Error('Máximo de tentativas excedido');
+}
+
 async function generatePostContent(
   title: string,
   sourceText: string,
@@ -273,7 +295,7 @@ Imagem: ${cover || 'não informada'}
     ],
     temperature: 0.4,
   };
-  const completion = await openai.chat.completions.create(prompt as any);
+  const completion = await retryWithBackoff(() => openai.chat.completions.create(prompt as any));
   const response = completion.choices[0].message?.content ?? '';
   try {
     const json = JSON.parse(response);
@@ -337,8 +359,8 @@ async function run() {
       console.log(`[${src.url}] Itens encontrados:`, items.length);
       const latest = items.slice(0, 2); // max 2 per category per run
       for (const item of latest) {
-        // DELAY OTIMIZADO - 500ms entre requests (reduzido para melhorar performance)
-        await new Promise(resolve => setTimeout(resolve, 500));
+        // DELAY OTIMIZADO - 1 segundo entre requests (aumentado para evitar rate limiting)
+        await new Promise(resolve => setTimeout(resolve, 1000));
         const start = Date.now();
         let parsing_status = 'ok';
         let parsing_error = null;
@@ -423,8 +445,8 @@ async function run() {
         stderr: null,
       });
       
-      // DELAY OTIMIZADO - 200ms entre feeds (reduzido para melhorar performance)
-      await new Promise(resolve => setTimeout(resolve, 200));
+      // DELAY OTIMIZADO - 2 segundos entre feeds (aumentado para evitar rate limiting)
+      await new Promise(resolve => setTimeout(resolve, 2000));
     } catch (err: any) {
       console.error(`[${src.url}] Erro geral:`, err.message);
       await logIngest({
