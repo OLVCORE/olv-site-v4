@@ -88,6 +88,42 @@ async function retryWithBackoff<T>(
   throw new Error('Máximo de tentativas excedido');
 }
 
+// Função para extrair imagem do item RSS
+function extractImageFromRssItem(item: Element): string | null {
+  // 1. Tenta media:content
+  const mediaContent = item.querySelector('media\\:content, content');
+  if (mediaContent?.getAttribute('url')) {
+    return mediaContent.getAttribute('url');
+  }
+  
+  // 2. Tenta enclosure
+  const enclosure = item.querySelector('enclosure');
+  if (enclosure?.getAttribute('url')) {
+    return enclosure.getAttribute('url');
+  }
+  
+  // 3. Tenta image
+  const image = item.querySelector('image');
+  if (image?.getAttribute('url')) {
+    return image.getAttribute('url');
+  }
+  
+  // 4. Tenta extrair de description (HTML)
+  const description = item.querySelector('description')?.textContent || '';
+  const imgMatch = description.match(/<img[^>]+src="([^">]+)"/i);
+  if (imgMatch) {
+    return imgMatch[1];
+  }
+  
+  // 5. Tenta og:image na description
+  const ogMatch = description.match(/property="og:image" content="([^">]+)"/i);
+  if (ogMatch) {
+    return ogMatch[1];
+  }
+  
+  return null;
+}
+
 // Função para buscar RSS feed usando DOMParser nativo
 async function fetchRssFeed(url: string) {
   try {
@@ -104,6 +140,7 @@ async function fetchRssFeed(url: string) {
       link: item.querySelector('link')?.textContent || '',
       pubDate: item.querySelector('pubDate')?.textContent || '',
       description: item.querySelector('description')?.textContent || '',
+      image: extractImageFromRssItem(item),
     }));
   } catch (error) {
     console.error(`Erro ao buscar RSS: ${url}`, error);
@@ -210,6 +247,9 @@ async function processFeed(url: string, category: string) {
           continue;
         }
 
+        // Usar imagem original ou fallback
+        const coverUrl = item.image || 'https://images.unsplash.com/photo-1667895622485-b0b37a7250c1?w=800';
+        
         // Inserir no Supabase
         const { error } = await supabase.from('posts').insert({
           slug: createSlug(item.title),
@@ -217,7 +257,7 @@ async function processFeed(url: string, category: string) {
           excerpt: content.substring(0, 200) + '...',
           content_mdx: content,
           category: category,
-          cover_url: 'https://images.unsplash.com/photo-1667895622485-b0b37a7250c1?w=800',
+          cover_url: coverUrl,
           source_name: new URL(url).hostname,
           source_url: item.link,
           status: 'published',
