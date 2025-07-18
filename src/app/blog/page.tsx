@@ -44,6 +44,9 @@ const BlogSearch = dynamic(() => import('../../components/blog/BlogSearch'), {
   loading: () => <div className="animate-pulse bg-gray-700 h-12 rounded-lg"></div>
 });
 
+// Força revalidação a cada 5 minutos para posts novos
+export const revalidate = 300;
+
 export default async function BlogPage({ searchParams }: { searchParams: { page?: string } }) {
   let posts, categoryCounts;
   try {
@@ -53,7 +56,8 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
     posts = await getAllPosts(1000); // Busca todos para simular paginação simples
     categoryCounts = await getCategoryCounts();
     categoryCounts = categoryCounts || {};
-    console.log('[SSR BLOG] posts:', posts);
+    console.log('[SSR BLOG] posts count:', posts?.length);
+    console.log('[SSR BLOG] latest post date:', posts?.[0]?.published_at);
     console.log('[SSR BLOG] categoryCounts:', categoryCounts);
     const fallback = [
       {
