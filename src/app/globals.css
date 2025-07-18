@@ -1827,11 +1827,12 @@ body.theme-light .glass-premium {
   }
   
   .card {
-    @apply p-4;
+    padding: 1rem;
   }
   
   .btn-primary, .btn-secondary {
-    @apply py-2.5 px-3 text-sm;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
   }
 }
 
@@ -1894,10 +1895,14 @@ body.theme-light .glass-premium {
 /* Melhorar contraste para acessibilidade */
 @media (prefers-contrast: high) {
   .btn-primary {
-    @apply border-2 border-current;
+    border: 2px solid currentColor;
   }
   
   .card {
-    @apply border-2 border-gray-300 dark:border-gray-600;
+    border: 2px solid #d1d5db;
+  }
+  
+  .theme-dark .card {
+    border: 2px solid #4b5563;
   }
 } 
