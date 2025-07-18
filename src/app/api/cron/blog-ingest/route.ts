@@ -6,8 +6,8 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-// APENAS 1 FONTE RSS QUE FUNCIONA 100%
-const RSS_URL = 'https://valor.globo.com/rss/feed/feed.xml';
+// FONTE RSS QUE FUNCIONA 100% - G1 Agronegócio
+const RSS_URL = 'https://g1.globo.com/rss/g1/economia/agronegocio/';
 
 // Função simples para criar slug
 function createSlug(text: string): string {
@@ -22,7 +22,7 @@ function createSlug(text: string): string {
 // Função ULTRA SIMPLIFICADA para buscar RSS
 async function fetchRssFeed() {
   try {
-    console.log('🔍 Buscando RSS do Valor Econômico...');
+    console.log('🔍 Buscando RSS do G1 Agronegócio...');
     
     const res = await fetch(RSS_URL, {
       headers: {
@@ -46,7 +46,7 @@ async function fetchRssFeed() {
       return [];
     }
     
-    const items = itemMatches.slice(0, 2).map((itemText) => { // APENAS 2 ITENS
+    const items = itemMatches.slice(0, 3).map((itemText) => { // APENAS 3 ITENS
       try {
         const titleMatch = itemText.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
         const linkMatch = itemText.match(/<link[^>]*>([\s\S]*?)<\/link>/i);
@@ -110,7 +110,7 @@ async function processFeed() {
 
 ${item.description}
 
-**Fonte:** [Valor Econômico](${item.link})
+**Fonte:** [G1 Agronegócio](${item.link})
 **Data:** ${new Date().toLocaleDateString('pt-BR')}`;
 
         // Inserir no Supabase
@@ -119,9 +119,9 @@ ${item.description}
           title: item.title,
           excerpt: item.description.substring(0, 200) + '...',
           content_mdx: content,
-          category: 'Finanças',
+          category: 'Exportação',
           cover_url: 'https://images.unsplash.com/photo-1667895622485-b0b37a7250c1?w=800',
-          source_name: 'valor.globo.com',
+          source_name: 'g1.globo.com',
           source_url: item.link,
           status: 'published',
           author: 'Equipe OLV',
