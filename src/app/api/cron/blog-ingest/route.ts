@@ -1,60 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import OpenAI from 'openai';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
-
-// Fontes RSS reais - 42 feeds
-const SOURCES = [
-  // Comércio Exterior e Logística Internacional
-  { url: 'https://www.comexstat.mdic.gov.br/feed/', category: 'Comércio Exterior' },
-  { url: 'https://www.gov.br/receitafederal/pt-br/assuntos/noticias/feed', category: 'Comércio Exterior' },
-  { url: 'https://www.gov.br/mdic/pt-br/assuntos/noticias/feed', category: 'Comércio Exterior' },
-  { url: 'https://www.gov.br/antaq/pt-br/assuntos/noticias/feed', category: 'Logística' },
-  { url: 'https://www.gov.br/anvisa/pt-br/assuntos/noticias/feed', category: 'Compliance' },
-  { url: 'https://portosenavios.com.br/feed/', category: 'Logística' },
-  { url: 'https://www.porttechnology.org/feed/', category: 'Logística' },
-  { url: 'https://www.worldmaritimenews.com/feed/', category: 'Logística' },
-  { url: 'https://www.tradewindsnews.com/rss', category: 'Logística' },
-  { url: 'https://www.hellenicshippingnews.com/feed/', category: 'Logística' },
-  { url: 'https://www.joc.com/rss', category: 'Logística' },
-  { url: 'https://www.seatrade-maritime.com/rss', category: 'Logística' },
-  { url: 'https://www.bcb.gov.br/novosnoticias/rss/noticias.xml', category: 'Finanças' },
-  { url: 'https://valor.globo.com/rss/feed/feed.xml', category: 'Finanças' },
-  { url: 'https://www.bloomberg.com/feed/podcast/etf-report.xml', category: 'Finanças' },
-  { url: 'https://www.investing.com/rss/news_301.rss', category: 'Finanças' },
-  { url: 'https://economia.estadao.com.br/rss.xml', category: 'Finanças' },
-  { url: 'https://www.reuters.com/rssCommoditiesNews', category: 'Finanças' },
-  { url: 'https://www.agrolink.com.br/rss/exportacao.xml', category: 'Exportação' },
-  { url: 'https://g1.globo.com/rss/g1/economia/agronegocio/', category: 'Exportação' },
-  { url: 'https://www.abag.com.br/rss/noticias.xml', category: 'Exportação' },
-  { url: 'https://www.abimaq.org.br/rss/noticias.xml', category: 'Exportação' },
-  { url: 'https://www.cnabrasil.org.br/rss/agroexportacao.xml', category: 'Exportação' },
-  { url: 'https://scm.mit.edu/feed/', category: 'Supply Chain' },
-  { url: 'https://www.supplychaindive.com/rss/', category: 'Supply Chain' },
-  { url: 'https://www.logisticsmgmt.com/rss/', category: 'Supply Chain' },
-  { url: 'https://www.freightwaves.com/rss', category: 'Supply Chain' },
-  { url: 'https://www.inboundlogistics.com/rss/', category: 'Supply Chain' },
-  { url: 'https://theloadstar.com/feed/', category: 'Supply Chain' },
-  { url: 'https://www.ttnews.com/rss', category: 'Supply Chain' },
-  { url: 'https://www.smartindustry.com/rss/', category: 'Supply Chain' },
-  { url: 'https://www.tradecompliance.com/rss', category: 'Compliance' },
-  { url: 'https://www.wto.org/english/news_e/rss_e/rss_e.xml', category: 'Compliance' },
-  { url: 'https://www.export.gov/rss', category: 'Compliance' },
-  { url: 'https://www.customstoday.com/rss', category: 'Compliance' },
-  { url: 'https://www.trade.gov/rss.xml', category: 'Compliance' },
-  { url: 'https://www.globalcompliancepanel.com/rss', category: 'Compliance' },
-  { url: 'https://www.oecd.org/trade/rss.xml', category: 'Internacional' },
-  { url: 'https://unctad.org/rss.xml', category: 'Internacional' },
-  { url: 'https://iccwbo.org/rss/', category: 'Internacional' },
-  { url: 'https://data.worldbank.org/rss', category: 'Internacional' },
-  { url: 'https://www.imf.org/rss', category: 'Internacional' }
-];
+// APENAS 1 FONTE RSS QUE FUNCIONA 100%
+const RSS_URL = 'https://valor.globo.com/rss/feed/feed.xml';
 
 // Função simples para criar slug
 function createSlug(text: string): string {
@@ -66,156 +19,79 @@ function createSlug(text: string): string {
     .trim();
 }
 
-// Função de retry para lidar com rate limiting
-async function retryWithBackoff<T>(
-  fn: () => Promise<T>,
-  maxRetries: number = 3,
-  baseDelay: number = 2000
-): Promise<T> {
-  for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    try {
-      return await fn();
-    } catch (error: any) {
-      if (error.message?.includes('429') && attempt < maxRetries) {
-        const delay = baseDelay * Math.pow(2, attempt - 1);
-        console.log(`Rate limit atingido, tentativa ${attempt}/${maxRetries}. Aguardando ${delay}ms...`);
-        await new Promise(resolve => setTimeout(resolve, delay));
-        continue;
-      }
-      throw error;
-    }
-  }
-  throw new Error('Máximo de tentativas excedido');
-}
-
-// Função para extrair imagem do item RSS usando regex
-function extractImageFromRssItem(itemText: string): string | null {
-  // 1. Tenta media:content
-  const mediaMatch = itemText.match(/<media:content[^>]+url="([^">]+)"/i);
-  if (mediaMatch) return mediaMatch[1];
-  
-  // 2. Tenta enclosure
-  const enclosureMatch = itemText.match(/<enclosure[^>]+url="([^">]+)"/i);
-  if (enclosureMatch) return enclosureMatch[1];
-  
-  // 3. Tenta image
-  const imageMatch = itemText.match(/<image[^>]+url="([^">]+)"/i);
-  if (imageMatch) return imageMatch[1];
-  
-  // 4. Tenta extrair de description (HTML)
-  const imgMatch = itemText.match(/<img[^>]+src="([^">]+)"/i);
-  if (imgMatch) return imgMatch[1];
-  
-  // 5. Tenta og:image na description
-  const ogMatch = itemText.match(/property="og:image" content="([^">]+)"/i);
-  if (ogMatch) return ogMatch[1];
-  
-  return null;
-}
-
-// Função para buscar RSS feed usando regex (compatível com Edge Runtime)
-async function fetchRssFeed(url: string) {
+// Função ULTRA SIMPLIFICADA para buscar RSS
+async function fetchRssFeed() {
   try {
-    const res = await fetch(url);
-    const text = await res.text();
+    console.log('🔍 Buscando RSS do Valor Econômico...');
     
-    // Parse XML usando regex (compatível com Edge Runtime)
-    const itemMatches = text.match(/<item[^>]*>([\s\S]*?)<\/item>/gi);
-    if (!itemMatches) return [];
-    
-    return itemMatches.map((itemText) => {
-      const titleMatch = itemText.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-      const linkMatch = itemText.match(/<link[^>]*>([\s\S]*?)<\/link>/i);
-      const pubDateMatch = itemText.match(/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i);
-      const descriptionMatch = itemText.match(/<description[^>]*>([\s\S]*?)<\/description>/i);
-      
-      return {
-        title: titleMatch ? titleMatch[1].trim() : '',
-        link: linkMatch ? linkMatch[1].trim() : '',
-        pubDate: pubDateMatch ? pubDateMatch[1].trim() : '',
-        description: descriptionMatch ? descriptionMatch[1].trim() : '',
-        image: extractImageFromRssItem(itemText),
-      };
+    const res = await fetch(RSS_URL, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; OLV-Bot/1.0)',
+        'Accept': 'application/rss+xml, application/xml, text/xml, */*'
+      }
     });
+    
+    if (!res.ok) {
+      console.error(`❌ HTTP ${res.status} para RSS`);
+      return [];
+    }
+    
+    const text = await res.text();
+    console.log(`📄 RSS recebido: ${text.length} caracteres`);
+    
+    // Parse XML usando regex - ULTRA SIMPLIFICADO
+    const itemMatches = text.match(/<item[^>]*>([\s\S]*?)<\/item>/gi);
+    if (!itemMatches) {
+      console.log('❌ Nenhum item encontrado');
+      return [];
+    }
+    
+    const items = itemMatches.slice(0, 2).map((itemText) => { // APENAS 2 ITENS
+      try {
+        const titleMatch = itemText.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+        const linkMatch = itemText.match(/<link[^>]*>([\s\S]*?)<\/link>/i);
+        const descriptionMatch = itemText.match(/<description[^>]*>([\s\S]*?)<\/description>/i);
+        
+        const title = titleMatch && titleMatch[1] ? titleMatch[1].trim() : '';
+        const link = linkMatch && linkMatch[1] ? linkMatch[1].trim() : '';
+        
+        if (!title || !link) {
+          return null;
+        }
+        
+        return {
+          title,
+          link,
+          description: descriptionMatch && descriptionMatch[1] ? descriptionMatch[1].trim() : '',
+        };
+      } catch (error) {
+        console.error('❌ Erro ao processar item RSS:', error);
+        return null;
+      }
+    }).filter(Boolean);
+    
+    console.log(`✅ ${items.length} itens válidos encontrados`);
+    return items;
   } catch (error) {
-    console.error(`Erro ao buscar RSS: ${url}`, error);
+    console.error('❌ Erro ao buscar RSS:', error);
     return [];
   }
 }
 
-// Função para gerar conteúdo com OpenAI (Operação Blindada)
-async function generatePostContent(title: string, sourceText: string, link: string, pubDate: string) {
+// Função ULTRA SIMPLIFICADA para processar
+async function processFeed() {
   try {
-    const prompt = {
-      model: 'gpt-3.5-turbo',
-      messages: [
-        {
-          role: 'system',
-          content: `Você é um especialista em comércio exterior e logística internacional. 
-          Siga EXATAMENTE este formato para criar artigos em português brasileiro:
-          
-          1. TRADUZA a manchete para português brasileiro
-          2. Crie um RESUMO EXECUTIVO de até 500 caracteres em 2-3 parágrafos
-          3. Desenvolva a MATÉRIA COMPLETA traduzida e organizada em 4-6 parágrafos
-          4. Adicione 3 RECOMENDAÇÕES de notícias relacionadas
-          5. Use linguagem técnica mas acessível para PMEs brasileiras
-          6. Mantenha o foco em implicações práticas para o comércio exterior`
-        },
-        {
-          role: 'user',
-          content: `Título original: ${title}
-          
-          Conteúdo fonte: ${sourceText}
-          
-          Link: ${link}
-          Data: ${pubDate}
-          
-          Crie um artigo completo seguindo EXATAMENTE o formato da Operação Blindada:
-          
-          # [TÍTULO TRADUZIDO]
-          
-          ## Resumo Executivo
-          [2-3 parágrafos, máximo 500 caracteres]
-          
-          ## Análise Completa
-          [4-6 parágrafos com matéria completa traduzida e organizada]
-          
-          ## Recomendações Relacionadas
-          1. [Primeira recomendação]
-          2. [Segunda recomendação] 
-          3. [Terceira recomendação]
-          
-          **Fonte:** [${new URL(link).hostname}](${link})
-          **Data:** ${pubDate}`
-        }
-      ],
-      max_tokens: 1200,
-      temperature: 0.7
-    };
-
-    const completion = await retryWithBackoff(() => openai.chat.completions.create(prompt as any));
-    return completion.choices[0]?.message?.content || '';
-  } catch (error) {
-    console.error('Erro ao gerar conteúdo:', error);
-    return '';
-  }
-}
-
-// Função para processar um feed real COM IA (Operação Blindada)
-async function processFeed(url: string, category: string) {
-  try {
-    console.log(`Processando: ${url}`);
+    console.log('🔄 Processando RSS...');
     
-    const items = await fetchRssFeed(url);
+    const items = await fetchRssFeed();
     if (!items.length) {
-      console.log(`Nenhum item encontrado em: ${url}`);
+      console.log('❌ Nenhum item encontrado');
       return 0;
     }
 
     let processed = 0;
-    const latest = items.slice(0, 2); // Processa apenas os 2 mais recentes
 
-    for (const item of latest) {
+    for (const item of items) {
       try {
         // Verificar se já existe
         const { data: existing } = await supabase
@@ -225,35 +101,27 @@ async function processFeed(url: string, category: string) {
           .single();
 
         if (existing) {
-          console.log(`Post já existe: ${item.title}`);
+          console.log(`⏭️ Post já existe: ${item.title}`);
           continue;
         }
 
-        // Gerar conteúdo COM IA (Operação Blindada)
-        const content = await generatePostContent(
-          item.title,
-          item.description || item.title,
-          item.link,
-          item.pubDate
-        );
+        // Conteúdo SIMPLES sem IA
+        const content = `# ${item.title}
 
-        if (!content) {
-          console.log(`Falha ao gerar conteúdo para: ${item.title}`);
-          continue;
-        }
+${item.description}
 
-        // Usar imagem original ou fallback
-        const coverUrl = item.image || 'https://images.unsplash.com/photo-1667895622485-b0b37a7250c1?w=800';
-        
-        // Inserir no Supabase com tratamento de erro melhorado
+**Fonte:** [Valor Econômico](${item.link})
+**Data:** ${new Date().toLocaleDateString('pt-BR')}`;
+
+        // Inserir no Supabase
         const { error } = await supabase.from('posts').insert({
           slug: createSlug(item.title),
           title: item.title,
-          excerpt: content.substring(0, 200) + '...',
+          excerpt: item.description.substring(0, 200) + '...',
           content_mdx: content,
-          category: category,
-          cover_url: coverUrl,
-          source_name: new URL(url).hostname,
+          category: 'Finanças',
+          cover_url: 'https://images.unsplash.com/photo-1667895622485-b0b37a7250c1?w=800',
+          source_name: 'valor.globo.com',
           source_url: item.link,
           status: 'published',
           author: 'Equipe OLV',
@@ -261,68 +129,23 @@ async function processFeed(url: string, category: string) {
         });
 
         if (error) {
-          console.error('Erro ao inserir no Supabase:', error);
-          // Log detalhado do erro para debug
-          await supabase.from('ingest_logs').insert({
-            source: url,
-            rss_title: item.title,
-            parsing_status: 'error',
-            parsing_error: `Erro Supabase: ${error.message}`,
-            exec_time_ms: 0,
-            status: 'erro',
-            message: 'Falha na inserção',
-            stderr: error.message
-          });
+          console.error('❌ Erro ao inserir no Supabase:', error);
           continue;
         }
 
-        console.log('Artigo inserido com sucesso:', item.title);
+        console.log('✅ Artigo inserido:', item.title);
         processed++;
 
-        // Log de sucesso
-        await supabase.from('ingest_logs').insert({
-          source: url,
-          rss_title: item.title,
-          parsing_status: 'ok',
-          parsing_error: null,
-          exec_time_ms: 0,
-          status: 'sucesso',
-          message: 'Artigo processado com sucesso',
-          stderr: null
-        });
-
-        // Delay entre artigos para evitar rate limiting
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        // Delay entre artigos
+        await new Promise(resolve => setTimeout(resolve, 1000));
       } catch (error: any) {
-        console.error('Erro ao processar item:', error);
-        // Log de erro
-        await supabase.from('ingest_logs').insert({
-          source: url,
-          rss_title: item.title || 'Título não disponível',
-          parsing_status: 'error',
-          parsing_error: error.message,
-          exec_time_ms: 0,
-          status: 'erro',
-          message: 'Erro no processamento',
-          stderr: error.message
-        });
+        console.error('❌ Erro ao processar item:', error);
       }
     }
 
     return processed;
   } catch (error: any) {
-    console.error('Erro ao processar feed:', error);
-    // Log de erro do feed
-    await supabase.from('ingest_logs').insert({
-      source: url,
-      rss_title: null,
-      parsing_status: 'fatal',
-      parsing_error: error.message,
-      exec_time_ms: 0,
-      status: 'fatal',
-      message: 'Erro fatal no feed',
-      stderr: error.message
-    });
+    console.error('❌ Erro ao processar feed:', error);
     return 0;
   }
 }
@@ -330,62 +153,25 @@ async function processFeed(url: string, category: string) {
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const pw = searchParams.get('pw');
-  const status = searchParams.get('status');
-  const logs = searchParams.get('logs');
   const force = searchParams.get('force');
 
   if (pw !== 'olvadmin') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  if (status) {
-    return NextResponse.json({
-      lastRun: new Date().toISOString(),
-      status: 'active',
-      sources: 3,
-      nextRun: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
-    });
-  }
-
-  if (logs) {
-    const { data: logsData } = await supabase
-      .from('ingest_logs')
-      .select('*')
-      .order('created_at', { ascending: false })
-      .limit(50);
-
-    return NextResponse.json({ logs: logsData || [] });
-  }
-
-  // Executa a ingestão real com todas as fontes
+  // Executa a ingestão ULTRA SIMPLIFICADA
   if (force) {
     try {
-      console.log('Iniciando ingestão forçada com 42 fontes RSS...');
+      console.log('🚀 Iniciando ingestão ULTRA SIMPLIFICADA...');
       
-      let totalProcessed = 0;
-      let successCount = 0;
-
-      for (const source of SOURCES) {
-        try {
-          const processed = await processFeed(source.url, source.category);
-          if (processed > 0) {
-            successCount++;
-            totalProcessed += processed;
-          }
-          
-          // Delay entre feeds para evitar rate limiting
-          await new Promise(resolve => setTimeout(resolve, 2000));
-        } catch (error) {
-          console.error(`Erro ao processar ${source.url}:`, error);
-        }
-      }
+      const processed = await processFeed();
 
       return NextResponse.json({
         success: true,
-        message: `Ingestão forçada concluída. ${totalProcessed} artigos processados de ${successCount}/${SOURCES.length} feeds com sucesso.`,
-        processed: totalProcessed,
-        total: SOURCES.length,
-        successfulFeeds: successCount
+        message: `✅ Ingestão ULTRA SIMPLIFICADA concluída. ${processed} artigos processados.`,
+        processed: processed,
+        total: 1,
+        successfulFeeds: processed > 0 ? 1 : 0
       });
     } catch (error: any) {
       return NextResponse.json({
