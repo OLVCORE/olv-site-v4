@@ -91,6 +91,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <meta name="geo.region" content="BR" />
         <meta name="geo.placename" content="São Paulo" />
 
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="SEU_CODIGO_DE_VERIFICACAO_AQUI" />
+
         {/* LGPD GoAdopt */}
         <meta name="adopt-website-id" content="1d3503e5-6e70-4135-906f-6c9840d27875" />
         <script src="//tag.goadopt.io/injector.js?website_code=1d3503e5-6e70-4135-906f-6c9840d27875" className="adopt-injector"></script>

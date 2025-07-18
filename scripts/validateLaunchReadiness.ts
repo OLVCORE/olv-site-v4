@@ -198,6 +198,68 @@ function checkGoogleTagManager(): ValidationResult {
 }
 
 // 7. Verificar estrutura de arquivos críticos
+
+// 8. Verificar performance e otimizações
+function checkPerformanceOptimizations(): ValidationResult {
+  try {
+    const nextConfig = fs.readFileSync('next.config.js', 'utf8');
+    const hasSecurityHeaders = nextConfig.includes('X-Frame-Options') && 
+                              nextConfig.includes('X-Content-Type-Options');
+    const hasImageOptimization = nextConfig.includes('minimumCacheTTL');
+    
+    if (hasSecurityHeaders && hasImageOptimization) {
+      return {
+        check: 'Otimizações de Performance',
+        status: 'PASS',
+        message: 'Headers de segurança e otimizações de imagem configurados'
+      };
+    } else {
+      return {
+        check: 'Otimizações de Performance',
+        status: 'WARN',
+        message: 'Algumas otimizações podem estar faltando',
+        details: 'Verificar headers de segurança e cache de imagens'
+      };
+    }
+  } catch (error) {
+    return {
+      check: 'Otimizações de Performance',
+      status: 'FAIL',
+      message: 'Erro ao verificar otimizações',
+      details: error.message
+    };
+  }
+}
+
+// 9. Verificar variáveis de ambiente críticas
+function checkCriticalEnvVars(): ValidationResult {
+  const requiredVars = [
+    'SUPABASE_URL',
+    'SUPABASE_SERVICE_ROLE_KEY',
+    'OPENAI_API_KEY'
+  ];
+  
+  const missingVars = requiredVars.filter(varName => 
+    !process.env[varName] && !process.env[`NEXT_PUBLIC_${varName}`]
+  );
+  
+  if (missingVars.length === 0) {
+    return {
+      check: 'Variáveis de Ambiente',
+      status: 'PASS',
+      message: 'Todas as variáveis críticas configuradas'
+    };
+  } else {
+    return {
+      check: 'Variáveis de Ambiente',
+      status: 'FAIL',
+      message: `Variáveis críticas ausentes: ${missingVars.join(', ')}`,
+      details: 'Configurar no Vercel Dashboard'
+    };
+  }
+}
+
+// 10. Verificar estrutura de arquivos críticos
 function checkCriticalFiles(): ValidationResult {
   const criticalFiles = [
     'src/app/layout.tsx',
@@ -240,6 +302,8 @@ function runAllChecks() {
   results.push(checkRobotsTxt());
   results.push(checkEnvironmentVariables());
   results.push(checkGoogleTagManager());
+  results.push(checkPerformanceOptimizations());
+  results.push(checkCriticalEnvVars());
   results.push(checkCriticalFiles());
   
   // Exibir resultados

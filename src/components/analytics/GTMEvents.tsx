@@ -43,7 +43,8 @@ export const trackContactForm = (formType: string) => {
 
 export const trackWhatsAppClick = () => {
   trackEvent('whatsapp_click', {
-    page_location: window.location.href
+    page_location: window.location.href,
+    contact_method: 'whatsapp'
   });
 };
 
@@ -54,9 +55,9 @@ export const trackSimulatorUse = (simulatorType: string) => {
   });
 };
 
-export const trackBlogView = (postTitle: string, category: string) => {
+export const trackBlogView = (articleTitle: string, category: string) => {
   trackEvent('blog_view', {
-    post_title: postTitle,
+    article_title: articleTitle,
     category: category,
     page_location: window.location.href
   });
@@ -69,6 +70,28 @@ export const trackPlatformView = (platformName: string) => {
   });
 };
 
+export const trackLeadGeneration = (source: string, medium: string) => {
+  trackEvent('lead_generation', {
+    source: source,
+    medium: medium,
+    page_location: window.location.href
+  });
+};
+
+export const trackPhoneCall = () => {
+  trackEvent('phone_call', {
+    page_location: window.location.href,
+    contact_method: 'phone'
+  });
+};
+
+export const trackEmailClick = () => {
+  trackEvent('email_click', {
+    page_location: window.location.href,
+    contact_method: 'email'
+  });
+};
+
 export const trackDownload = (fileType: string, fileName: string) => {
   trackEvent('file_download', {
     file_type: fileType,
@@ -78,11 +101,10 @@ export const trackDownload = (fileType: string, fileName: string) => {
 };
 
 // Hook para tracking automático de páginas
-export const usePageTracking = () => {
-  if (typeof window !== 'undefined') {
-    // Track page view on mount
-    trackPageView(window.location.pathname);
-  }
+export const usePageTracking = (pageName: string) => {
+  React.useEffect(() => {
+    trackPageView(pageName);
+  }, [pageName]);
 };
 
 // Componente para tracking automático
