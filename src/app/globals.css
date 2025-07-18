@@ -1706,3 +1706,198 @@ body.theme-light .glass-premium {
     -webkit-text-fill-color: black !important;
   }
 } 
+
+/* Otimizações de Performance Mobile */
+@layer base {
+  /* Melhorar renderização de fontes */
+  * {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Reduzir layout shift */
+  img, video, canvas, audio, iframe, embed, object {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* Otimizar animações para mobile */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Melhorar performance de scroll */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+}
+
+/* Variáveis CSS para tema */
+:root {
+  --height-header: 4rem;
+  --height-footer: 3rem;
+  --max-width-container: 1200px;
+  --border-radius: 0.5rem;
+  --transition-speed: 0.3s;
+}
+
+/* Tema escuro */
+.theme-dark {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-accent: #3b82f6;
+  --border-color: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Tema claro */
+.theme-light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6c757d;
+  --text-accent: #3b82f6;
+  --border-color: #dee2e6;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Classes utilitárias */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .container-custom {
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .transition-smooth {
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .shadow-custom {
+    box-shadow: 0 4px 6px -1px var(--shadow-color);
+  }
+  
+  .shadow-custom-lg {
+    box-shadow: 0 10px 15px -3px var(--shadow-color);
+  }
+}
+
+/* Componentes específicos */
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-smooth;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded transition-smooth;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-custom p-6 transition-smooth;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+}
+
+/* Responsividade mobile-first */
+@media (max-width: 768px) {
+  .container-custom {
+    padding: 0 0.75rem;
+  }
+  
+  .card {
+    @apply p-4;
+  }
+  
+  .btn-primary, .btn-secondary {
+    @apply py-2.5 px-3 text-sm;
+  }
+}
+
+/* Animações otimizadas */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Otimizações para simuladores */
+.import-sim {
+  --height-header: 4rem;
+}
+
+.import-sim-container {
+  padding-top: calc(var(--height-header) + 0.5cm);
+}
+
+.import-sim-heading {
+  margin-bottom: 0.5cm;
+}
+
+/* Melhorias de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-slide-in {
+    animation: none;
+  }
+}
+
+/* Otimizações de performance */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Melhorar contraste para acessibilidade */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    @apply border-2 border-current;
+  }
+  
+  .card {
+    @apply border-2 border-gray-300 dark:border-gray-600;
+  }
+} 

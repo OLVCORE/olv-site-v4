@@ -292,6 +292,75 @@ function checkCriticalFiles(): ValidationResult {
   }
 }
 
+// 11. Verificar otimizações mobile
+function checkMobileOptimizations(): ValidationResult {
+  try {
+    const globalsCss = fs.readFileSync('src/app/globals.css', 'utf8');
+    const nextConfig = fs.readFileSync('next.config.js', 'utf8');
+    
+    const hasMobileOptimizations = 
+      globalsCss.includes('@media (max-width: 768px)') &&
+      globalsCss.includes('-webkit-font-smoothing: antialiased') &&
+      globalsCss.includes('content-visibility: auto') &&
+      nextConfig.includes('formats: [\'image/webp\', \'image/avif\']');
+    
+    if (hasMobileOptimizations) {
+      return {
+        check: 'Otimizações Mobile',
+        status: 'PASS',
+        message: 'Otimizações mobile implementadas'
+      };
+    } else {
+      return {
+        check: 'Otimizações Mobile',
+        status: 'WARN',
+        message: 'Algumas otimizações mobile podem estar faltando',
+        details: 'Verificar CSS mobile-first e otimizações de imagem'
+      };
+    }
+  } catch (error) {
+    return {
+      check: 'Otimizações Mobile',
+      status: 'FAIL',
+      message: 'Erro ao verificar otimizações mobile',
+      details: error.message
+    };
+  }
+}
+
+// 12. Verificar Core Web Vitals
+function checkCoreWebVitals(): ValidationResult {
+  // Esta verificação seria idealmente feita com Lighthouse CI
+  // Por enquanto, verificamos se as otimizações estão implementadas
+  try {
+    const layout = fs.readFileSync('src/app/layout.tsx', 'utf8');
+    const hasPreloads = layout.includes('rel="preload"');
+    const hasOptimizedImages = layout.includes('next/image');
+    
+    if (hasPreloads && hasOptimizedImages) {
+      return {
+        check: 'Core Web Vitals',
+        status: 'PASS',
+        message: 'Otimizações para Core Web Vitals implementadas'
+      };
+    } else {
+      return {
+        check: 'Core Web Vitals',
+        status: 'WARN',
+        message: 'Verificar otimizações de Core Web Vitals',
+        details: 'Implementar preloads e otimização de imagens'
+      };
+    }
+  } catch (error) {
+    return {
+      check: 'Core Web Vitals',
+      status: 'FAIL',
+      message: 'Erro ao verificar Core Web Vitals',
+      details: error.message
+    };
+  }
+}
+
 // Executar todas as verificações
 function runAllChecks() {
   console.log('🔍 INICIANDO VALIDAÇÃO DE PRONTIDÃO PARA LANÇAMENTO\n');
@@ -305,6 +374,8 @@ function runAllChecks() {
   results.push(checkPerformanceOptimizations());
   results.push(checkCriticalEnvVars());
   results.push(checkCriticalFiles());
+  results.push(checkMobileOptimizations());
+  results.push(checkCoreWebVitals());
   
   // Exibir resultados
   console.log('📊 RESULTADOS DA VALIDAÇÃO:\n');

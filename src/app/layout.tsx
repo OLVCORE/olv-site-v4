@@ -78,8 +78,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        {/* Carregamento não-bloqueante do CSS legado */}
+        
+        {/* Preload de recursos críticos para mobile */}
+        <link rel="preload" href="/images/olv-logo.jpeg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/images/BANNER-HOME.jpeg" as="image" type="image/jpeg" />
         <link rel="preload" href="/css/style.css" as="style" />
+        
+        {/* Carregamento não-bloqueante do CSS legado */}
         <link rel="stylesheet" href="/css/style.css" media="screen and (min-width: 769px)" />
 
         {/* Metadados adicionais para otimização de intenção do usuário */}
