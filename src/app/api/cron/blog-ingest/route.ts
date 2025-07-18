@@ -232,7 +232,7 @@ async function processFeed(url: string, category: string) {
         // Gerar conteúdo COM IA (Operação Blindada)
         const content = await generatePostContent(
           item.title,
-          item.description,
+          item.description || item.title,
           item.link,
           item.pubDate
         );
@@ -245,7 +245,7 @@ async function processFeed(url: string, category: string) {
         // Usar imagem original ou fallback
         const coverUrl = item.image || 'https://images.unsplash.com/photo-1667895622485-b0b37a7250c1?w=800';
         
-        // Inserir no Supabase
+        // Inserir no Supabase com tratamento de erro melhorado
         const { error } = await supabase.from('posts').insert({
           slug: createSlug(item.title),
           title: item.title,
@@ -262,22 +262,67 @@ async function processFeed(url: string, category: string) {
 
         if (error) {
           console.error('Erro ao inserir no Supabase:', error);
+          // Log detalhado do erro para debug
+          await supabase.from('ingest_logs').insert({
+            source: url,
+            rss_title: item.title,
+            parsing_status: 'error',
+            parsing_error: `Erro Supabase: ${error.message}`,
+            exec_time_ms: 0,
+            status: 'erro',
+            message: 'Falha na inserção',
+            stderr: error.message
+          });
           continue;
         }
 
         console.log('Artigo inserido com sucesso:', item.title);
         processed++;
 
+        // Log de sucesso
+        await supabase.from('ingest_logs').insert({
+          source: url,
+          rss_title: item.title,
+          parsing_status: 'ok',
+          parsing_error: null,
+          exec_time_ms: 0,
+          status: 'sucesso',
+          message: 'Artigo processado com sucesso',
+          stderr: null
+        });
+
         // Delay entre artigos para evitar rate limiting
         await new Promise(resolve => setTimeout(resolve, 3000));
-      } catch (error) {
+      } catch (error: any) {
         console.error('Erro ao processar item:', error);
+        // Log de erro
+        await supabase.from('ingest_logs').insert({
+          source: url,
+          rss_title: item.title || 'Título não disponível',
+          parsing_status: 'error',
+          parsing_error: error.message,
+          exec_time_ms: 0,
+          status: 'erro',
+          message: 'Erro no processamento',
+          stderr: error.message
+        });
       }
     }
 
     return processed;
-  } catch (error) {
+  } catch (error: any) {
     console.error('Erro ao processar feed:', error);
+    // Log de erro do feed
+    await supabase.from('ingest_logs').insert({
+      source: url,
+      rss_title: null,
+      parsing_status: 'fatal',
+      parsing_error: error.message,
+      exec_time_ms: 0,
+      status: 'fatal',
+      message: 'Erro fatal no feed',
+      stderr: error.message
+    });
     return 0;
   }
 }
