@@ -88,60 +88,55 @@ async function retryWithBackoff<T>(
   throw new Error('Máximo de tentativas excedido');
 }
 
-// Função para extrair imagem do item RSS
-function extractImageFromRssItem(item: Element): string | null {
+// Função para extrair imagem do item RSS usando regex
+function extractImageFromRssItem(itemText: string): string | null {
   // 1. Tenta media:content
-  const mediaContent = item.querySelector('media\\:content, content');
-  if (mediaContent?.getAttribute('url')) {
-    return mediaContent.getAttribute('url');
-  }
+  const mediaMatch = itemText.match(/<media:content[^>]+url="([^">]+)"/i);
+  if (mediaMatch) return mediaMatch[1];
   
   // 2. Tenta enclosure
-  const enclosure = item.querySelector('enclosure');
-  if (enclosure?.getAttribute('url')) {
-    return enclosure.getAttribute('url');
-  }
+  const enclosureMatch = itemText.match(/<enclosure[^>]+url="([^">]+)"/i);
+  if (enclosureMatch) return enclosureMatch[1];
   
   // 3. Tenta image
-  const image = item.querySelector('image');
-  if (image?.getAttribute('url')) {
-    return image.getAttribute('url');
-  }
+  const imageMatch = itemText.match(/<image[^>]+url="([^">]+)"/i);
+  if (imageMatch) return imageMatch[1];
   
   // 4. Tenta extrair de description (HTML)
-  const description = item.querySelector('description')?.textContent || '';
-  const imgMatch = description.match(/<img[^>]+src="([^">]+)"/i);
-  if (imgMatch) {
-    return imgMatch[1];
-  }
+  const imgMatch = itemText.match(/<img[^>]+src="([^">]+)"/i);
+  if (imgMatch) return imgMatch[1];
   
   // 5. Tenta og:image na description
-  const ogMatch = description.match(/property="og:image" content="([^">]+)"/i);
-  if (ogMatch) {
-    return ogMatch[1];
-  }
+  const ogMatch = itemText.match(/property="og:image" content="([^">]+)"/i);
+  if (ogMatch) return ogMatch[1];
   
   return null;
 }
 
-// Função para buscar RSS feed usando DOMParser nativo
+// Função para buscar RSS feed usando regex (compatível com Edge Runtime)
 async function fetchRssFeed(url: string) {
   try {
     const res = await fetch(url);
     const text = await res.text();
     
-    // Parse XML usando DOMParser (disponível no Edge Runtime)
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(text, 'text/xml');
+    // Parse XML usando regex (compatível com Edge Runtime)
+    const itemMatches = text.match(/<item[^>]*>([\s\S]*?)<\/item>/gi);
+    if (!itemMatches) return [];
     
-    const items = xmlDoc.querySelectorAll('item');
-    return Array.from(items).map((item) => ({
-      title: item.querySelector('title')?.textContent || '',
-      link: item.querySelector('link')?.textContent || '',
-      pubDate: item.querySelector('pubDate')?.textContent || '',
-      description: item.querySelector('description')?.textContent || '',
-      image: extractImageFromRssItem(item),
-    }));
+    return itemMatches.map((itemText) => {
+      const titleMatch = itemText.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+      const linkMatch = itemText.match(/<link[^>]*>([\s\S]*?)<\/link>/i);
+      const pubDateMatch = itemText.match(/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i);
+      const descriptionMatch = itemText.match(/<description[^>]*>([\s\S]*?)<\/description>/i);
+      
+      return {
+        title: titleMatch ? titleMatch[1].trim() : '',
+        link: linkMatch ? linkMatch[1].trim() : '',
+        pubDate: pubDateMatch ? pubDateMatch[1].trim() : '',
+        description: descriptionMatch ? descriptionMatch[1].trim() : '',
+        image: extractImageFromRssItem(itemText),
+      };
+    });
   } catch (error) {
     console.error(`Erro ao buscar RSS: ${url}`, error);
     return [];
