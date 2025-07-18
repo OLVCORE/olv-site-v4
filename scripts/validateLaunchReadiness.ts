@@ -169,7 +169,35 @@ function checkEnvironmentVariables(): ValidationResult {
   }
 }
 
-// 6. Verificar estrutura de arquivos críticos
+// 6. Verificar Google Tag Manager
+function checkGoogleTagManager(): ValidationResult {
+  try {
+    const layout = fs.readFileSync('src/app/layout.tsx', 'utf8');
+    if (layout.includes('GTM-T3P68DR') && layout.includes('googletagmanager.com')) {
+      return {
+        check: 'Google Tag Manager',
+        status: 'PASS',
+        message: 'Google Tag Manager configurado corretamente'
+      };
+    } else {
+      return {
+        check: 'Google Tag Manager',
+        status: 'FAIL',
+        message: 'Google Tag Manager não configurado',
+        details: 'Adicionar código GTM no layout.tsx'
+      };
+    }
+  } catch (error) {
+    return {
+      check: 'Google Tag Manager',
+      status: 'FAIL',
+      message: 'Erro ao verificar Google Tag Manager',
+      details: error.message
+    };
+  }
+}
+
+// 7. Verificar estrutura de arquivos críticos
 function checkCriticalFiles(): ValidationResult {
   const criticalFiles = [
     'src/app/layout.tsx',
@@ -211,6 +239,7 @@ function runAllChecks() {
   results.push(checkSitemap());
   results.push(checkRobotsTxt());
   results.push(checkEnvironmentVariables());
+  results.push(checkGoogleTagManager());
   results.push(checkCriticalFiles());
   
   // Exibir resultados
