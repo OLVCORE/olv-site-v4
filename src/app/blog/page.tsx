@@ -44,8 +44,8 @@ const BlogSearch = dynamic(() => import('../../components/blog/BlogSearch'), {
   loading: () => <div className="animate-pulse bg-gray-700 h-12 rounded-lg"></div>
 });
 
-// Força revalidação a cada 5 minutos para posts novos
-export const revalidate = 300;
+// Força revalidação a cada 2 minutos para posts novos (TEMPO REAL)
+export const revalidate = 120;
 
 export default async function BlogPage({ searchParams }: { searchParams: { page?: string } }) {
   let posts, categoryCounts;

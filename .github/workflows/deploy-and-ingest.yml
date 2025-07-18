@@ -39,7 +39,7 @@ jobs:
         run: npx tsx scripts/setupAndImpactCheck.ts
 
   ingest:
-    name: Ingestão automatizada do blog
+    name: Ingestão automatizada do blog (TEMPO REAL)
     runs-on: ubuntu-latest
     needs: checkup
     steps:
@@ -72,8 +72,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SITE_URL: ${{ secrets.SITE_URL }}
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-      - name: Rodar ingestão do blog
-        run: npx tsx scripts/dailyBlogIngest.ts
+      - name: Build project
+        run: npm run build
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -82,33 +82,13 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SITE_URL: ${{ secrets.SITE_URL }}
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-
-  backfill:
-    name: Backfill de capas de posts
-    runs-on: ubuntu-latest
-    needs: ingest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Deploy to Vercel (para ativar API)
+        uses: amondnet/vercel-action@v25
         with:
-          node-version: '20.x'
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Verificar variáveis essenciais
-        run: |
-          missing=0
-          for var in SUPABASE_URL SUPABASE_SERVICE_ROLE_KEY NEXT_PUBLIC_SUPABASE_URL NEXT_PUBLIC_SUPABASE_ANON_KEY OPENAI_API_KEY SITE_URL NEXT_PUBLIC_SITE_URL; do
-            if [ -z "${!var}" ]; then
-              echo "::error::Variável $var ausente!"
-              missing=1
-            fi
-          done
-          if [ "$missing" -eq 1 ]; then
-            exit 1
-          fi
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -117,13 +97,15 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SITE_URL: ${{ secrets.SITE_URL }}
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-      - name: Rodar backfill de capas (se existir)
+      - name: Aguardar deploy
+        run: sleep 60
+      - name: Executar ingestão TEMPO REAL
         run: |
-          if [ -f scripts/backfillBlogCover.ts ]; then
-            npx tsx scripts/backfillBlogCover.ts
-          else
-            echo "[INFO] Script de backfillBlogCover.ts não encontrado. Pulando etapa de backfill."
-          fi
+          echo "🚀 INICIANDO INGESTÃO TEMPO REAL..."
+          curl -X GET "https://olvinternacional.com.br/api/cron/blog-ingest?pw=olvadmin&force=1" \
+            -H "Content-Type: application/json" \
+            --max-time 300
+          echo "✅ INGESTÃO CONCLUÍDA!"
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -136,7 +118,7 @@ jobs:
   lighthouse:
     name: Lighthouse CI (Opcional)
     runs-on: ubuntu-latest
-    needs: [checkup, ingest, backfill]
+    needs: [checkup, ingest]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -155,56 +137,5 @@ jobs:
           configPath: '.lighthouserc.json'
           uploadArtifacts: false
           temporaryPublicStorage: true
-
-  deploy:
-    name: Deploy to Vercel
-    runs-on: ubuntu-latest
-    needs: [checkup, ingest, backfill]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Verificar variáveis essenciais
-        run: |
-          missing=0
-          for var in SUPABASE_URL SUPABASE_SERVICE_ROLE_KEY NEXT_PUBLIC_SUPABASE_URL NEXT_PUBLIC_SUPABASE_ANON_KEY OPENAI_API_KEY SITE_URL NEXT_PUBLIC_SITE_URL; do
-            if [ -z "${!var}" ]; then
-              echo "::error::Variável $var ausente!"
-              missing=1
-            fi
-          done
-          if [ "$missing" -eq 1 ]; then
-            exit 1
-          fi
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          SITE_URL: ${{ secrets.SITE_URL }}
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-      - name: Deploy to Vercel (blindado)
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          SITE_URL: ${{ secrets.SITE_URL }}
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-        continue-on-error: true
-      - name: Verificar variáveis essenciais (pós-deploy)
-        run: |
-          if [ -z "$SUPABASE_URL" ] || [ -z "$NEXT_PUBLIC_SUPABASE_URL" ]; then
-            echo "[ERRO] Variáveis de ambiente essenciais ausentes. Verifique secrets no GitHub e variáveis no Vercel."
-          else
-            echo "[OK] Variáveis essenciais presentes."
-          fi
 
 # Operação Blindada: workflow CI/CD universal, resiliente, institucional e à prova de surpresas. Nunca quebra por ausência de scripts, artefatos, variáveis ou contexto git. Logs claros. Deploy só se jobs essenciais passarem. Sem placeholders.
