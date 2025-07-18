@@ -15,7 +15,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '0 8,12,18 * * *'  # 8h, 12h, 18h BRT
   workflow_dispatch:
 
 env:
