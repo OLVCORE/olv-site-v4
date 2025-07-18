@@ -111,7 +111,7 @@ async function fetchRssFeed(url: string) {
   }
 }
 
-// Função para gerar conteúdo com OpenAI
+// Função para gerar conteúdo com OpenAI (Operação Blindada)
 async function generatePostContent(title: string, sourceText: string, link: string, pubDate: string) {
   try {
     const prompt = {
@@ -120,9 +120,14 @@ async function generatePostContent(title: string, sourceText: string, link: stri
         {
           role: 'system',
           content: `Você é um especialista em comércio exterior e logística internacional. 
-          Crie um artigo em português brasileiro baseado na notícia fornecida. 
-          O artigo deve ser objetivo, técnico e útil para PMEs brasileiras. 
-          Use linguagem clara e profissional.`
+          Siga EXATAMENTE este formato para criar artigos em português brasileiro:
+          
+          1. TRADUZA a manchete para português brasileiro
+          2. Crie um RESUMO EXECUTIVO de até 500 caracteres em 2-3 parágrafos
+          3. Desenvolva a MATÉRIA COMPLETA traduzida e organizada em 4-6 parágrafos
+          4. Adicione 3 RECOMENDAÇÕES de notícias relacionadas
+          5. Use linguagem técnica mas acessível para PMEs brasileiras
+          6. Mantenha o foco em implicações práticas para o comércio exterior`
         },
         {
           role: 'user',
@@ -133,15 +138,26 @@ async function generatePostContent(title: string, sourceText: string, link: stri
           Link: ${link}
           Data: ${pubDate}
           
-          Crie um artigo completo em português brasileiro com:
-          1. Título atrativo e profissional
-          2. Resumo executivo (2-3 frases)
-          3. Conteúdo completo (4-6 parágrafos)
-          4. Foco em implicações para PMEs brasileiras
-          5. Linguagem técnica mas acessível`
+          Crie um artigo completo seguindo EXATAMENTE o formato da Operação Blindada:
+          
+          # [TÍTULO TRADUZIDO]
+          
+          ## Resumo Executivo
+          [2-3 parágrafos, máximo 500 caracteres]
+          
+          ## Análise Completa
+          [4-6 parágrafos com matéria completa traduzida e organizada]
+          
+          ## Recomendações Relacionadas
+          1. [Primeira recomendação]
+          2. [Segunda recomendação] 
+          3. [Terceira recomendação]
+          
+          **Fonte:** [${new URL(link).hostname}](${link})
+          **Data:** ${pubDate}`
         }
       ],
-      max_tokens: 800,
+      max_tokens: 1200,
       temperature: 0.7
     };
 
@@ -153,7 +169,7 @@ async function generatePostContent(title: string, sourceText: string, link: stri
   }
 }
 
-// Função para processar um feed real
+// Função para processar um feed real COM IA (Operação Blindada)
 async function processFeed(url: string, category: string) {
   try {
     console.log(`Processando: ${url}`);
@@ -181,7 +197,7 @@ async function processFeed(url: string, category: string) {
           continue;
         }
 
-        // Gerar conteúdo
+        // Gerar conteúdo COM IA (Operação Blindada)
         const content = await generatePostContent(
           item.title,
           item.description,
@@ -217,8 +233,8 @@ async function processFeed(url: string, category: string) {
         console.log('Artigo inserido com sucesso:', item.title);
         processed++;
 
-        // Delay entre artigos
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // Delay entre artigos para evitar rate limiting
+        await new Promise(resolve => setTimeout(resolve, 3000));
       } catch (error) {
         console.error('Erro ao processar item:', error);
       }
