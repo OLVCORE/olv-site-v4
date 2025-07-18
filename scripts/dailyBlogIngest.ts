@@ -337,8 +337,8 @@ async function run() {
       console.log(`[${src.url}] Itens encontrados:`, items.length);
       const latest = items.slice(0, 2); // max 2 per category per run
       for (const item of latest) {
-        // DELAY PARA EVITAR RATE LIMITING - 2 segundos entre requests
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // DELAY OTIMIZADO - 500ms entre requests (reduzido para melhorar performance)
+        await new Promise(resolve => setTimeout(resolve, 500));
         const start = Date.now();
         let parsing_status = 'ok';
         let parsing_error = null;
@@ -423,8 +423,8 @@ async function run() {
         stderr: null,
       });
       
-      // DELAY ENTRE FEEDS PARA EVITAR RATE LIMITING - 1 segundo entre feeds
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // DELAY OTIMIZADO - 200ms entre feeds (reduzido para melhorar performance)
+      await new Promise(resolve => setTimeout(resolve, 200));
     } catch (err: any) {
       console.error(`[${src.url}] Erro geral:`, err.message);
       await logIngest({
