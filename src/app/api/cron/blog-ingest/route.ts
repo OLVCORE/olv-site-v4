@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import OpenAI from 'openai';
-import { XMLParser } from 'fast-xml-parser';
-import slugify from 'slugify';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -58,7 +56,15 @@ const SOURCES = [
   { url: 'https://www.imf.org/rss', category: 'Internacional' }
 ];
 
-const xmlParser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '' });
+// Função simples para criar slug
+function createSlug(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
+}
 
 // Função de retry para lidar com rate limiting
 async function retryWithBackoff<T>(
@@ -82,18 +88,22 @@ async function retryWithBackoff<T>(
   throw new Error('Máximo de tentativas excedido');
 }
 
-// Função para buscar RSS feed
+// Função para buscar RSS feed usando DOMParser nativo
 async function fetchRssFeed(url: string) {
   try {
     const res = await fetch(url);
     const text = await res.text();
-    const parsed = xmlParser.parse(text);
-    const items = parsed.rss?.channel?.item ?? [];
-    return items.map((it: any) => ({
-      title: it.title,
-      link: it.link,
-      pubDate: it.pubDate,
-      description: it.description ?? '',
+    
+    // Parse XML usando DOMParser (disponível no Edge Runtime)
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(text, 'text/xml');
+    
+    const items = xmlDoc.querySelectorAll('item');
+    return Array.from(items).map((item) => ({
+      title: item.querySelector('title')?.textContent || '',
+      link: item.querySelector('link')?.textContent || '',
+      pubDate: item.querySelector('pubDate')?.textContent || '',
+      description: item.querySelector('description')?.textContent || '',
     }));
   } catch (error) {
     console.error(`Erro ao buscar RSS: ${url}`, error);
@@ -163,7 +173,7 @@ async function processFeed(url: string, category: string) {
         const { data: existing } = await supabase
           .from('posts')
           .select('slug')
-          .eq('slug', slugify(item.title, { lower: true, strict: true }))
+          .eq('slug', createSlug(item.title))
           .single();
 
         if (existing) {
@@ -186,7 +196,7 @@ async function processFeed(url: string, category: string) {
 
         // Inserir no Supabase
         const { error } = await supabase.from('posts').insert({
-          slug: slugify(item.title, { lower: true, strict: true }),
+          slug: createSlug(item.title),
           title: item.title,
           excerpt: content.substring(0, 200) + '...',
           content_mdx: content,
