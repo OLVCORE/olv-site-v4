@@ -11,251 +11,101 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// SISTEMA COMPLETO RESTAURADO - TODAS AS FONTES RSS ORIGINAIS
+// SISTEMA SIMPLIFICADO - 12 FONTES CONFIÁVEIS (1 por categoria)
 const SOURCES = [
-  // ESTRATÉGIA INTERNACIONAL (3)
+  // ESTRATÉGIA INTERNACIONAL
   { 
     url: 'https://www.bbc.com/news/business/rss.xml', 
-    category: 'Estratégia Internacional',
-    fallback: 'https://www.cnbc.com/id/100003114/device/rss/rss.html',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', 
-    category: 'Estratégia Internacional',
-    fallback: 'https://www.ft.com/rss/home',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.ft.com/rss/home', 
     category: 'Estratégia Internacional',
     fallback: null,
     parser: 'xml'
   },
 
-  // BUSINESS INTELLIGENCE (4)
+  // BUSINESS INTELLIGENCE  
   { 
     url: 'https://www.ft.com/rss/home', 
-    category: 'Business Intelligence',
-    fallback: 'https://www.marketwatch.com/rss/topstories',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.marketwatch.com/rss/topstories', 
-    category: 'Business Intelligence',
-    fallback: 'https://www.cnbc.com/id/100003114/device/rss/rss.html',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', 
-    category: 'Business Intelligence',
-    fallback: 'https://www.bbc.com/news/business/rss.xml',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
     category: 'Business Intelligence',
     fallback: null,
     parser: 'xml'
   },
 
-  // IMPORTAÇÃO (1)
+  // IMPORTAÇÃO
   { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
+    url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', 
     category: 'Importação',
-    fallback: 'https://www.ft.com/rss/home',
+    fallback: null,
     parser: 'xml'
   },
 
-  // EXPORTAÇÃO (22)
+  // EXPORTAÇÃO
   { 
     url: 'https://g1.globo.com/rss/g1/economia/agronegocio/', 
     category: 'Exportação',
     fallback: null,
     parser: 'xml'
   },
-  { 
-    url: 'https://www.abag.com.br/rss/', 
-    category: 'Exportação',
-    fallback: 'https://www.bbc.com/news/business/rss.xml',
-    parser: 'xml'
-  },
 
-  // COMPLIANCE (17)
-  { 
-    url: 'https://www.customstoday.com/rss', 
-    category: 'Compliance',
-    fallback: 'https://www.trade.gov/rss.xml',
-    parser: 'xml'
-  },
+  // COMPLIANCE
   { 
     url: 'https://www.trade.gov/rss.xml', 
     category: 'Compliance',
-    fallback: 'https://www.bbc.com/news/business/rss.xml',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
-    category: 'Compliance',
-    fallback: 'https://www.ft.com/rss/home',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.ft.com/rss/home', 
-    category: 'Compliance',
-    fallback: 'https://www.cnbc.com/id/100003114/device/rss/rss.html',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', 
-    category: 'Compliance',
     fallback: null,
     parser: 'xml'
   },
 
-  // LOGÍSTICA (47)
+  // LOGÍSTICA
   { 
     url: 'https://www.hellenicshippingnews.com/feed/', 
     category: 'Logística',
-    fallback: 'https://www.freightwaves.com/rss',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.freightwaves.com/rss', 
-    category: 'Logística',
-    fallback: 'https://www.bbc.com/news/business/rss.xml',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
-    category: 'Logística',
-    fallback: 'https://www.ft.com/rss/home',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.ft.com/rss/home', 
-    category: 'Logística',
-    fallback: 'https://www.cnbc.com/id/100003114/device/rss/rss.html',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', 
-    category: 'Logística',
     fallback: null,
     parser: 'xml'
   },
 
-  // FINANÇAS (18)
+  // FINANÇAS
   { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
+    url: 'https://www.marketwatch.com/rss/topstories', 
     category: 'Finanças',
-    fallback: 'https://www.ft.com/rss/home',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.ft.com/rss/home', 
-    category: 'Finanças',
-    fallback: 'https://www.cnbc.com/id/100003114/device/rss/rss.html',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', 
-    category: 'Finanças',
-    fallback: 'https://www.marketwatch.com/rss/topstories',
+    fallback: null,
     parser: 'xml'
   },
 
-  // SUPPLY CHAIN (5)
+  // SUPPLY CHAIN
   { 
     url: 'https://scm.mit.edu/feed/', 
     category: 'Supply Chain',
-    fallback: 'https://www.bbc.com/news/business/rss.xml',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
-    category: 'Supply Chain',
-    fallback: 'https://www.ft.com/rss/home',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.ft.com/rss/home', 
-    category: 'Supply Chain',
-    fallback: 'https://www.cnbc.com/id/100003114/device/rss/rss.html',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', 
-    category: 'Supply Chain',
-    fallback: 'https://www.marketwatch.com/rss/topstories',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.marketwatch.com/rss/topstories', 
-    category: 'Supply Chain',
     fallback: null,
     parser: 'xml'
   },
 
-  // GESTÃO (7)
+  // GESTÃO
   { 
     url: 'https://www.mckinsey.com/rss', 
     category: 'Gestão',
-    fallback: 'https://www.bbc.com/news/business/rss.xml',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
-    category: 'Gestão',
-    fallback: 'https://www.ft.com/rss/home',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.ft.com/rss/home', 
-    category: 'Gestão',
-    fallback: 'https://www.cnbc.com/id/100003114/device/rss/rss.html',
+    fallback: null,
     parser: 'xml'
   },
 
-  // INTERNACIONAL (21)
+  // INTERNACIONAL
   { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
+    url: 'https://www.oecd.org/trade/rss.xml', 
     category: 'Internacional',
-    fallback: 'https://www.cnbc.com/id/100003114/device/rss/rss.html',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', 
-    category: 'Internacional',
-    fallback: 'https://www.ft.com/rss/home',
+    fallback: null,
     parser: 'xml'
   },
 
-  // PMEs (12)
+  // PMEs
   { 
     url: 'https://www.bbc.com/news/business/rss.xml', 
     category: 'PMEs',
-    fallback: 'https://www.ft.com/rss/home',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.ft.com/rss/home', 
-    category: 'PMEs',
-    fallback: 'https://www.cnbc.com/id/100003114/device/rss/rss.html',
+    fallback: null,
     parser: 'xml'
   },
 
-  // OUTROS (11)
+  // OUTROS
   { 
     url: 'https://www.bbc.com/news/business/rss.xml', 
     category: 'Outros',
-    fallback: 'https://www.ft.com/rss/home',
-    parser: 'xml'
-  },
-  { 
-    url: 'https://www.ft.com/rss/home', 
-    category: 'Outros',
-    fallback: 'https://www.cnbc.com/id/100003114/device/rss/rss.html',
+    fallback: null,
     parser: 'xml'
   }
 ];
@@ -341,7 +191,82 @@ async function fetchMainImageFromSourcePage(url: string): Promise<string | null>
   }
 }
 
-// Função para obter imagem padrão OLV por categoria
+// Função para buscar imagem segura no Unsplash por categoria (RESTAURADA)
+async function fetchUnsplashImageByCategory(category: string): Promise<string | null> {
+  try {
+    const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+    if (!accessKey) {
+      console.log('⚠️ UNSPLASH_ACCESS_KEY não configurada');
+      return null;
+    }
+    
+    // Termos seguros e futuristas por categoria
+    const safeTerms: Record<string, string> = {
+      'Estratégia Internacional': 'global strategy, world map, business, modern, abstract, future',
+      'Business Intelligence': 'data analytics, dashboard, technology, modern, abstract, future',
+      'Importação': 'container ship, cargo, logistics, modern, abstract, future',
+      'Exportação': 'export, shipping, logistics, modern, abstract, future',
+      'Compliance': 'compliance, law, contract, modern, abstract, future',
+      'Logística': 'logistics, warehouse, transport, modern, abstract, future',
+      'Finanças': 'finance, fintech, money, modern, abstract, future',
+      'Supply Chain': 'supply chain, network, logistics, modern, abstract, future',
+      'Gestão': 'management, leadership, business, modern, abstract, future',
+      'Internacional': 'international, globe, world, modern, abstract, future',
+      'PMEs': 'small business, entrepreneur, modern, abstract, future',
+      'Outros': 'business, technology, modern, abstract, future',
+    };
+    
+    const query = safeTerms[category] || safeTerms['Outros'];
+    const url = `https://api.unsplash.com/photos/random?query=${encodeURIComponent(query)}&orientation=landscape&client_id=${accessKey}`;
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+    
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+      }
+    });
+    
+    clearTimeout(timeoutId);
+    
+    if (!res.ok) {
+      console.log(`❌ Unsplash API error: ${res.status}`);
+      return null;
+    }
+    
+    const data = await res.json();
+    const img = data?.urls?.regular || null;
+    const desc = (data?.description || '').toLowerCase();
+    const altDesc = (data?.alt_description || '').toLowerCase();
+    
+    // Filtro extra: não aceitar imagens com pessoas, marcas, ou conteúdo sensível
+    if (
+      img &&
+      !desc.includes('person') &&
+      !desc.includes('people') &&
+      !desc.includes('face') &&
+      !desc.includes('brand') &&
+      !desc.includes('logo') &&
+      !altDesc.includes('person') &&
+      !altDesc.includes('people') &&
+      !altDesc.includes('face') &&
+      !altDesc.includes('brand') &&
+      !altDesc.includes('logo')
+    ) {
+      console.log(`✅ Imagem Unsplash encontrada para ${category}: ${img}`);
+      return img;
+    }
+    
+    return null;
+  } catch (error) {
+    console.error('❌ Erro ao buscar imagem no Unsplash:', error);
+    return null;
+  }
+}
+
+// Função para obter imagem padrão OLV por categoria (fallback)
 function getDefaultImageForCategory(category: string): string {
   const map: Record<string, string> = {
     'Estratégia Internacional': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
@@ -575,7 +500,12 @@ async function processFeed(source: any) {
           cover = await fetchMainImageFromSourcePage(item.link);
         }
         
-        // 3. Se ainda não houver, usa imagem padrão OLV
+        // 3. Se ainda não houver, busca no Unsplash pela categoria (RESTAURADO)
+        if (!cover) {
+          cover = await fetchUnsplashImageByCategory(source.category);
+        }
+        
+        // 4. Se ainda não houver, usa imagem padrão OLV
         if (!cover) {
           cover = getDefaultImageForCategory(source.category);
         }
