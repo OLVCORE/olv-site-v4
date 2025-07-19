@@ -15,7 +15,7 @@ const openai = new OpenAI({
 const SOURCES = [
   // ESTRATÉGIA INTERNACIONAL
   { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
+    url: 'https://feeds.bbci.co.uk/news/business/rss.xml', 
     category: 'Estratégia Internacional',
     fallback: null,
     parser: 'xml'
@@ -31,7 +31,7 @@ const SOURCES = [
 
   // IMPORTAÇÃO
   { 
-    url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', 
+    url: 'https://feeds.bbci.co.uk/news/business/rss.xml', 
     category: 'Importação',
     fallback: null,
     parser: 'xml'
@@ -47,7 +47,7 @@ const SOURCES = [
 
   // COMPLIANCE
   { 
-    url: 'https://www.trade.gov/rss.xml', 
+    url: 'https://feeds.bbci.co.uk/news/business/rss.xml', 
     category: 'Compliance',
     fallback: null,
     parser: 'xml'
@@ -55,7 +55,7 @@ const SOURCES = [
 
   // LOGÍSTICA
   { 
-    url: 'https://www.hellenicshippingnews.com/feed/', 
+    url: 'https://feeds.bbci.co.uk/news/business/rss.xml', 
     category: 'Logística',
     fallback: null,
     parser: 'xml'
@@ -63,7 +63,7 @@ const SOURCES = [
 
   // FINANÇAS
   { 
-    url: 'https://www.marketwatch.com/rss/topstories', 
+    url: 'https://feeds.bbci.co.uk/news/business/rss.xml', 
     category: 'Finanças',
     fallback: null,
     parser: 'xml'
@@ -71,7 +71,7 @@ const SOURCES = [
 
   // SUPPLY CHAIN
   { 
-    url: 'https://scm.mit.edu/feed/', 
+    url: 'https://feeds.bbci.co.uk/news/business/rss.xml', 
     category: 'Supply Chain',
     fallback: null,
     parser: 'xml'
@@ -79,7 +79,7 @@ const SOURCES = [
 
   // GESTÃO
   { 
-    url: 'https://www.mckinsey.com/rss', 
+    url: 'https://feeds.bbci.co.uk/news/business/rss.xml', 
     category: 'Gestão',
     fallback: null,
     parser: 'xml'
@@ -87,7 +87,7 @@ const SOURCES = [
 
   // INTERNACIONAL
   { 
-    url: 'https://www.oecd.org/trade/rss.xml', 
+    url: 'https://feeds.bbci.co.uk/news/business/rss.xml', 
     category: 'Internacional',
     fallback: null,
     parser: 'xml'
@@ -95,7 +95,7 @@ const SOURCES = [
 
   // PMEs
   { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
+    url: 'https://feeds.bbci.co.uk/news/business/rss.xml', 
     category: 'PMEs',
     fallback: null,
     parser: 'xml'
@@ -103,7 +103,7 @@ const SOURCES = [
 
   // OUTROS
   { 
-    url: 'https://www.bbc.com/news/business/rss.xml', 
+    url: 'https://feeds.bbci.co.uk/news/business/rss.xml', 
     category: 'Outros',
     fallback: null,
     parser: 'xml'
